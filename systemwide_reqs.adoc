@@ -1,0 +1,54 @@
+= <Project Name> System-Wide Requirements Specification
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+0.1, 01.11.2019 
+:toc: 
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+
+== Einführung
+In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema> spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
+
+* Systemweite funktionale Anforderungen (F),
+* Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie 
+* zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
+
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [hier ggf. Verweis einfügen]
+
+== Systemweite funktionale Anforderungen
+//Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
+
+== Qualitätsanforderungen für das Gesamtsystem
+//Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
+ 
+=== Benutzbarkeit (Usability)
+//Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
+
+=== Zuverlässigkeit (Reliability)
+//Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
+
+=== Effizienz (Performance)
+//The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
+
+=== Wartbarkeit (Supportability)
+//This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
+
+== Zusätzliche Anforderungen
+=== Einschränkungen
+//Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
+* Ressourcenbegrenzungen
+* zu nutzende Komponenten / Bibliotheken / Frameworks
+* Vorgaben für die Programmiersprache
+* zu unterstützende Plattformen / Betriebssysteme
+* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+
+=== Organisatorische Randbedingungen
+//Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
+* Anforderungen an Betrieb, Management und Wartung der Anwendung
+* zu beachtende Standards, Normen und Regeln
+* 
+
+=== Rechtliche Anforderungen
+//Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
+* Lizensierung der Anwendung
+* Datenschutz
