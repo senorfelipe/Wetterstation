@@ -1,0 +1,52 @@
+= Dokument zur Durchführung des Kundengespächs
+
+
+== Fragen:
+
+=== Technische Fragen
+
++++<u>Wetterstation:</u>+++
+
+* Welche Daten sollen konkret gesammelt werden?
+** Welche Sensoren werden dafür genutzt? 
+** Welche Webcam?
+ *** Auflösung des zu übertragenden Bildes?
+* In welchem Zeitintervall soll Übertragung stattfinden
+
++++<u>Webserver:</u>+++
+
+Generell:::
+** Hosting -  Extern? Welche Einschränkungen gibt es evtl?
+** muss Einbindung in aktuelle Website erfolgen? 
+*** Verweis auf externe Seite auch okay?
+** Sriptsprache für Backend - Vorschläge / Präferenzen?
+** Was können wir benutzen um zu testen?
+*** Haben wir Zugriff auf das aktuelle Typo3 CMS?
+*** Zugriff auf mySQL-DB?
+** Wie langfristig sollen Daten gespeichert werden?
+** Verschlüsselung der Daten notwendig? (bei Übertragung)
+
+
+Admin Bereich:::
+** Was soll Admin alles können?
+*** Daten in der DB löschen?
+** Welche Systeminformationen sollen abrufbar sein?
+** Kontoverwaltung erwünscht? (z.B.: Passwortänderung)
+** Über welche Verbindung sollte Fernwartung realisiert werden?
+
+UI:::
+** Wie viele Datensätze sollen standardmäßig angezeigt werden?
+Wie viele dynamisch? (Alle? Nur letzer Monat?...)
+** Wonach soll gefiltert werden können?
+** gibt es Design-Richtlinien?
+
+'''
+=== Projektbezogene Fragen
+* Wie oft können Treffen stattfinden?
+* Was sehen Sie als größte Herausforderung an?
+
+'''
+=== Weitere Fragen
+
+
+
