@@ -21,7 +21,7 @@
 *****
 Generell:::
 ** Hosting -  Extern? Welche Einschränkungen gibt es evtl?
-** Zugriff auf den Web-Server?
+** Zugriff auf den Web-Server? Verzeichnisse/Admin?
 ** Verfügbarer Speicherplatz auf dem Server?
 ** muss Einbindung in aktuelle Website erfolgen? 
 *** Verweis auf externe Seite auch okay?
