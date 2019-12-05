@@ -6,15 +6,16 @@
 === Technische Fragen
 
 +++<u>Wetterstation:</u>+++
-
+*****
 * Welche Daten sollen konkret gesammelt werden?
 ** Welche Sensoren werden dafür genutzt? 
 ** Welche Webcam?
  *** Auflösung des zu übertragenden Bildes?
 * In welchem Zeitintervall soll Übertragung stattfinden
-
+** Daten mit nur geringer Abweichung trotzdem übertragen?
+*****
 +++<u>Webserver:</u>+++
-
+*****
 Generell:::
 ** Hosting -  Extern? Welche Einschränkungen gibt es evtl?
 ** muss Einbindung in aktuelle Website erfolgen? 
@@ -26,19 +27,18 @@ Generell:::
 ** Wie langfristig sollen Daten gespeichert werden?
 ** Verschlüsselung der Daten notwendig? (bei Übertragung)
 
-
 Admin Bereich:::
 ** Was soll Admin alles können?
 *** Daten in der DB löschen?
 ** Welche Systeminformationen sollen abrufbar sein?
 ** Kontoverwaltung erwünscht? (z.B.: Passwortänderung)
 ** Über welche Verbindung sollte Fernwartung realisiert werden?
-
 UI:::
 ** Wie viele Datensätze sollen standardmäßig angezeigt werden?
 Wie viele dynamisch? (Alle? Nur letzer Monat?...)
 ** Wonach soll gefiltert werden können?
 ** gibt es Design-Richtlinien?
+*****
 
 '''
 === Projektbezogene Fragen
