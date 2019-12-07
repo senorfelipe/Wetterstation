@@ -1,0 +1,19 @@
+== Protokoll zum Treffen am TT.MM.YYY
+
+=== Allgemeines
+==== Zeit
+hh.mm bis hh.mm Uhr
+
+==== Teilnehmer
+Anwesend:
+
+Abwesend:
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
