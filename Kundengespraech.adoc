@@ -12,10 +12,14 @@
 ** Welche Webcam?
  *** Auflösung des zu übertragenden Bildes?
 * In welchem Zeitintervall soll Übertragung stattfinden?
+** In welchem Zeitraum (auch nachts)?
 * In welchem Zeitintervall soll geloggt werden?
 ** Daten/Bilder mit nur geringer Abweichung trotzdem übertragen?
 * Erhalt einer 1:1 Entwicklungsumgebung entsprechend der Produktivumgebung
 ** ssh Standardmäßig deaktiviert bis Wartungsmodus ausgewählt? oder permament?
+* Welche Kapazität besitzt der Akku?
+* Wie viel Strom liefert die Solarzelle?
+
 *****
 +++<u>Webserver:</u>+++
 *****
@@ -51,6 +55,7 @@ UI:::
 === Projektbezogene Fragen
 * Wie oft können Treffen stattfinden?
 * Was sehen Sie als größte Herausforderung an?
+* Gibt es einen finanziellen Rahmen?
 
 '''
 === Weitere Fragen
