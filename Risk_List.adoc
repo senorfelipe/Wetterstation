@@ -1,0 +1,17 @@
+== Risiken
+
+=== Identifizierte Risiken
+. Ausfall Teammitglied
+. Unbeholfenheit eines Teammitlgiedes
+. Ungenügende Terminplanung
+. Zu hohe Komplexität der eingesetzen Technologie(n)
+. Unklare Kompetenzzuweisung
+. Anforderungsliste zu hoch
+. Nichterreichbarkeit (Kommunikation) Projektbeteiligter
+. Unzureichende Dokumentation
+. Entwicklung an den Anforderungen vorbei
+. Ungenügende Kommunikation 
+.. innerhalb des Entwicklerteams
+.. mit dem Kunden
+. Angespannte Arbeitsatmosphäre
+. Fehlende Hard-/Software

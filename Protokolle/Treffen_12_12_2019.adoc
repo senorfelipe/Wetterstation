@@ -1,0 +1,19 @@
+== Protokoll zum Treffen am 12.12.2019
+
+=== Allgemeines
+==== Zeit
+hh.mm bis hh.mm Uhr
+
+==== Teilnehmer
+Anwesend:
+
+Abwesend:
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+
+=== Themen
+. Siehe Kundengespraech.adoc
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
