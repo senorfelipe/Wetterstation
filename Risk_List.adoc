@@ -1,6 +1,4 @@
-== Risiken
-
-=== Identifizierte Risiken
+==== Identifizierte Risiken
 . Ausfall Teammitglied
 . Unbeholfenheit eines Teammitlgiedes
 . Ungenügende Terminplanung
