@@ -1,0 +1,25 @@
+== Protokoll zum Treffen am 19.12.2019
+
+=== Allgemeines
+==== Zeit
+hh.mm bis hh.mm Uhr
+
+==== Teilnehmer
+Anwesend:
+
+Abwesend:
+
+=== Iterationsplan
+include::../Iterationsplan_2.adoc[]
+
+=== Themen
+. Dialog mit Betreuer
+. Upload des Protokolls vom letzten Treffen (sollte immer direkt im Anschluss stattfinden)
+. Arbeitsaufteilung besprechen (streng nach Rollen oder unterstützend)
+. Zeit bis Belegabgabe besprechen
+. Waren die Links sinnvoll?
+. WIL siehe Excel-Tabelle, bitte immer eintragen!
+. Aktuelles Arbeitsthema evtl. auch in GitHub-Issue?
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
