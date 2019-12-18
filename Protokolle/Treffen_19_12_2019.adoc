@@ -20,6 +20,7 @@ include::../Iterationsplan_2.adoc[]
 . Waren die Links sinnvoll?
 . WIL siehe Excel-Tabelle, bitte immer eintragen!
 . Aktuelles Arbeitsthema evtl. auch in GitHub-Issue?
+. Wer ist wer in Git (s-Nummern zuordnen)
 
 === Offenes
 //Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
