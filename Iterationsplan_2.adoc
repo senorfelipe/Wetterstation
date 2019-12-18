@@ -1,0 +1,15 @@
+= Iterationsplan 12.12.2019 - 26.12.2019
+
+== Priorisierte Aufgaben
+- Anforderungen des Kunden anhand des Gesprächs genauer spezifieren
+- Stakeholder finden 
+- Use Cases ableiten und grob beschreiben
+- Vision bearbeiten
+
+== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+== Bewertung
+Die Bewertung der Iteration erfolgt anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können.
