@@ -17,7 +17,39 @@
 //Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
 
 === Themen
-* Siehe link:\\.\Kundengespraech.adoc[Kundengespräch]
+==== vorbereitete Fragen
+** Siehe Kundengesraech_Fragen.adoc
+
+
+===== Besprochene Inhalte
+* Äußere Faktoren:
+** keine vorhandene Infrastruktur
+*** kein Strom auf Flugplatz
+** System wird nach Fertigdtellung in Baumgruppe installiert -> Keine leichte Wartung möglich -> **Remote-Zugriff wichitg**
+
+* Hardware:
+** Raspberry Pi -> Raspi 4 (sollte aber auch auf Raspi Zero laufen)
+** Internet-Verbinfung via UMTS
+*** Datenvolumen wahrscheinlich 2 GB
+** Fernzugriff 
+*** Wartung steht an - J/N? -> Wechsel in Wartungsmodus
+** Failsafe-mode sollte automatisch einsetzen bei Fehlern
+*** Übergang in den Wartungsmodus bis Fehler behoben
+** Während der Entwicklungszeit steht Hardware beim Besitzer 
+*** am Stromnetz angeschlossen und Sensordaten (z.B. Wind) werden vorerst simuliert
+
+* Software (Raspi/Webserver)
+** Verwendung einer Skriptsprache (aktuell Python)
+** Backend vorzugsweise php
+** Zugang zu Webserver wird gestellt (10 GB)
+** Zugang zu eine mySQL-DB wird gestellt 
+
+
+* **Für nächstes Treffen**
+** erster Systementwurf
+** Zeitplan für weiteres Vorgehen absprechen
+
+
 
 
 === Offenes
