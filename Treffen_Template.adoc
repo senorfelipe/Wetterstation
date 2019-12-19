@@ -5,9 +5,16 @@
 hh.mm bis hh.mm Uhr
 
 ==== Teilnehmer
-Anwesend:
+* **intern:**
+* [ ] Clemens
+* [ ] Alexander
+* [ ] Justin
+* [ ] Philipp
+* [ ] Josephin
+* [ ] Agustin
+* [ ] Martin
 
-Abwesend:
+* **extern:**
 
 === Iterationsplan
 //Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist

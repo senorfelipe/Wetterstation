@@ -2,18 +2,23 @@
 
 === Allgemeines
 ==== Zeit
-hh.mm bis hh.mm Uhr
+17.00 bis hh.mm Uhr
 
 ==== Teilnehmer
-Anwesend:
-
-Abwesend:
+* [*] Alexander S.
+* [*] Justin S.
+* [*] Philipp B.
+* [*] Josephin
+* [*] Agustin
+* [*] Martin
+* [*] Auftraggeber
 
 === Iterationsplan
 //Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
 
 === Themen
-. Siehe Kundengespraech.adoc
+* Siehe link:\\.\Kundengespraech.adoc[Kundengespräch]
+
 
 === Offenes
 //Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
