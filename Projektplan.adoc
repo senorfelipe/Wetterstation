@@ -1,0 +1,31 @@
+== Projektplan Wetterstation
+
+=== Das Team
+- Martin    : Tester
+- Josefin   : Analyst
+- Philipp   : Architekt
+- Justin    : Entwickler
+- Alexander : Entwickler
+- Clemens   : Projektmanager
+- Agustin   : Deployment Engineer
+
+=== Kommunikationswege
+. WhatsApp für schnelle Kommunikation
+. GitHub-Issues für Themenbearbeitung
+. E-Mail für Kontakt mit den Kunden/Coach
+. Regelmäßige Treffen im Team (nach Bedarf mit Kunde/Coach)
+. Kontakt im Alltag an der HTW
+
+=== Projektablauf
+Das Projekt ist in einer Zeitspanne von Dezember 2019 bis Juni 2020 gestreckt. Dabei gibt es zwei große Etappenziele. Im ersten Semester steht die Analyse und Projektplanung im Vordergrund, im zweiten Semester die Implementierung, wobei natürlich im Sinne der iterativen Entwicklung keine strikte Trennung der Aufgaben erfolgt.
+
+Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und ausgewertet, wobei nach Abschluss einer Iteration auf deren Basis die nächste Iteration geplant wird.
+
+=== Eingesetzte Tools/Techniken
+- Arbeitsweise nach dem https://www2.htw-dresden.de/~anke/openup/index.htm[Open Unified Process]
+- GitHub für Versionsverwaltung/Issues
+- Visual Paradigm
+
+=== Risk List
+include::Risk_List.adoc[]
+
