@@ -1,5 +1,5 @@
-= Architecture Notebook <Projektthema>
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Architecture Notebook "Wetterstation MFCR"
+Philipp Barth <s78830@htw-dresden.de>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 0.1, 01.11.2019 
 :toc: 
 :toc-title: Inhaltsverzeichnis
@@ -15,6 +15,31 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Anmerkung: Die Architektur legt wesentliche EINSCHRÄNKUNGEN für den Systementwurf fest und ist ein Schlüssel für die Erfüllung nicht-funktionaler Eigenschaften!
 
 == Architekturziele und Philosophie
+Hauptziel des Systems ist es ausgewählte Wetterdaten mittels eines Raspberry Pi und diversen Sensoren zu sammeln, diese an einen Webserver zu übermitteln und schließlich auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] darzustellen.
+
+Das System lässt sich aus Software-Sicht demnach in drei Teilbereiche kapseln:
+
+**Datensammlung auf dem Raspi**:
+****
+Hierbei ist zu beachten, dass dieser im Betrieb autark, ohne Infrastruktur läuft und vorraussichlicht in einer Baumkrone befestigt wird. Eine Internetanbindung ist durch ein UMTS-Stick mit 2 GB Datenvolumen gegeben und die Stromversorgung erfolgt über ein Solarmodul.
+****
+* Wartungsmodus des Raspi muss von außen abrufbar sein um eine aufwendige Wartung per Hand (jemand muss auf den Baum klettern) zu vermeiden
+* Das Datenvolumen von 2 GB darf nicht überschritten werden
+* Umsetzung sollte in Python erfolgen für bessere Wartbarkeit
+
+**Webserver**
+****
+Der Webserver erhält die Daten vom Raspi, speichert diese in eine Datenbank (mySQL). Zudem kommuniziert er mit dem Client über eine REST-Schnittstelle.
+**** 
+
+
+**Web-Frontend**
+****
+Datendarstellung 
+****
+
+
+
 //Hinweise: Beschreiben Sie die Philosophie der Architektur, d.h. den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur un ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
