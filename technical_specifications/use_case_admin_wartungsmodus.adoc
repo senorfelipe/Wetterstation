@@ -6,20 +6,21 @@ Der Admin Bereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspbe
 
 ===	Kurzbeschreibung der Akteure
 ==== Administratoren
-Nur Administraoren, sprich User mit einem gültigen Login haben Zugriff auf die Funktionalitäte, die in diesem Use-Case definiert sind
+Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zugriffsrechten auf erweiterte Funktionen haben Zugriff auf die Funktionalitäten, die in diesem Use-Case definiert sind
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-* Benutzer greift auf AB zu
-* Benutzer ist eingeloggt
+. Admin greift auf AB zu
+. Admin ist eingeloggt
 
 === Standardablauf (Basic Flow)
 
-. Der Use Case beginnt, wenn Akteur die Funktionalität "Raspberry Pi in den Wartungsbereich versetzen" wählt
-. Dem Nutzer wird eine Meldung ausgegeben, dass beim nächsten Verbindungsaufbau des Raspberry Pi's dieser in den Wartungsmodus versetzt wird.
-. Nutzer erhält die Auswahlmöglichkeit den Vorgang abzubrechen oder auszuführen.
-. Nutzer wird einen Timer angezeigt mit der verbleibenden Zeit
-. Nutzer wird die IP angezeigt (und eine Möglichkeit )
+. Der Use Case beginnt, wenn der Admin die Funktionalität "Raspberry Pi in den Wartungsbereich versetzen" wählt
+. Dem Admin wird eine Meldung ausgegeben, dass beim nächsten Verbindungsaufbau des Raspberry Pi's dieser in den Wartungsmodus versetzt wird.
+. Admin erhält die Auswahlmöglichkeit den Vorgang abzubrechen oder auszuführen.
+. Admin wird einen Timer angezeigt mit der verbleibenden Zeit
+. Admin wird die IP angezeigt (und eine Möglichkeit )
+. Der Admin hat die Möglichkeit den Wartungsmodus wieder zu beenden, nachdem dieser seine Änderungen durchgeführt hat
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -49,4 +50,5 @@ Wenn <Akteur> im Schritt 3 des Standardablauf "Abbrechen" wählt, dann
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-==== <Besondere Anforderung 1>
+==== Raspberry Pi wird nicht automatisch heruntergefahren
+. Der Raspberry Pi schaltet sich nicht von selbst wieder aus, damit die Wartungen ordnungsgemäß durchgeführt werden können
