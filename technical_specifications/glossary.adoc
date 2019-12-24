@@ -25,7 +25,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 |Abkürzung|	Bedeutung|	Erläuterung
 //|UP|Unified Process|Vorgehensmodell für die Softwareentwicklung|
-|xx|xx|xx|
+|AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation|
 |===
 
 == Verzeichnis der Datenstrukturen

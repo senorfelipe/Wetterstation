@@ -1,0 +1,52 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Use-Case: Admin-Bereich Wartungsbereich
+===	Kurzbeschreibung
+Der Admin Bereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dieser soll einen Zugriff über ssh ermöglichen
+
+
+===	Kurzbeschreibung der Akteure
+==== Administratoren
+Nur Administraoren, sprich User mit einem gültigen Login haben Zugriff auf die Funktionalitäte, die in diesem Use-Case definiert sind
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+* Benutzer greift auf AB zu
+* Benutzer ist eingeloggt
+
+=== Standardablauf (Basic Flow)
+
+. Der Use Case beginnt, wenn Akteur die Funktionalität "Raspberry Pi in den Wartungsbereich versetzen" wählt
+. Dem Nutzer wird eine Meldung ausgegeben, dass beim nächsten Verbindungsaufbau des Raspberry Pi's dieser in den Wartungsmodus versetzt wird.
+. Nutzer erhält die Auswahlmöglichkeit den Vorgang abzubrechen oder auszuführen.
+. Nutzer wird einen Timer angezeigt mit der verbleibenden Zeit
+. Nutzer wird die IP angezeigt (und eine Möglichkeit )
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+==== <Alternativer Ablauf 1>
+Wenn <Akteur> im Schritt 3 des Standardablauf "Abbrechen" wählt, dann 
+. wird der Vorgang abgebrochen
+. Der Use Case wird im Schritt <y> fortgesetzt.
+
+=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+
+==== <Unterablauf 1>
+. <Unterablauf 1, Schritt 1>
+. …
+. <Unterablauf 1, Schritt n>
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+==== <Szenario 1>
+. <Szenario 1, Schritt 1>
+. 	…
+. <Szenario 1, Schritt n>
+
+===	Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== <Nachbedingung 1>
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+==== <Besondere Anforderung 1>
