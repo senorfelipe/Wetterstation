@@ -21,21 +21,18 @@ Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zug
 . Admin wird einen Timer angezeigt mit der verbleibenden Zeit
 . Admin wird die IP angezeigt (und eine Möglichkeit )
 . Der Admin hat die Möglichkeit den Wartungsmodus wieder zu beenden, nachdem dieser seine Änderungen durchgeführt hat
+. Anschließend wird dem Admin wieder die Übersicht des Admin-Bereichs angezeigt
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 ==== <Alternativer Ablauf 1>
 Wenn <Akteur> im Schritt 3 des Standardablauf "Abbrechen" wählt, dann 
 . wird der Vorgang abgebrochen
-. Der Use Case wird im Schritt <y> fortgesetzt.
+. Der Use Case wird im Schritt 7 fortgesetzt.
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
-
-==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
+Für diesen Use-Case sind keine Unterabläufe definiert
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
@@ -51,4 +48,4 @@ Wenn <Akteur> im Schritt 3 des Standardablauf "Abbrechen" wählt, dann
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 ==== Raspberry Pi wird nicht automatisch heruntergefahren
-. Der Raspberry Pi schaltet sich nicht von selbst wieder aus, damit die Wartungen ordnungsgemäß durchgeführt werden können
+. Der Raspberry Pi schaltet sich nicht von selbst wieder aus bzw. kehrt in nicht in seinen Ruhezustand zurück, damit die Wartungen ordnungsgemäß durchgeführt werden können

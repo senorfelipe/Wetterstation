@@ -2,21 +2,21 @@
 == Use-Case: Bildergalerie
 ===	Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-In diesem Usecase wird die Anzeige und das Bearbeiten der aufgenommenen Bilder behandelt.
+In diesem Use-Case wird die Anzeige und das Bearbeiten der aufgenommenen Bilder behandelt.
 
 ===	Kurzbeschreibung der Akteure
 ==== User
 User können sich die Bilder anschauen, welche in einer Galerie auf der Website zur Verfügung gestellt werden.
 
 ==== Admins
-Admins können scih diese Bilder ebenfalls anzeigen lassen, haben aber erweiterte Rechte, um Bilder zu bearbeiten, zu kopieren, zu verschieben oder zu löschen.
+Admins können sich diese Bilder ebenfalls anzeigen lassen, haben aber erweiterte Rechte, um Bilder zu bearbeiten, zu kopieren, zu verschieben oder zu löschen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-. Die Kamera ist Funktionsfähig
-. Die Kamera schaltet sich ein, wenn der Raspberry Pi sich einschaltet
+. Die Kamera ist funktionsfähig
+. Kamera wird korrekt vom Rasperry Pi angesteuert wenn sich dieser aktiviert/gestartet wird.
 . Die Kamera nimmt Bilder auf
-. Die Bilder werden in der Datenbank richtig gespeichert
+. Die Bilder werden korrekt auf den Server gepusht und dazugehörige Meta-Daten in der DB gespeichert
 . Die Bilder werden vom Server richtig angesprochen
 . Die Bilder werden auf der Website richtig angezeigt
 
@@ -25,6 +25,7 @@ Admins können scih diese Bilder ebenfalls anzeigen lassen, haben aber erweitert
 
 . Der Use Case beginnt, wenn der User/Admin die Website mit der Bildergalerie aufruft
 . Die Bilder werden in aufgenommener Reihenfolge als Galerie angezeigt
+. Beim KLicken auf das Bild wird die Auswahl in voller Auflösung dargestellt
 . Die Bilder laden nach unten weiter, wenn der User weiter nach unten scrollt 
 . Der User/Admin kann einen Zeitraum angeben, in dem die aufgezeichneten Bilder angezeigt werden sollen
 . Der Use Case ist abgeschlossen.
