@@ -1,0 +1,16 @@
+== Iterationsplan 26.12.2019 - 09.01.2020
+
+=== Priorisierte Aufgaben
+- Stakeholder finden 
+- Use Cases ableiten und einen Teil davon detailliert ausarbeiten
+- Vision bearbeiten
+- Gloassar anlegen/bearbeiten
+- 2. Kundengespräch vorbereiten/durchführen
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+=== Bewertung
+Die Bewertung der Iteration erfolgt beim Teamtreffen nach der Iteration anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können. Außerdem sollten einige Use-Cases so ausgearbeitet sein, dass wir diese im Kundengespräch erklären und uns Feedback holen können.

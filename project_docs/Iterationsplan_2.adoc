@@ -12,4 +12,4 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung der Iteration erfolgt anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können.
+Die Bewertung der Iteration erfolgt beim Teamtreffen nach der Iteration anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können.
