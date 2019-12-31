@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Admin-Bereich Wartung
+== Use-Case: Wartungsmodus aktivieren
 ===	Kurzbeschreibung
 Der Admin Bereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dieser soll einen Zugriff über ssh ermöglichen
 

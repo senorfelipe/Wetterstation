@@ -1,8 +1,8 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Diagramm
+== Use-Case: Diagramm abrufen
 ===	Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Dieser Usecase behandelt das Diagramm, welches auf der Website aus den gesammelten Daten erstellt werden soll.
+Dieser Usecase behandelt das Diagramm, welches auf der Website aus den gesammelten Daten erstellt werden soll und von den Nutzern der Website abgerufen werden soll.
 
 ===	Kurzbeschreibung der Akteure
 ==== User
@@ -13,9 +13,8 @@ Die Admins, die sich die Daten der Wetterstation anzeigen lassen wollen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-. Raspberry Pi ist an
-. Sensoren funktionieren
-. Raspberry Pi übermittelt Date an Datenbank
+. Raspberry Pi hat valide Sensordaten gesammelt
+. Raspberry Pi übermittelt Daten an Webserver
 . Daten werden richtig in Datenbank gespeichert
 . Daten werden vom Webserver richtig aufgerufen
 . Daten werden ordnungsgemäß verarbeitet
