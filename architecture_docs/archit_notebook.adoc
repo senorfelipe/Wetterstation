@@ -24,6 +24,7 @@ Das System lässt sich aus Software-Sicht demnach in drei Teilbereiche kapseln:
 Hierbei ist zu beachten, dass dieser im Betrieb autark, ohne Infrastruktur läuft und vorraussichlicht in einer Baumkrone befestigt wird. Eine Internetanbindung ist durch ein UMTS-Stick mit 2 GB Datenvolumen gegeben und die Stromversorgung erfolgt über ein Solarmodul.
 ****
 * Wartungsmodus des Raspi muss von außen abrufbar sein um eine aufwendige Wartung per Hand (jemand muss auf den Baum klettern) zu vermeiden
+** das System muss demnach stabil laufen und eine möglichst breite Fehlerbehandlung mitbringen
 * Das Datenvolumen von 2 GB darf nicht überschritten werden
 * Umsetzung sollte in Python erfolgen für bessere Wartbarkeit
 
@@ -68,9 +69,11 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
-. Architekturmechanismus 1
+. Webserver
+** hierhin werden die Sensordaten übermittelt und anschließend in einer DB gespeichert
 
-. Architekturmechanismus 2
+. relationales DBMS
+** in einer mySQL-DB werden die Sensordaten vom Webserver gespeichert und abgerufen
 
 
 == Wesentliche Abstraktionen
