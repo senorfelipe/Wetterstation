@@ -30,13 +30,13 @@ Hierbei ist zu beachten, dass dieser im Betrieb autark, ohne Infrastruktur läuf
 
 **Webserver**
 ****
-Der Webserver erhält die Daten vom Raspi, speichert diese in eine Datenbank (mySQL). Zudem kommuniziert er mit dem Client über eine REST-Schnittstelle.
+Der Webserver erhält zyklisch die Daten vom Raspi, speichert diese in eine Datenbank (mySQL). Zudem kommuniziert er mit dem Client über eine REST-Schnittstelle.
 **** 
 
 
 **Web-Frontend**
 ****
-Datendarstellung 
+Datendarstellung und Anzeige auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] 
 ****
 
 

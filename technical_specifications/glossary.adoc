@@ -9,14 +9,16 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 
 
 == Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
+In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der **Wetterstation** definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
 == Begriffe
 [%header]
 |===
 |Begriff|	Definition und Erläuterung|	Synonyme
 //|Kommissionierung|Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags|(keine))|
-|xx|xx|xx|
+|User|Mitglied oder Interessent des "MFCR", welcher das System zur Informationsabfrage nutzt|Benutzer, Endnutzer
+|Administrator|Mitglieder des "MFCR" mit besonderen Rechten. Sie sind in der Lage über einen Login Änderungen am System vorzunehmen (bspw. Wartungsmodus des Raspi zu aktivieren).|Admin
+|Wartungsmodus|Zustand der sicherstellt, dass der Raspi beim nächsten Einschalten nicht zurück in den Ruhenzustand wechselt sonder aktiv bleibt. Um dann über ssh erreichbar zu sein.|
 |===
 		
 
@@ -25,7 +27,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 |Abkürzung|	Bedeutung|	Erläuterung
 //|UP|Unified Process|Vorgehensmodell für die Softwareentwicklung|
-|AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation|
+|AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation
+
 |===
 
 == Verzeichnis der Datenstrukturen
