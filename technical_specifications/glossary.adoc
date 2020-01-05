@@ -1,5 +1,5 @@
-= Glossar -Projektthema-
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Glossar -Wetterstation-
+Philipp Barth <philipp-barth13@web.de>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 0.1, 01.11.2019 
 :toc: 
 :toc-title: Inhaltsverzeichnis
@@ -19,6 +19,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |User|Mitglied oder Interessent des "MFCR", welcher das System zur Informationsabfrage nutzt|Benutzer, Endnutzer
 |Administrator|Mitglieder des "MFCR" mit besonderen Rechten. Sie sind in der Lage über einen Login Änderungen am System vorzunehmen (bspw. Wartungsmodus des Raspi zu aktivieren).|Admin
 |Wartungsmodus|Zustand der sicherstellt, dass der Raspi beim nächsten Einschalten nicht zurück in den Ruhenzustand wechselt sonder aktiv bleibt. Um dann über ssh erreichbar zu sein.|
+|Auftraggeber|Die Vertreter des "MFCR" (Heino Iwe, Thomas Brenner)| Kunden
 |===
 		
 
@@ -28,6 +29,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |Abkürzung|	Bedeutung|	Erläuterung
 //|UP|Unified Process|Vorgehensmodell für die Softwareentwicklung|
 |AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation
+|MFCR|Modellflugclub Rossendorf e.V.| Modellflugverein, der das Projekt "Wetterstation" stellt
+|SW|Software|siehe https://de.wikipedia.org/wiki/Software::[Wikipedia]
 
 |===
 

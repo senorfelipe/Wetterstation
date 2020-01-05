@@ -47,6 +47,29 @@ Datendarstellung und Anzeige auf der Website des http://www.mfc-rossendorf.de[MF
 
 
 == Annahmen und Abhängigkeiten
+. +++<u>eingeschränkte Ressourcen:</u>+++
+.. die Wetterstation soll autark laufen
+* keine externe Stromquelle, nur ein Akku mit Solarmodul -> möglichst stromsparendes Vorgehen
+* Netzwerkanbindung über UMTS-Stick mit beschränktem Datenvolumen -> Datenvolumen darf nicht überschritten werden
+
+. +++<u>Abhängigkeiten vom Auftraggeber:</u>+++
+.. Auftraggeber hätten Backend des Webserver gern in php
+** keiner im Team hat Erfahrung mit php -> bevorzugen Python (Django)
+** evtl. wird Gegenvorschlag akzeptiert 
+.. Hardware lagert während der Entwicklungszeit beim Kunden -> externer Zugang muss gegeben und am besten immer verfügbar sein
+
+. +++<u>Vorasugegange Entscheidungen der Auftraggeber:</u>+++
+.. Hosting der Website wird extern betrieben von "jweiland.net"
+* dort soll auch die zusätzliche SW laufen
+* Zudem wird unser System dann in das aktuelle TYPO3 CMS eingebettet um es auf der Website darzustellen -> dies kann evtl. Probleme mit sich bringen...?
+** Auftraggeber wollten sich darum kümmern
+
+. +++<u>Unerfahrenheit des Teams:</u>+++
+.. keiner hat nennenswerte Erfahrungen mit den Webtechnologien die wir einsetzen werden
+* HTML, CSS, JS, REST, php -> größerer Zeitaufwand da Einarbeitung notwendig ist
+.. außerdem Einarbeitungszeit für Wartungsmodus notwendig
+* Linux-Programmierung
+
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
 == Architektur-relevante Anforderungen
