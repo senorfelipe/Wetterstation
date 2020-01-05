@@ -24,8 +24,8 @@ Admins können sich diese Bilder ebenfalls anzeigen lassen, haben aber erweitert
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
 . Der Use Case beginnt, wenn der User/Admin die Website mit der Bildergalerie aufruft
-. Die Bilder werden in aufgenommener Reihenfolge als Galerie angezeigt
-. Beim KLicken auf das Bild wird die Auswahl in voller Auflösung dargestellt
+. Die Bilder werden in aufgenommener Reihenfolge als Galerie angezeigt, das aktuellste Bild wird größer dargestellt
+. Beim KLicken auf ein anderes Bild wird die Auswahl in voller Auflösung dargestellt
 . Die Bilder laden nach unten weiter, wenn der User weiter nach unten scrollt 
 . Der User/Admin kann einen Zeitraum angeben, in dem die aufgezeichneten Bilder angezeigt werden sollen
 . Der Use Case ist abgeschlossen.

@@ -25,8 +25,8 @@ Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zug
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt 3 des Standardablauf "Abbrechen" wählt, dann 
+==== Admin bricht Vorgehen ab
+Wenn der Admin im Schritt 3 des Standardablauf "Abbrechen" wählt, dann 
 . wird der Vorgang abgebrochen
 . Der Use Case wird im Schritt 7 fortgesetzt.
 
