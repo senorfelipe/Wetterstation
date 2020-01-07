@@ -12,3 +12,18 @@
  ** sehr High-Level Skriptsprache -> wenig Code großer Output
 
  * Wie geanu wird zyklischen Erwachen und Schalfen realisiert
+
+* Soll es eine Funktionalität geben die Löschen der Ressourcen erlaubt?
+
+* hat der Admin-Bereich etwas mit dem aktuellen "internen Bereich" auf der Website zu tun? 
+
+** Wenn ja -> aus der DB und auf dem Raspi oder nur in DB/Raspi? 
+ * Vorstellungen der Bildergalerie?
+ ** siehe Wirefram (Alex)
+
+ * Design-Richtlinien für Frontend?
+ * Gibt es Sicherheitkritische Szenarien? 
+ ** außer dem Admin-Bereich
+
+* Fehlerbahandlung für welche Fehlerfälle?
+** logs im Admin-Bereich speichern?
