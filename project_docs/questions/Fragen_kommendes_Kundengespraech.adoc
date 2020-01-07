@@ -1,0 +1,14 @@
+== Technische Fragen
+* Werden die Daten zusätzlich lokal gespeichert?
+** Auf einer SD-Karte
+
+* Wenn der Raspi neue Daten pusht -> Soll dies automatisch aktualisiert werden oder erst nach refresh des Users?
+ 
+ * Darstellung auch für mobile Geräte angepasst? (responsiv)
+ * Bringt die Einbindung in die Website irgendwelche Restriktionen für unsere Entwicklung
+ mit sich?
+ * Django? 
+ ** Team hat mehr Erfahrung mit python als mit php (php keine)
+ ** sehr High-Level Skriptsprache -> wenig Code großer Output
+
+ * Wie geanu wird zyklischen Erwachen und Schalfen realisiert
