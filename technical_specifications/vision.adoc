@@ -29,16 +29,18 @@ siehe <<glossary.adoc#Begriffe,Glossary Definitionen>> +
 == Positionierung
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
-Der mfcR wünscht sich eine vereinseigene Wetterstation mit einer Webcam, wobei diese Daten übermittelt und auf der Vereinswebseite angezeigt werden sollen, um sie für alle Nutzer des Modellflugplatzes bzw. Vereinsmitglieder einsehen zu können (im sinne der Gemeinschaft, des Wetters und intern u.a. auch zur Überwachung des Vereinseigentums).
+Der mfcR wünscht sich eine vereinseigene Wetterstation mit einer Webcam, wobei diese Daten übermittelt und auf der Vereinswebseite angezeigt werden sollen. Zweck des Systems ist die Daten für alle Nutzer des Modellflugplatzes bzw. Vereinsmitglieder bereitzustellen.
+Nutzer können somit nachvollziehen wie die aktuelle Wetterlage ist und wer sich auf dem Flugplatz befindet (ggf. zum Schutz des Eigentums).
+
 
 === Problem Statement
 //Stellen Sie zusammenfassend das Problem dar, das mit diesem Projekt gelöst werden soll. Das folgende Format kann dazu verwendet werden:
 
 |===
-|Das Problem |	Der mfcR stehen keine aktuellen und örtlich genauen Wetterdaten + Bild(er) zur Verfügung.
+|Das Problem |	Dem mfcR stehen keine aktuellen und örtlich genauen Wetterdaten + Bild(er) zur Verfügung.
 |betrifft |	die Nutzer des Modellflugplatzes des mfcR
-|die Auswirkung davon ist |	schlechte Einschätzung der Wetterlage auf dem Flugplatz/ sich auszahlt den Modellflugplatz zu besuchen
-|eine erfolgreiche Lösung wäre |Nutzer können schnell aktuelle Daten von genauem Ort abrufen, sowie sich ein Bild von der Lage auf dem Platz machen
+|die Auswirkung davon ist |	Schlechte Einschätzung der Wetterlage auf dem Flugplatz und daraus resultierende Ungewissheit ob sich ein Besuch des Flugplatzes lohnt.
+|eine erfolgreiche Lösung wäre |Nutzer können schnell aktuelle Wetterdaten des Platzes abrufen, sowie sich ein Bild von der Lage machen.
 |===
 
 ////
@@ -58,7 +60,7 @@ Beispiel
 
 |===
 |Für|Nutzer der Webseite/ des Modellflugplatzes
-|die|	die Vereinswebseite aufrufen
+|die| die aktuellen Wetterdaten abfragen wollen
 |Das Produkt / die Lösung ist eine | Webanwendung auf der Vereinswebseite
 |Die 	|die aktuellen (Wetter)Verhältnisse auf dem Flugplatz zeigen
 |Im Gegensatz zur	|jetzigen Webseite
@@ -85,20 +87,27 @@ Beispiel
 |Thomas Brenner|Vorsitzender des Vereins MODELLFLUGCLUB ROSSENDORF e.V.	|Ansprechpartner, überwacht den Projektfortschritt
 |Admins|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen, Raspberry Pi in Wartungsmodus versetzen und verbinden
 |User|Besucher der Webseite|aktuelle Informationen und gespeicherte Bilder abrufen
-
+|Gesetzgeber|geltende Gesetze und Richtlinien der BRD|Schutz personenbezogener Daten
+|jweiland.net|Hosting Dienstleister des mfcR|Bereitstellung der physischen webserverseitigen Infrastruktur
 |===
 
 === Benutzerumgebung
-Beschreiben Sie die Arbeitsumgebung des Nutzers:
 
-Der Nutzer muss online sein. Um neue Informationen abzurufen muss er die Seite nicht manuell aktualisieren.
+. Beschreiben Sie die Arbeitsumgebung des Nutzers:
+
+* Der Nutzer muss auf einem online sein. Um neue Informationen abzurufen muss er die Seite nicht manuell aktualisieren.
 Bedienung ist auf unterschiedlichen Endgeräten möglich.
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 //. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
 //. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-//. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+* mobil abrufbar
+* Touchbedienung auf Smartphpones
 //. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
-//. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+
+. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+* TYPO3-CMS auf dem die Website beruht
+** Die Anwendung wird dort eingebunden
 
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -109,11 +118,12 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 [%header]
 |===
 |Bedarf|	Priorität|	Features|	Geplantes Release
-|Bilder anschauen |hoch|Live, Bildergalerie mit Auswahl|xx
-|Diagramme anschauen|hoch|Temperatur, Wind (Stärke+Richtung), Feuchtigkeit|x
-|Daten lokal speichern
-|hoch|in Datenbank|x
-|interner Bereich|niedrig|Raspberry Pi in Wachzustand versetzen, Informationen über Systemzustand|x
+|Bilder abrufen |mittel| stündlich aktualisierte Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|xx
+|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), Feuchtigkeit nach Zeitstempel abrufbar|x
+|Daten speichern
+|hoch|in Datenbank und lokal|x
+|interner Bereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|x
+|Remote-Zugriff|hoch|Sofern der Raspi im Wartungsmodus ist, kann über ssh eine remote Verbindung hergestellt werden|xx
 |===
 
 
@@ -124,7 +134,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 
 * keine Infrastruktur vorhanden
 ** somit kein Strom am Modellflugplatz
-* System wird nach Fertigstellung in Baumgruppe installiert → keine leichte Wartung möglich → Remote-Zugriff wichitg
+* System wird nach Fertigstellung in Baumgruppe installiert → keine leichte Wartung möglich → Remote-Zugriff + hohe Stabilität wichitg
 
 .eingesetzte Hardware:
 
@@ -138,7 +148,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 * ggf. externer Wake-Up-Timer
 * Gehäuse
 
-
+////
 * Internet-Verbindung via UMTS
 ** Datenvolumen wahrscheinlich 2 GB
 * Fernzugriff
@@ -147,7 +157,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 ** Übergang in den Wartungsmodus bis Fehler behoben
 * Während der Entwicklungszeit steht Hardware beim Besitzer
 ** am Stromnetz angeschlossen und Sensordaten (z.B. Wind) werden vorerst simuliert
-
+////
 
 .Software (Raspi/Webserver)
 * Verwendung einer Skriptsprache (aktuell Python)
