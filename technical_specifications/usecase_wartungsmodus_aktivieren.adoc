@@ -19,7 +19,7 @@ Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zug
 . Dem Admin wird eine Meldung ausgegeben, dass beim nächsten Verbindungsaufbau des Raspberry Pi's dieser in den Wartungsmodus versetzt wird.
 . Admin erhält die Auswahlmöglichkeit den Vorgang abzubrechen oder auszuführen.
 . Admin wird einen Timer angezeigt mit der verbleibenden Zeit
-. Admin wird die IP angezeigt (und eine Möglichkeit )
+. Admin wird die IP angezeigt
 . Der Admin hat die Möglichkeit den Wartungsmodus wieder zu beenden, nachdem dieser seine Änderungen durchgeführt hat
 . Anschließend wird dem Admin wieder die Übersicht des Admin-Bereichs angezeigt
 
