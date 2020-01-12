@@ -1,0 +1,21 @@
+== Iterationsplan 09.01.2020 - 23.01.2020
+
+=== Priorisierte Aufgaben
+- Use Cases ableiten und einen großteil davon detailliert ausarbeiten
+- Wireframes erstellen/bearbeiten
+- Verbindung zum Raspberry Pi testen 
+- Erste Funktionalität gemäß Auftraggeber, d.h. Simulation von Messwerten, erarbeiten
+- ERM (database model) bearbeiten
+- Aktivitätsdiagramme zu komplexen Abläufen erarbeiten
+- Links (Likliste vom Auftraggeber) durchgehen und relevante Inhalte raussuchen
+
+=== Work Items List
+https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4ReBgc/edit?usp=sharing
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+=== Bewertung
+Die Bewertung der Iteration erfolgt beim Teamtreffen nach der Iteration anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können. Für die Simulation der Messwerte sollte eine detaillierte Idee zur Umsetzung erarbeitet sein, auf deren Basis ohne größere Probleme eine Implementierung erfolgen kann (d.h. Funktionalität, Programmiersprache, Input/Output, etc. vorrhanden). Die Wireframes und Aktivitätsdiagramme/Use Cases sollten so ausgearbeitet sein, dass diese dem Auftraggeber vorgestellt werden könnten. Außerdem soll der Zugriff auf den Raspberry Pi im Einklang mit dem Auftraggeber geregelt sein. Da das ERM eine wichtige Grundlage bildet, sollten sich alle Teammitglieder auf eine Lösung verständigen.
