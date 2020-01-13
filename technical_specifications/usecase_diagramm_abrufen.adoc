@@ -25,7 +25,7 @@ Die Admins, die sich die Daten der Wetterstation anzeigen lassen wollen.
 . Der Use Case beginnt, wenn User/Admins die Website aufrufen
 . Der User/Admin wählt eine Datenart aus
 . Der User/Admin wählt einen Zeitraum
-. Die Website greift auf die Datenbank zu und zieht sich die entsprechenden Daten
+. Die Website greift auf die Datenbank zu und zieht sich die entsprechenden Daten aus der Datenbank
 . Die Website generiert das Diagramm den Daten entprechend
 . Der Use Case ist abgeschlossen.
 
@@ -35,7 +35,7 @@ Die Admins, die sich die Daten der Wetterstation anzeigen lassen wollen.
 Wenn der User/Admin im Schritt 3 des Standardablauf einen Zeitraum wählt in dem keine Daten aufgezeichnet wurden, dann wird der User/Admin darum gebeten einen anderen Zeitraum auszuwählen
 . Der User/Admin wählt einen Zeitraum
 . Der Server versucht auf die Datenbank zuzugreifen und stellt fest, dass im angegebenen Zeitraum keine Daten aufgezeichnet wurden
-. Dem User/Admin wird ein Fenster mit der Bitte einen anderen Zeitraum auszuwählen angezeigt  
+. Dem User/Admin wird angezeigt, dass er bitte einen anderen Zeitraum auszuwählen soll 
 . Der Use Case wird im Schritt 3 fortgesetzt.
 
 === Unterabläufe (subflows)
@@ -49,7 +49,7 @@ Wenn der User/Admin im Schritt 3 des Standardablauf einen Zeitraum wählt in dem
 ==== Anderer Zeitraum
 . Der User/Admin möchte den Zeitraum ändern
 . Der Server greift erneut auf die Datenbank zu 
-. Die Website generiert ein neues Diagramm, dem angegebenen Zeitruam entsprechend
+. Die Website generiert ein neues Diagramm, dem angegebenen Zeitraum entsprechend
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.

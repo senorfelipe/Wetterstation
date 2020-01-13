@@ -38,11 +38,12 @@ Wenn der User/Admin im Schritt 1 des Standardablauf die Website aufruft, dann ka
 . Der Use Case wird im Schritt 1 des Standartablaufes fortgesetzt.
 
 ==== Zeitraumfehler
-Wenn der User/Admin im Schritt 4 des Standartablauf einen ungültigen Zeitraum angibt, dann wird er gebeten den Zeitraum zu ändern
+Wenn der User/Admin im Schritt 4 des Standardablauf einen ungültigen Zeitraum angibt, dann wird er gebeten den Zeitraum zu ändern
 . Der User/Admin gibt einen Zeitraum an, in dem keine Bilder aufgezeichnet wurden
 . Der Server greift auf die Datenbank zu und stellt fest, dass es keine Bilder im angegebenen Zeitraum gibt
 . Dem User/Admin wird die Meldung angezeigt, dass er den Zeitraum ändern soll und wann das erste udn das letzte Bild aufgezeichnet wurden
 . Der Use Case wird im Schritt 4 Standartablaufes fortgesetzt.
+
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
