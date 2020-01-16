@@ -31,6 +31,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation
 |MFCR|Modellflugclub Rossendorf e.V.| Modellflugverein, der das Projekt "Wetterstation" stellt
 |SW|Software|siehe https://de.wikipedia.org/wiki/Software::[Wikipedia]
+|Raspi|Raspberry-Pi (gesamte Baureihe, es wurde kein Modell spezifiziert)| Einplatinen-Computer mit Linux-Distribution zur Datensammlung und Übermittlung an den Webserver
 
 |===
 

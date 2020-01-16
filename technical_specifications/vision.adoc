@@ -88,14 +88,14 @@ Beispiel
 |Admins|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen, Raspberry Pi in Wartungsmodus versetzen und verbinden
 |User|Besucher der Webseite|aktuelle Informationen und gespeicherte Bilder abrufen
 |Gesetzgeber|geltende Gesetze und Richtlinien der BRD|Schutz personenbezogener Daten
-|jweiland.net|Hosting Dienstleister des mfcR|Bereitstellung der physischen webserverseitigen Infrastruktur
+|jweiland.net|Hosting-Dienstleister des mfcR|Bereitstellung der physischen webserverseitigen Infrastruktur
 |===
 
 === Benutzerumgebung
 
 . Beschreiben Sie die Arbeitsumgebung des Nutzers:
 
-* Der Nutzer muss auf einem online sein. Um neue Informationen abzurufen muss er die Seite nicht manuell aktualisieren.
+* Der Nutzer muss auf einem internetfähigem Gerät online sein. Um neue Informationen abzurufen muss er die Seite nicht manuell aktualisieren.
 Bedienung ist auf unterschiedlichen Endgeräten möglich.
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 //. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
@@ -119,11 +119,11 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 |===
 |Bedarf|	Priorität|	Features|	Geplantes Release
 |Bilder abrufen |mittel| stündlich aktualisierte Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|xx
-|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), Feuchtigkeit nach Zeitstempel abrufbar|x
+|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), Böenhaftigkeit, Feuchtigkeit nach Zeitstempel abrufbar|xx
 |Daten speichern
-|hoch|in Datenbank und lokal|x
-|interner Bereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|x
-|Remote-Zugriff|hoch|Sofern der Raspi im Wartungsmodus ist, kann über ssh eine remote Verbindung hergestellt werden|xx
+|hoch|in Datenbank und lokal|xx
+|interner Bereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|xx
+|Remote-Zugriff|hoch|sofern der Raspi im Wartungsmodus ist, kann über ssh eine Remote-Verbindung hergestellt werden|xx
 |===
 
 
@@ -134,7 +134,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 
 * keine Infrastruktur vorhanden
 ** somit kein Strom am Modellflugplatz
-* System wird nach Fertigstellung in Baumgruppe installiert → keine leichte Wartung möglich → Remote-Zugriff + hohe Stabilität wichitg
+* System wird nach Fertigstellung im Boden eingegraben → keine leichte Wartung möglich → Remote-Zugriff + hohe Stabilität wichtig
 
 .eingesetzte Hardware:
 
@@ -164,6 +164,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 * Backend vorzugsweise php
 * Zugang zu Webserver wird gestellt (10 GB)
 * Zugang zu einer mySQL-DB wird gestellt
+* Einbindung auf Webseite (TYPO3-CMS)
 
 //Hinweise:
 //. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
