@@ -6,26 +6,25 @@ In diesem Use-Case wird die Anzeige und das Bearbeiten der aufgenommenen Bilder 
 
 ===	Kurzbeschreibung der Akteure
 ==== User
-User können sich die Bilder anschauen, welche in einer Galerie auf der Website zur Verfügung gestellt werden.
+User können sich die Bilder anschauen, welche in einer Galerie auf der Website des MFCR zur Verfügung gestellt werden.
 
 ==== Admins
 Admins können sich diese Bilder ebenfalls anzeigen lassen, haben aber erweiterte Rechte, um Bilder zu bearbeiten, zu kopieren, zu verschieben oder zu löschen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-. Die Kamera ist funktionsfähig
+. Die Kamera hat bereits Bilder aufgenommen
 . Kamera wird korrekt vom Rasperry Pi angesteuert wenn sich dieser aktiviert/gestartet wird.
-. Die Kamera nimmt Bilder auf
 . Die Bilder werden korrekt auf den Server gepusht und dazugehörige Meta-Daten in der DB gespeichert
-. Die Bilder werden vom Server richtig angesprochen
-. Die Bilder werden auf der Website richtig angezeigt
+. Die Bilder werden vom Server richtig zum Client übertragen
+. Die Bilder werden auf der Website korrekt angezeigt
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
 . Der Use Case beginnt, wenn der User/Admin die Website mit der Bildergalerie aufruft
 . Die Bilder werden in aufgenommener Reihenfolge als Galerie angezeigt, das aktuellste Bild wird größer dargestellt
-. Beim KLicken auf ein anderes Bild wird die Auswahl in voller Auflösung dargestellt
+. Beim Klicken auf ein anderes Bild wird die Auswahl an die Bildschirmgröße des Nutzers angepasst dargestellt
 . Die Bilder laden nach unten weiter, wenn der User weiter nach unten scrollt 
 . Der User/Admin kann einen Zeitraum angeben, in dem die aufgezeichneten Bilder angezeigt werden sollen
 . Der Use Case ist abgeschlossen.
@@ -55,11 +54,8 @@ Wenn der User/Admin im Schritt 4 des Standardablauf einen ungültigen Zeitraum a
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== Bilder bearbeiten/löschen/kopieren/verschieben
-Wenn der Admin sich eingeloggt hat, hat er die Möglichkeit in Schritt 1 die Bilder von der Website zu löschen oder diese herunterzuaden, um sie lokal zu bearbeiten oder zu sichern
-. Der Admin loggt sich ein
-. Der Admin kann die Bilder herunterladen oder entfernen
-. Der Usecase ist abgeschlossen
+==== Bilder bearbeiten/löschen/kopieren
+Wenn der Admin sich eingeloggt hat, hat er die Möglichkeit in Schritt 1 die Bilder von der Website zu löschen oder diese herunterzuaden, um sie lokal zu bearbeiten oder zu sichern.
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.

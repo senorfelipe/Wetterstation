@@ -1,0 +1,28 @@
+== Protokoll zum Treffen am TT.MM.YYY
+
+=== Allgemeines
+==== Zeit
+hh.mm bis hh.mm Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [ ] Josephin
+* [ ] Agustin
+* [ ] Martin
+
+* **extern:**
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+
+=== Themen
+* Übergabe der Login-Daten 
+* Klärung von Fragen zum Raspi
+* Klärung Datenschutz bezüglich der Bilder
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
