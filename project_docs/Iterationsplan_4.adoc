@@ -1,6 +1,7 @@
 == Iterationsplan 09.01.2020 - 23.01.2020
 
 === Priorisierte Aufgaben
+- Eine geregelte Kommunikation der Afugabenteilung durchsetzen und anwenden (Work-Items-List, Git-Issues)
 - Use Cases ableiten und einen großteil davon detailliert ausarbeiten
 - Wireframes erstellen/bearbeiten
 - Verbindung zum Raspberry Pi testen 
