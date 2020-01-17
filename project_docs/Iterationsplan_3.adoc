@@ -7,6 +7,9 @@
 - Gloassar anlegen/bearbeiten
 - 2. Kundengespräch vorbereiten/durchführen
 
+=== Work Items List
+https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4ReBgc/edit?usp=sharing
+
 === Risiken
 Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
 
@@ -14,3 +17,6 @@ include::Risk_List.adoc[]
 
 === Bewertung
 Die Bewertung der Iteration erfolgt beim Teamtreffen nach der Iteration anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können. Außerdem sollten einige Use-Cases so ausgearbeitet sein, dass wir diese im Kundengespräch erklären und uns Feedback holen können.
+
+Bewertung: 
+Die Aufgaben wurden gelöst und es entwickelten sich neue Fragen an den Kunden. Allerdings war die teaminterne Kommunikation unzureichend, was u.a. dazu führte dass einige Teammitglieder keine Aufgaben lösten. Es wurde weder in Git-Issues, noch in der Work-Items-List oder im WhatsApp-Chat über die Aufgabenlösung gesprochen.

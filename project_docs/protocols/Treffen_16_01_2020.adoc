@@ -2,7 +2,7 @@
 
 === Allgemeines
 ==== Zeit
-hh.mm bis hh.mm Uhr
+17.35 bis 18.50Uhr
 
 ==== Teilnehmer
 * **intern:**
@@ -11,13 +11,14 @@ hh.mm bis hh.mm Uhr
 * [x] Justin
 * [x] Philipp
 * [ ] Josephin
-* [ ] Agustin
+* [x] Agustin
 * [ ] Martin
 
 * **extern:**
 
 === Iterationsplan
 //Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+Kein Abschluss.
 
 === Themen
 * Übergabe der Login-Daten 
