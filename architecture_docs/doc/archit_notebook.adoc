@@ -15,12 +15,12 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Anmerkung: Die Architektur legt wesentliche EINSCHRÄNKUNGEN für den Systementwurf fest und ist ein Schlüssel für die Erfüllung nicht-funktionaler Eigenschaften!
 
 == Architekturziele und Philosophie
-Hauptziel des Systems ist es ausgewählte Wetterdaten mittels eines Raspberry Pi und diversen Sensoren zu sammeln, diese an einen Webserver zu übermitteln und schließlich auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] darzustellen.
+Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung, Böenhaftigkeit, Temperatur) mittels eines Raspberry Pi und diversen Sensoren zu sammeln, diese an einen Webserver zu übermitteln und schließlich auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] darzustellen.
 
 **Wesentliche Architekturziele:**
 *****
 * Ressourcenschonendes Vorgehen aufgrund eingeschränkter Hardware der Wetterstation
-** Das System sollte auch auf dem Raspi Zero zu laufen, welcher aufgrund der begrenzten Leistung ressourcenschonendes Vorgehen erfordert.
+** Die Datenakquise und anschließende Übertragung an den DB-Server erfolgt auf einem Raspberry Pi 4. Zwar hat dieser mittlerweile genügend Leistung um diesen Punkt zu vernachlässigen, jedoch sollte der externe Akku nicht unnötig beansprucht werden. 
 * Robustheit gegen mögliche Fehler
 ** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfälig bahandelt werden.
 * Gute Wartbarkeit und Erweiterbarkeit
@@ -48,19 +48,18 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten mittels eines Raspberry Pi
 
 . +++<u>Technische Abhängigkeiten vom Auftraggeber:</u>+++
 .. Hardware lagert während der Entwicklungszeit beim Kunden -> externer Zugang muss gegeben und am besten immer verfügbar sein
-.. gewisse Funktionalität des Systems v.a. auf Hardwareebene übernimmt Kunde selbst, wie z.B. Integration des externen Wake-up Timers, Stromquellenmanagement
+.. Gewisse Funktionalität des Systems v.a. auf Hardwareebene übernimmt Kunde selbst, wie z.B. Integration des externen Wake-up Timers, Stromquellenmanagement, sowie das Auslesen der Sensoren. Wir nutzen in diesen Fällen nur die gestellten Schnittstellen. 
 
 . +++<u>Vorasugegange Entscheidungen der Auftraggeber:</u>+++
 .. Hosting der Website wird extern betrieben von "jweiland.net"
 * dort soll auch die zusätzliche SW laufen
-* Zudem wird unser System dann in das aktuelle TYPO3 CMS eingebettet um es auf der Website darzustellen -> dies kann evtl. Probleme mit sich bringen...?
+* Zudem wird unser System dann in das aktuelle TYPO3 CMS eingebettet um es auf der Website darzustellen
 ** Auftraggeber wollten sich darum kümmern
 
 . +++<u>Unerfahrenheit des Teams:</u>+++
 .. keiner hat nennenswerte Erfahrungen mit den Webtechnologien die wir einsetzen werden
 * HTML, CSS, JS, REST, php -> größerer Zeitaufwand da Einarbeitung notwendig ist
-.. außerdem Einarbeitungszeit für Wartungsmodus notwendig
-* Linux-Programmierung
+
 
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
@@ -73,11 +72,10 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten mittels eines Raspberry Pi
 
 . Programmiersprache Python für den Raspi verwenden
 ** Aufgrund der einfachen Wartbarkeit und guten Handhabbarkeit der Skriptsprache wurde diese Einschränkung von den Auftraggebern vorgegeben. Aufgrund der Vielzahl an verfügbaren Bibliothekten, riesigen Community und der schnell erlernbaren Syntax eine sinvolle Wahl. 
-. Programmiersprache php für Backend verwenden
-** Eine Vorgabe des Auftraggebers mit der wir uns arrangieren müssen.
+. Programmiersprache python mit dem Django Rest FRramework für Backend verwenden
 . Ajax-Konzept zur asynchronen Datenübertragung zwischen Client und Server
 ** Die Website kann somit dynamisch gestaltet werden ohne komplette Seiten neu zu laden. Dies bedeutet kürzere Wartezeiten für den User und mehr Flexibilität beim Seitenaufbau.
-. Kommunikation zwischen Raspi und Webserver über HTTP oder MQTT ist noch zu prüfen
+. Kommunikation zwischen Raspi und Webserver bzw. DB-Server über eine Rest-Schnittstellen über HTTPS 
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -88,9 +86,12 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
 . Webserver
-** hierhin werden die Sensordaten übermittelt und anschließend in einer DB gespeichert
-. REST-Schnittstelle
+** kommuniziert mit dem Client sowie dem DB-Server um Kontent auszuliefern
+
+. DB-Server
+.. mit REST-Schnittstelle
 ** für CRUD-Operationen
+.. mit mySQL-DBMS zur Speicherung der Daten
 
 . Ajax
 * Kommunikation zwischen Client und Server zur dynamischen Erstellung der Website
