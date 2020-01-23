@@ -1,5 +1,8 @@
 == Projektplan Wetterstation
 
+=== Einführung
+Dieses Dokument gibt einen Überblick über das Projekt Wetterstation. Es wird das Projektteam, eingesetzte Tools/Techniken, Risiken und Iterationen vorgestellt.
+
 === Das Team
 - Martin    : Tester
 - Josefin   : Analyst
@@ -19,12 +22,65 @@
 === Projektablauf
 Das Projekt ist in einer Zeitspanne von Dezember 2019 bis Juni 2020 gestreckt. Dabei gibt es zwei große Etappenziele. Im ersten Semester steht die Analyse und Projektplanung im Vordergrund, im zweiten Semester die Implementierung, wobei natürlich im Sinne der iterativen Entwicklung keine strikte Trennung der Aufgaben erfolgt.
 
-Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und ausgewertet, wobei nach Abschluss einer Iteration auf deren Basis die nächste Iteration geplant wird.
+Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und ausgewertet, wobei nach Abschluss einer Iteration im Team auf deren Basis die nächste Iteration geplant wird.
+
+=== Meilensteine und Ziele
+[#Iterationen]
+[cols="0,3,1" options="header"]
+|===
+|Iteration
+|Primary Objectives
+|Scheduled start
+|I-2
+|- Anforderungen des Kunden anhand des Gesprächs genauer spezifieren
+
+ - Stakeholder finden 
+
+ - Use Cases ableiten und grob beschreiben
+
+ - Vision bearbeiten
+|12.12.2019
+|I-3
+|- Stakeholder finden 
+
+ - Use Cases ableiten und einen Teil davon detailliert ausarbeiten
+
+ - Vision bearbeiten
+
+ - Gloassar anlegen/bearbeiten
+
+ - 2. Kundengespräch vorbereiten/durchführen
+|26.12.2019
+|I-4
+|- Eine geregelte Kommunikation der Afugabenteilung durchsetzen und anwenden (Work-Items-List, Git-Issues)
+
+ - Use Cases ableiten und einen großteil davon detailliert ausarbeiten
+
+ - Wireframes erstellen/bearbeiten
+
+ - Verbindung zum Raspberry Pi testen 
+
+ - Erste Funktionalität gemäß Auftraggeber, d.h. Simulation von Messwerten, erarbeiten
+
+ - ERM (database model) bearbeiten
+
+ - Aktivitätsdiagramme zu komplexen Abläufen erarbeiten
+
+ - Links (Likliste vom Auftraggeber) durchgehen und relevante Inhalte raussuchen
+|09.01.2020
+|I-5
+|
+|23.01.2020
+|I-6
+|Pause aufgrund der Prüfungszeit
+|06.02.2020
+|===
+
 
 === Eingesetzte Tools/Techniken
 - Arbeitsweise nach dem https://www2.htw-dresden.de/~anke/openup/index.htm[Open Unified Process]
 - GitHub für Versionsverwaltung/Issues
-- Visual Paradigm
+- Visual Paradigm für Diagramme 
 
 === Risk List
 include::Risk_List.adoc[]
