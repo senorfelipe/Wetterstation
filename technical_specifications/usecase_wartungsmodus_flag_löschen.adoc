@@ -1,27 +1,25 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Wartungsmodus aktivieren
+== Use-Case: Flag entfernen
 ===	Kurzbeschreibung
-Der Admin Bereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dieser soll einen Zugriff über ssh ermöglichen
-
+Der Admin Bereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dies soll über einen Eintrag(Flag), der in die Datenbank geschrieben wird realisiert werden. Der Eintrag wird beim Datenaustausch zwischen dem Pi und dem Webserver abgefragt und weiterverarbeitet. Dieser Use-Case beschreibt den Vorgang des Entfernens einer bereits gesetzten Flag bzw. einer geplanten Wartung
 
 ===	Kurzbeschreibung der Akteure
 ==== Administratoren
 Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zugriffsrechten auf erweiterte Funktionen haben Zugriff auf die Funktionalitäten, die in diesem Use-Case definiert sind
 
+
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 . Admin greift auf AB zu
 . Admin ist eingeloggt
+. Ein Eintrag für eine geplante Wartung ist in der Datenbank und aktiv
 
 === Standardablauf (Basic Flow)
 
-. Der Use Case beginnt, wenn der Admin die Funktionalität "Raspberry Pi in den Wartungsbereich versetzen" wählt
-. Dem Admin wird eine Meldung ausgegeben, dass beim nächsten Verbindungsaufbau des Raspberry Pi's dieser in den Wartungsmodus versetzt wird.
-. Admin erhält die Auswahlmöglichkeit den Vorgang abzubrechen oder auszuführen.
-. Admin wird einen Timer angezeigt mit der verbleibenden Zeit
-. Admin wird die IP angezeigt
-. Der Admin hat die Möglichkeit den Wartungsmodus wieder zu beenden, nachdem dieser seine Änderungen durchgeführt hat
-. Anschließend wird dem Admin wieder die Übersicht des Admin-Bereichs angezeigt
+. Der Use Case beginnt, wenn der Admin die Funktionalität "Abbrechen" wählt.
+. Admin wird gefragt ob er die geplante Wartung abbrechen will und erhält Auswahlmaske mit "Ja" und "Nein"
+. Admin wählt ja
+. System entfernt 
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -29,6 +27,7 @@ Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zug
 Wenn der Admin im Schritt 3 des Standardablauf "Abbrechen" wählt, dann 
 . wird der Vorgang abgebrochen
 . Der Use Case wird im Schritt 7 fortgesetzt.
+
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
