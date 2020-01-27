@@ -22,10 +22,10 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung
 * Ressourcenschonendes Vorgehen aufgrund eingeschränkter Hardware der Wetterstation
 ** Die Datenakquise und anschließende Übertragung an den DB-Server erfolgt auf einem Raspberry Pi 4. Zwar hat dieser mittlerweile genügend Leistung um diesen Punkt zu vernachlässigen, jedoch sollte der externe Akku nicht unnötig beansprucht werden. 
 * Robustheit gegen mögliche Fehler
-** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfälig bahandelt werden.
+** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im Freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfältig behandelt werden.
 * Gute Wartbarkeit und Erweiterbarkeit
-** Es kann sein, dass die Auftragger zu einem späteren Zeitpunkt Anpassungen vornehmen wollen (bspw. zusätzlicher Sensor). Dafür sollte das System mit möglichst geringem Aufwand erweiterbar sein.
-** Zudem sollte auf Clean Code und Dokumentation wertgelegt werden
+** Den Auftraggebern soll die Möglichkeit gegeben werden zu einem späteren Zeitpunkt weitere Funktionalitäten hinzuzufügen (bspw. zusätzlicher Sensor). Dafür sollte das System mit möglichst geringem Aufwand erweiterbar sein.
+** um dies zu unterstützen und die Entwicklung zu vereinfachen auf Clean Code und Dokumentation wertgelegt werden 
 * Performance und Aktualität
 ** Der User sollte Anworten mit möglichst geringer Antwortzeit vom Server erhalten 
 *****
@@ -38,14 +38,11 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung
 == Annahmen und Abhängigkeiten
 . +++<u>eingeschränkte Ressourcen:</u>+++
 .. die Wetterstation soll autark laufen
-* keine externe Stromquelle, nur ein Akku mit Solarmodul -> möglichst stromsparendes Vorgehen
+* kein Anschluss ans Stromnetz, nur ein Akku mit Solarmodul -> möglichst stromsparendes Vorgehen
 * Netzwerkanbindung über UMTS-Stick mit beschränktem Datenvolumen -> Datenvolumen darf nicht überschritten werden
 
 . +++<u>Nicht-funktionale Vorgaben der Auftraggeber:</u>+++
-.. Auftraggeber hätten Backend des Webserver gern in php
-** keiner im Team hat Erfahrung mit php -> bevorzugen Python (Django)
-** evtl. wird Gegenvorschlag akzeptiert 
-
+.. Auftraggeber hätten Backend des Webserver gern in einer Skriptsprache
 . +++<u>Technische Abhängigkeiten vom Auftraggeber:</u>+++
 .. Hardware lagert während der Entwicklungszeit beim Kunden -> externer Zugang muss gegeben und am besten immer verfügbar sein
 .. Gewisse Funktionalität des Systems v.a. auf Hardwareebene übernimmt Kunde selbst, wie z.B. Integration des externen Wake-up Timers, Stromquellenmanagement, sowie das Auslesen der Sensoren. Wir nutzen in diesen Fällen nur die gestellten Schnittstellen. 
@@ -58,7 +55,7 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung
 
 . +++<u>Unerfahrenheit des Teams:</u>+++
 .. keiner hat nennenswerte Erfahrungen mit den Webtechnologien die wir einsetzen werden
-* HTML, CSS, JS, REST, php -> größerer Zeitaufwand da Einarbeitung notwendig ist
+* HTML, CSS, JS, REST, php -> größerer Zeitaufwand da Einarbeitung notwendig
 
 
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
@@ -72,9 +69,10 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung
 
 . Programmiersprache Python für den Raspi verwenden
 ** Aufgrund der einfachen Wartbarkeit und guten Handhabbarkeit der Skriptsprache wurde diese Einschränkung von den Auftraggebern vorgegeben. Aufgrund der Vielzahl an verfügbaren Bibliothekten, riesigen Community und der schnell erlernbaren Syntax eine sinvolle Wahl. 
-. Programmiersprache python mit dem Django Rest FRramework für Backend verwenden
-. Ajax-Konzept zur asynchronen Datenübertragung zwischen Client und Server
-** Die Website kann somit dynamisch gestaltet werden ohne komplette Seiten neu zu laden. Dies bedeutet kürzere Wartezeiten für den User und mehr Flexibilität beim Seitenaufbau.
+. Programmiersprache python mit dem Django Rest Framework für Backend verwenden
+. Angular als Frontend Framework, da Entwickler bereits Erfahrungen damit haben
+. persistente Datenspeicherung in einer DB, um Daten langfristig zu sichern
+** 
 . Kommunikation zwischen Raspi und Webserver bzw. DB-Server über eine Rest-Schnittstellen über HTTPS 
 
 == Architekturmechanismen
@@ -113,7 +111,7 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 ** Controller = Implementierung der Logik der Anwendung. Er empfängt die Requests des Clients, verarbeitet diese und antwortet dem Client. (Webserver mit php)
 
 * Kommunikation zwischen Raspi und Webserver
-** noch zu klären -> evtl. Publisher/Subscriber oder HTTP
+** HTTPS
 ////
 Das System lässt sich aus Software-Sicht demnach in drei Teilbereiche kapseln:
 **Datensammlung auf dem Raspi**:
