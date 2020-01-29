@@ -1,0 +1,84 @@
+// --- 1. Projektthema -------------------------
+= SE I - Belegabgabe: T15 - Fernabfrage von Kamerabild und Wetterdaten
+// --- 2. Teammitglieder -----------------------
+Clemens Kujus <s78802@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+// --- 3. Abgabedatum --------------------------
+31. Januar 2020
+// ---------------------------------------------
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-label: 
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:nofooter:
+
+<<<
+
+// --- 4. include Pfade anpassen ---------------
+
+= Technische Spezifikation
+* Vision
+* Use Case Model (inkl. Wireframes, sofern vorhanden)
+* System-wide Requirements
+* Glossar
+* Domänenmodell
+
+// Vision
+include::./technical_specifications/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Use Case Model (inkludiert selbst die einzelnen usecase_spec_x.adoc Dateien)
+include::./technical_specifications/usecase_model.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// System-wide Requirements
+include::./technical_specifications/systemwide_reqs.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Glossar
+include::./technical_specifications/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Domänenmodell
+Ein Domänenmodell wurde noch nicht erstellt. Dies wird es aber in den nächsten Iterationen.
+
+= Projektdokumentation
+* Projektplan
+* Risikoliste
+* Iteration Plan (für zwei ausgewählte Iterationen)
+
+// Projektplan
+include::./project_docs/Projektplan.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Risikoliste
+include::./project_docs/Risk_List.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Iteration 1
+include::./project_docs/Iterationsplan_2.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Iteration 2
+include::./project_docs/Iterationsplan_2.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+
+= Entwurfsdokumentation
+* Architektur-Notizbuch
+* Test Cases
+* Design
+
+// Architektur-Notizbuch
+include::./architecture_docs/doc/archit_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Test Cases
+//include::./architecture_docs/.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Design
+include::./architecture_docs/doc/design_doc.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+
+// ---------------------------------------------
