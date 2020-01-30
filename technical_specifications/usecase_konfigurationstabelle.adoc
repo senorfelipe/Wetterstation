@@ -1,0 +1,67 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Use-Case: Konfigurationstabelle
+===	Kurzbeschreibung
+Administratoren wird es ermöglicht bestimmte Werte, welche in einer Tabelle der Datenbank gespeichert sind, zu ändern. Diese Tabelle wird nach jedem Neustart des Raspis ausgelesen und die Werte werden übernommen. 
+
+===	Kurzbeschreibung der Akteure
+==== Administratoren
+Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zugriffsrechten auf erweiterte Funktionen haben Zugriff auf die Funktionalitäten, die in diesem Use-Case definiert sind
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+. Verbindung zwischen Website und Datenbankserver wird erfolgreich hergestellt 
+. Datenbank ist aktiv
+. Verbindung zwischen Raspi und Datenbankserver wird erfolgreich hergestellt
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+. Der Use Case beginnt, wenn der Administrator auf den Adminbereich zugreift
+. Der Administrator sieht den aktuellen Inhalt der Config-Tabelle 
+. Der Administrator kann die Werte über die Website ändern
+. Die Website übermittelt die neuen Werte an den Datenbankserver
+. Der Datenbankserver speichert die neuen Werte in der Config-Tabelle
+. Der Raspi baut nach jedem Neustart eine Verbindung zum Datenbankserver her
+. Der Raspi fragt den Inhalt der Config-Tabelle nach jedem Neustart ab
+. Der Raspi übernimmt die Werte aus der Config-Tabelle 
+. Der Use Case ist abgeschlossen.
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+==== Verbindungsfehler
+Wenn die Website im Schritt 4 des Standardablauf keine Verbindung zum Datenbankserver aufbauen kann, dann wird dem Admin eine Fehlermeldung ausgegeben
+. Bei Verbindungsfehler wird Fehlermeldung im Adminbereich angezeigt 
+. Der Use Case wird im Schritt 9 fortgesetzt.
+
+==== Unzulässige Werte
+Wenn der Admin im Schritt 3 des Standartablaufes unzulässige Werte in die Config-Tabelle eintragen möchte wird eine Warnung ausgegeben
+. Bei Änderungen der Werte in unzulässige Werte wird eine Warnmeldung ausgegeben
+. Der Use Case wird im Schritt 3 fortgesetzt.
+
+=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+
+==== <Unterablauf 1>
+. <Unterablauf 1, Schritt 1>
+. …
+. <Unterablauf 1, Schritt n>
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+==== Änderung der Wartungs-Flag
+. Der Admin ändert den Wert der Wartungs-Flag
+. Der neue Wert wird in der Config-Tabelle gespeichert
+. Der Raspi fragt den Inhalt der Config-Tabelle beim nächsten Neustart ab
+. Der Raspi übernimmt die Änderung des Wartungs-Flag-Wertes 
+. Der Raspi fährt nicht automatisch herunter, sondern befindet sich nun im Wartungsmodus 
+
+===	Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== Änderungen des Tabelleninhaltes
+. Der Raspi übernimmt die Änderungen und reagiert dem entsprechend auf diese 
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+==== Einhalten der Datentypen
+. Jede Zeile der Tabelle Config kann nur bestimmte Werte speichern
+. Der Admin darf die Werte nur so ändern, dass diese Ordnungsgemäß gespeichert und verarbeitet werden können
