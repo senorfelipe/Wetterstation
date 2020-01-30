@@ -17,7 +17,8 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-
+* Übertragung der Daten geschieht in gleichmäßigen Abständen (einmal pro Stunde)
+* Admins haben Berechtigung um sich im internen Bereich anzumelden
 
 
 == Qualitätsanforderungen für das Gesamtsystem
@@ -26,31 +27,50 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
 
+* Der Nutzer kann sich in wenigen Schritten (max 5 Klicks) ein Diagramm anzeigen lassen und gelangt mit maximal 2 Klicks zur Bildergalerie
+* Der Nutzer benötigt keine weiteren Vorkenntnisse um das System zu benutzen (auch für Gelegenheitsnutzer zu verstehen)
+* Fehlertexte werden verständlich angezeigt
+* Die Sprache für die Benutzeroberfläche ist deutsch
+
+
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
+
+* Die Wetterdaten werden genau angezeigt
+* Das System soll eine relativ hohe Verfügbarkeit von 99% haben
+* Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
 
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
 
+* Die Bilder bzw. Diagramme werden innerhalb von 5 Sekunden angezeigt
+* Es werden mindestens einmal pro Stunde neue Werte an den Server geschickt
+* Es können mindestens 2 Nutzer parallel mit dem System arbeiten
+* Das System muss innerhalb von 10 Sekunden starten und herunterfahren
+
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
+
+* Das System muss kompatibel mit der Webseite des mfcR sein
+* Das System muss auch auf mobilen Oberflächen laufen (z.B. Smartphones)
+
 
 == Zusätzliche Anforderungen
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Ressourcenbegrenzungen
-* zu nutzende Komponenten / Bibliotheken / Frameworks
-* Vorgaben für die Programmiersprache
-* zu unterstützende Plattformen / Betriebssysteme
-* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+//* Ressourcenbegrenzungen
+* zu nutzende Komponenten: mySQL-Datenbank, Angular
+* Vorgaben für die Programmiersprache: Python
+//* zu unterstützende Plattformen / Betriebssysteme
+//* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Anforderungen an Betrieb, Management und Wartung der Anwendung
-* zu beachtende Standards, Normen und Regeln
-* 
+//* Anforderungen an Betrieb, Management und Wartung der Anwendung
+//* zu beachtende Standards, Normen und Regeln
+* Logo des mfcR soll auf der Oberfläche sichtbar sein 
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Lizensierung der Anwendung
-* Datenschutz
+//* Lizensierung der Anwendung
+* Datenschutz (Bilder)
