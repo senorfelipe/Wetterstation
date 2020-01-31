@@ -88,6 +88,11 @@ Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruc
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
+. <<sys-wide-reqs-usability, Systemweite Anforderungen an Benutzbarkeit>>
+. <<sys-wide-reqs-reliability, Systemweite Anforderungen an Zuverlässigkeit>>
+. <<sys-wide-reqs-performance, Systemweite Anforderungen an Performance>>
+. <<sys-wide-reqs-supportability, Systemweite Anforderungen an Wartbarkeit>>
+. <<sys-wide-reqs-constraints,Weitere Systemweite Anforderungen>>
 
 
 

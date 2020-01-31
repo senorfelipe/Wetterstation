@@ -24,6 +24,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
  
+[#sys-wide-reqs-usability]
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
 
@@ -32,7 +33,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 * Fehlertexte werden verständlich angezeigt
 * Die Sprache für die Benutzeroberfläche ist deutsch
 
-
+[#sys-wide-reqs-reliability]
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
 
@@ -40,6 +41,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 * Das System soll eine relativ hohe Verfügbarkeit von 99% haben
 * Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
 
+[#sys-wide-reqs-performance]
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
 
@@ -48,6 +50,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 * Es können mindestens 2 Nutzer parallel mit dem System arbeiten
 * Das System muss innerhalb von 10 Sekunden starten und herunterfahren
 
+[#sys-wide-reqs-supportability]
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
@@ -57,6 +60,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 
 == Zusätzliche Anforderungen
+[#sys-wide-reqs-constraints]
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Ressourcenbegrenzungen
