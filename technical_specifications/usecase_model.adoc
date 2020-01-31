@@ -8,8 +8,18 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 
 //Fügen Sie nachfolgend eine Liste aller Use-Cases per Include ein.
 //Dafür sollten Sie pro Use-Case eine Datei anlegen, die auf dem usecase_spec.adoc Template basiert.
-include::usecase_wartungsmodus_aktivieren.adoc[]
+include::usecase_bildergalerie_abrufen.adoc[]
+
+include::usecase_datamanagement.adoc[]
 
 include::usecase_diagramm_abrufen.adoc[]
 
-include::usecase_bildergalerie.adoc[]
+include::usecase_konfigurationstabelle.adoc[]
+
+include::usecase_read_logfiles.adoc[]
+
+include::usecase_wartungsmodus_flag_löschen.adoc[]
+
+include::usecase_wartungsmodus_flag_setzen.adoc[]
+
+include::usecase_wetterdaten_posten.adoc[]
