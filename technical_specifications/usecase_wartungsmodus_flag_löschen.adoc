@@ -50,5 +50,3 @@ Für diesen Use-Case sind keine Unterabläufe definiert
 ==== Raspberry Pi wird nicht automatisch heruntergefahren
 . Der Raspberry Pi schaltet sich nicht von selbst wieder aus bzw. kehrt nicht in seinen Ruhezustand zurück, damit die Wartungen ordnungsgemäß durchgeführt werden können
 
-=== Wireframes
-image::Activity_Diagrams/ActivityDiagrammWartungsmodus.jpg[]
