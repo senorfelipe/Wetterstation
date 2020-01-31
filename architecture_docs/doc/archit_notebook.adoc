@@ -62,24 +62,24 @@ Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruc
 
 
 == Annahmen und Abhängigkeiten
-. +++<u>eingeschränkte Ressourcen:</u>+++
+. eingeschränkte Ressourcen:
 .. die Wetterstation soll autark laufen
 * kein Anschluss ans Stromnetz, nur ein Akku mit Solarmodul -> möglichst stromsparendes Vorgehen
 * Netzwerkanbindung über UMTS-Stick mit beschränktem Datenvolumen -> Datenvolumen darf nicht überschritten werden
 
-. +++<u>Nicht-funktionale Vorgaben der Auftraggeber:</u>+++
+. Nicht-funktionale Vorgaben der Auftraggeber:
 .. Auftraggeber hätten Backend des Webserver gern in einer Skriptsprache
-. +++<u>Technische Abhängigkeiten vom Auftraggeber:</u>+++
+. Technische Abhängigkeiten vom Auftraggeber:
 .. Hardware lagert während der Entwicklungszeit beim Kunden -> externer Zugang muss gegeben und am besten immer verfügbar sein
 .. Gewisse Funktionalität des Systems v.a. auf Hardwareebene übernimmt Kunde selbst, wie z.B. Integration des externen Wake-up Timers, Stromquellenmanagement, sowie das Auslesen der Sensoren. Wir nutzen in diesen Fällen nur die gestellten Schnittstellen. 
 
-. +++<u>Vorasugegange Entscheidungen der Auftraggeber:</u>+++
+. Vorasugegange Entscheidungen der Auftraggeber:
 .. Hosting der Website wird extern betrieben von "jweiland.net"
 * dort soll auch die zusätzliche SW laufen
 * Zudem wird unser System dann in das aktuelle TYPO3 CMS eingebettet um es auf der Website darzustellen
 ** Auftraggeber wollten sich darum kümmern
 
-. +++<u>Unerfahrenheit des Teams:</u>+++
+. Unerfahrenheit des Teams:
 .. keiner hat nennenswerte Erfahrungen mit den Webtechnologien die wir einsetzen werden
 * HTML, CSS, JS, REST, php -> größerer Zeitaufwand da Einarbeitung notwendig
 
@@ -153,8 +153,6 @@ Folgende Sichten werden empfohlen:
 
 === Logische Sicht
 //Beschreibt die Struktur und das Verhalten Systemteilen, die hohen Einfluss auf die Architektur haben. Dies kann die Paketstruktur, kritische Schnittstellen, wichtige Klassen und Subsysteme sowie die Beziehungen zwischen diesen Elementen enthalten. Zudem sollten die physische und logische Sicht persistenter Daten beschrieben werden, wenn es diesen Aspekt im System gibt. Dies ist ein hier dokumentierter Teilaspekt des Entwurfs.
-==== ERM
-
 ==== Dataflow-Diagram
 
 

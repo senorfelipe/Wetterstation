@@ -1,15 +1,31 @@
-==== Identifizierte Risiken
-. Ausfall Teammitglied
-. Unbeholfenheit eines Teammitlgiedes
-. Ungenügende Terminplanung
-. Zu hohe Komplexität der eingesetzen Technologie(n)
-. Unklare Kompetenzzuweisung
+= Risk List
+
+== Identifizierte Risiken
+=== Klasse 1 Projektgefährdende Risiken
+. Ungenügende Terminplanung wird zu spät erkannt
 . Anforderungsliste zu hoch
-. Nichterreichbarkeit (Kommunikation) Projektbeteiligter
+. Nichterreichbarkeit Projektbeteiligter
 . Unzureichende Dokumentation
 . Entwicklung an den Anforderungen vorbei
 . Ungenügende Kommunikation 
 .. innerhalb des Entwicklerteams
 .. mit dem Kunden
+
+=== Klasse 2 Kostenintensive Risiken
+. Unklare Kompetenzzuweisung
 . Angespannte Arbeitsatmosphäre
 . Fehlende Hard-/Software
+. Zu hohe Komplexität der eingesetzen Technologie(n)
+
+=== Klasse 3 Moderate Risiken
+. Ausfall Teammitglied
+. Unbeholfenheit eines Teammitlgiedes
+
+== Gegenmaßnahmen
+. Regelmäßige Treffen (spätestens alle 2 Wochen alle zusammen) im Team 
+. Treffen mit den Kunden spätestens nach 2 Iterationen
+. Bei Eintritt unklarer Kompetenzzuweisung Zuordnung der Aufgaben durch den Projektmanager
+. Reduktion der Anforderungen auf Mögliches
+. Rollentausch (OpenUP-Rollen) im Team 
+. Austausch über Möglichkeiten der Hard-/Software mit den Kunden
+. Zeitplan mit Kunden abstimmen 

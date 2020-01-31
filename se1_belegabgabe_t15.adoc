@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: T15 - Fernabfrage von Kamerabild und Wetterdaten
 // --- 2. Teammitglieder -----------------------
-Clemens Kujus <s78802@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Martin Großmann <s79148@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Philipp Barth <s78830@htw-dresden.de>; Justin Schirdewahn <s78878@htw-dresden.de>; Alexander Schoch <s78797@htw-dresden.de>; Agustin Calvimontes <s78927@htw-dresden.de>; Clemens Kujus <s78802@htw-dresden.de>; 
 // --- 3. Abgabedatum --------------------------
 31. Januar 2020
 // ---------------------------------------------
