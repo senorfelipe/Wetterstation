@@ -5,7 +5,7 @@ In diesem Usecase wird die Auswertung der Daten, welche in den Logfiles gespeich
 
 ===	Kurzbeschreibung der Akteure
 ==== Administratoren
-Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zugriffsrechten auf erweiterte Funktionen haben Zugriff auf die Funktionalitäten, die in diesem Use-Case definiert sind
+Nur Administratoren, sprich User mit einem gültigen Login und entsprechenden Zugriffsrechten auf erweiterte Funktionen, haben Zugriff auf die Funktionalitäten, die in diesem Use-Case definiert sind
 
 === Vorbedingungen
 . Speichern bestimmter Daten in einer Logfile
@@ -29,17 +29,17 @@ Nur Administraoren, sprich User mit einem gültigen Login und entsprechenden Zug
 . Beim erneuten Start des Raspi wird eine neue Logfile an die Datenbank übermittelt
 . Die neue Logfile überschreibt die schon gespeicherte Logfile in der Datenbank
 
-=== Wesentliche Szenarios
+//=== Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
+//==== <Szenario 1>
+//. <Szenario 1, Schritt 1>
+//. 	…
+//. <Szenario 1, Schritt n>
 
-===	Nachbedingungen
+//===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-==== <Nachbedingung 1>
+//==== <Nachbedingung 1>
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-==== <Besondere Anforderung 1>
+//==== <Besondere Anforderung 1>
