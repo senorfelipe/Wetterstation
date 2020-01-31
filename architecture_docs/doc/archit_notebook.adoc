@@ -46,7 +46,7 @@ Die Darstellung dieser Daten findet dann auf der Website des http://www.mfc-ross
 
 * Ressourcenschonendes Vorgehen aufgrund eingeschränkter Hardware der Wetterstation
 ** Die Datenakquise und anschließende Übertragung an den Server erfolgt wahrscheinlich auf einem **Raspberry Pi 4**. Zwar hat dieser mittlerweile genügend Leistung um diesen Punkt zu vernachlässigen, jedoch sollte der externe Akku nicht unnötig beansprucht werden, da das System autark auf dem Flugplatz des MFCR läuft. 
-Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruch später später übertragen zu können.
+Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruch später übertragen zu können.
 * Robustheit gegen mögliche Fehler
 ** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im Freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfältig behandelt und ggf. geloggt werden.
 * Gute Wartbarkeit und Erweiterbarkeit
@@ -106,7 +106,7 @@ Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruc
 ** Alternativ wurde vom Auftraggeber php als Backend vorgeschlagen -> womit allerdings niemand im Team Erfahrung hat
 . Angular als Frontend Framework, da Entwickler bereits Erfahrungen damit haben
 . persistente Datenspeicherung in einer DB, um Daten langfristig zu sichern
-** das DBMS wurde vom Azftraggeber ausgewählt (mySQL)
+** das DBMS wurde vom Auftraggeber ausgewählt (mySQL)
 . Kommunikation zwischen Raspi und Webserver bzw. DB-Server erfolgt über eine Rest-Schnittstellen über HTTPS 
 
 == Architekturmechanismen
