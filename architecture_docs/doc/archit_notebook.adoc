@@ -10,25 +10,51 @@ Philipp Barth <s78830@htw-dresden.de>; Vorname2 Nachname2 <email2@domain.org>; V
 == Zweck
 Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Begründungen, wesentliche Elemente und andere übergreifende Aspekte des Systems, die Einfluss auf Entwurf und Implementierung haben.
 
-//Hinweise: Bearbeiten Sie immer die Abschnitte 2-6 dieser Vorlage. Nachfolgende Abschnitte sind empfohlen, aber optional und sollten je nach Umfang der künftigen Wartungsarbeiten, Fähigkeiten des Entwicklungsteams und Bedeutung anderer architektureller Belange. 
+//Hinweise: Bearbeiten Sie immer die Abschnitte 2-6 dieser Vorlage. Nachfolgende Abschnitte sind empfohlen,aber optional und sollten je nach Umfang der künftigen Wartungsarbeiten, Fähigkeiten des Entwicklungsteams und Bedeutung anderer architektureller Belange. 
 
 //Anmerkung: Die Architektur legt wesentliche EINSCHRÄNKUNGEN für den Systementwurf fest und ist ein Schlüssel für die Erfüllung nicht-funktionaler Eigenschaften!
 
 == Architekturziele und Philosophie
 Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung, Böenhaftigkeit, Temperatur) mittels eines Raspberry Pi und diversen Sensoren zu sammeln, diese an einen Webserver zu übermitteln und schließlich auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] darzustellen.
 
+
+Das System lässt sich aus Achitektur-Sicht in drei Teilbereiche kapseln. Ein **Backend** und zwei **Clients**:
+
+
+- **Datensammlung und -übertragung auf dem Raspberry Pi** (_client 1_)
+****
+Der Raspi sammelt durch das Auslesen von Sensoren zyklisch Daten. Diese werden auf dem Raspi lokal zwischengespeichert. (Umsetzung durch Auftraggeber).
+Anschließend postet der Raspi diese an eine REST-API.
+****
+
+- **Webserver** (_backend_)
+****
+Der Webserver erhält zyklisch die Daten vom Raspi und speichert diese in einer Datenbank. Außerdem bietet er eine REST-API für den Raspi an, damit dieser seine Konfigurationsparameter ermitteln kann.
+Zudem kommuniziert er mit dem Web-Frontend (_client 2_) über eine REST-API zur Übertragung der Wetterdaten.
+**** 
+
+
+- **Web-Frontend** (_client 2_)
+****
+Das Web-Frontend konsumiert über die REST-API die gespeicherten Wetterdaten.
+Die Darstellung dieser Daten findet dann auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] statt.
+****
+
+
+
 **Wesentliche Architekturziele:**
-*****
+
 * Ressourcenschonendes Vorgehen aufgrund eingeschränkter Hardware der Wetterstation
-** Die Datenakquise und anschließende Übertragung an den DB-Server erfolgt auf einem Raspberry Pi 4. Zwar hat dieser mittlerweile genügend Leistung um diesen Punkt zu vernachlässigen, jedoch sollte der externe Akku nicht unnötig beansprucht werden. 
+** Die Datenakquise und anschließende Übertragung an den Server erfolgt wahrscheinlich auf einem **Raspberry Pi 4**. Zwar hat dieser mittlerweile genügend Leistung um diesen Punkt zu vernachlässigen, jedoch sollte der externe Akku nicht unnötig beansprucht werden, da das System autark auf dem Flugplatz des MFCR läuft. 
+Zudem sind die Wetterdaten lokal zu speichern um sie bei evtl. Verbindungsabbruch später später übertragen zu können.
 * Robustheit gegen mögliche Fehler
-** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im Freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfältig behandelt werden.
+** Das System soll nach Fertigstellung auf dem Flugplatz des MFCR im Freien installiert werden, was den Wartungsvorgang deutlich erschwert. Fehlerfälle müssen demnach sorgfältig behandelt und ggf. geloggt werden.
 * Gute Wartbarkeit und Erweiterbarkeit
 ** Den Auftraggebern soll die Möglichkeit gegeben werden zu einem späteren Zeitpunkt weitere Funktionalitäten hinzuzufügen (bspw. zusätzlicher Sensor). Dafür sollte das System mit möglichst geringem Aufwand erweiterbar sein.
-** um dies zu unterstützen und die Entwicklung zu vereinfachen auf Clean Code und Dokumentation wertgelegt werden 
+** Um dies zu unterstützen und die Entwicklung zu vereinfachen sollte auf gängige Design-Patterns (Clean Code) und Dokumentation wertgelegt werden. 
 * Performance und Aktualität
-** Der User sollte Anworten mit möglichst geringer Antwortzeit vom Server erhalten 
-*****
+** Der User sollte bei der Abfrage der Daten auf der Website Anworten mit möglichst geringer Antwortzeit vom Backend erhalten. 
+
 
 //Hinweise: Beschreiben Sie die Philosophie der Architektur, d.h. den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
@@ -70,10 +96,12 @@ Hauptziel des Systems ist es ausgewählte Wetterdaten (Windstärke, Windrichtung
 . Programmiersprache Python für den Raspi verwenden
 ** Aufgrund der einfachen Wartbarkeit und guten Handhabbarkeit der Skriptsprache wurde diese Einschränkung von den Auftraggebern vorgegeben. Aufgrund der Vielzahl an verfügbaren Bibliothekten, riesigen Community und der schnell erlernbaren Syntax eine sinvolle Wahl. 
 . Programmiersprache python mit dem Django Rest Framework für Backend verwenden
+** Einige Teammitglieder haben bereits Erfahrung mit python. Des Weiteren ist die Sprache relativ leicht zu erlernen. Das Django Rest Framework bietet zusätzlich ein ORM an.
+** Alternativ wurde vom Auftraggeber php als Backend vorgeschlagen -> womit allerdings niemand im Team Erfahrung hat
 . Angular als Frontend Framework, da Entwickler bereits Erfahrungen damit haben
 . persistente Datenspeicherung in einer DB, um Daten langfristig zu sichern
-** 
-. Kommunikation zwischen Raspi und Webserver bzw. DB-Server über eine Rest-Schnittstellen über HTTPS 
+** das DBMS wurde vom Azftraggeber ausgewählt (mySQL)
+. Kommunikation zwischen Raspi und Webserver bzw. DB-Server erfolgt über eine Rest-Schnittstellen über HTTPS 
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -104,36 +132,15 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
 * Client-Server Model:
-** User als Client der über Browser mit dem Webserver kommuniziert (request and response via http)
+** User und Raspi fungieren als Clients, die über eine REST-Schnittstelle mit dem Webserver kommuniziert (request and response via http)
 * MVC-Pattern:
 ** Model = Speicherung der Entitäten in der DB (mySQL-DB)
 ** View = Darstellung der Daten im Webbrowser des User (HTML, CSS, JS)
-** Controller = Implementierung der Logik der Anwendung. Er empfängt die Requests des Clients, verarbeitet diese und antwortet dem Client. (Webserver mit php)
+** Controller = Implementierung der Logik der Anwendung. Er empfängt die Requests der Clients, verarbeitet diese und antwortet diesen.
 
 * Kommunikation zwischen Raspi und Webserver
 ** HTTPS
-////
-Das System lässt sich aus Software-Sicht demnach in drei Teilbereiche kapseln:
-**Datensammlung auf dem Raspi**:
-****
-Hierbei ist zu beachten, dass dieser im Betrieb autark, ohne Infrastruktur läuft und vorraussichlicht in einer Baumkrone befestigt wird. Eine Internetanbindung ist durch ein UMTS-Stick mit 2 GB Datenvolumen gegeben und die Stromversorgung erfolgt über ein Solarmodul.
-****
-* Wartungsmodus des Raspi muss von außen abrufbar sein um eine aufwendige Wartung per Hand (jemand muss auf den Baum klettern) zu vermeiden
-** das System muss demnach stabil laufen und eine möglichst breite Fehlerbehandlung mitbringen
-* Das Datenvolumen von 2 GB darf nicht überschritten werden
-* Umsetzung sollte in Python erfolgen für bessere Wartbarkeit
 
-**Webserver**
-****
-Der Webserver erhält zyklisch die Daten vom Raspi, speichert diese in eine Datenbank (mySQL). Zudem kommuniziert er mit dem Client über eine REST-Schnittstelle.
-**** 
-
-
-**Web-Frontend**
-****
-Datendarstellung und Anzeige auf der Website des http://www.mfc-rossendorf.de[MFC Rossendorf] 
-****
-//// 
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
