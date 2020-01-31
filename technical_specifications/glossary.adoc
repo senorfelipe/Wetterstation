@@ -31,7 +31,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |AB|Admin-Bereich|dedizierter Bereich für die Administration der Wetterstation
 |MFCR|Modellflugclub Rossendorf e.V.| Modellflugverein, der das Projekt "Wetterstation" stellt
 |SW|Software|siehe https://de.wikipedia.org/wiki/Software::[Wikipedia]
-|Raspi|Raspberry-Pi (gesamte Baureihe, es wurde kein Modell spezifiziert)| Einplatinen-Computer mit Linux-Distribution zur Datensammlung und Übermittlung an den Webserver
+|Raspi|Raspberry-Pi (gesamte Baureihe, aber wahrscheinlich Raspi 4)| Einplatinen-Computer mit Linux-Distribution zur Datensammlung und Übermittlung an den Webserver
 
 |===
 
@@ -40,7 +40,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
-|xx|xx|xx|xx|xx|
+|Wetterdaten|auf dem Raspi gesammelte Sensordaten zu Windstärke, Windrichtung, Temperatur|JSON|-|Sensordaten|
+Konfigurtationsparameter|Liste von Parametern die Einstellungen des Raspi spezifizieren (Kamera-Auflösung, Wartungsmodusflag, Wartungszeitraum, Aquiseintervall)|_spezifieziert im ERM Modell_|- |Parameter
 |===
 
 

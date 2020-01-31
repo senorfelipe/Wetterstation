@@ -53,6 +53,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 * Das System muss kompatibel mit der Webseite des mfcR sein
 * Das System muss auch auf mobilen Oberflächen laufen (z.B. Smartphones)
+* Anwendung von gängigen Design-Patterns zur besseren Erweiterbarkeit
 
 
 == Zusätzliche Anforderungen
@@ -60,7 +61,8 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Ressourcenbegrenzungen
 * zu nutzende Komponenten: mySQL-Datenbank, Angular
-* Vorgaben für die Programmiersprache: Python
+* Vorgaben für die Programmiersprache auf Raspi: Python
+* Hardwareeinschränkungen durch Raspi
 //* zu unterstützende Plattformen / Betriebssysteme
 //* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
 
