@@ -5,7 +5,8 @@ Dieser Use Case beschreibt die in regelmäßige Übertragung der Wetterdaten an 
 
 ===	Kurzbeschreibung der Akteure
 ==== RaspberryPi
-* er sammelt die Wetterdaten und postet sie an den Db-Server
+* er sammelt die Wetterdaten und postet sie an den DB-Server
+
 ==== Datenbank-Server
 * er empfängt die Daten und schreibt diese in die Datenbank
 
@@ -36,28 +37,28 @@ Wenn Raspi im Schritt 3 des Standardablauf keine Verbindung aufbauen kann, dann
 Wenn Raspi im Schritt 3 des Standardablauf keine Verbindung aufbauen kann und auch nach erneutem Versuch keine Verbindung hergestellt werden kann, dann
 
 . speichert der Raspi die Wetterdaten lokal ab
-. schreibt er in die log file, dass keine Daten übertragen wurden 
-. üerträgt diese lof file beim nächsten erfolgreichen Post
+. schreibt er in die logfile, dass keine Daten übertragen wurden 
+. überträgt diese logfile beim nächsten erfolgreichen Post
 
-=== Unterabläufe (subflows)
+//=== Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
-==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
 
-=== Wesentliche Szenarios
+//=== Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
+//==== <Szenario 1>
+//. <Szenario 1, Schritt 1>
+//. 	…
+//. <Szenario 1, Schritt n>
 
-===	Nachbedingungen
+//===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-==== <Nachbedingung 1>
+//==== <Nachbedingung 1>
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-==== <Besondere Anforderung 1>
+//==== <Besondere Anforderung 1>

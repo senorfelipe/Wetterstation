@@ -1,21 +1,22 @@
 == Use-Case: Webdiagramm
 ===	Kurzbeschreibung
-Es geht um die Anzeige der gesammelten Daten. Die Funktionen die durch die Anzeige gewährleistet sollen und Mögliche Schwierigkeiten.
+Es geht um die Anzeige der gesammelten Daten, die Funktionen, die durch die Anzeige gewährleistet werden sollen und mögliche Schwierigkeiten.
 
 ===	Kurzbeschreibung der Akteure
 ==== User, Admins
 
+
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-Daten werden gesammelt
-Daten werden in Datenbank ordnungsgemäß gespeichert
-Daten werden vom Server richtig verarbeitet
+* Daten werden gesammelt
+* Daten werden in Datenbank ordnungsgemäß gespeichert
+* Daten werden vom Server richtig verarbeitet
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
 .  Der Use Case beginnt, wenn ein User oder ein Admin die gesammelten Daten aufrufen und auswerten möchte
-.  Der User/Admin ruft die Seite auf in der die Daten angezeigt werden sollen
+.  Der User/Admin ruft die Seite auf, in der die Daten angezeigt werden sollen
 .  Die gesammelten Daten werden als Diagramm angezeigt
 .  Der User/Admin wählt die Datenart aus, die er sehen möchte
 .  Der User/Admin wählt den Zeitraum aus in dem die gesammelten Daten angezeigt werden sollen
@@ -36,26 +37,26 @@ Wenn der User/Admin im Schritt 7 des Standardablauf die Datenart oder den Zeitra
 
 ==== Datenart Änderung
 .  Der User/Admin wählt eine andere Datenart 
-.  Der Server greift erneut aud die Datenbank zu, um die erforderlichen Daten zu erhalten
+.  Der Server greift erneut auf die Datenbank zu, um die erforderlichen Daten zu erhalten
 .  Der Subflow wird in Schritt 5 des Usecase fortgesetzt
 
 ==== Zeitraum Änderung
 .  Der User/Admin wählt einen anderen Zeitraum für die momentan ausgewählte Datenart
-.  Der Server greift erneut aud die Datenbank zu, um die erforderlichen Daten zu erhalten
+.  Der Server greift erneut auf die Datenbank zu, um die erforderlichen Daten zu erhalten
 .  Der Usecase wird in Schritt 6 des Usecase fortgesetzt
 
-=== Wesentliche Szenarios
+//=== Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
+//==== <Szenario 1>
+//. <Szenario 1, Schritt 1>
+//. 	…
+//. <Szenario 1, Schritt n>
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 ==== Diagramm
 Der Server zeigt dem User/Admin ein Diagramm, was auf den von ihm/ihr ausgewählten Daten und dem ausgewählten Zeitraum generiert wurde, um eine schnelle und einfache Auswertung der aufgezeichneten Daten zu ermöglichen.
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-==== <Besondere Anforderung 1>
+//==== <Besondere Anforderung 1>

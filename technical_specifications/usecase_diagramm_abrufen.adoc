@@ -53,15 +53,16 @@ Wenn der User/Admin im Schritt 3 des Standardablauf einen Zeitraum wählt in dem
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
+//==== <Szenario 1>
+//. <Szenario 1, Schritt 1>
+//. 	…
+//. <Szenario 1, Schritt n>
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 ==== Diagrammanzeige
-. Dem User/Admin wird ein Diagramm entsprechend den ausgewählten Daten und dem Zeitraum angezeigt und wartet auf Änderungen von User/Admin Seite
+. Dem User/Admin wird ein Diagramm entsprechend den ausgewählten Daten und dem Zeitraum angezeigt und wartet auf Änderungen von User-/Adminseite
+
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 ==== Gleichzeitige Änderung der Daten und des Zeitraumes

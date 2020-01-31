@@ -1,32 +1,34 @@
-== Projektplan Wetterstation
+= Projektplan Wetterstation
 
-=== Einführung
+== Einführung
 Dieses Dokument gibt einen Überblick über das Projekt Wetterstation. Es wird das Projektteam, eingesetzte Tools/Techniken, Risiken und Iterationen vorgestellt.
 
-=== Das Team
-- Martin    : Tester
-- Josefin   : Analyst
-- Philipp   : Architekt
-- Justin    : Entwickler
-- Alexander : Entwickler
-- Clemens   : Projektmanager
-- Agustin   : Deployment Engineer
+== Das Team
+- Martin Großmann    : Tester, Projektmanager
+- Josefin Hähne      : Analyst, Architekt
+- Philipp Barth      : Architekt, Entwickler
+- Justin Schirdewahn : Entwickler, Tester
+- Alexander Schoch   : Entwickler, Analyst
+- Clemens Kujus      : Projektmanager, Entwickler
+- Agustin Calvimontes: Deployment Engineer
 
-=== Kommunikationswege
+Nach der ersten Iteration wurden die Hauptrollen von Martin Großmann (ehemals Projektmanager) und Clemens Kujus (ehmals Tester) getauscht
+
+== Kommunikationswege
 . WhatsApp für schnelle Kommunikation
 . GitHub-Issues für Themenbearbeitung
 . E-Mail für Kontakt mit den Kunden/Coach
 . Regelmäßige Treffen im Team (nach Bedarf mit Kunde/Coach)
 . Kontakt im Alltag an der HTW
 
-=== Projektablauf
+== Projektablauf
 Das Projekt ist in einer Zeitspanne von Dezember 2019 bis Juni 2020 gestreckt. Dabei gibt es zwei große Etappenziele. Im ersten Semester steht die Analyse und Projektplanung im Vordergrund, im zweiten Semester die Implementierung, wobei natürlich im Sinne der iterativen Entwicklung keine strikte Trennung der Aufgaben erfolgt.
 
 Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und ausgewertet, wobei nach Abschluss einer Iteration im Team auf deren Basis die nächste Iteration geplant wird.
 
-=== Meilensteine und Ziele
+== Meilensteine und Ziele
 [#Iterationen]
-[cols="0,3,1" options="header"]
+[cols="1,3,1" options="header"]
 |===
 |Iteration
 |Primary Objectives
@@ -69,19 +71,36 @@ Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und
  - Links (Likliste vom Auftraggeber) durchgehen und relevante Inhalte raussuchen
 |09.01.2020
 |I-5
-|
+|- Überarbeiten der Dokumentationsdokumente
+
+ - Design-Dokument erstellen
+
+ - Belagabgabe vorbereiten/durchführen
+
+ - Git-Repo "aufräumen"
 |23.01.2020
 |I-6
 |Pause aufgrund der Prüfungszeit
 |06.02.2020
 |===
 
+== Fortschritte nach Sim4Seed
 
-=== Eingesetzte Tools/Techniken
+Iteration 1:
+
+[#img-ip2]
+.Fortschritt Iteration 2
+include::images_project_status/Iteration_2.png[]
+
+[#img-ip3]
+.Fortschritt Iteration 3
+include::images_project_status/Iteration_3.jpg[]
+
+== Eingesetzte Tools/Techniken
 - Arbeitsweise nach dem https://www2.htw-dresden.de/~anke/openup/index.htm[Open Unified Process]
 - GitHub für Versionsverwaltung/Issues
 - Visual Paradigm für Diagramme 
 
-=== Risk List
-include::Risk_List.adoc[]
+== Risk List
+Siehe Risikoliste
 
