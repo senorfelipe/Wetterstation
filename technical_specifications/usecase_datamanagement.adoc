@@ -60,3 +60,6 @@ Der Server zeigt dem User/Admin ein Diagramm, was auf den von ihm/ihr ausgewähl
 //=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 //==== <Besondere Anforderung 1>
+
+=== Wireframes
+image::../architecture_docs/visualizations/Data_Flow_Diagramm1.jpg[]

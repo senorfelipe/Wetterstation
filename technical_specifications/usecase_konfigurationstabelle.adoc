@@ -65,3 +65,7 @@ Wenn der Admin im Schritt 3 des Standardablaufes unzulässige Werte in die Confi
 ==== Einhalten der Datentypen
 . Jede Zeile der Tabelle Config kann nur bestimmte Werte speichern
 . Der Admin darf die Werte nur so ändern, dass diese Ordnungsgemäß gespeichert und verarbeitet werden können
+
+=== Wireframes
+image::../architecture_docs/visualizations/ERM.png[]
+image::wireframes/AdminPanel.PNG[]
