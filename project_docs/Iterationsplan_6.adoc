@@ -1,0 +1,12 @@
+== Iterationsplan 06.02.2020 - 20.02.2020
+
+=== Priorisierte Aufgaben
+- Pause aufgrund der Prüfungszeit
+
+=== Work Items List
+https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4ReBgc/edit?usp=sharing
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
