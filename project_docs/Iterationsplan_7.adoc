@@ -1,9 +1,5 @@
 == Iterationsplan 20.02.2020 - 06.03.2020
 
-=== Priorisierte Aufgaben
-- Rollenverteilung regeln
-- erste Programmierungen vornehmen
-
 === Work Items List
 https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4ReBgc/edit?usp=sharing
 
@@ -11,6 +7,3 @@ https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4Re
 Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
 
 include::Risk_List.adoc[]
-
-=== Bewertung
-Die Bewertung der Iteration erfolgt beim Teamtreffen nach der Iteration anhand der Verständlichkeit der Aufgabenlösung gegenüber anderen Teammitgliedern und dem Aufkommen an neuen Fragen für das nächste Kundengespräch, wobei mehr Fragen eine bessere Lösung der Aufgaben andeuten können. Die Rolleneinteilung für den "zweiten Teil" des Projektes, also das 4. Fachsemester, sollte sowohl im Sinne des OpenUP als auch des Teams geregelt sein, d.h. dass sich z.B. der Projektmanager auch als Entwickler mit Fokus auf die Datenbank betätigt.
