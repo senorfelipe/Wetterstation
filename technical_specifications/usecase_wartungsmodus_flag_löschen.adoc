@@ -49,3 +49,4 @@ Für diesen Use-Case sind keine Unterabläufe definiert
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 ==== Raspberry Pi wird nicht automatisch heruntergefahren
 . Der Raspberry Pi schaltet sich nicht von selbst wieder aus bzw. kehrt nicht in seinen Ruhezustand zurück, damit die Wartungen ordnungsgemäß durchgeführt werden können
+
