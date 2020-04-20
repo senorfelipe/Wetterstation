@@ -1,8 +1,9 @@
 from django.db import models
 
 
-# Create your models here.
 
+# Create your models here.
+# default value not null
 class Temperature(models.Model):
     time = models.DateTimeField(auto_now=True)
     value = models.DecimalField(max_digits=5, decimal_places=2)
