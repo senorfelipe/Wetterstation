@@ -1,26 +1,26 @@
 = Vorgehen mit git und branches
 
 == allgemeine Infos:
-* der "maser" Brnach ist die sog. "base" 
+* der "master" Branch ist die sog. "base"
 ** alle pull requests werden gegen diesen Branch gemerged
-** er sollte möglichst immer in einem sauberem Zustand sein, d.h. Code, der in den master Brach geht, sollte funktionieren
+** er sollte möglichst immer in einem sauberem Zustand sein, d.h. Code, der in den master Brach geht, soll funktionieren
 
 
 == Ablauf zum Entwickeln von Code:
 * neuen Branch anlegen (wie Namenskonvention):
 ....
-git branch <banch>
+git branch <name>
 ....
 * in den neuen Branch wechseln:
 ....
-git checkout <branch>
+git checkout <name>
 ....
 * _entwickeln_
 * Änderungen hinzufügen, commiten und pushen:
 ....
 git add <files>
 git commit -m"sinvolle commit Nachricht"
-git push --set-upstream origin feature-1-test_branch
+git push --set-upstream origin <name>
 ....
 
 * wenn das Feature "fertig" ist -> Pull Request erstellen und Reviewer hinzufügen
