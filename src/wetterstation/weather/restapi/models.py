@@ -5,6 +5,7 @@ This file contains all models for the wetterstation application.
 Each model represents a single table in our database.
 """
 
+
 # Create your models here.
 
 
@@ -25,4 +26,10 @@ class Wind(models.Model):
     def __str__(self):
         return 'created: ' + str(self.time) + ', speed: ' + self.speed + ', direction: ' + str(self.direction)
 
-# class Images(models.Model):
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/% Y/% m/% d/')
+    uploaded = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.image.name

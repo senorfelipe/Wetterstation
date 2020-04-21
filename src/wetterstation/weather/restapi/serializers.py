@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Wind, Temperature
+from .models import Wind, Temperature, Image
 
 
 class WindSerializer(serializers.ModelSerializer):
@@ -12,4 +12,10 @@ class WindSerializer(serializers.ModelSerializer):
 class TemperatureSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Temperature
+        fields = '__all__'
+
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
         fields = '__all__'
