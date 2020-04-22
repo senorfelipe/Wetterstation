@@ -1,0 +1,19 @@
+== Iterationsplan 22.04.2020 - 06.05.2020
+
+=== Priorisierte Aufgaben
+- Front-End mit grundsätzlichen Funktionen ausstatten -> Alex
+- Front-End und Back-End zusammenführen -> Alex, Philipp, Justin
+- Datenformat der Wetterdaten festlegen -> Alex, Philipp, Justin
+- Rest-API vervollständigen, Authentifizierung regeln -> Philipp
+- Dokumentation überarbeiten -> Josefin
+- Aufgaben des Technical Writer/Deployment Engineer auf das Projekt abbilden -> Agustin
+- Test auf Grundlage von Use-Cases beschreiben und entwickeln -> Hannes
+- Projektabgabe spezifizieren (welche Dokumente nötig etc.) -> Clemens
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+=== Bewertung
+Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.

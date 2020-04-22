@@ -4,13 +4,13 @@
 Dieses Dokument gibt einen Überblick über das Projekt Wetterstation. Es wird das Projektteam, eingesetzte Tools/Techniken, Risiken und Iterationen vorgestellt.
 
 == Das Team
-- Martin Großmann    : Tester, Projektmanager
+- Hannes Fogut       : Tester, Entwickler
 - Josefin Hähne      : Analyst, Architekt
 - Philipp Barth      : Architekt, Entwickler
 - Justin Schirdewahn : Entwickler, Tester
-- Alexander Schoch   : Entwickler, Analyst
-- Clemens Kujus      : Projektmanager, Entwickler
-- Agustin Calvimontes: Deployment Engineer
+- Alexander Schoch   : Entwickler, Projektmanager
+- Clemens Kujus      : Projektmanager, Analyst
+- Agustin Calvimontes: Deployment Engineer, Technical Writer
 
 Nach der ersten Iteration wurden die Hauptrollen von Martin Großmann (ehemals Projektmanager) und Clemens Kujus (ehmals Tester) getauscht
 
@@ -49,12 +49,12 @@ Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und
 
  - Vision bearbeiten
 
- - Gloassar anlegen/bearbeiten
+ - Glossar anlegen/bearbeiten
 
  - 2. Kundengespräch vorbereiten/durchführen
 |26.12.2019
 |I-4
-|- Eine geregelte Kommunikation der Afugabenteilung durchsetzen und anwenden (Work-Items-List, Git-Issues)
+|- Eine geregelte Kommunikation der Aufgabenteilung durchsetzen und anwenden (Work-Items-List, Git-Issues)
 
  - Use Cases ableiten und einen großteil davon detailliert ausarbeiten
 
@@ -68,7 +68,7 @@ Die Iterationslängen betragen 2 Wochen. Diese werden geplant, durchgeführt und
 
  - Aktivitätsdiagramme zu komplexen Abläufen erarbeiten
 
- - Links (Likliste vom Auftraggeber) durchgehen und relevante Inhalte raussuchen
+ - Links (Linkliste vom Auftraggeber) durchgehen und relevante Inhalte raussuchen
 |09.01.2020
 |I-5
 |- Überarbeiten der Dokumentationsdokumente
