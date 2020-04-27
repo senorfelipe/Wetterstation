@@ -1,3 +1,7 @@
+# visual paradigm
+**.lck
+**.bak**
+
 
 # Django #
 *.log
@@ -109,3 +113,4 @@ GitHub.sublime-settings
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+/src/wetterstation/uploaded_media/
