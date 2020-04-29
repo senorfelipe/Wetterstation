@@ -24,7 +24,7 @@ include::../Iterationsplan_10.adoc[]
 .. Neue Iterationsplanung: ab jetzt von Mittwoch bis Mittwoch 2-wöchig -> Begründung in der Neuorganisation der Treffen mit dem Kunden
 .. Mangelnde Kommunikation mit GitHub-Issues
 .. Dokumentation beachten
-. Afugabenverteilung siehe Iterationsplan 11
+. Aufgabenverteilung siehe Iterationsplan 11
 . Termin des nächsten Treffens ist Freitag, der 22.04.2020 15 Uhr
 
 === Offenes
