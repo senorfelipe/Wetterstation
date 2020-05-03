@@ -1,7 +1,7 @@
 from django.db import models
 
 """
-This file contains all models for the wetterstation application.
+This file contains all models for the 'Wetterstation' application.
 Each model represents a single table in our database.
 """
 
@@ -18,7 +18,7 @@ class Temperature(models.Model):
 
 
 class Wind(models.Model):
-    # TODO ask costumer which foramt to use
+    # TODO ask costumer which format to use
     speed = models.DecimalField(max_digits=5, decimal_places=1)  # in m/s
     direction = models.DecimalField(max_digits=5, decimal_places=1)  # in degrees
     time = models.DateTimeField(auto_now_add=True)
