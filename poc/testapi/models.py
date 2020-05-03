@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 # Create your models here.
 # default value not null
 class Temperature(models.Model):

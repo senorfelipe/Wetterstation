@@ -24,12 +24,14 @@ class Wind(models.Model):
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return 'created: ' + str(self.time) + ', speed: ' + self.speed + ', direction: ' + str(self.direction)
+        return 'created: ' + str(self.time) + ', speed: ' + str(self.speed) + ', direction: ' + str(self.direction)
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/% Y/% m/% d/')
-    uploaded = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d')
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.image.name
+
+
