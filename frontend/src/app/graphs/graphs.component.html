@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script> src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" </script>
+</head>
+
+
+<body>
+
+<div class="md-form">
+<mat-card>
+  <input
+    type="time"
+    id="input"
+    class="form-control"
+    value="13:00"
+    mdbInput
+  />
+  <label for="input"> bis </label>
+  <input
+    type="time"
+    id="input"
+    class="form-control"
+    value="13:00"
+    mdbInput
+  />
+<mat-form-field>
+  <mat-label>Startdatum</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Enddatum</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+  </mat-card>
+</div>
+
+
+
+<div class="column">
+<mat-card>
+<canvas id= "temp"></canvas>
+</mat-card>
+</div>
+
+<div class="column">
+<mat-card>
+<canvas id= "speed"></canvas>
+</mat-card>
+</div>
+
+
+
+
+</body>
+</html>
