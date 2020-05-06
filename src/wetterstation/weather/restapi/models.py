@@ -35,3 +35,17 @@ class Image(models.Model):
         return self.image.name
 
 
+class Configurations(models.Model):
+    maintenance_mode = models.CharField(max_length=20)
+    res_hight = models.IntegerField
+    res_width = models.IntegerField
+
+    def __str__(self):
+        return 'maintenance: ' + self.maintenance_mode + 'resolution: ' + self.res_hight + 'x' + self.res_width
+
+
+class ConfigSession(models.Model):
+    configuration = models.OneToOneField(Configurations, primary_key=True)
+    start_time = models.TimeField(auto_now_add=True)
+    applied = models.BooleanField
+    # TODO add refrence to user here

@@ -9,7 +9,7 @@ import { BorderWidth, Chart, Point, ChartColor } from 'chart.js';
 })
 export class GraphsComponent implements OnInit {
 
-  
+
   constructor() { }
 
   ngOnInit() {
@@ -19,16 +19,16 @@ export class GraphsComponent implements OnInit {
       data: {
           labels: ['test', 'test', 'test', 'test', 'test', 'test'],
           datasets: [{
-              label: 'this is a test',
-              data: [10, 1, 3, 5, 2, 3],
+              label: 'Temperatures in C°',
+              data: [35, 1, 3, 5, 2, 3],
               fill: true,
-              backgroundColor: 
+              backgroundColor:
                   'rgba(255, 99, 132, 0.2)'
               ,
-              borderColor: 
+              borderColor:
                   'rgba(255, 99, 132, 1)',
-                 
-              
+
+
               borderWidth: 0
           }]
       },
@@ -42,23 +42,23 @@ export class GraphsComponent implements OnInit {
           }
       }
   });
-  
+
   var ctx = document.getElementById('speed');
   var temp = new Chart(ctx, {
       type: 'line',
       data: {
           labels: ['timestamp','timestamp','timestamp','timestamp','timestamp'],
           datasets: [{
-              label: 'this is a test',
+              label: 'Windspeed in m/s',
               data: [10, 1, 3, 5, 2, 3],
               fill: true,
-              backgroundColor: 
+              backgroundColor:
                 'rgba(128, 255, 132, 0.2)'
               ,
-              borderColor: 
+              borderColor:
                   'rgba(128, 255, 132, 1)',
-                 
-              
+
+
               borderWidth: 0
           }]
       },
