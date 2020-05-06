@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Chart} from 'chart.js';
 import {TemperatureData, WeatherDataService} from "../weather-data.service";
@@ -8,7 +8,7 @@ import {TemperatureData, WeatherDataService} from "../weather-data.service";
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.scss']
 })
-export class GraphsComponent implements OnInit, OnChanges {
+export class GraphsComponent implements OnInit {
   temperatureData: TemperatureData[] = [];
   weatherDataService: WeatherDataService;
 
@@ -20,10 +20,11 @@ export class GraphsComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.weatherDataService.getTemperatures().subscribe((data) => {
       this.temperatureData = data;
+      this.buildGraphs();
     });
   }
 
-  ngOnChanges() {
+  buildGraphs() {
     var ctx = document.getElementById('temp');
     var temps = new Chart(ctx, {
       type: 'line',
@@ -84,6 +85,7 @@ export class GraphsComponent implements OnInit, OnChanges {
       }
     });
   }
+
 
 }
 
