@@ -16,4 +16,10 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
+Das Front-End wurde mit Grundfunktionalitäten ausgestattet, lediglich die Bildergalerie fehlt.
+Das Back-End und das Front-End sind soweit zusammengeführt, dass eine Kommunikation dazwischen möglich ist.
+Das Datenformat der Wetterdaten wurde uns vom Kunden noch nicht vorgelegt.
+Die Rest-API wurde ausgebaut, allerdings ist die Implementierung einer Authentifizierung in der Priorität nach hinten gerückt.
+Die Überarbeitung der Dokumentation wurde angefangen.
+Ein Testdokument wurde erstelt, bei welchem die Grundsätze des Testens für die Wetterstation aufgeschrieben wurden.
+DIe Projektabgabe wurde nicht weiter spezifiziert.

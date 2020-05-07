@@ -1,0 +1,28 @@
+== Protokoll zum Treffen am 07.05.2020
+
+=== Allgemeines
+==== Zeit
+15.00 bis 15.45 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [x] Josefin
+* [] Agustin
+* [x] Hannes
+
+* **extern:**
+
+=== Iterationsplan
+include::../Iterationsplan_12.adoc[]
+
+=== Themen
+. Auswertung der Iteration 11
+. Auswertung Prakikum Projektmanagement
+
+=== Ergebnisse
+. Aufgaben wurde zugeteilt (s. Iterationsplan 12)
+. Kein negatives Feedback zum Projektmanagement
