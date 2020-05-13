@@ -7,30 +7,36 @@
 
 .canvas-container {
     display: flex;
-    box-align: left;
+    box-align: center;
     border: 1px solid lightgray;
     margin-bottom: 0em;
     width: auto;
     height:auto
    
     }
-/* Create three equal columns that floats next to each other */
+
 .column {
-    padding: 0.2rem 0.2rem;
-    float: left;
-    width: 47%;
+    padding: 1rem 1rem;
+   
+    vertical-align: middle;
+    width: 90%;
+    height: 90%;
+    
   }
   
-  /* Clear floats after the columns */
+  /* Clear floats after the columns 
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
+  */
   
-  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) 
   @media screen and (max-width: 800px) {
     .column {
       width: 100%;
     }
   }
+  */

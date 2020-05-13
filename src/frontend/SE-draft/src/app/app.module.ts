@@ -54,6 +54,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {WeatherDataService} from "./weather-data.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ImageService } from './image-data.service';
 
 ;
 
@@ -116,8 +117,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+
   ],
-  providers: [WeatherDataService, HttpClient],
+  providers: [WeatherDataService,ImageService, HttpClient],
   bootstrap: [AppComponent, AdminComponent]
 
 })

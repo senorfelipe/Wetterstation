@@ -1,1 +1,9 @@
-<p>webcam works!</p>
+
+
+<div class="row">
+    <ul id= "thumbnailList">
+        <li *ngFor="let image of Images;let indexOfelement=index">
+            <img src="{{getImageLocation()[indexOfelement]}}" class="thumbnail" width="200" height="160" >
+        </li>
+    </ul>
+</div>

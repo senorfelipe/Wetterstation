@@ -7,23 +7,28 @@
 
 <body>
 
+<!--
+
 <div class="md-form">
 <mat-card>
-  <input
-    type="time"
-    id="input"
-    class="form-control"
-    value="13:00"
-    mdbInput
-  />
+<form class="start-time">
+  <mat-form-field class>
+    <mat-label>Beginn</mat-label>
+    <input matInput  type="time">
+  </mat-form-field>
+
+
+  <mat-label>bis</mat-label>
+
+
+   <mat-form-field class>
+    <mat-label>Ende</mat-label>
+    <input matInput  type="time">
+  </mat-form-field>
+</form>
   <label for="input"> bis </label>
-  <input
-    type="time"
-    id="input"
-    class="form-control"
-    value="13:00"
-    mdbInput
-  />
+
+
 <mat-form-field>
   <mat-label>Startdatum</mat-label>
   <input matInput [matDatepicker]="picker">
@@ -40,10 +45,11 @@
   </mat-card>
 </div>
 
+-->
 
 
 <div class="column">
-<mat-card>
+<mat-card class = "temps">
 <canvas id= "temp"></canvas>
 </mat-card>
 </div>

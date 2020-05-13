@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherDataService {
+export class ImageService {
   private apiUrl = 'http://127.0.0.1:8000/api/';
   private http: HttpClient;
 
@@ -12,15 +12,16 @@ export class WeatherDataService {
     this.http = http;
   }
 
-  getTemperatures() {
-    return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/');
+  getImages() {
+    
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
 
   }
-
+ 
 }
 
-export interface TemperatureData {
+export interface ImageData {
   id: Number,
-  value: Number,
+  image: String,
   time: Date
 }
