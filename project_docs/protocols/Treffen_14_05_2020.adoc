@@ -1,0 +1,31 @@
+== Protokoll zum Treffen am 14.05.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.45 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [] Josefin
+* [] Agustin
+* [] Hannes
+
+* **extern:**
+Herr Brenner
+
+=== Iterationsplan
+include::../Iterationsplan_12.adoc[]
+
+=== Themen
+. Fragen zum Back-End
+
+=== Ergebnisse
+. wir bekommen ein Verzeichnis mit den Messwert-/Bilddaten ([Zeitstempel].json)
+.. falls neuere Datei korrekt in der Datenbank gespeichert wurde, wird die vorhergehende gelöscht
+. Messintervall wird noch bestimmt (vrstl. alle 15 Minuten)
+. Bild normal schicken (als [Zeitstempel].jpg etc.)
+. JSON-Keys entsprechen den gegebenen
