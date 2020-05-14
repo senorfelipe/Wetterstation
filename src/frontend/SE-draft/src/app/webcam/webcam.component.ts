@@ -13,6 +13,8 @@ export class WebcamComponent implements OnInit {
   Images: ImageData[]=[];
   ImageService: ImageService;
 
+  panelOpenState = false;
+
   constructor(ImageService: ImageService) {
     this.ImageService= ImageService
 
@@ -30,4 +32,10 @@ export class WebcamComponent implements OnInit {
     return this.Images.map(data=>data.image)
     
   }
+  getImageDate(){
+    console.log(this.Images.map(data=>data.time));
+    return this.Images.map(data=>data.time)
+  
+  }
 }
+

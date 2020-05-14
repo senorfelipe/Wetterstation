@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {Chart} from 'chart.js';
 import {TemperatureData, WeatherDataService} from "../weather-data.service";
+import { BehaviorSubject } from 'rxjs';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-graphs',
@@ -11,10 +13,12 @@ import {TemperatureData, WeatherDataService} from "../weather-data.service";
 export class GraphsComponent implements OnInit {
   temperatureData: TemperatureData[] = [];
   weatherDataService: WeatherDataService;
+  extendedModeStatus: BehaviorSubject<boolean>;
+  extendedMode: boolean = false;
 
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
-
+    this.extendedModeStatus = new BehaviorSubject(false)
   }
 
   ngOnInit() {
@@ -22,7 +26,17 @@ export class GraphsComponent implements OnInit {
       this.temperatureData = data;
       this.buildGraphs();
     });
+    this.extendedModeStatus.subscribe((data)=>this.extendedMode=data)
+  
   }
+
+  onChange(event: MatSlideToggleChange){
+    console.log(event);
+    this.extendedModeStatus.next(event.checked)
+  }
+
+  
+
 
   buildGraphs() {
     var ctx = document.getElementById('temp');

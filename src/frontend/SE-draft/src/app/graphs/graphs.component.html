@@ -7,28 +7,15 @@
 
 <body>
 
-<!--
+
 
 <div class="md-form">
 <mat-card>
-<form class="start-time">
-  <mat-form-field class>
-    <mat-label>Beginn</mat-label>
-    <input matInput  type="time">
-  </mat-form-field>
 
 
-  <mat-label>bis</mat-label>
 
-
-   <mat-form-field class>
-    <mat-label>Ende</mat-label>
-    <input matInput  type="time">
-  </mat-form-field>
-</form>
-  <label for="input"> bis </label>
-
-
+<mat-slide-toggle  (change)="onChange($event)">erweiterter Modus</mat-slide-toggle>
+<ng-template [ngIf]="extendedMode">
 <mat-form-field>
   <mat-label>Startdatum</mat-label>
   <input matInput [matDatepicker]="picker">
@@ -36,16 +23,18 @@
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
+
 <mat-form-field>
   <mat-label>Enddatum</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
+
+</ng-template>
   </mat-card>
 </div>
 
--->
 
 
 <div class="column">

@@ -1,9 +1,25 @@
 
 
-<div class="row">
-    <ul id= "thumbnailList">
-        <li *ngFor="let image of Images;let indexOfelement=index">
-            <img src="{{getImageLocation()[indexOfelement]}}" class="thumbnail" width="200" height="160" >
-        </li>
-    </ul>
+<div class ="imagepanels">
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Platzhalter fürs Datum
+      </mat-panel-title>
+      <mat-panel-description>
+        
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+        <mat-grid-list cols="4">
+            <mat-grid-tile *ngFor="let image of Images;let indexOfelement=index">
+                <mat-grid-tile-header>
+                    {{getImageDate()[indexOfelement]}}
+                </mat-grid-tile-header>
+                <img src="{{getImageLocation()[indexOfelement]}}" class="thumbnail" width="200" height="160" >
+             </mat-grid-tile>
+        </mat-grid-list>
+     </mat-expansion-panel>
+
+</mat-accordion>
 </div>
