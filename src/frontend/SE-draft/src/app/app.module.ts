@@ -11,7 +11,7 @@ import {WebcamComponent} from './webcam/webcam.component';
 import {AdminComponent} from './admin/admin.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
+import {FormsModule} from '@angular/forms';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {PortalModule} from '@angular/cdk/portal';
@@ -24,6 +24,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
@@ -71,6 +72,7 @@ import { ImageService } from './image-data.service';
     AppRoutingModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
+    FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatDatepickerModule,

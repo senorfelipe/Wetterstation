@@ -1,32 +1,43 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,OnDestroy, OnChanges} from '@angular/core';
 
 import {Chart} from 'chart.js';
 import {TemperatureData, WeatherDataService} from "../weather-data.service";
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatRadioChange } from '@angular/material/radio';
+
+
 
 @Component({
   selector: 'app-graphs',
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.scss']
 })
-export class GraphsComponent implements OnInit {
+export class GraphsComponent implements OnInit,OnDestroy {
   temperatureData: TemperatureData[] = [];
   weatherDataService: WeatherDataService;
   extendedModeStatus: BehaviorSubject<boolean>;
-  extendedMode: boolean = false;
+  
+
+  weatherDataSubscription: Subscription;
+
+
+  chosenbtn:number=3;
+  timepickers: number[]=[1,3,7,14,21];
 
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
     this.extendedModeStatus = new BehaviorSubject(false)
+  
   }
 
   ngOnInit() {
-    this.weatherDataService.getTemperatures().subscribe((data) => {
+    this.weatherDataSubscription=
+      this.weatherDataService.getTemperatures(this.chosenbtn).subscribe((data) => {
       this.temperatureData = data;
       this.buildGraphs();
     });
-    this.extendedModeStatus.subscribe((data)=>this.extendedMode=data)
+
   
   }
 
@@ -34,19 +45,33 @@ export class GraphsComponent implements OnInit {
     console.log(event);
     this.extendedModeStatus.next(event.checked)
   }
+ 
+  onbtnChange(event:MatRadioChange){
+    console.log(event);
 
-  
+    this.weatherDataSubscription=
+      this.weatherDataService.getTemperatures(this.chosenbtn).subscribe((data) => {
+      this.temperatureData = data;
+      this.buildGraphs();
+      console.log(data);   
+    });
+  }
 
+
+  ngOnDestroy(){
+    this.weatherDataSubscription.unsubscribe();
+
+}
 
   buildGraphs() {
     var ctx = document.getElementById('temp');
     var temps = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: this.temperatureData.map(data => new Date(data.time).getHours()),
+        labels: this.temperatureData.map(data => new Date(data.time).toLocaleString()),
         datasets: [{
           label: 'Temperatures in C°',
-          data: this.temperatureData.map(data => data.value),
+          data: this.temperatureData.map(data => data.degrees),
           fill: true,
           backgroundColor:
             'rgba(255, 99, 132, 0.2)'

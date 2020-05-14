@@ -9,31 +9,29 @@
 
 
 
-<div class="md-form">
-<mat-card>
+<mat-card class= "selectorcard">
 
-
-
-<mat-slide-toggle  (change)="onChange($event)">erweiterter Modus</mat-slide-toggle>
-<ng-template [ngIf]="extendedMode">
+<mat-slide-toggle class="toggleslider"  (change)="onChange($event)" >erweiterter Modus</mat-slide-toggle>
+<ng-template [ngIf]="(extendedModeStatus | async)"[ngIfElse]="simpleMode">
 <mat-form-field>
   <mat-label>Startdatum</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
+</ng-template>
 
+<ng-template #simpleMode>
+<mat-radio-group aria-label="Select an option" 
+ [(ngModel)]="chosenbtn"
+>
+  <mat-radio-button *ngFor="let pick of timepickers" [value]="pick"  (change)="onbtnChange($event)">
+  {{pick}}
+  </mat-radio-button>
 
-<mat-form-field>
-  <mat-label>Enddatum</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
+</mat-radio-group>
 </ng-template>
   </mat-card>
-</div>
 
 
 
