@@ -1,7 +1,7 @@
 from django.db import models
 
 """
-This file contains all models for the 'Wetterstation' application.
+This file contains all models for the wetterstation application.
 Each model represents a single table in our database.
 """
 
@@ -10,29 +10,29 @@ Each model represents a single table in our database.
 
 
 class Temperature(models.Model):
-    value = models.DecimalField(max_digits=5, decimal_places=1)
-    time = models.DateTimeField(auto_now_add=True)
+    degrees = models.DecimalField(max_digits=5, decimal_places=1)
+    time = models.DateTimeField()
 
     def __str__(self):
-        return 'created: ' + str(self.time) + ', temperature: ' + str(self.value)
+        return 'created: ' + str(self.time) + ', temperature: ' + str(self.degrees)
 
 
 class Wind(models.Model):
-    # TODO ask costumer which format to use
+    # TODO ask costumer which foramt to use
     speed = models.DecimalField(max_digits=5, decimal_places=1)  # in m/s
     direction = models.DecimalField(max_digits=5, decimal_places=1)  # in degrees
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField()
 
     def __str__(self):
         return 'created: ' + str(self.time) + ', speed: ' + str(self.speed) + ', direction: ' + str(self.direction)
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/%Y/%m/%d')
-    time = models.DateTimeField(auto_now_add=True)
+    image_url = models.ImageField(upload_to='images/%Y/%m/%d')
+    time = models.DateTimeField()
 
     def __str__(self):
-        return self.image.name
+        return self.image_url.name
 
 # class Configurations(models.Model):
 #     maintenance_mode = models.CharField(max_length=20)
