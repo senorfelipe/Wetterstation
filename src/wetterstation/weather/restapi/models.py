@@ -28,7 +28,7 @@ class Wind(models.Model):
 
 
 class Image(models.Model):
-    image_url = models.ImageField(upload_to='images/%Y/%m/%d')
+    image_url = models.ImageField(upload_to='images/%Y/%m')
     time = models.DateTimeField()
 
     def __str__(self):
