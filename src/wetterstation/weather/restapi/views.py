@@ -53,7 +53,7 @@ class ImageUploadView(viewsets.ModelViewSet):
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
             new_image = Image()
-            new_image.image_url = form.files["image_url"]
+            new_image.image = form.files["image"]
             new_image.time = form.data["time"]
             new_image.save()
             return Response(status=status.HTTP_201_CREATED)

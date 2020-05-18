@@ -28,11 +28,11 @@ class Wind(models.Model):
 
 
 class Image(models.Model):
-    image_url = models.ImageField(upload_to='images/%Y/%m')
+    image = models.ImageField(upload_to='images/%Y/%m')
     time = models.DateTimeField()
 
     def __str__(self):
-        return self.image_url.name
+        return self.image.name
 
 # class Configurations(models.Model):
 #     maintenance_mode = models.CharField(max_length=20)
