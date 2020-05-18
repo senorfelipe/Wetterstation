@@ -4,7 +4,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .forms import ImageForm
+from .forms import ImageUploadForm
 from .models import Temperature, Wind, Image
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer
 
@@ -50,9 +50,12 @@ class ImageUploadView(viewsets.ModelViewSet):
         return filter_by_dates(self.request.query_params, Image.objects.all())
 
     def create(self, request, *args, **kwargs):
-        form = ImageForm(request.POST, request.FILES)
+        form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_image = Image()
+            new_image.image_url = form.files["image_url"]
+            new_image.time = form.data["time"]
+            new_image.save()
             return Response(status=status.HTTP_201_CREATED)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
