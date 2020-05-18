@@ -1,0 +1,41 @@
+== Protokoll zum Treffen am 13.05.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.50 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [] Philipp
+* [x] Josefin
+* [s] Agustin
+* [x] Hannes
+
+* **extern:**
+Herr Professor Iwe, Herr Brenner
+
+=== Iterationsplan
+include::../Iterationsplan_12.adoc[]
+
+=== Themen
+. Vorstellung der Ergebnisse (vor allem Front-End)
+. Klärung weiterer Fragen
+
+=== Ergebnisse
+. Front-End
+.. Wetterdaten in 2 Modi: Angabe einer letzten Zeit (letzter Tag/Monat) und Feingranular von/bis (Datum), Uhrzeit nicht nötig
+.. Deutsches Datumsformat
+.. Bildergalerie
+... Aktuelles Bild ist das wichtigste
+... Anzeige der Tagesbilder (vor 1/2/3/... Stunden)
+... 720p reicht für Bilder aus
+... Bilder sollen skalierbar sein
+. Back-End
+.. Es gibt eine JSON, in der alle Daten abgelegt sind
+.. JSON-String kann unbearbeitet vom Rapsberry geladen werden (Last vom Raspberry auf Server verteilen)
+.. SQLServer/MariaDB wird bereitgestellt
+. Sonstiges
+.. Treffen für Back-End am 14.05.2020 17 Uhr (da wird auch das nächste Treffen festgelegt)
