@@ -18,8 +18,9 @@ class HttpClient:
         return [r.text, r.status_code]
 
 
-temperature = {'value': '144.6'}
-wind = {'speed': '100.0', 'direction': '666.0'}
+timestamp = '2020-05-18T11:00:00Z'
+temperature = {'value': '144.6', 'time': timestamp}
+wind = {'speed': '100.0', 'direction': '666.0', 'time': timestamp}
 temp = HttpClient('http://127.0.0.1:8000/api/temps/')
 temp.post(temperature)
 temp.get()
