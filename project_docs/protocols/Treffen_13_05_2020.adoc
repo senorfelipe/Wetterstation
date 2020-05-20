@@ -11,7 +11,7 @@
 * [x] Justin
 * [] Philipp
 * [x] Josefin
-* [s] Agustin
+* [x] Agustin
 * [x] Hannes
 
 * **extern:**
