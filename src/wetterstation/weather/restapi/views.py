@@ -9,8 +9,9 @@ from .models import Temperature, Wind, Image
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer
 
 # Create your views here.
-
 # viewset for all basic funtions of CRUD and filtering by time
+
+
 RASPI_TIME_VARIABLE = 'timestamp'
 RASPI_SPEED_VARIABLE = 'speed'
 RASPI_DIRECTION_VARIABLE = 'deg'
@@ -24,7 +25,8 @@ def filter_by_dates(query_params, queryset):
         if 'end' in query_params:
             end_date = query_params['end']
         else:
-            # this addition needs to be done in order to get values from today
+            # this addition needs to be done
+            # in order to get values from start_date 00:00 to end_date 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
         resultset = queryset.filter(time__range=(start_date, end_date))
     return resultset

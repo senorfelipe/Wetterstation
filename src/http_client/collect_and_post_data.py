@@ -20,7 +20,6 @@ def find_and_post_data():
             if status == 201:
                 to_remove.append(file)
         if file in to_remove:
-            print('removed: ' + file)
             os.remove(file)
 
     images = get_images()
