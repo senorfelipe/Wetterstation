@@ -8,10 +8,14 @@ from .forms import ImageUploadForm
 from .models import Temperature, Wind, Image
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer
 
-
 # Create your views here.
 
 # viewset for all basic funtions of CRUD and filtering by time
+RASPI_TIME_VARIABLE = 'timestamp'
+RASPI_SPEED_VARIABLE = 'speed'
+RASPI_DIRECTION_VARIABLE = 'deg'
+RASPI_DEGREES_VARIABLE = 'deg'
+
 
 def filter_by_dates(query_params, queryset):
     resultset = queryset.order_by('time')
@@ -63,15 +67,16 @@ class ImageUploadView(viewsets.ModelViewSet):
 
 def get_temp_data(data):
     temp_data = data['temp']
-    temp_data['time'] = temp_data.pop('timestamp')
-    temp_data['degrees'] = temp_data.pop('deg')
+    temp_data['time'] = temp_data.pop(RASPI_TIME_VARIABLE)
+    temp_data['degrees'] = temp_data.pop(RASPI_DEGREES_VARIABLE)
     return temp_data
 
 
 def get_wind_data(data):
     wind_data = data['wind']
-    wind_data['time'] = wind_data.pop('timestamp')
-    wind_data['direction'] = wind_data.pop('deg')
+    wind_data['time'] = wind_data.pop(RASPI_TIME_VARIABLE)
+    wind_data['direction'] = wind_data.pop(RASPI_DIRECTION_VARIABLE)
+    wind_data['speed'] = wind_data.pop(RASPI_SPEED_VARIABLE)
     return wind_data
 
 
