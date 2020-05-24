@@ -24,21 +24,19 @@ SECRET_KEY = 'z8-lb25xh)ruh#mj_&xhfc8-apnk2n)%&&4#nk41i0wtlmwsrl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '192.168.0.22','127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
     'restapi',
-    'corsheaders',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

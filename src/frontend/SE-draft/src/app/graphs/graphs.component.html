@@ -6,8 +6,26 @@
 
 
 <body>
+<mat-grid-list cols='3'>
+  <mat-grid-tile>
+    <mat-card class="recentData">
+    <label>Aktuelle Temperatur:</label>
+    {{recentTemp}}
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="recentData">
+     <label>Aktuelle Windgeschwindigkeit:</label>
+     {{recentWindSpeed}}
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="recentData">
+     <label>Aktuelle Windrichtung</label>
+    </mat-card>
+  </mat-grid-tile>
 
-
+</mat-grid-list>
 
 <mat-card class= "selectorcard">
 
@@ -15,9 +33,10 @@
 <ng-template [ngIf]="(extendedModeStatus | async)"[ngIfElse]="simpleMode">
 <mat-form-field>
   <mat-label>Startdatum</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
+  <input matInput [matDatepicker]="startpicker">
+  <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+  <mat-datepicker #startpicker></mat-datepicker>
+
 </mat-form-field>
 </ng-template>
 
@@ -48,7 +67,15 @@
 </div>
 
 
+<mat-card class ="directions-card">
+<mat-label>Windrichtungen der letzten 24 Stunden:</mat-label>
+<br/>
 
+
+<div class= "arrowscontainer" *ngFor="let winddir of windData, let indexOfelement=index">
+<img src="assets/arrow.svg" id="{{indexOfelement}}" (load)="onImageLoad(indexOfelement)">
+</div>
+</mat-card>
 
 </body>
 </html>

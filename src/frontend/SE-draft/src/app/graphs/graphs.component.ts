@@ -1,7 +1,7 @@
 import {Component, OnInit,OnDestroy, OnChanges} from '@angular/core';
 
 import {Chart} from 'chart.js';
-import {TemperatureData, WeatherDataService} from "../weather-data.service";
+import {TemperatureData, WeatherDataService, WindData} from "../weather-data.service";
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatRadioChange } from '@angular/material/radio';
@@ -14,9 +14,11 @@ import { MatRadioChange } from '@angular/material/radio';
   styleUrls: ['./graphs.component.scss']
 })
 export class GraphsComponent implements OnInit,OnDestroy {
-  temperatureData: TemperatureData[] = [];
   weatherDataService: WeatherDataService;
+  temperatureData: TemperatureData[] = [];
+  windData: WindData[]=[];
   extendedModeStatus: BehaviorSubject<boolean>;
+  
   
 
   weatherDataSubscription: Subscription;
@@ -25,18 +27,31 @@ export class GraphsComponent implements OnInit,OnDestroy {
   chosenbtn:number=3;
   timepickers: number[]=[1,3,7,14,21];
 
+  recentTemp:Number;
+  recentWindSpeed:Number;
+ 
+
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
     this.extendedModeStatus = new BehaviorSubject(false)
-  
+   
   }
 
   ngOnInit() {
     this.weatherDataSubscription=
-      this.weatherDataService.getTemperatures(this.chosenbtn).subscribe((data) => {
+      this.weatherDataService.getTemperatures(1).subscribe((data) => {
       this.temperatureData = data;
+      this.recentTemp= this.temperatureData.map(data=>data.degrees)[data.length-1];
+    });
+   
+      this.weatherDataSubscription=
+      this.weatherDataService.getWindData(1).subscribe((datawind) => {
+      this.windData = datawind;
+      this.recentWindSpeed= this.windData.map(datawind=>datawind.speed)[this.windData.length-1];
       this.buildGraphs();
     });
+
+
 
   
   }
@@ -53,7 +68,7 @@ export class GraphsComponent implements OnInit,OnDestroy {
       this.weatherDataService.getTemperatures(this.chosenbtn).subscribe((data) => {
       this.temperatureData = data;
       this.buildGraphs();
-      console.log(data);   
+       
     });
   }
 
@@ -98,10 +113,10 @@ export class GraphsComponent implements OnInit,OnDestroy {
     var speed = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['timestamp', 'timestamp', 'timestamp', 'timestamp', 'timestamp'],
+        labels: this.temperatureData.map(datawind => new Date(datawind.time).toLocaleString()),
         datasets: [{
           label: 'Windspeed in m/s',
-          data: [10, 1, 3, 5, 2, 3],
+          data: this.windData.map(datawind => datawind.speed),
           fill: true,
           backgroundColor:
             'rgba(128, 255, 132, 0.2)'
@@ -123,6 +138,16 @@ export class GraphsComponent implements OnInit,OnDestroy {
         }
       }
     });
+  }
+
+  onImageLoad(i){
+ 
+    var data=this.windData.map(data=>data.direction);
+    console.log(data);
+    var img=document.getElementById(i);
+    img.style.transform = 'rotate('+data[i]+'deg)';
+
+
   }
 
 

@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class WeatherDataService {
-  private apiUrl = 'http://192.168.0.22:8000/api/';
+  private apiUrl = 'http://localhost:8000/api/';
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -35,13 +35,25 @@ export class WeatherDataService {
     console.log(this.http.get<TemperatureData[]>(this.apiUrl + 'temps/?start='+this.formatDate(today)));
     return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/?start='+this.formatDate(today));
 
-  }
-
-
-
-
-
+  }  
+  getWindData(time: number){
+    var today=  new Date();
+    var yesterday = today.getDate()-time;
+    today.setDate(yesterday);
   
+  return  this.http.get<WindData[]>(this.apiUrl + 'wind/?start='+this.formatDate(today));
+}
+
+
+
+}
+
+export interface WindData {
+  id: Number,
+  speed: Number,
+  direction: Number,
+  time: Date
+
 }
 
 export interface TemperatureData {
