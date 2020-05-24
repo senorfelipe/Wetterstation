@@ -48,9 +48,10 @@ export class GraphsComponent implements OnInit,OnDestroy {
       this.weatherDataService.getWindData(1).subscribe((datawind) => {
       this.windData = datawind;
       this.recentWindSpeed= this.windData.map(datawind=>datawind.speed)[this.windData.length-1];
+      console.log(this.windData);
       this.buildGraphs();
     });
-
+    
 
 
   
@@ -113,7 +114,7 @@ export class GraphsComponent implements OnInit,OnDestroy {
     var speed = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: this.temperatureData.map(datawind => new Date(datawind.time).toLocaleString()),
+        labels: this.windData.map(datawind => new Date(datawind.time).toLocaleString()),
         datasets: [{
           label: 'Windspeed in m/s',
           data: this.windData.map(datawind => datawind.speed),
