@@ -1,7 +1,8 @@
 import datetime
 
+from django.http import JsonResponse
 from rest_framework import viewsets, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 
 from .forms import ImageUploadForm
@@ -19,7 +20,7 @@ RASPI_DEGREES_VARIABLE = 'deg'
 
 
 def filter_by_dates(query_params, queryset):
-    resultset = queryset.order_by('time')
+    filtered_queryset = queryset
     if 'start' in query_params:
         start_date = query_params['start']
         if 'end' in query_params:
@@ -28,8 +29,8 @@ def filter_by_dates(query_params, queryset):
             # this addition needs to be done
             # in order to get values from start_date 00:00 to end_date 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        resultset = queryset.filter(time__range=(start_date, end_date))
-    return resultset
+        filtered_queryset = queryset.filter(time__range=(start_date, end_date))
+    return filtered_queryset
 
 
 class TemperatureViewSet(viewsets.ModelViewSet):
@@ -37,7 +38,7 @@ class TemperatureViewSet(viewsets.ModelViewSet):
     queryset = Temperature.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, Temperature.objects.all())
+        return filter_by_dates(self.request.query_params, self.queryset)
 
 
 class WindViewSet(viewsets.ModelViewSet):
@@ -45,7 +46,7 @@ class WindViewSet(viewsets.ModelViewSet):
     queryset = Wind.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, Wind.objects.all())
+        return filter_by_dates(self.request.query_params, self.queryset)
 
 
 class ImageUploadView(viewsets.ModelViewSet):
@@ -53,7 +54,7 @@ class ImageUploadView(viewsets.ModelViewSet):
     queryset = Image.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, Image.objects.all())
+        return filter_by_dates(self.request.query_params, self.queryset)
 
     def create(self, request, *args, **kwargs):
         form = ImageUploadForm(request.POST, request.FILES)
@@ -65,6 +66,13 @@ class ImageUploadView(viewsets.ModelViewSet):
             return Response(status=status.HTTP_201_CREATED)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False)
+    def recent(self, request):
+        recent_images = self.queryset.reverse()[:5]
+        # context is set here in order to return the absolute url of the image
+        serializer = ImageSerializer(recent_images, many=True, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 def get_temp_data(data):
