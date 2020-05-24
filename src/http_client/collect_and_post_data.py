@@ -5,13 +5,14 @@ import os
 
 from src.http_client.httpclient import HttpClient
 
-SEARCH_DIR = '.'
+SEARCH_DIR = './data/'
 HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data'
 IMAGES_API_URL = '/api/images/'
 
 
 def find_and_post_data():
+    os.chdir(SEARCH_DIR)
     files = get_json_files()
     to_remove = []
     for file in files:
@@ -20,13 +21,15 @@ def find_and_post_data():
             if status == 201:
                 to_remove.append(file)
         if file in to_remove:
-            os.remove(file)
+            print('removed: ' + file)
+            # os.remove(file)
 
     images = get_images()
     for image in images:
         status = post_image(image)
         if status == 201:
-            os.remove(image)
+            print('removed: ' + image)
+            # os.remove(image)
 
 
 def post_json(json_file):
@@ -44,7 +47,6 @@ def post_image(image):
 
 
 def get_images():
-    os.chdir(SEARCH_DIR)
     images = []
     for image in glob.glob('*.jpg'):
         images.append(image)
@@ -52,7 +54,6 @@ def get_images():
 
 
 def get_json_files():
-    os.chdir(SEARCH_DIR)
     files = []
     for file in glob.glob('*.json'):
         files.append(file)
