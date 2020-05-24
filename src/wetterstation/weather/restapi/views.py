@@ -70,7 +70,7 @@ class ImageUploadView(viewsets.ModelViewSet):
     @action(detail=False)
     def recent(self, request):
         recent_images = self.queryset.reverse()[:5]
-        # context is set here in order to return the absolute url of the image
+        # context 'request' is set here in order to return the absolute url of the image
         serializer = ImageSerializer(recent_images, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 

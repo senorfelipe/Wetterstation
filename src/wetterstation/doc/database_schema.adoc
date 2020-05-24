@@ -1,0 +1,65 @@
+@startuml
+'entities'
+entity TEMPERATURE {
+  * **id** INTEGER
+  --
+  * degrees DECIMAL(5,2)
+  * time TIMESTAMP
+  * measurement_session_id INTEGER
+}
+
+entity WIND {
+  * **id** INTEGER
+  --
+  * direction DECIMAL(5,2)
+  * speed DECIMAL(5,2)
+  * time TIMESTAMP
+  * measurement_session_id INTEGER
+
+}
+
+entity IMAGE {
+  * **id** INTEGER
+  --
+  * image VARCHAR(256)
+  * time TIMESTAMP
+  * measurement_session_id INTEGER
+}
+
+entity DATA_CONSUMPTION {
+  * **measurement_session_id**
+  * datavolume INTEGER
+}
+
+
+entity CONFIGURATION {
+  * **id** INTEGER
+  --
+  * maintenance_mode BOOLEAN
+  * res_hight INTEGER
+  * res_width INTEGER
+}
+
+entity CONFIG_SESSION {
+  * **id** INTEGER
+  --
+  * creator VARCHAR(256)
+  * time TIMESTAMP
+  * applied BOOLEAN
+}
+
+entity ADMIN {
+  * **id** INTEGER
+  --
+  * username VARCHAR(256) (unique)
+  * password VARCHAR(256)
+}
+
+'relationships'
+"CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
+"ADMIN" "1" <-- "*" "CONFIG_SESSION"
+"DATA_CONSUMPTION" "1"<--"1" "IMAGE"
+"DATA_CONSUMPTION" "1"<--"1" "WIND"
+"DATA_CONSUMPTION" "1"<--"1" "TEMPERATURE"
+
+@enduml
