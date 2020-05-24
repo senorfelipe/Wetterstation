@@ -11,6 +11,11 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+mat-card {
+  margin: 0 auto;
+  width: 30%;
+}
+
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
@@ -19,7 +24,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
 }
 
 /* Add a hover effect for buttons */
