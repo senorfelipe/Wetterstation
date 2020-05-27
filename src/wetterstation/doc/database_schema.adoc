@@ -26,9 +26,11 @@ entity IMAGE {
   * measurement_session_id INTEGER
 }
 
-entity DATA_CONSUMPTION {
-  * **measurement_session_id**
+entity MEASUREMENT_SESSION {
+  * **session_id INTEGER**
+  --
   * datavolume INTEGER
+  * time TIMESTAMP (CURRENT_TIMESTAMP)
 }
 
 
@@ -58,8 +60,8 @@ entity ADMIN {
 'relationships'
 "CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
 "ADMIN" "1" <-- "*" "CONFIG_SESSION"
-"DATA_CONSUMPTION" "1"<--"1" "IMAGE"
-"DATA_CONSUMPTION" "1"<--"1" "WIND"
-"DATA_CONSUMPTION" "1"<--"1" "TEMPERATURE"
+"MEASUREMENT_SESSION" "1"<--"?" "IMAGE"
+"MEASUREMENT_SESSION" "1"<--"?" "WIND"
+"MEASUREMENT_SESSION" "1"<--"?" "TEMPERATURE"
 
 @enduml

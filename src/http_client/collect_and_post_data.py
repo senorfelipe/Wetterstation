@@ -2,13 +2,15 @@ import datetime
 import glob
 import json
 import os
+import time
 
 from src.http_client.httpclient import HttpClient
 
-SEARCH_DIR = '.'
+SEARCH_DIR = './data'
 HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data'
 IMAGES_API_URL = '/api/images/'
+MEASUREMENT_SESSION_ID = int(time.time())
 
 
 def find_and_post_data():

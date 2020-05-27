@@ -1,13 +1,13 @@
 import datetime
 
-from django.http import JsonResponse
+from django.db.models import F
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 
 from .forms import ImageUploadForm
-from .models import Temperature, Wind, Image
-from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer
+from .models import Temperature, Wind, Image, MeasurementSession
+from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, MeasurementSessionSerializer
 
 # Create your views here.
 # viewset for all basic funtions of CRUD and filtering by time
@@ -17,10 +17,11 @@ RASPI_TIME_VARIABLE = 'timestamp'
 RASPI_SPEED_VARIABLE = 'speed'
 RASPI_DIRECTION_VARIABLE = 'deg'
 RASPI_DEGREES_VARIABLE = 'deg'
+SESSION_ID = 'session_id'
 
 
 def filter_by_dates(query_params, queryset):
-    filtered_queryset = queryset
+    filtered_queryset = queryset.order_by('time')
     if 'start' in query_params:
         start_date = query_params['start']
         if 'end' in query_params:
@@ -38,7 +39,7 @@ class TemperatureViewSet(viewsets.ModelViewSet):
     queryset = Temperature.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, self.queryset)
+        return filter_by_dates(self.request.query_params, Temperature.objects.all())
 
 
 class WindViewSet(viewsets.ModelViewSet):
@@ -46,7 +47,7 @@ class WindViewSet(viewsets.ModelViewSet):
     queryset = Wind.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, self.queryset)
+        return filter_by_dates(self.request.query_params, Wind.objects.all())
 
 
 class ImageUploadView(viewsets.ModelViewSet):
@@ -54,14 +55,20 @@ class ImageUploadView(viewsets.ModelViewSet):
     queryset = Image.objects.all().order_by('time')
 
     def get_queryset(self):
-        return filter_by_dates(self.request.query_params, self.queryset)
+        return filter_by_dates(self.request.query_params, Image.objects.all())
 
     def create(self, request, *args, **kwargs):
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
+            number_of_bytes = int(request.headers.get('Content-Length'))
+            session_id = int(form.data['session_id'])
+            insert_or_update_measurement_session(session_id, number_of_bytes)
+            session = get_measurement_session(session_id)
+
             new_image = Image()
-            new_image.image = form.files["image"]
-            new_image.time = form.data["time"]
+            new_image.image = form.files['image']
+            new_image.time = form.data['time']
+            new_image.measurement_session = session
             new_image.save()
             return Response(status=status.HTTP_201_CREATED)
         else:
@@ -75,32 +82,61 @@ class ImageUploadView(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-def get_temp_data(data):
-    temp_data = data['temp']
-    temp_data['time'] = temp_data.pop(RASPI_TIME_VARIABLE)
-    temp_data['degrees'] = temp_data.pop(RASPI_DEGREES_VARIABLE)
-    return temp_data
+class MeasurementSessionViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = MeasurementSessionSerializer
+    queryset = MeasurementSession.objects.all().order_by('time')
+
+    def get_queryset(self):
+        return filter_by_dates(self.request.query_params, MeasurementSession.objects.all())
 
 
-def get_wind_data(data):
-    wind_data = data['wind']
-    wind_data['time'] = wind_data.pop(RASPI_TIME_VARIABLE)
-    wind_data['direction'] = wind_data.pop(RASPI_DIRECTION_VARIABLE)
-    wind_data['speed'] = wind_data.pop(RASPI_SPEED_VARIABLE)
-    return wind_data
+def get_measurement_session(session_id):
+    try:
+        return MeasurementSession.objects.all().get(session_id=session_id)
+    except MeasurementSession.DoesNotExist:
+        None
+
+
+def insert_or_update_measurement_session(session_id, number_of_bytes):
+    session, created = MeasurementSession.objects.all().get_or_create(session_id=session_id,
+                                                                      defaults={'data_volume': number_of_bytes})
+    if not created:
+        session = MeasurementSession.objects.get(session_id=session_id)
+        session.data_volume = F('data_volume') + number_of_bytes
+        session.save()
 
 
 @api_view(['POST'])
 def receive_sensor_data(request):
     if request.method == 'POST':
         data = request.data
-        temp_data = get_temp_data(data)
-        wind_data = get_wind_data(data)
+        number_of_bytes = int(request.headers.get('Content-Length'))
+        session_id = int(data['session_id'])
+        insert_or_update_measurement_session(session_id=session_id, number_of_bytes=number_of_bytes)
+        temp_data = get_temp_data(data, session_id)
+        wind_data = get_wind_data(data, session_id)
         store_wind_data(wind_data)
         store_temp_data(temp_data)
         return Response(status=status.HTTP_201_CREATED)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+def get_temp_data(data, session_id):
+    temp_data = data['temp']
+    temp_data['time'] = temp_data.pop(RASPI_TIME_VARIABLE)
+    temp_data['degrees'] = temp_data.pop(RASPI_DEGREES_VARIABLE)
+    temp_data['measurement_session'] = session_id
+    return temp_data
+
+
+def get_wind_data(data, session_id):
+    wind_data = data['wind']
+    wind_data['time'] = wind_data.pop(RASPI_TIME_VARIABLE)
+    wind_data['direction'] = wind_data.pop(RASPI_DIRECTION_VARIABLE)
+    wind_data['speed'] = wind_data.pop(RASPI_SPEED_VARIABLE)
+    wind_data['measurement_session'] = session_id
+    return wind_data
 
 
 def store_temp_data(temp_data):

@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import Wind, Temperature, Image
+from .models import Wind, Temperature, Image, MeasurementSession
+
+
+class MeasurementSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MeasurementSession
+        fields = '__all__'
 
 
 class WindSerializer(serializers.ModelSerializer):

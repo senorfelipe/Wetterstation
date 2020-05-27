@@ -9,19 +9,26 @@ Each model represents a single table in our database.
 # Create your models here.
 
 
+class MeasurementSession(models.Model):
+    session_id = models.IntegerField(unique=True, primary_key=True)
+    data_volume = models.IntegerField()
+    time = models.DateTimeField(auto_now_add=True)
+
+
 class Temperature(models.Model):
     degrees = models.DecimalField(max_digits=5, decimal_places=1)
     time = models.DateTimeField()
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'created: ' + str(self.time) + ', temperature: ' + str(self.degrees)
 
 
 class Wind(models.Model):
-    # TODO ask costumer which foramt to use
     speed = models.DecimalField(max_digits=5, decimal_places=1)  # in m/s
     direction = models.DecimalField(max_digits=5, decimal_places=1)  # in degrees
     time = models.DateTimeField()
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'created: ' + str(self.time) + ', speed: ' + str(self.speed) + ', direction: ' + str(self.direction)
@@ -30,6 +37,7 @@ class Wind(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m')
     time = models.DateTimeField()
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.image.name
