@@ -4,7 +4,7 @@ import {Chart} from 'chart.js';
 import {TemperatureData, WeatherDataService, WindData} from "../weather-data.service";
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { MatRadioChange } from '@angular/material/radio';
+import { MatRadioChange, MatRadioButton } from '@angular/material/radio';
 
 
 
@@ -24,12 +24,14 @@ export class GraphsComponent implements OnInit,OnDestroy {
   weatherDataSubscription: Subscription;
 
 
-  chosenbtn:number=3;
+  chosenbtn:number=1;
   timepickers: number[]=[1,3,7,14,21];
 
   recentTemp:Number;
   recentWindSpeed:Number;
+  recentWindDir:Number;
  
+  hourdata:Number[]=[];
 
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
@@ -48,6 +50,7 @@ export class GraphsComponent implements OnInit,OnDestroy {
       this.weatherDataService.getWindData(1).subscribe((datawind) => {
       this.windData = datawind;
       this.recentWindSpeed= this.windData.map(datawind=>datawind.speed)[this.windData.length-1];
+      this.recentWindDir=this.windData.map(datawind=>datawind.direction)[this.windData.length-1];
       console.log(this.windData);
       this.buildGraphs();
     });
@@ -66,7 +69,7 @@ export class GraphsComponent implements OnInit,OnDestroy {
     console.log(event);
 
     this.weatherDataSubscription=
-      this.weatherDataService.getTemperatures(this.chosenbtn).subscribe((data) => {
+      this.weatherDataService.getTemperatures(event.value).subscribe((data) => {
       this.temperatureData = data;
       this.buildGraphs();
        
@@ -145,13 +148,21 @@ export class GraphsComponent implements OnInit,OnDestroy {
  
     var data=this.windData.map(data=>data.direction);
     console.log(data);
+   
+
     var img=document.getElementById(i);
     img.style.transform = 'rotate('+data[i]+'deg)';
 
-
   }
 
+  rotateDirCardArrow(angle,id){
+  var img=document.getElementById(id);
+  img.style.transform='rotate('+angle+'deg)';    
 
+  }
+transformDirectionDates(i){
+  let dirhours=this.windData.map(datawind => new Date(datawind.time).getHours().toLocaleString());
+return dirhours[i];
 }
-
+}
 

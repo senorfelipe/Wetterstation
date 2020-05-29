@@ -22,6 +22,7 @@
   <mat-grid-tile>
     <mat-card class="recentData">
      <label>Aktuelle Windrichtung</label>
+   <img src="assets/arrow.svg" id="78" (load)="rotateDirCardArrow(recentWindDir,78)">
     </mat-card>
   </mat-grid-tile>
 
@@ -43,8 +44,9 @@
 <ng-template #simpleMode>
 <mat-radio-group aria-label="Select an option" 
  [(ngModel)]="chosenbtn"
+
 >
-  <mat-radio-button *ngFor="let pick of timepickers" [value]="pick"  (change)="onbtnChange($event)">
+  <mat-radio-button *ngFor="let pick of timepickers" [value]="pick"  (change)="onbtnChange($event)" >
   {{pick}}
   </mat-radio-button>
 
@@ -74,8 +76,10 @@
 
 <div class= "arrowscontainer" *ngFor="let winddir of windData, let indexOfelement=index">
 <img src="assets/arrow.svg" id="{{indexOfelement}}" (load)="onImageLoad(indexOfelement)">
+<mat-label>{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
 </div>
 </mat-card>
 
 </body>
+
 </html>
