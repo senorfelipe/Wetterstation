@@ -56,6 +56,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {WeatherDataService} from "./weather-data.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ImageService } from './image-data.service';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
 ;
 
@@ -65,7 +66,8 @@ import { ImageService } from './image-data.service';
     AppComponent,
     GraphsComponent,
     WebcamComponent,
-    AdminComponent
+    AdminComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,
