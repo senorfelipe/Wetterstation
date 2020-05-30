@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Chart} from 'chart.js';
 
 var voltdates = ['25.05.2020', '26.05.2020', '27.05.2020']
@@ -11,9 +12,13 @@ export interface raspyActions {
   action: string;
 }
 
+export interface DialogData {
+  datetime: Date;
+}
+
 const adminData: raspyActions[] = [
-  {date: '23.05.2020, 16:49', name: 'Mustermann', action: 'Wartungsmodus angefragt'},
   {date: '23.05.2020, 17:05', name: 'Mustermann', action: 'Wartungsmodus beendet'},
+  {date: '23.05.2020, 16:49', name: 'Mustermann', action: 'Wartungsmodus angefragt'},
 ];
 
 @Component({
@@ -24,10 +29,13 @@ const adminData: raspyActions[] = [
 
 export class AdminpanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  ipaddress:String;
 
   ngOnInit(){
     this.buildGraphs();
+    this.ipaddress = '12.345.67.890';
   }
 
   displayedColumns: string[] = ['date','name','action'];
@@ -87,5 +95,20 @@ export class AdminpanelComponent implements OnInit {
         }
       }
     });
+  }
+
+  setDateTime(){
+    let datetime = (document.getElementById("maintenanceTime") as HTMLInputElement).value;
+    if(!datetime){
+      document.getElementById("maintenanceStatus").innerHTML='Kein Datum eingegeben!';
+      document.getElementById("maintenanceStatus").style.color= 'red';
+      return;
+    }
+    let date = Date.parse(datetime);
+    let dates = new Date(date);
+    let str = dates.toString();
+    str = str.substr(str.indexOf(' ')+1);
+    document.getElementById("maintenanceStatus").innerHTML='Wartungsmodus gesetzt für'+'<br />'+str;
+    document.getElementById("maintenanceStatus").style.color= 'green';
   }
 }

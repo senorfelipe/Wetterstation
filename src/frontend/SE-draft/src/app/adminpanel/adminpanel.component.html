@@ -35,7 +35,17 @@
         </mat-grid-tile>
 
         <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <p>Wartungsmodus</p>
+            <div>
+                <h1>Wartungsmodus</h1>
+                <p>Letzte gemeldete IP-Adresse des Raspberry: {{ipaddress}}</p>
+                <h2>Raspberry in den Wartungsmodus versetzen</h2>
+                <p>Datum und Uhrzeit:</p>
+                <input type="datetime-local" id="maintenanceTime" name="maintenance-time">
+                <div class="btnDiv">
+                    <button mdbBtn type="button" id="setBtn" color="default" rounded="true" (click)=setDateTime() mdbWavesEffect>Wartungsmodus setzen</button>
+                </div>
+                <p id="maintenanceStatus"></p>
+            </div>
         </mat-grid-tile>
 
     </mat-grid-list>
