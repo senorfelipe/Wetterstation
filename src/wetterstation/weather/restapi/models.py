@@ -11,7 +11,7 @@ Each model represents a single table in our database.
 
 class MeasurementSession(models.Model):
     session_id = models.IntegerField(unique=True, primary_key=True)
-    data_volume = models.IntegerField()
+    image_size = models.IntegerField()
     time = models.DateTimeField(auto_now_add=True)
 
 

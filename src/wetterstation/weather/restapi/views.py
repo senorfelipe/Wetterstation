@@ -49,6 +49,20 @@ class WindViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return filter_by_dates(self.request.query_params, Wind.objects.all())
 
+    @action(detail=False, methods=['GET'])
+    def recent(self, request):
+        """This method will return the wind data of the last 3 hours by default.
+        If query parameter "lastHours" is set it will use this number instead of the default value. """
+        last_hours = 3
+        if 'lastHours' in request.query_params:
+            try:
+                last_hours = int(request.query_params['lastHours'])
+            except ValueError:
+                return Response('Parameter "lastHours" has to be numeric', status=status.HTTP_400_BAD_REQUEST)
+        time_threshold = datetime.datetime.now() - datetime.timedelta(hours=last_hours)
+        results = self.queryset.filter(time__gte=time_threshold)
+        return Response(WindSerializer(results, many=True).data, status=status.HTTP_200_OK)
+
 
 class ImageUploadView(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
@@ -74,8 +88,9 @@ class ImageUploadView(viewsets.ModelViewSet):
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False)
+    @action(detail=False, methods=['GET'])
     def recent(self, request):
+        """This method returns the 5 latest images."""
         recent_images = self.queryset.reverse()[:5]
         # context 'request' is set here in order to return the absolute url of the image
         serializer = ImageSerializer(recent_images, many=True, context={'request': request})

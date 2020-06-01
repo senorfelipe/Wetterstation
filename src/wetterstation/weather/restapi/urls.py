@@ -10,7 +10,7 @@ router = routers.DefaultRouter()
 router.register(r'temps', TemperatureViewSet)
 router.register(r'wind', WindViewSet)
 router.register(r'images', ImageUploadView)
-router.register(r'data-volume', MeasurementSessionViewSet)
+router.register(r'session', MeasurementSessionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
