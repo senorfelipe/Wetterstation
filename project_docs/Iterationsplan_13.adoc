@@ -17,4 +17,10 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
+- das Front-End wurde gut weiterentwickelt, neu dazu gekommen ist ein Mockup des Adminpanel
+- die Dokumentation wurde nicht überarbeitet
+- Testfälle stehen zwar, sind aber aufgrund von Problemen mit der Rest-API noch nicht ausführbar (siehe Issue#66)
+- Rest Enpunkt images/recent erstellt
+- die Authentifizierung wurde noch nicht angegangen
+- Model für config/configsession, Datenverbrauch und Stromlogging wurden aufgrund fehlender Spezifikationen vom Kunden noch nicht bearbeitet
+- für das Deployment sind erste Anforderungen und Möglichkeiten (z.B. Errorbenachrichtigung per Mail) bekannt
