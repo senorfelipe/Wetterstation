@@ -1,25 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./webcam.component.scss" />
+    <style></style>
+  </head>
+  <body>
+    <div class="imageone">
+      <img src="../../assets/images/forest-931706_1920.jpg" />
+      <div class="desc">Add a description of the image here</div>
+    </div>
 
+    <div class="gallery">
+      <img src="../../assets/images/sky.jpg" />
+      <div class="desc">Add a description of the image here</div>
+    </div>
 
-<div class ="imagepanels">
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Platzhalter fürs Datum
-      </mat-panel-title>
-      <mat-panel-description>
-        
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-        <mat-grid-list cols="4">
-            <mat-grid-tile *ngFor="let image of Images;let indexOfelement=index">
-                <mat-grid-tile-header>
-                    {{getImageDate()[indexOfelement]}}
-                </mat-grid-tile-header>
-                <img src="{{getImageLocation()[indexOfelement]}}" class="thumbnail" width="200" height="160" >
-             </mat-grid-tile>
-        </mat-grid-list>
-     </mat-expansion-panel>
+    <div class="gallery">
+      <img src="../../assets/images/tie-690084_1920.jpg" />
+      <div class="desc">Add a description of the image here</div>
+    </div>
 
-</mat-accordion>
-</div>
+    <div class="gallery">
+      <img src="../../assets/images/turtle-863336_1280.jpg" />
+      <div class="desc">Add a description of the image here</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Toggle dropdown
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
