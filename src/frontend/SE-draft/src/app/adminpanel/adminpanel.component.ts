@@ -2,18 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Chart} from 'chart.js';
 
-var voltdates = ['25.05.2020', '26.05.2020', '27.05.2020']
-var voltexample = [2.5,4,2]
-var volumexample = [180,194,218]
+var dates = ['25.05.2020', '26.05.2020', '27.05.2020']
 
 export interface raspyActions {
   date: string;
   name: string;
   action: string;
-}
-
-export interface DialogData {
-  datetime: Date;
 }
 
 const adminData: raspyActions[] = [
@@ -34,24 +28,20 @@ export class AdminpanelComponent implements OnInit {
   ipaddress:String;
 
   ngOnInit(){
-    this.buildGraphs();
-    this.ipaddress = '12.345.67.890';
+    this.updateChart();
   }
 
   displayedColumns: string[] = ['date','name','action'];
   tableData = adminData;
 
-  buildGraphs(){
-    let ctx = document.getElementById('volt');
+  updateChart() {
+    let ctx = document.getElementById('elecChart');
+    let dataSet = this.getDataSet();
     let volts = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: voltdates,
-        datasets: [{
-          label: 'Verbrauch in *Einheit*',
-          data: voltexample,
-          fill: true,
-        }]
+        labels: dates,
+        datasets: dataSet
       },
       options: {
         title: {
@@ -61,33 +51,22 @@ export class AdminpanelComponent implements OnInit {
         },
         scales: {
           yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Spannung in Volt'
+            },
+            id: 'voltage',
+            position: 'left',
             ticks: {
               beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-
-    ctx = document.getElementById('volume');
-    let volumes = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: voltdates,
-        datasets: [{
-          label: 'Verbrauch in kB',
-          data: volumexample,
-          fill: true,
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Datenverbrauch',
-          fontSize: 20
-        },
-        scales: {
-          yAxes: [{
+            }},
+            {
+            scaleLabel: {
+              display: true,
+              labelString: 'Stromstärke in mA'
+            },
+            id: 'current',
+            position: 'right',
             ticks: {
               beginAtZero: true
             }
@@ -97,18 +76,70 @@ export class AdminpanelComponent implements OnInit {
     });
   }
 
-  setDateTime(){
-    let datetime = (document.getElementById("maintenanceTime") as HTMLInputElement).value;
-    if(!datetime){
-      document.getElementById("maintenanceStatus").innerHTML='Kein Datum eingegeben!';
-      document.getElementById("maintenanceStatus").style.color= 'red';
-      return;
+  /**
+  * Hier werden wird das Datenset, welches die Werte für die updateChart()-Funktion enthält, bearbeitet
+  * Das Datenset ist zunächst leer, und es wird für jede Checkbox geschaut, ob diese checked ist.
+  * Ist sie checked, so wird ein Objekt mit entsprechenden Eigenschaften erzeugt und in das Datenset gepackt (dataSet.push(newData))
+  * Dabei ist das data-Attribut jedes newData-Objektes ein Array mit Werten (Spannung bzw. Stromstärke), welche aus der DB gelesen werden müssen
+  * Am Ende wird das Datenset an die updateChart()-Funktion zurückgegeben und die Graphen werden dort gezeichnet.
+  * Die Datumsangaben laufen noch getrennt von den Werten.
+  */
+  getDataSet(){
+
+    var curAcc = [2.5,4,2];
+    var curSol = [5,7,3];
+    var volAcc = [20,35,17];
+    var volSol = [15,28,23];
+
+    var dataSet = [];
+
+    let accCur = <HTMLInputElement> document.getElementById("accCur");
+    if(accCur.checked){
+      let newData = {
+        label:"Stromverbrauch Akku",
+        borderColor: "#FFBF00",
+        yAxisID: 'current',
+        data: curAcc,
+        fill: false
+      }
+      dataSet.push(newData);
     }
-    let date = Date.parse(datetime);
-    let dates = new Date(date);
-    let str = dates.toString();
-    str = str.substr(str.indexOf(' ')+1);
-    document.getElementById("maintenanceStatus").innerHTML='Wartungsmodus gesetzt für'+'<br />'+str;
-    document.getElementById("maintenanceStatus").style.color= 'green';
+
+    let accVol = <HTMLInputElement> document.getElementById("accVol");
+    if(accVol.checked){
+      let newData = {
+        label:"Spannung Akku",
+        borderColor: "#00BFFF",
+        yAxisID: 'voltage',
+        data: volAcc,
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+
+    let solCur = <HTMLInputElement> document.getElementById("solCur");
+    if(solCur.checked){
+      let newData = {
+        label:"Stromverbrauch Solarzelle",
+        borderColor: "#FF0000",
+        yAxisID: 'current',
+        data: curSol,
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+
+    let solVol = <HTMLInputElement> document.getElementById("solVol");
+    if(solVol.checked){
+      let newData = {
+        label:"Spannung Solarzelle",
+        borderColor: "#013ADF",
+        yAxisID: 'voltage',
+        data: volSol,
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+    return(dataSet);
   }
 }

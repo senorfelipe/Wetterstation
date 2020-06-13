@@ -5,14 +5,23 @@
 </head>
     
 <body>
-    <mat-grid-list class='matlist' cols='4' [gutterSize]="'10px'">
+    <!--Checkboxes für Auswahl von Strom/Spannung-->
+    <section class="checksec">
+        <label>Akku: </label>
+        <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
+        <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom
+    </section>
+    <section class="checksec">
+        <label>Photovoltaik: </label>
+        <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung
+        <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom
+    </section>
 
-        <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <canvas id= "volt"></canvas>
-        </mat-grid-tile>
+    <mat-grid-list class='matlist' cols='2' [gutterSize]="'10px'">
 
+        <!--Diagramm-->
         <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <canvas id= "volume"></canvas>
+            <canvas id= "elecChart"></canvas>
         </mat-grid-tile>
 
         <mat-grid-tile [colspan] = "2" [rowspan] = "1">
@@ -33,21 +42,6 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
         </mat-grid-tile>
-
-        <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <div>
-                <h1>Wartungsmodus</h1>
-                <p>Letzte gemeldete IP-Adresse des Raspberry: {{ipaddress}}</p>
-                <h2>Raspberry in den Wartungsmodus versetzen</h2>
-                <p>Datum und Uhrzeit:</p>
-                <input type="datetime-local" id="maintenanceTime" name="maintenance-time">
-                <div class="btnDiv">
-                    <button mdbBtn type="button" id="setBtn" color="default" rounded="true" (click)=setDateTime() mdbWavesEffect>Wartungsmodus setzen</button>
-                </div>
-                <p id="maintenanceStatus"></p>
-            </div>
-        </mat-grid-tile>
-
     </mat-grid-list>
 </body>
 </html>
