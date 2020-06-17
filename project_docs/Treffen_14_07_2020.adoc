@@ -1,0 +1,33 @@
+== Protokoll zum Treffen am 14.07.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.45 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [ ] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [x] Josephin
+* [x] Agustin
+* [ ] Hannes
+
+* **extern:**
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+include::../Iterationsplan_14.adoc[]
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Vorstellung der Fortschritte
+. Anmerkungen und Verbesserungswünsche von Kunden
+. Allgemeines
+.. Planung von neuem Iterationsplan
+.. Branches mit Master merchen
+.. Termin für nächstes Treffen 24.07.2020
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
+. Authentifizierung
+. Stromlogging Restschnittstelle
