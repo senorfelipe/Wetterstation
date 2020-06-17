@@ -5,40 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./webcam.component.scss" />
-    <style></style>
+    <script
+      type="text/javascript"
+      src="../../assets/ExternalJsFiles/gallery.js"
+    ></script>
   </head>
   <body>
     <div class="imageone">
       <img src="../../assets/images/forest-931706_1920.jpg" />
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-    <div class="gallery">
-      <img src="../../assets/images/sky.jpg" />
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-    <div class="gallery">
-      <img src="../../assets/images/tie-690084_1920.jpg" />
-      <div class="desc">Add a description of the image here</div>
-    </div>
-
-    <div class="gallery">
-      <img src="../../assets/images/turtle-863336_1280.jpg" />
-      <div class="desc">Add a description of the image here</div>
     </div>
     <div class="row">
-      <div class="col">
-        <div ngbDropdown class="d-inline-block">
-          <button
-            class="btn btn-outline-primary"
-            id="dropdownBasic1"
-            ngbDropdownToggle
-          >
-            Toggle dropdown
-          </button>
-        </div>
+      <div class="column">
+        <img
+          src="../../assets/images/sky.jpg"
+          alt="Sky"
+          onclick="myFunction(this);"
+        />
       </div>
+      <div class="column">
+        <img
+          src="../../assets/images/turtle-863336_1280.jpg"
+          alt="Turtle"
+          onclick="myFunction(this);"
+        />
+      </div>
+      <div class="column">
+        <img
+          src="../../assets/images/tie-690084_1920.jpg"
+          alt="Tie"
+          onclick="myFunction(this);"
+        />
+      </div>
+      <div class="column">
+        <img
+          src="../../assets/images/turtle-863336_1280.jpg"
+          alt="Turtle"
+          onclick="myFunction(this);"
+        />
+      </div>
+    </div>
+    <div class="container">
+      <span onclick="this.parentElement.style.display='none'" class="closebtn"
+        >&times;</span
+      >
+      <img id="expandedImg" style="width: 100%;" />
+      <div id="imgtext"></div>
+    </div>
+    <div class="image-history">
+      <button id="button-today" onclick="myTodayFunction()">Today</button>
+      <div id="heute"></div>
+
+      <button id="button-lastweek" onclick="myLastWeekFunction()">
+        Last Week
+      </button>
+      <div id="woche"></div>
+
+      <button id="button-older" onclick="myTodayFunction()">older</button>
+      <div id="aelter"></div>
     </div>
   </body>
 </html>

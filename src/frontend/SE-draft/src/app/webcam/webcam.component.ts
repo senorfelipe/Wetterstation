@@ -3,6 +3,10 @@ import { ImageData, ImageService } from "../image-data.service";
 import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
+declare var myFunction;
+declare var myTodayFunction;
+declare var myLastWeekFunction;
+declare var myOlderFunction;
 @Component({
   selector: "app-webcam",
   templateUrl: "./webcam.component.html",
@@ -13,6 +17,13 @@ export class WebcamComponent implements OnInit {
   ImageService: ImageService;
   destroyed: Subject<boolean>;
   panelOpenState = false;
+
+  CallMyFunction() {
+    myFunction();
+    myTodayFunction();
+    myLastWeekFunction();
+    myOlderFunction();
+  }
 
   constructor(ImageService: ImageService) {
     this.ImageService = ImageService;
