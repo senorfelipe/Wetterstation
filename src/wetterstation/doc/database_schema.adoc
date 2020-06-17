@@ -1,7 +1,7 @@
 @startuml
 'entities'
 entity TEMPERATURE {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * degrees DECIMAL(5,2)
   * time TIMESTAMP
@@ -9,7 +9,7 @@ entity TEMPERATURE {
 }
 
 entity WIND {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * direction DECIMAL(5,2)
   * speed DECIMAL(5,2)
@@ -19,15 +19,33 @@ entity WIND {
 }
 
 entity IMAGE {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * image VARCHAR(256)
   * time TIMESTAMP
   * measurement_session_id INTEGER
 }
+entity SOLAR_CELL {
+  * **id** INTEGER
+  --
+  * current FLOAT
+  * voltage FLOAT
+  * time TIMESTAMP
+  * measurement_session_id INTEGER
+}
+
+entity BATTERY {
+  * **id** INTEGER
+  --
+  * current FLOAT
+  * voltage FLOAT
+  * temperature FLOAT
+  * time TIMESTAMP
+  * measurement_session_id INTEGER
+}
 
 entity MEASUREMENT_SESSION {
-  * **session_id INTEGER**
+  * **session_id** BIGINT
   --
   * datavolume INTEGER
   * time TIMESTAMP (CURRENT_TIMESTAMP)
@@ -35,15 +53,15 @@ entity MEASUREMENT_SESSION {
 
 
 entity CONFIGURATION {
-  * **id** INTEGER
+  * **id** BIGINT
   --
-  * maintenance_mode BOOLEAN
+  * measurement_intervall INTEGER
   * res_hight INTEGER
   * res_width INTEGER
 }
 
 entity CONFIG_SESSION {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * creator VARCHAR(256)
   * time TIMESTAMP
@@ -51,17 +69,19 @@ entity CONFIG_SESSION {
 }
 
 entity ADMIN {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * username VARCHAR(256) (unique)
   * password VARCHAR(256)
 }
 
 'relationships'
-"CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
-"ADMIN" "1" <-- "*" "CONFIG_SESSION"
 "MEASUREMENT_SESSION" "1"<--"?" "IMAGE"
 "MEASUREMENT_SESSION" "1"<--"?" "WIND"
 "MEASUREMENT_SESSION" "1"<--"?" "TEMPERATURE"
+"BATTERY" "?"-->"1" "MEASUREMENT_SESSION"
+"SOLAR_CELL" "?"-->"1" "MEASUREMENT_SESSION"
+"CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
+"ADMIN" "1" <-- "*" "CONFIG_SESSION"
 
 @enduml
