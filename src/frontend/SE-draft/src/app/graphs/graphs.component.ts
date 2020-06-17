@@ -1,10 +1,11 @@
-import {Component, OnInit,OnDestroy, OnChanges} from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 
-import {Chart} from 'chart.js';
-import {TemperatureData, WeatherDataService, WindData} from "../weather-data.service";
+import { Chart } from 'chart.js';
+import { TemperatureData, WeatherDataService, WindData } from "../weather-data.service";
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatRadioChange, MatRadioButton } from '@angular/material/radio';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 
 
@@ -13,74 +14,73 @@ import { MatRadioChange, MatRadioButton } from '@angular/material/radio';
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.scss']
 })
-export class GraphsComponent implements OnInit,OnDestroy {
+export class GraphsComponent implements OnInit, OnDestroy {
   weatherDataService: WeatherDataService;
   temperatureData: TemperatureData[] = [];
-  windData: WindData[]=[];
+  windData: WindData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
-  
-  
+
+
 
   weatherDataSubscription: Subscription;
 
 
-  chosenbtn:number=1;
-  timepickers: number[]=[1,3,7,14,21];
+  chosenbtn: number = 1;
+  timepickers: number[] = [1, 3, 7, 14, 21];
 
-  recentTemp:Number;
-  recentWindSpeed:Number;
-  recentWindDir:Number;
- 
-  hourdata:Number[]=[];
+  recentTemp: Number;
+  recentWindSpeed: Number;
+  recentWindDir: Number;
+
+  hourdata: Number[] = [];
+  startdateEvents: string[] = [];
+  enddateEvents: string[] = [];
+
 
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
     this.extendedModeStatus = new BehaviorSubject(false)
-   
+
   }
 
   ngOnInit() {
-    this.weatherDataSubscription=
-      this.weatherDataService.getTemperatures(1).subscribe((data) => {
-      this.temperatureData = data;
-      this.recentTemp= this.temperatureData.map(data=>data.degrees)[data.length-1];
-    });
-   
-      this.weatherDataSubscription=
-      this.weatherDataService.getWindData(1).subscribe((datawind) => {
-      this.windData = datawind;
-      this.recentWindSpeed= this.windData.map(datawind=>datawind.speed)[this.windData.length-1];
-      this.recentWindDir=this.windData.map(datawind=>datawind.direction)[this.windData.length-1];
-      console.log(this.windData);
-      this.buildGraphs();
-    });
-    
-
-
-  
+    this.updateGraphs(1);
   }
 
-  onChange(event: MatSlideToggleChange){
+
+  updateGraphs(input) {
+    this.weatherDataSubscription =
+      this.weatherDataService.getTemperatures(input).subscribe((data) => {
+        this.temperatureData = data;
+        this.recentTemp = this.temperatureData.map(data => data.degrees)[data.length - 1];
+      });
+
+    this.weatherDataSubscription =
+      this.weatherDataService.getWindData(input).subscribe((datawind) => {
+        this.windData = datawind;
+        this.recentWindSpeed = this.windData.map(datawind => datawind.speed)[this.windData.length - 1];
+        this.recentWindDir = this.windData.map(datawind => datawind.direction)[this.windData.length - 1];
+        console.log(this.windData);
+        this.buildGraphs();
+
+      });
+
+  }
+
+  onChange(event: MatSlideToggleChange) {
     console.log(event);
     this.extendedModeStatus.next(event.checked)
   }
- 
-  onbtnChange(event:MatRadioChange){
-    console.log(event);
 
-    this.weatherDataSubscription=
-      this.weatherDataService.getTemperatures(event.value).subscribe((data) => {
-      this.temperatureData = data;
-      this.buildGraphs();
-       
-    });
+  onbtnChange(event: MatRadioChange) {
+
+    this.updateGraphs(event.value);
   }
 
-
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.weatherDataSubscription.unsubscribe();
 
-}
+  }
 
   buildGraphs() {
     var ctx = document.getElementById('temp');
@@ -144,25 +144,64 @@ export class GraphsComponent implements OnInit,OnDestroy {
     });
   }
 
-  onImageLoad(i){
- 
-    var data=this.windData.map(data=>data.direction);
-    console.log(data);
-   
+  onImageLoad(i) {
 
-    var img=document.getElementById(i);
-    img.style.transform = 'rotate('+data[i]+'deg)';
+    var data = this.windData.map(data => data.direction);
+
+
+
+    var img = document.getElementById(i);
+    img.style.transform = 'rotate(' + data[i] + 'deg)';
+
+  }
+
+  rotateDirCardArrow(angle, id) {
+    var img = document.getElementById(id);
+    img.style.transform = 'rotate(' + angle + 'deg)';
+
+  }
+  transformDirectionDates(i) {
+    let dirhours = this.windData.map(datawind => new Date(datawind.time).getHours().toLocaleString());
+    return dirhours[i];
+  }
+
+
+
+  /*Eventhandles for Timeframe */
+  addStartEvent(event: MatDatepickerInputEvent<Date>) {
+    this.startdateEvents.push(`${event.value}`);
+    console.log(this.startdateEvents)
 
   }
 
-  rotateDirCardArrow(angle,id){
-  var img=document.getElementById(id);
-  img.style.transform='rotate('+angle+'deg)';    
+  addEndEvent(event: MatDatepickerInputEvent<Date>) {
+    this.enddateEvents.push(`${event.value}`);
+    console.log(this.enddateEvents)
 
   }
-transformDirectionDates(i){
-  let dirhours=this.windData.map(datawind => new Date(datawind.time).getHours().toLocaleString());
-return dirhours[i];
+
+  applyTimeframe() {
+    let startstring = this.startdateEvents[this.startdateEvents.length - 1]
+    let startdate = new Date(startstring);
+    console.log(startdate);
+
+    let endstring = this.enddateEvents[this.enddateEvents.length - 1]
+    let enddate = new Date(endstring);
+
+
+    if (enddate > startdate) {
+      this.weatherDataSubscription =
+        this.weatherDataService.getTemperaturesDataFrame(startdate, enddate).subscribe((data) => {
+          this.temperatureData = data;
+        });
+
+      this.weatherDataSubscription =
+        this.weatherDataService.getWindDataFrame(startdate, enddate).subscribe((datawind) => {
+          this.windData = datawind;
+          this.buildGraphs();
+        });
+    }
+  }
 }
-}
+
 

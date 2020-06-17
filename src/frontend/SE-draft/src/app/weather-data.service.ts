@@ -32,16 +32,26 @@ export class WeatherDataService {
     var yesterday = today.getDate()-time;
     today.setDate(yesterday);
   
-    console.log(this.http.get<TemperatureData[]>(this.apiUrl + 'temps/?start='+this.formatDate(today)));
+    
     return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/?start='+this.formatDate(today));
 
   }  
   getWindData(time: number){
-    var today=  new Date();
-    var yesterday = today.getDate()-time;
+    let today=  new Date();
+    let yesterday = today.getDate()-time;
     today.setDate(yesterday);
   
   return  this.http.get<WindData[]>(this.apiUrl + 'wind/?start='+this.formatDate(today));
+}
+
+getWindDataFrame(start:Date,end:Date){
+  return this.http.get<WindData[]>(this.apiUrl+'wind/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+
+}
+
+getTemperaturesDataFrame(start:Date,end:Date){
+  return this.http.get<TemperatureData[]>(this.apiUrl+'temps/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+
 }
 
 
