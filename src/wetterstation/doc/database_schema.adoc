@@ -4,8 +4,8 @@ entity TEMPERATURE {
   * **id** BIGINT
   --
   * degrees DECIMAL(5,2)
-  * time TIMESTAMP
-  * measurement_session_id INTEGER
+  * measure_time TIMESTAMP
+  * measurement_session_id BIGINT
 }
 
 entity WIND {
@@ -13,8 +13,8 @@ entity WIND {
   --
   * direction DECIMAL(5,2)
   * speed DECIMAL(5,2)
-  * time TIMESTAMP
-  * measurement_session_id INTEGER
+  * measure_time TIMESTAMP
+  * measurement_session_id BIGINT
 
 }
 
@@ -22,33 +22,33 @@ entity IMAGE {
   * **id** BIGINT
   --
   * image VARCHAR(256)
-  * time TIMESTAMP
-  * measurement_session_id INTEGER
+  * measure_time TIMESTAMP
+  * measurement_session_id BIGINT
 }
 entity SOLAR_CELL {
   * **id** INTEGER
   --
   * current FLOAT
   * voltage FLOAT
-  * time TIMESTAMP
-  * measurement_session_id INTEGER
+  * measure_time TIMESTAMP
+  * measurement_session_id BIGINT
 }
 
 entity BATTERY {
-  * **id** INTEGER
+  * **id** BIGINT
   --
   * current FLOAT
   * voltage FLOAT
   * temperature FLOAT
-  * time TIMESTAMP
-  * measurement_session_id INTEGER
+  * measure_time TIMESTAMP
+  * measurement_session_id BIGINT
 }
 
 entity MEASUREMENT_SESSION {
   * **session_id** BIGINT
   --
   * datavolume INTEGER
-  * time TIMESTAMP (CURRENT_TIMESTAMP)
+  * created TIMESTAMP (CURRENT_TIMESTAMP)
 }
 
 
@@ -76,11 +76,11 @@ entity ADMIN {
 }
 
 'relationships'
-"MEASUREMENT_SESSION" "1"<--"?" "IMAGE"
-"MEASUREMENT_SESSION" "1"<--"?" "WIND"
-"MEASUREMENT_SESSION" "1"<--"?" "TEMPERATURE"
-"BATTERY" "?"-->"1" "MEASUREMENT_SESSION"
-"SOLAR_CELL" "?"-->"1" "MEASUREMENT_SESSION"
+"MEASUREMENT_SESSION" "1"<--"*" "IMAGE"
+"MEASUREMENT_SESSION" "1"<--"*" "WIND"
+"MEASUREMENT_SESSION" "1"<--"*" "TEMPERATURE"
+"BATTERY" "*"-->"1" "MEASUREMENT_SESSION"
+"SOLAR_CELL" "*"-->"1" "MEASUREMENT_SESSION"
 "CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
 "ADMIN" "1" <-- "*" "CONFIG_SESSION"
 

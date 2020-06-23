@@ -10,40 +10,72 @@ Each model represents a single table in our database.
 
 
 class MeasurementSession(models.Model):
-    session_id = models.IntegerField(unique=True, primary_key=True)
-    image_size = models.IntegerField()
+    session_id = models.BigIntegerField(primary_key=True, unique=True)
+    image_size = models.IntegerField(null=True)
     time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return 'created: ' + str(self.time) + ', image_size: ' + str(self.image_size)
 
 
 class Temperature(models.Model):
-    degrees = models.DecimalField(max_digits=5, decimal_places=1)
-    time = models.DateTimeField()
+    id = models.BigIntegerField(primary_key=True, unique=True)
+    degrees = models.FloatField
+    measure_time = models.DateTimeField()
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return 'created: ' + str(self.time) + ', temperature: ' + str(self.degrees)
+        return 'measure time: ' + str(self.measure_time) + ', temperature: ' + str(self.degrees) + ', session_id: ' + str(
+            self.measurement_session)
 
 
 class Wind(models.Model):
-    speed = models.DecimalField(max_digits=5, decimal_places=1)  # in m/s
-    direction = models.DecimalField(max_digits=5, decimal_places=1)  # in degrees
-    time = models.DateTimeField()
+    id = models.BigIntegerField(primary_key=True, unique=True)
+    speed = models.FloatField  # in m/s
+    direction = models.FloatField  # in degrees
+    measure_time = models.DateTimeField()
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return 'created: ' + str(self.time) + ', speed: ' + str(self.speed) + ', direction: ' + str(self.direction)
+        return 'measure time:: ' + str(self.measure_time) + ', speed: ' + str(self.speed) + ', direction: ' + str(
+            self.direction) + ', session_id: ' + str(self.measurement_session)
 
 
 class Image(models.Model):
+    id = models.BigIntegerField(primary_key=True, unique=True)
     image = models.ImageField(upload_to='images/%Y/%m')
-    time = models.DateTimeField()
+    measure_time = models.DateTimeField()
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.image.name
+        return self.image.name + ', session_id: ' + str(self.measurement_session)
 
-# class Configurations(models.Model):
-#     maintenance_mode = models.CharField(max_length=20)
+
+class Battery(models.Model):
+    id = models.BigIntegerField(primary_key=True, unique=True)
+    current = models.FloatField
+    voltage = models.FloatField
+    temperature = models.FloatField
+    measure_time = models.DateTimeField()
+    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
+            self.voltage) + ', temperature: ' + str(self.temperature)
+
+
+class SolarCell(models.Model):
+    id = models.BigIntegerField(primary_key=True, unique=True)
+    current = models.FloatField
+    voltage = models.FloatField
+    measure_time = models.DateTimeField()
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
+            self.voltage)
+
+    # class Configurations(models.Model):
 #     res_hight = models.IntegerField
 #     res_width = models.IntegerField
 #
