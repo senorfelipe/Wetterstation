@@ -13,11 +13,19 @@ export class ImageService {
   }
 
   getImages() {
-    
     return this.http.get<ImageData[]>(this.apiUrl + 'images/');
-
   }
  
+
+  getrecentImages() {
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+  }
+ 
+  getweekImages(){
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+  }
+
+
 }
 
 export interface ImageData {

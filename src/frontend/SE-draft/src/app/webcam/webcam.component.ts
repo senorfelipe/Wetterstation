@@ -2,11 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ImageData, ImageService } from "../image-data.service";
 import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { MatDialog } from '@angular/material/dialog';
+import { GraphsComponent } from '../graphs/graphs.component';
 
 declare var myFunction;
 declare var myTodayFunction;
 declare var myLastWeekFunction;
 declare var myOlderFunction;
+
 @Component({
   selector: "app-webcam",
   templateUrl: "./webcam.component.html",
@@ -23,6 +26,7 @@ export class WebcamComponent implements OnInit {
     myTodayFunction();
     myLastWeekFunction();
     myOlderFunction();
+    
   }
 
   constructor(ImageService: ImageService) {
@@ -31,7 +35,7 @@ export class WebcamComponent implements OnInit {
 
   ngOnInit() {
     this.ImageService.getImages()
-      .pipe(takeUntil(this.destroyed))
+     
       .subscribe((data) => {
         this.Images = data;
         console.log(this.Images);
@@ -51,5 +55,12 @@ export class WebcamComponent implements OnInit {
     console.log(this.Images.map((data) => data.time));
     return this.Images.map((data) => data.time);
   }
+
+
+
+  
 }
-export class NgbdDropdownBasic {}
+
+export class NgbdDropdownBasic {
+  
+}
