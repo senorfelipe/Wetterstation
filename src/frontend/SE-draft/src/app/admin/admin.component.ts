@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MdbCardBodyComponent,MdbCardComponent} from 'angular-bootstrap-md'
-
 
 
 
@@ -15,7 +13,7 @@ export class AdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    MdbCardComponent;
+    
   }
 
   

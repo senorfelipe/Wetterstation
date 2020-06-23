@@ -16,22 +16,11 @@ mat-card {
   width: 30%;
 }
 
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
+.login{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
 /* Extra style for the cancel button (red) */
 .cancelbtn {
   width: 3em;
