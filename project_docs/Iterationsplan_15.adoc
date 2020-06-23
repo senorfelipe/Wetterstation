@@ -1,7 +1,7 @@
 == Iterationsplan 18.06.2020 - 02.07.2020
 
 === Priorisierte Aufgaben
-- Projektbericht bearbeiten, Dokumentationen einfordern -> Josefin
+- Projektbericht bearbeiten, Dokumentationen einfordern -> Josefin, Agustin
 - Rest Endpunkt erweitern für StromLogging -> Philipp
 - Model für config und configsession verfeinern (WIP) -> Philipp
 - Tabelle für Windrichungen (der letzten 24h) implementieren-> Alex
