@@ -1,29 +1,28 @@
 @startuml
 'entities'
 entity TEMPERATURE {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * degrees DECIMAL(5,2)
   * measure_time TIMESTAMP
-  * measurement_session_id BIGINT
+  * measurement_session_id INTERGER
 }
 
 entity WIND {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * direction DECIMAL(5,2)
   * speed DECIMAL(5,2)
   * measure_time TIMESTAMP
-  * measurement_session_id BIGINT
-
+  * measurement_session_id INTERGER
 }
 
 entity IMAGE {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * image VARCHAR(256)
   * measure_time TIMESTAMP
-  * measurement_session_id BIGINT
+  * measurement_session_id INTERGER
 }
 entity SOLAR_CELL {
   * **id** INTEGER
@@ -31,21 +30,21 @@ entity SOLAR_CELL {
   * current FLOAT
   * voltage FLOAT
   * measure_time TIMESTAMP
-  * measurement_session_id BIGINT
+  * measurement_session_id INTERGER
 }
 
 entity BATTERY {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * current FLOAT
   * voltage FLOAT
   * temperature FLOAT
   * measure_time TIMESTAMP
-  * measurement_session_id BIGINT
+  * measurement_session_id INTERGER
 }
 
 entity MEASUREMENT_SESSION {
-  * **session_id** BIGINT
+  * **session_id** INTERGER
   --
   * datavolume INTEGER
   * created TIMESTAMP (CURRENT_TIMESTAMP)
@@ -53,7 +52,7 @@ entity MEASUREMENT_SESSION {
 
 
 entity CONFIGURATION {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * measurement_intervall INTEGER
   * res_hight INTEGER
@@ -61,7 +60,7 @@ entity CONFIGURATION {
 }
 
 entity CONFIG_SESSION {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * creator VARCHAR(256)
   * time TIMESTAMP
@@ -69,7 +68,7 @@ entity CONFIG_SESSION {
 }
 
 entity ADMIN {
-  * **id** BIGINT
+  * **id** INTERGER
   --
   * username VARCHAR(256) (unique)
   * password VARCHAR(256)
