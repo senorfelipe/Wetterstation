@@ -1,19 +1,18 @@
 import datetime
 
-from rest_framework import viewsets, status
-from rest_framework.decorators import api_view, action
+from rest_framework import status, viewsets
+from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 
 from .forms import ImageUploadForm
-from .models import Temperature, Wind, Image, MeasurementSession, Battery, SolarCell
-from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, MeasurementSessionSerializer, \
-    BatterySerializer, SolarCellSerializer
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind
+from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
+    MeasurementSessionSerializer
 
-'''
+"""
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
-'''
-
+"""
 # constants to ensure data mapping
 RASPI_SOLAR_CELL_KEY = 'pv'
 RASPI_BATTERY_KEY = 'battery'
@@ -29,6 +28,10 @@ KEY_MAPPING_DICT = {
 
 
 def filter_by_dates(query_params, queryset):
+    """
+    This method checks if query parameters for filtering by dates are there and then filters on the given queryset.
+    If only parameter 'start' was set 'end' will implicitly be today.
+    """
     filtered_queryset = queryset
     if 'start' in query_params:
         start_date = query_params['start']
@@ -36,9 +39,12 @@ def filter_by_dates(query_params, queryset):
             end_date = query_params['end']
         else:
             # this addition needs to be done
-            # in order to get values from start_date 00:00 to end_date 23:59
+            # in order to get values from start_date 00:00 to today 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        filtered_queryset = queryset.filter(time__range=(start_date, end_date))
+        if issubclass(MeasurementSession, queryset.model):
+            filtered_queryset = queryset.filter(time__range=(start_date, end_date))
+        else:
+            filtered_queryset = queryset.filter(measure_time__range=(start_date, end_date))
     return filtered_queryset
 
 
