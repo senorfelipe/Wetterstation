@@ -1,0 +1,47 @@
+== Protokoll zum Treffen am 12.06.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.45 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [] Josefin
+* [x] Agustin
+* [x] Hannes
+
+* **extern:**
+Herr Professor Iwe, Herr Brenner
+
+=== Iterationsplan
+include::../Iterationsplan_14.adoc[]
+
+=== Themen
+. Vorstellung der Ergebnisse (Bildergalerie, Adminpanel)
+. Besprechung neuer Anforderungen siehe Mail vom 10.06.2020
+. Planung der nächsten Entwicklungsschritte
+
+=== Ergebnisse
+. Front-End
+.. Daten von Akku/Photovoltaik (Strom/Spannung) in ein Diagramm mit Zeitachse, bei dem die Datenauswahl durch Checkboxen realisiert wird
+.. Informationen für das Logbuch werden noch definiert
+.. Wartungsmodus und IP-Adresse entfernen
+.. Aussehen der Galerie ist OK
+.. Standard für Galierie sind die neuesten 5 Bilder
+. Back-End
+.. SessionID wird vom Raspberry als Zeitstempel übergeben
+.. Daten werden vom Raspberry minütlich erfasst -> im Backend für halbe Stunden interpolieren
+. Raspberry
+.. läuft durchgehend und schickt minütlich Daten
+.. wird für Wartung in einem VPN laufen
+.. Wetterdaten werden nicht über das VPN geschickt
+. Zum nächsten Treffen:
+.. Adminpanel anpassen 
+.. Back-End für Adminpanel anpassen
+.. in Bildergalerie Bilder als DB holen
+. Sonstiges
+.. nächstes Treffen ist am 17.06.2020 um 17 Uhr

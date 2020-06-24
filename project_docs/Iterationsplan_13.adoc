@@ -1,0 +1,26 @@
+== Iterationsplan 21.05.2020 - 03.06.2020
+
+=== Priorisierte Aufgaben
+- Front-End weiterentwickeln -> Alex, Justin, Clemens
+- Dokumentation überarbeiten und von den Teammitgliedern fordern -> Josefin
+- Testfälle spezifizieren und entsprechend implementieren -> Hannes
+- Rest Endpunkt images/recent erstellen -> Philipp
+- Rest Endpunkt erweitern für StromLogging -> Philipp
+- Model für Datenverbrauch -> Philipp
+- Authentifizierung einrichten -> Philipp
+- Model für config und configsession erstellen -> Philipp
+
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+=== Bewertung
+- das Front-End wurde gut weiterentwickelt, neu dazu gekommen ist ein Mockup des Adminpanel
+- die Dokumentation wurde nicht überarbeitet
+- Testfälle stehen zwar, sind aber aufgrund von Problemen mit der Rest-API noch nicht ausführbar (siehe Issue#66)
+- Rest Enpunkt images/recent erstellt
+- die Authentifizierung wurde noch nicht angegangen
+- Model für config/configsession, Datenverbrauch und Stromlogging wurden aufgrund fehlender Spezifikationen vom Kunden noch nicht bearbeitet
+- für das Deployment sind erste Anforderungen und Möglichkeiten (z.B. Errorbenachrichtigung per Mail) bekannt

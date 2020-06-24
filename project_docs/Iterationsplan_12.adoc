@@ -12,4 +12,8 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
+- Bildergalerie funktioniert soweit, dass Bilder geladen und dargestellt werden können
+- Front-End erweitert, vor allem die Darstellung der Graphen
+- Back-End wurde entsprechend der Struturdefinition der Daten angepasst
+- Tests wurden noch nicht implementiert
+- Dokumentation (genauer der Beleg von SE1) ist in der finalen Durchsicht und wird alsbald hochgeladen
