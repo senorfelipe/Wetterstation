@@ -10,7 +10,7 @@
 * [x] Alexander
 * [x] Justin
 * [x] Philipp
-* [x] Josephin
+* [x] Josefin
 * [x] Agustin
 * [ ] Hannes
 

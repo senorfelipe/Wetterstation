@@ -1,4 +1,4 @@
-== Iterationsplan 18.06.2020 - 02.07.2020
+== Iterationsplan 18.06.2020 - 01.07.2020
 
 === Priorisierte Aufgaben
 - Projektbericht bearbeiten, Dokumentationen einfordern -> Josefin, Agustin
