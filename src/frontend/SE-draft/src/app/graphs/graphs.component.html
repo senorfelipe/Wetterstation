@@ -86,7 +86,7 @@
     <div class="arrowscontainer" *ngFor="let winddir of windData, let indexOfelement=index">
       <img src="assets/arrow.svg" id="{{indexOfelement}}" (load)="onImageLoad(indexOfelement)">
       
-      <mat-label>{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
+      <mat-label class="windDirTime">{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
     </div>
   </mat-card>
 

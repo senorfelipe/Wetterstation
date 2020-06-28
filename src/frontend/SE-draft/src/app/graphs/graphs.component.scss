@@ -43,21 +43,17 @@ height:70%;
 text-align: center;
 }
 
-.arrowscontainer{
-  float:left;
-}
 
 .directions-card{
-margin-top: 1em;
-height: 4em;
-text-align: center;
-
+  margin-top: 1em;
+  height: 4em;
+  text-align: center;
+  
 }
 
 .mat-h1{
   text-align: center;
- 
-
+  
 }
 
 
@@ -66,7 +62,16 @@ text-align: center;
   justify-content: center;
   align-items: center;
   height: auto;
+  
+}
 
+.arrowscontainer{
+  float:left;
+  margin-right:0.25em ;
+}
+
+.windDirTime{
+  display: block;
 }
 .endpickform,.applydates{
 margin-left: 1em;
