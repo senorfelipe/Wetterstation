@@ -8,20 +8,22 @@
     <!--Checkboxes für Auswahl von Strom/Spannung-->
     <section class="checksec">
         <label>Akku: </label>
-        <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
-        <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom
+        <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart(1)" checked>Spannung
+        <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart(1)">Strom
     </section>
     <section class="checksec">
         <label>Photovoltaik: </label>
-        <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung
-        <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom
+        <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart(1)">Spannung
+        <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart(1)">Strom
     </section>
 
     <mat-grid-list class='matlist' cols='2' [gutterSize]="'10px'">
 
         <!--Diagramm-->
         <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <canvas id= "elecChart"></canvas>
+            <mat-card>
+                <canvas id= "elecChart"></canvas>
+            </mat-card>
         </mat-grid-tile>
 
         <mat-grid-tile [colspan] = "2" [rowspan] = "1">

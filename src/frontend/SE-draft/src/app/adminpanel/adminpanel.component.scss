@@ -27,3 +27,8 @@ H1 {
 .checkmarg {
     margin: 0 10px;
 }
+
+mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 40px);
+  }

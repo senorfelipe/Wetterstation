@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SolarData, WeatherDataService, BatteryData } from "../weather-data.service";
+import { BehaviorSubject, Subscription } from 'rxjs';
 import {Chart} from 'chart.js';
 
 var dates = ['25.05.2020', '26.05.2020', '27.05.2020']
@@ -23,18 +25,40 @@ const adminData: raspyActions[] = [
 
 export class AdminpanelComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  weatherDataService: WeatherDataService;
+  solarData: SolarData[] = [];
+  batteryData: BatteryData[] = [];
+  extendedModeStatus: BehaviorSubject<boolean>;
 
-  ipaddress:String;
+  weatherDataSubscription: Subscription;
+
+  constructor(weatherDataService: WeatherDataService) {
+    this.weatherDataService = weatherDataService
+    this.extendedModeStatus = new BehaviorSubject(false)
+  }
 
   ngOnInit(){
-    this.updateChart();
+    this.updateChart(1);
+    //this.updateChart(1);
+  }
+
+  updateChart(input){
+    this.weatherDataSubscription =
+      this.weatherDataService.getSolarData(input).subscribe((datasolar) => {
+        this.solarData = datasolar;
+      });
+
+    this.weatherDataSubscription =
+      this.weatherDataService.getBatteryData(input).subscribe((databattery) => {
+        this.batteryData = databattery;
+        this.buildChart();
+      });
   }
 
   displayedColumns: string[] = ['date','name','action'];
   tableData = adminData;
 
-  updateChart() {
+  buildChart() {
     let ctx = document.getElementById('elecChart');
     let dataSet = this.getDataSet();
     let volts = new Chart(ctx, {
@@ -76,21 +100,7 @@ export class AdminpanelComponent implements OnInit {
     });
   }
 
-  /**
-  * Hier werden wird das Datenset, welches die Werte für die updateChart()-Funktion enthält, bearbeitet
-  * Das Datenset ist zunächst leer, und es wird für jede Checkbox geschaut, ob diese checked ist.
-  * Ist sie checked, so wird ein Objekt mit entsprechenden Eigenschaften erzeugt und in das Datenset gepackt (dataSet.push(newData))
-  * Dabei ist das data-Attribut jedes newData-Objektes ein Array mit Werten (Spannung bzw. Stromstärke), welche aus der DB gelesen werden müssen
-  * Am Ende wird das Datenset an die updateChart()-Funktion zurückgegeben und die Graphen werden dort gezeichnet.
-  * Die Datumsangaben laufen noch getrennt von den Werten.
-  */
   getDataSet(){
-
-    var curAcc = [2.5,4,2];
-    var curSol = [5,7,3];
-    var volAcc = [20,35,17];
-    var volSol = [15,28,23];
-
     var dataSet = [];
 
     let accCur = <HTMLInputElement> document.getElementById("accCur");
@@ -99,7 +109,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Stromverbrauch Akku",
         borderColor: "#FFBF00",
         yAxisID: 'current',
-        data: curAcc,
+        data: this.batteryData.map(databattery => databattery.current),
         fill: false
       }
       dataSet.push(newData);
@@ -111,7 +121,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Spannung Akku",
         borderColor: "#00BFFF",
         yAxisID: 'voltage',
-        data: volAcc,
+        data: this.batteryData.map(databattery => databattery.voltage),
         fill: false
       }
       dataSet.push(newData);
@@ -123,7 +133,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Stromverbrauch Solarzelle",
         borderColor: "#FF0000",
         yAxisID: 'current',
-        data: curSol,
+        data: this.solarData.map(datasolar => datasolar.current),
         fill: false
       }
       dataSet.push(newData);
@@ -135,7 +145,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Spannung Solarzelle",
         borderColor: "#013ADF",
         yAxisID: 'voltage',
-        data: volSol,
+        data: this.solarData.map(datasolar => datasolar.voltage),
         fill: false
       }
       dataSet.push(newData);
