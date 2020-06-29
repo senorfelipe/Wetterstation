@@ -4,6 +4,9 @@ import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { MatDialog } from '@angular/material/dialog';
 
+import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
+import { Lightbox } from '@ngx-gallery/lightbox';
+
 import 'hammerjs';
 
 
@@ -18,6 +21,8 @@ declare var myOlderFunction;
   styleUrls: ["./webcam.component.scss"],
 })
 export class WebcamComponent implements OnInit {
+  items: GalleryItem[];
+  show = false;
 
 
   Images: ImageData[] = [];
@@ -33,22 +38,35 @@ export class WebcamComponent implements OnInit {
     
   }
 
-  constructor(ImageService: ImageService) {
+  constructor(ImageService: ImageService,public gallery: Gallery, public lightbox: Lightbox) {
     this.ImageService = ImageService;
   }
 
   ngOnInit() {
+    
     this.ImageService.getImages()
      
       .subscribe((data) => {
         this.Images = data;
         console.log(this.Images);
-        
+        this.items=this.Images.map(item => {
+          return new ImageItem({src:item.image})
+          
+        });
       });
 
  
+      // This is for Lightbox example
+      this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.items);
+    }
+  
+    openLightbox() {
+      this.lightbox.open(0, 'lightbox');
+    }
 
-  }
+
+
+  
 
   ngOnDestroy() {
     this.destroyed.next(true);

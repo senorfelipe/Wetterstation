@@ -24,7 +24,7 @@
       <img src="../../assets/images/tie-690084_1920.jpg" alt="Tie" onclick="myFunction(this);" />
     </div>
     <div class="column">
-      <img src="../../assets/images/turtle-863336_1280.jpg" alt="Turtle" onclick="myFunction(this);" />
+      <img src="../../assets/images/turtle-863336_1280.jpg" alt="Turtle" (click)="openLightbox();" />
     </div>
   </div>
   <div class="container">
@@ -53,6 +53,26 @@
     </mat-expansion-panel>
   </mat-accordion>
  
+
+  <div class="basic-container">
+   
+    <gallery *ngIf="show" #gallery id="basic-test" [items]="items" thumbPosition="top">
+    </gallery>
+    <button mat-button (click)="show = !show">Toggle</button>
+    <!--<button mat-button (click)="gallery.play()">Play</button>-->
+    <!--<button mat-button (click)="gallery.stop()">Stop</button>-->
+
+    <p class="container" gallerize>
+      <img *ngFor="let img of items"
+        [src]="img?.data?.thumb"
+        [attr.imageSrc]="img?.data?.src"
+        [attr.thumbSrc]="img?.data?.thumb">
+    </p>
+
+    <button mat-raised-button (click)="openLightbox()">Open Lightbox</button>
+  </div>
+
+
 </body>
 
 </html>

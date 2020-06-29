@@ -59,7 +59,7 @@ import { ImageService } from './image-data.service';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { GalleryModule } from '@ngx-gallery/core';
 import { LightboxModule } from '@ngx-gallery/lightbox'
-
+import { GallerizeModule } from '@ngx-gallery/gallerize';
 
 ;
 
@@ -73,6 +73,7 @@ import { LightboxModule } from '@ngx-gallery/lightbox'
     AdminpanelComponent
   ],
   imports: [
+    GallerizeModule,
     GalleryModule,
     LightboxModule,
     BrowserModule,
