@@ -58,6 +58,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ImageService } from './image-data.service';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
+
+import { NgxGalleryModule } from 'ngx-gallery';
 ;
 
 
@@ -70,6 +72,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
     AdminpanelComponent
   ],
   imports: [
+    NgxGalleryModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -124,7 +127,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
   ],
   providers: [WeatherDataService,ImageService, HttpClient],
-  bootstrap: [AppComponent, AdminComponent]
+  bootstrap: [AppComponent]
 
 })
 export class AppModule {

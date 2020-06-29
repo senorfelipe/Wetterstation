@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class WeatherDataService {
-  private apiUrl = 'http://localhost:8000/api/';
+  private apiUrl = 'http://192.168.43.138:8000/api/';
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -62,12 +62,12 @@ export interface WindData {
   id: Number,
   speed: Number,
   direction: Number,
-  time: Date
+  measurement_time: Date
 
 }
 
 export interface TemperatureData {
   id: Number,
   degrees: Number,
-  time: Date
+  measurement_time: Date
 }

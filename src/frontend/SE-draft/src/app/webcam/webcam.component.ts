@@ -4,6 +4,11 @@ import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { MatDialog } from '@angular/material/dialog';
 import { GraphsComponent } from '../graphs/graphs.component';
+import 'hammerjs';
+
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+
+
 
 declare var myFunction;
 declare var myTodayFunction;
@@ -16,6 +21,11 @@ declare var myOlderFunction;
   styleUrls: ["./webcam.component.scss"],
 })
 export class WebcamComponent implements OnInit {
+
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
+
+
   Images: ImageData[] = [];
   ImageService: ImageService;
   destroyed: Subject<boolean>;
@@ -39,7 +49,34 @@ export class WebcamComponent implements OnInit {
       .subscribe((data) => {
         this.Images = data;
         console.log(this.Images);
+        
       });
+
+      this.galleryOptions = [
+        {
+            width: '600px',
+            height: '400px',
+            thumbnailsColumns: 4,
+            imageAnimation: NgxGalleryAnimation.Slide
+        },
+        // max-width 800
+        {
+            breakpoint: 800,
+            width: '100%',
+            height: '600px',
+            imagePercent: 80,
+            thumbnailsPercent: 20,
+            thumbnailsMargin: 20,
+            thumbnailMargin: 20
+        },
+        // max-width 400
+        {
+            breakpoint: 400,
+            preview: false
+        }
+    ];
+
+
   }
 
   ngOnDestroy() {
@@ -52,8 +89,8 @@ export class WebcamComponent implements OnInit {
   }
 
   getImageDate() {
-    console.log(this.Images.map((data) => data.time));
-    return this.Images.map((data) => data.time);
+    console.log(this.Images.map((data) => data.measurement_time));
+    return this.Images.map((data) => data.measurement_time);
   }
 
 

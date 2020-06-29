@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ImageService {
-  private apiUrl = 'http://localhost:8000/api/';
+  private apiUrl = 'http://192.168.43.138:8000/api/';
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -31,5 +31,5 @@ export class ImageService {
 export interface ImageData {
   id: Number,
   image: String,
-  time: Date
+  measurement_time: Date
 }
