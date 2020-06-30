@@ -6,44 +6,46 @@
     
 <body>
     <!--Checkboxes für Auswahl von Strom/Spannung-->
-    <section class="checksec">
-        <label>Akku: </label>
-        <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart(1)" checked>Spannung
-        <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart(1)">Strom
-    </section>
-    <section class="checksec">
-        <label>Photovoltaik: </label>
-        <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart(1)">Spannung
-        <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart(1)">Strom
+    <section>
+        <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
+            <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>
+            <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>
+        </mat-button-toggle-group>
     </section>
 
-    <mat-grid-list class='matlist' cols='2' [gutterSize]="'10px'">
+    <!--Diagramm-->
+    <mat-card>
+        <canvas id= "elecChart"></canvas>
+    </mat-card>
 
-        <!--Diagramm-->
-        <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <mat-card>
-                <canvas id= "elecChart"></canvas>
-            </mat-card>
-        </mat-grid-tile>
+    <div [hidden]="isToggled">
+        <section class="checksec">
+            <label>Akku: </label>
+            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart(1)" checked>Spannung
+            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart(1)">Strom
+        </section>
+        <section class="checksec">
+            <label>Photovoltaik: </label>
+            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart(1)">Spannung
+            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart(1)">Strom
+        </section>
+    </div>
 
-        <mat-grid-tile [colspan] = "2" [rowspan] = "1">
-            <table mat-table [dataSource]="tableData">
-                <ng-container matColumnDef="date">
-                    <th mat-header-cell *matHeaderCellDef>Datum</th>
-                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-                </ng-container>
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef>Name</th>
-                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                </ng-container>
-                <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef>Aktion</th>
-                    <td mat-cell *matCellDef="let element"> {{element.action}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <table mat-table [dataSource]="tableData">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Datum</th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Aktion</th>
+            <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </body>
 </html>

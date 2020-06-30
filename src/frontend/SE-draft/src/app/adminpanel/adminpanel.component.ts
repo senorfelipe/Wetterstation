@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SolarData, WeatherDataService, BatteryData } from "../weather-data.service";
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import {Chart} from 'chart.js';
 
@@ -30,6 +30,8 @@ export class AdminpanelComponent implements OnInit {
   batteryData: BatteryData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
 
+  isToggled:boolean = false;
+
   weatherDataSubscription: Subscription;
 
   constructor(weatherDataService: WeatherDataService) {
@@ -39,7 +41,17 @@ export class AdminpanelComponent implements OnInit {
 
   ngOnInit(){
     this.updateChart(1);
-    //this.updateChart(1);
+  }
+
+  diagramChange(event: MatButtonToggleChange) {
+    if(event.value == "power"){
+      this.isToggled = true;
+      this.powerChart();
+    }
+    else{
+      this.updateChart(1);
+      this.isToggled = false;
+    }
   }
 
   updateChart(input){
@@ -151,5 +163,51 @@ export class AdminpanelComponent implements OnInit {
       dataSet.push(newData);
     }
     return(dataSet);
+  }
+
+  powerChart(){
+    this.buildPowerChart();
+  }
+
+  buildPowerChart() {
+    let ctx = document.getElementById('elecChart');
+    let dataSet = this.getPowerDataSet();
+    let volts = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: dataSet
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Leistungsaufnahme',
+          fontSize: 20
+        },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Leistung in Watt'
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  getPowerDataSet(){
+    var powerSet = [];
+    let newData = {
+      label:"Leistungsaufnahme",
+      borderColor: "#013ADF",
+      data: [10,23,18],
+      fill: false
+    }
+    powerSet.push(newData);
+    return(powerSet);
   }
 }
