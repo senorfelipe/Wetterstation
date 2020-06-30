@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component,ChangeDetectionStrategy, OnInit, } from "@angular/core";
 import { ImageData, ImageService } from "../image-data.service";
 import { Observable, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -15,17 +15,20 @@ declare var myTodayFunction;
 declare var myLastWeekFunction;
 declare var myOlderFunction;
 
+
+
 @Component({
   selector: "app-webcam",
   templateUrl: "./webcam.component.html",
   styleUrls: ["./webcam.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WebcamComponent implements OnInit {
-  items: GalleryItem[];
-  show = false;
+  recentPics: GalleryItem[];
+  todayPics:GalleryItem[];
 
-
-  Images: ImageData[] = [];
+  TodayImages: ImageData[] =[];
+  RecentImages: ImageData[] = [];
   ImageService: ImageService;
   destroyed: Subject<boolean>;
   panelOpenState = false;
@@ -44,24 +47,37 @@ export class WebcamComponent implements OnInit {
 
   ngOnInit() {
     
-    this.ImageService.getImages()
-     
+    this.ImageService.getrecentImages()
       .subscribe((data) => {
-        this.Images = data;
-        console.log(this.Images);
-        this.items=this.Images.map(item => {
-          return new ImageItem({src:item.image})
-          
-        });
-      });
+        this.RecentImages = data;
+        this.loadrecentPics();
+      })
+      console.log(this.recentPics)
+
+    this.ImageService.getTodayImages()
+    .subscribe((data)=>{
+      this.TodayImages=data;
+    })
 
  
       // This is for Lightbox example
-      this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.items);
+      this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.recentPics);
+      //this.gallery.ref('today', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.todayPics);
     }
   
-    openLightbox() {
-      this.lightbox.open(0, 'lightbox');
+
+    loadrecentPics(){
+      this.recentPics=this.RecentImages.map(data => {
+        return new ImageItem({src:data.image,thumb:data.image})
+      });
+    }
+    
+ 
+
+    openLightbox(index:number,lightboxid:string) {
+      
+      console.log(this.recentPics)
+      this.lightbox.open(index, lightboxid);
     }
 
 
@@ -73,13 +89,13 @@ export class WebcamComponent implements OnInit {
   }
 
   getImageLocation() {
-    console.log(this.Images.map((data) => data.image));
-    return this.Images.map((data) => data.image);
+    console.log(this.RecentImages.map((data) => data.image));
+    return this.RecentImages.map((data) => data.image);
   }
 
   getImageDate() {
-    console.log(this.Images.map((data) => data.measurement_time));
-    return this.Images.map((data) => data.measurement_time);
+    console.log(this.RecentImages.map((data) => data.measurement_time));
+    return this.RecentImages.map((data) => data.measurement_time);
   }
 
 

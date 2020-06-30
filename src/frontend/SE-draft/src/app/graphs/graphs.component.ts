@@ -87,7 +87,7 @@ export class GraphsComponent implements OnInit, OnDestroy {
     var temps = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: this.temperatureData.map(data => new Date(data.measurement_time).toLocaleString()),
+        labels: this.temperatureData.map(data => new Date(data.measure_time).toLocaleString()),
         datasets: [{
           label: 'Temperatures in C°',
           data: this.temperatureData.map(data => data.degrees),
@@ -117,7 +117,7 @@ export class GraphsComponent implements OnInit, OnDestroy {
     var speed = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: this.windData.map(datawind => new Date(datawind.measurement_time).toLocaleString()),
+        labels: this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString()),
         datasets: [{
           label: 'Windspeed in m/s',
           data: this.windData.map(datawind => datawind.speed),
@@ -161,7 +161,7 @@ export class GraphsComponent implements OnInit, OnDestroy {
 
   }
   transformDirectionDates(i) {
-    let dirhours = this.windData.map(datawind => new Date(datawind.measurement_time).getHours().toLocaleString());
+    let dirhours = this.windData.map(datawind => new Date(datawind.measure_time).getHours().toLocaleString());
     return dirhours[i];
   }
 
