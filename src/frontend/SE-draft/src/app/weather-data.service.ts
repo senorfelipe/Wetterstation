@@ -94,7 +94,7 @@ export interface SolarData {
   id: Number,
   current: Number,
   voltage: Number,
-  time: Date
+  measure_time: Date
 }
 
 export interface BatteryData {

@@ -30,6 +30,7 @@ export class AdminpanelComponent implements OnInit {
   batteryData: BatteryData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
 
+  //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
   isToggled:boolean = false;
 
   weatherDataSubscription: Subscription;
@@ -198,6 +199,8 @@ export class AdminpanelComponent implements OnInit {
       }
     });
   }
+
+  //Dynamischer Zeitzugriff: console.log(this.solarData.map(data => new Date(data.measure_time).toLocaleString()))
 
   getPowerDataSet(){
     var powerSet = [];
