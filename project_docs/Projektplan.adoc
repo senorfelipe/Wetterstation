@@ -12,7 +12,7 @@ Dieses Dokument gibt einen Überblick über das Projekt Wetterstation. Es wird d
 - Clemens Kujus      : Projektmanager, Analyst
 - Agustin Calvimontes: Deployment Engineer, Technical Writer
 
-Nach der ersten Iteration wurden die Hauptrollen von Martin Großmann (ehemals Projektmanager) und Clemens Kujus (ehemals Tester) getauscht. Martin Großmann hat das Team iin SE2 verlassen und dafür ist Hannes Fogut hinzugekommen.
+Nach der ersten Iteration wurden die Hauptrollen von Martin Großmann (ehemals Projektmanager) und Clemens Kujus (ehemals Tester) getauscht. Martin Großmann hat das Team in SE2 verlassen und dafür ist Hannes Fogut hinzugekommen.
 
 == Kommunikationswege
 . WhatsApp für schnelle Kommunikation
