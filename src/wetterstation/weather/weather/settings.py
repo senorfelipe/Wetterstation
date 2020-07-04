@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['localhost', '192.168.0.22']
 # Application definition
 
 INSTALLED_APPS = [
-    'restapi',
+    'restapi.apps.RestapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
