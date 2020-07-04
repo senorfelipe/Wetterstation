@@ -1,0 +1,28 @@
+== Protokoll zum Treffen am 05.06.2020
+
+=== Allgemeines
+==== Zeit
+14.00 bis 14.40 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [] Justin
+* [] Philipp
+* [] Josefin
+* [x] Agustin
+* [x] Hannes
+
+* **extern:**
+
+
+=== Iterationsplan
+include::../Iterationsplan_14.adoc[]
+
+=== Themen
+. Auswetung Iteration 13
+
+=== Ergebnisse
+- Siehe Bewertung Iterationsplan 13
+- Siehe Priorisierte Aufgaben Iterationsplan 14

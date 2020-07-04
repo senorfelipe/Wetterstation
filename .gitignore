@@ -114,3 +114,4 @@ GitHub.sublime-settings
 !.vscode/extensions.json
 .history
 /src/wetterstation/uploaded_media/
+/src/http_client/data/
