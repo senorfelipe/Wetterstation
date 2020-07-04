@@ -17,4 +17,10 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
+- Projektbericht und Dokumentation wurden nicht überarbeitet
+- StromLogging ist implementiert
+- Modell für Config und Configsession wurde nicht verfeinert
+- Tabelle für Windrichtungen ist fertig
+- Gallerie ist auf Grundlage von 'ngx-galery' überarbeitet
+- Admin Panel besitzt nun Diagramme für Spannung/Strom und Leistungsaufnahme und entspricht nun bis auf dem Modell für den Datenverbrauch den Anforderungen
+- Authentifizierung ist nicht eingerichtet 

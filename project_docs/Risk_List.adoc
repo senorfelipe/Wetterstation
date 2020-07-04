@@ -16,6 +16,7 @@
 . Angespannte Arbeitsatmosphäre -> 1, 2, 3, 5
 . Fehlende Hard-/Software -> 6
 . Zu hohe Komplexität der eingesetzen Technologie(n) -> 1, 2, 4
+. Pandemie -> 4, 7, 8
 
 === Klasse 3 Moderate Risiken
 . Ausfall Teammitglied -> 3, 5
