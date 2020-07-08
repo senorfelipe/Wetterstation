@@ -31,17 +31,10 @@
     </mat-grid-list>
 
   </mat-card>
-  <div class="container">
-    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-    <img id="expandedImg" style="width: 100%;" />
-    <div id="imgtext"></div>
-  </div>
-
-
 
 
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel (afterExpand)="loadtodayPics()">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Heute
@@ -60,12 +53,35 @@
   </mat-accordion>
 
 
+  <mat-accordion>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Gestern
+        </mat-panel-title>
+        <mat-panel-description>
+          Dies sind alle aufgenommenen Bilder von gestern.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
+          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
 
  
       <p class="container" gallerize>
         <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"
           [attr.thumbSrc]="img?.data?.thumb">
       </p>
+
+
 
 
 </body>

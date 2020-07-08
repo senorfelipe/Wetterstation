@@ -30,9 +30,10 @@ export class ImageService {
 
 
   getTodayImages() {
-    let yesterday=this.today.getDate()-1
-    this.today.setDate(yesterday)
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(this.today));
+    let today=new Date;
+    let yesterday=this.today.getDate()-1;
+    today.setDate(yesterday);
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(today));
   }
  
 
@@ -40,8 +41,11 @@ export class ImageService {
     return this.http.get<ImageData[]>(this.apiUrl + 'images/recent/');
   }
  
-  getweekImages(){
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+  getwYesterdayImages(){
+    let today=new Date;
+    let yesterday=today.getDate()-1;
+    today.setDate(yesterday);
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(this.today));
   }
 
 

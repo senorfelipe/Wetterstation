@@ -24,13 +24,24 @@ declare var myOlderFunction;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WebcamComponent implements OnInit {
-  recentPics: GalleryItem[];
+  
   todayPics:GalleryItem[];
-
   TodayImages: ImageData[] =[];
+
+  recentPics: GalleryItem[];
   RecentImages: ImageData[] = [];
+
+  yesterdayPics: GalleryItem[];
+  YesterdayImages: ImageData[] = [];
+
+  
+
+
   ImageService: ImageService;
-  destroyed: Subject<boolean>;
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  
   panelOpenState = false;
 
   CallMyFunction() {
@@ -41,28 +52,27 @@ export class WebcamComponent implements OnInit {
     
   }
 
-  constructor(ImageService: ImageService,public gallery: Gallery, public lightbox: Lightbox) {
+  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery, public lightbox: Lightbox,public todayLightbox: Lightbox) {
     this.ImageService = ImageService;
   }
 
   ngOnInit() {
     
     this.ImageService.getrecentImages()
+    .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
         this.RecentImages = data;
         this.loadrecentPics();
       })
       console.log(this.recentPics)
 
-    this.ImageService.getTodayImages()
-    .subscribe((data)=>{
-      this.TodayImages=data;
-    })
 
  
       // This is for Lightbox example
       this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.recentPics);
-      //this.gallery.ref('today', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.todayPics);
+      console.log(this.gallery)
+      this.today.ref('today', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.todayPics);
+      console.log(this.today)
     }
   
 
@@ -72,12 +82,30 @@ export class WebcamComponent implements OnInit {
       });
     }
     
+    loadtodayPics(){
+      this.ImageService.getTodayImages()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)=>{
+        this.TodayImages=data;
+        this.todayPics=this.TodayImages.map(data=>{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+        
+      })
  
+    }
+
+    loadyesterdayPics(){
+      this.yesterdayPics=this.YesterdayImages.map(data=>{
+        return new ImageItem({src:data.image,thumb:data.image})
+      });
+    }
+
 
     openLightbox(index:number,lightboxid:string) {
       
-      console.log(this.recentPics)
-      this.lightbox.open(index, lightboxid);
+      console.log(this.todayLightbox)
+      this.todayLightbox.open(index, lightboxid);
     }
 
 
@@ -85,7 +113,8 @@ export class WebcamComponent implements OnInit {
   
 
   ngOnDestroy() {
-    this.destroyed.next(true);
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
   getImageLocation() {
