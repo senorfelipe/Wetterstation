@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SolarData, WeatherDataService, BatteryData } from "../weather-data.service";
+import { SolarData, AdminpanelDataService, BatteryData } from "../adminpanel-data.service";
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import {Chart} from 'chart.js';
@@ -25,7 +25,7 @@ const adminData: raspyActions[] = [
 
 export class AdminpanelComponent implements OnInit {
 
-  weatherDataService: WeatherDataService;
+  adminpanelDataService: AdminpanelDataService;
   solarData: SolarData[] = [];
   batteryData: BatteryData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
@@ -33,15 +33,15 @@ export class AdminpanelComponent implements OnInit {
   //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
   isToggled:boolean = false;
 
-  weatherDataSubscription: Subscription;
+ adminpanelDataSubscription: Subscription;
 
-  constructor(weatherDataService: WeatherDataService) {
-    this.weatherDataService = weatherDataService
+  constructor(adminpanelDataService: AdminpanelDataService) {
+    this.adminpanelDataService = adminpanelDataService
     this.extendedModeStatus = new BehaviorSubject(false)
   }
 
   ngOnInit(){
-    this.updateChart(1);
+    this.updateChart();
   }
 
   diagramChange(event: MatButtonToggleChange) {
@@ -50,19 +50,20 @@ export class AdminpanelComponent implements OnInit {
       this.powerChart();
     }
     else{
-      this.updateChart(1);
+      this.updateChart();
       this.isToggled = false;
     }
   }
 
-  updateChart(input){
-    this.weatherDataSubscription =
-      this.weatherDataService.getSolarData(input).subscribe((datasolar) => {
+  updateChart(){
+    var input=300;
+    this.adminpanelDataSubscription =
+      this.adminpanelDataService.getSolarData(input).subscribe((datasolar) => {
         this.solarData = datasolar;
       });
 
-    this.weatherDataSubscription =
-      this.weatherDataService.getBatteryData(input).subscribe((databattery) => {
+    this.adminpanelDataSubscription =
+      this.adminpanelDataService.getBatteryData(input).subscribe((databattery) => {
         this.batteryData = databattery;
         this.buildChart();
       });
@@ -125,6 +126,7 @@ export class AdminpanelComponent implements OnInit {
         data: this.batteryData.map(databattery => databattery.current),
         fill: false
       }
+      console.log(this.batteryData.map(databattery => databattery.current));
       dataSet.push(newData);
     }
 

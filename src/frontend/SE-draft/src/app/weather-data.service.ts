@@ -42,39 +42,20 @@ export class WeatherDataService {
     today.setDate(yesterday);
   
   return  this.http.get<WindData[]>(this.apiUrl + 'wind/?start='+this.formatDate(today));
-  }
+}
 
-  getSolarData(time: number){
-    let today=  new Date();
-    let yesterday = today.getDate()-time;
-    today.setDate(yesterday);
-  
-  return  this.http.get<SolarData[]>(this.apiUrl + 'solarcell/?start='+this.formatDate(today));
-  }
+getWindDataFrame(start:Date,end:Date){
+  return this.http.get<WindData[]>(this.apiUrl+'wind/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
-  getBatteryData(time: number){
-    let today=  new Date();
-    let yesterday = today.getDate()-time;
-    today.setDate(yesterday);
-  
-  return  this.http.get<BatteryData[]>(this.apiUrl + 'battery/?start='+this.formatDate(today));
-  }
+}
 
-  getWindDataFrame(start:Date,end:Date){
-    return this.http.get<WindData[]>(this.apiUrl+'wind/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
-  }
+getTemperaturesDataFrame(start:Date,end:Date){
+  return this.http.get<TemperatureData[]>(this.apiUrl+'temps/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
-  getTemperaturesDataFrame(start:Date,end:Date){
-    return this.http.get<TemperatureData[]>(this.apiUrl+'temps/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
-  }
+}
 
-  getSolarDataFrame(start:Date,end:Date){
-    return this.http.get<SolarData[]>(this.apiUrl+'solarcell/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
-  }
 
-  getBatteryDataFrame(start:Date,end:Date){
-    return this.http.get<BatteryData[]>(this.apiUrl+'battery/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
-  }
+
 }
 
 export interface WindData {
@@ -82,25 +63,11 @@ export interface WindData {
   speed: Number,
   direction: Number,
   time: Date
+
 }
 
 export interface TemperatureData {
   id: Number,
-  degrees: Number,
-  time: Date
-}
-
-export interface SolarData {
-  id: Number,
-  current: Number,
-  voltage: Number,
-  measure_time: Date
-}
-
-export interface BatteryData {
-  id: Number,
-  current: Number,
-  voltage: Number,
   degrees: Number,
   time: Date
 }

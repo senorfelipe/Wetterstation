@@ -22,13 +22,13 @@
     <div [hidden]="isToggled">
         <section class="checksec">
             <label>Akku: </label>
-            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart(1)" checked>Spannung
-            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart(1)">Strom
+            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
+            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom
         </section>
         <section class="checksec">
             <label>Photovoltaik: </label>
-            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart(1)">Spannung
-            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart(1)">Strom
+            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung
+            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom
         </section>
     </div>
 
