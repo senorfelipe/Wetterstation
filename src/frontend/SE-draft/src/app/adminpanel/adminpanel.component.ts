@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SolarData, AdminpanelDataService, BatteryData } from "../adminpanel-data.service";
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import {Chart} from 'chart.js';
 
 var dates = ['25.05.2020', '26.05.2020', '27.05.2020']
@@ -23,18 +25,54 @@ const adminData: raspyActions[] = [
 
 export class AdminpanelComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  adminpanelDataService: AdminpanelDataService;
+  solarData: SolarData[] = [];
+  batteryData: BatteryData[] = [];
+  extendedModeStatus: BehaviorSubject<boolean>;
 
-  ipaddress:String;
+  //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
+  isToggled:boolean = false;
+
+ adminpanelDataSubscription: Subscription;
+
+  constructor(adminpanelDataService: AdminpanelDataService) {
+    this.adminpanelDataService = adminpanelDataService
+    this.extendedModeStatus = new BehaviorSubject(false)
+  }
 
   ngOnInit(){
     this.updateChart();
   }
 
+  diagramChange(event: MatButtonToggleChange) {
+    if(event.value == "power"){
+      this.isToggled = true;
+      this.powerChart();
+    }
+    else{
+      this.updateChart();
+      this.isToggled = false;
+    }
+  }
+
+  updateChart(){
+    var input=300;
+    this.adminpanelDataSubscription =
+      this.adminpanelDataService.getSolarData(input).subscribe((datasolar) => {
+        this.solarData = datasolar;
+      });
+
+    this.adminpanelDataSubscription =
+      this.adminpanelDataService.getBatteryData(input).subscribe((databattery) => {
+        this.batteryData = databattery;
+        this.buildChart();
+      });
+  }
+
   displayedColumns: string[] = ['date','name','action'];
   tableData = adminData;
 
-  updateChart() {
+  buildChart() {
     let ctx = document.getElementById('elecChart');
     let dataSet = this.getDataSet();
     let volts = new Chart(ctx, {
@@ -76,21 +114,7 @@ export class AdminpanelComponent implements OnInit {
     });
   }
 
-  /**
-  * Hier werden wird das Datenset, welches die Werte für die updateChart()-Funktion enthält, bearbeitet
-  * Das Datenset ist zunächst leer, und es wird für jede Checkbox geschaut, ob diese checked ist.
-  * Ist sie checked, so wird ein Objekt mit entsprechenden Eigenschaften erzeugt und in das Datenset gepackt (dataSet.push(newData))
-  * Dabei ist das data-Attribut jedes newData-Objektes ein Array mit Werten (Spannung bzw. Stromstärke), welche aus der DB gelesen werden müssen
-  * Am Ende wird das Datenset an die updateChart()-Funktion zurückgegeben und die Graphen werden dort gezeichnet.
-  * Die Datumsangaben laufen noch getrennt von den Werten.
-  */
   getDataSet(){
-
-    var curAcc = [2.5,4,2];
-    var curSol = [5,7,3];
-    var volAcc = [20,35,17];
-    var volSol = [15,28,23];
-
     var dataSet = [];
 
     let accCur = <HTMLInputElement> document.getElementById("accCur");
@@ -99,9 +123,10 @@ export class AdminpanelComponent implements OnInit {
         label:"Stromverbrauch Akku",
         borderColor: "#FFBF00",
         yAxisID: 'current',
-        data: curAcc,
+        data: this.batteryData.map(databattery => databattery.current),
         fill: false
       }
+      console.log(this.batteryData.map(databattery => databattery.current));
       dataSet.push(newData);
     }
 
@@ -111,7 +136,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Spannung Akku",
         borderColor: "#00BFFF",
         yAxisID: 'voltage',
-        data: volAcc,
+        data: this.batteryData.map(databattery => databattery.voltage),
         fill: false
       }
       dataSet.push(newData);
@@ -123,7 +148,7 @@ export class AdminpanelComponent implements OnInit {
         label:"Stromverbrauch Solarzelle",
         borderColor: "#FF0000",
         yAxisID: 'current',
-        data: curSol,
+        data: this.solarData.map(datasolar => datasolar.current),
         fill: false
       }
       dataSet.push(newData);
@@ -135,11 +160,59 @@ export class AdminpanelComponent implements OnInit {
         label:"Spannung Solarzelle",
         borderColor: "#013ADF",
         yAxisID: 'voltage',
-        data: volSol,
+        data: this.solarData.map(datasolar => datasolar.voltage),
         fill: false
       }
       dataSet.push(newData);
     }
     return(dataSet);
+  }
+
+  powerChart(){
+    this.buildPowerChart();
+  }
+
+  buildPowerChart() {
+    let ctx = document.getElementById('elecChart');
+    let dataSet = this.getPowerDataSet();
+    let volts = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: dataSet
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Leistungsaufnahme',
+          fontSize: 20
+        },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Leistung in Watt'
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  //Dynamischer Zeitzugriff: console.log(this.solarData.map(data => new Date(data.measure_time).toLocaleString()))
+
+  getPowerDataSet(){
+    var powerSet = [];
+    let newData = {
+      label:"Leistungsaufnahme",
+      borderColor: "#013ADF",
+      data: [10,23,18],
+      fill: false
+    }
+    powerSet.push(newData);
+    return(powerSet);
   }
 }
