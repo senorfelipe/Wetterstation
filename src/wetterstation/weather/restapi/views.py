@@ -3,16 +3,17 @@ import datetime
 from django.db import connection
 from django.db.models import Avg, F, Max, Min
 from django.db.models.functions import Ceil
-from rest_framework import status, viewsets
-from rest_framework.decorators import action, api_view
+from rest_framework import status, viewsets, mixins
+from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from . import databaseutils
+from . import databaseutils, costumviews
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime
 from .forms import ImageUploadForm
-from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer
 
 """
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
@@ -55,30 +56,7 @@ def filter_by_dates(query_params, queryset):
     return filtered_queryset
 
 
-class MeasurementSessionViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = MeasurementSessionSerializer
-    queryset = MeasurementSession.objects.all()
-
-    def get_queryset(self):
-        # extra order_by call needs to be done in order to refresh the queryset
-        return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
-
-    @action(methods=['GET'], detail=False)
-    def aggregate(self, request):
-        queryset = self.get_queryset()
-        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
-                                                       queryset.aggregate(max=Max('measure_time'))['max'])
-            queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
-                image_size=Avg('image_size'),
-                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time'))))) \
-                .order_by('measure_time')
-            print(queryset.query)
-        return Response(queryset.values('measure_time', 'image_size'), status=status.HTTP_200_OK)
-
-
-class TemperatureViewSet(viewsets.ModelViewSet):
+class TemperatureViewSet(costumviews.CreateListRetrieveViewSet):
     serializer_class = TemperatureSerialzer
     queryset = Temperature.objects.all()
 
@@ -106,56 +84,7 @@ class TemperatureViewSet(viewsets.ModelViewSet):
         return Response(queryset.values('measure_time', 'degrees'), status=status.HTTP_200_OK)
 
 
-class BatteryViewSet(viewsets.ModelViewSet):
-    serializer_class = BatterySerializer
-    queryset = Battery.objects.all()
-
-    def get_queryset(self):
-        # extra order_by call needs to be done in order to refresh the queryset
-        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
-
-    @action(methods=['GET'], detail=False)
-    def aggregate(self, request):
-        queryset = self.get_queryset()
-        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
-                                                       queryset.aggregate(max=Max('measure_time'))['max'])
-            queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
-                degrees=Avg('temperature'),
-                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
-                current=Avg('current'),
-                voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'current', 'voltage', 'degrees')
-            print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
-
-
-class SolarCellViewSet(viewsets.ModelViewSet):
-    serializer_class = SolarCellSerializer
-    queryset = SolarCell.objects.all()
-
-    def get_queryset(self):
-        # extra order_by call needs to be done in order to refresh the queryset
-        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
-
-    @action(methods=['GET'], detail=False)
-    def aggregate(self, request):
-        queryset = self.get_queryset()
-        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
-                                                       queryset.aggregate(max=Max('measure_time'))['max'])
-            queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
-                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
-                current=Avg('current'),
-                voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'current', 'voltage')
-            print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
-
-
-class WindViewSet(viewsets.ModelViewSet):
+class WindViewSet(costumviews.CreateListRetrieveViewSet):
     serializer_class = WindSerializer
     queryset = Wind.objects.all()
     query_param_recent = 'lasthours'
@@ -198,7 +127,7 @@ class WindViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-class ImageUploadView(viewsets.ModelViewSet):
+class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     serializer_class = ImageSerializer
     queryset = Image.objects.all()
 
@@ -243,6 +172,7 @@ def get_or_create_measurement_session(session_id):
 
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def receive_sensor_data(request):
     if request.method == 'POST':
         post_data = request.data
@@ -291,3 +221,93 @@ def store_solar_cell_data(solar_cell_data):
     solar_serializer = SolarCellSerializer(data=solar_cell_data)
     if solar_serializer.is_valid():
         solar_serializer.save()
+
+
+# Viewsets regarding AdminPanel
+
+class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+    queryset = Configuration.objects.all()
+    serializer_class = ConfigurationSerializer
+
+    def perform_create(self, serializer):
+        created = serializer.save()
+        config_session = ConfigSession()
+        config_session.configuration = created
+        config_session.time = datetime.datetime.now()
+        config_session.save()
+
+
+class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+    queryset = ConfigSession.objects.all()
+    serializer_class = ConfigSessionSerializer
+
+
+class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
+    serializer_class = BatterySerializer
+    queryset = Battery.objects.all()
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
+
+    @action(methods=['GET'], detail=False)
+    def aggregate(self, request):
+        queryset = self.get_queryset()
+        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
+                                                       queryset.aggregate(max=Max('time'))['max'])
+            queryset = queryset.values(
+                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
+                time=FromUnixtime(Avg(UnixTimestamp(F('time')))),
+                image_size=Avg()
+                    .order_by('measure_time').values('time', 'image_size'))
+            print(queryset.query)
+        return Response(queryset, status=status.HTTP_200_OK)
+
+
+class SolarCellViewSet(costumviews.CreateListRetrieveViewSet):
+    serializer_class = SolarCellSerializer
+    queryset = SolarCell.objects.all()
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
+
+    @action(methods=['GET'], detail=False)
+    def aggregate(self, request):
+        queryset = self.get_queryset()
+        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
+            queryset = queryset.values(
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                current=Avg('current'),
+                voltage=Avg('voltage')) \
+                .order_by('measure_time').values('measure_time', 'current', 'voltage')
+            print(queryset.query)
+        return Response(queryset, status=status.HTTP_200_OK)
+
+
+class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = MeasurementSessionSerializer
+    queryset = MeasurementSession.objects.all()
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('time')).exclude(
+            image_size__isnull=True)
+
+    @action(methods=['GET'], detail=False)
+    def aggregate(self, request):
+        queryset = self.get_queryset()
+        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
+                                                       queryset.aggregate(max=Max('time'))['max'])
+            queryset = queryset.values(
+                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
+                image_size=Avg('image_size'),
+                time=FromUnixtime(Avg(UnixTimestamp(F('time'))))) \
+                .order_by('time')
+            print(queryset.query)
+        return Response(queryset.values('time', 'image_size'), status=status.HTTP_200_OK)

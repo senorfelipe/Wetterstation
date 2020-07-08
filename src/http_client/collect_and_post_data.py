@@ -36,6 +36,7 @@ def find_and_post_data():
         if status == 201:
             print('posted image: ' + os.path.basename(image))
             os.remove(img_path)
+    os.chdir('../../')
 
 
 def add_session_id(data, session_id):

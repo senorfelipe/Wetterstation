@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 """
@@ -71,16 +72,21 @@ class SolarCell(models.Model):
         return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
             self.voltage)
 
-    # class Configurations(models.Model):
-#     res_hight = models.IntegerField
-#     res_width = models.IntegerField
-#
-#     def __str__(self):
-#         return 'maintenance: ' + self.maintenance_mode + 'resolution: ' + self.res_hight + 'x' + self.res_width
-#
-#
-# class ConfigSession(models.Model):
-#     configuration = models.OneToOneField(Configurations, primary_key=True)
-#     start_time = models.TimeField(auto_now_add=True)
-#     applied = models.BooleanField
-#     # TODO add refrence to user here
+
+class Configuration(models.Model):
+    res_height = models.IntegerField
+    res_width = models.IntegerField
+    measure_intervall_sensors = models.IntegerField
+    measure_intervall_cam = models.IntegerField
+    post_intervall_sensor_data = models.IntegerField
+    post_intervall_image_data = models.IntegerField
+
+    def __str__(self):
+        return 'resolution: ' + str(self.res_height) + 'x' + str(self.res_width)
+
+
+class ConfigSession(models.Model):
+    configuration = models.OneToOneField(Configuration, primary_key=True, on_delete=models.CASCADE)
+    time = models.TimeField(auto_now_add=True)
+    applied = models.BooleanField
+    # TODO add refrence to user here
