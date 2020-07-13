@@ -124,7 +124,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
   ],
   providers: [WeatherDataService,ImageService, HttpClient],
-  bootstrap: [AppComponent, AdminComponent]
+  bootstrap: [AppComponent]
 
 })
 export class AppModule {

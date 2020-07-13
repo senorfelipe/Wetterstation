@@ -24,7 +24,7 @@ SECRET_KEY = 'z8-lb25xh)ruh#mj_&xhfc8-apnk2n)%&&4#nk41i0wtlmwsrl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.22', '192.168.178.44']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'weather.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': '192.168.2.109',
-#         'NAME': 'weather_dev',
+#         'HOST': '192.168.2.115',
+#         'NAME': 'wetterstation_dev',
 #         'USER': 'imADuck',
 #         'PASSWORD': 'p@55w0rd',
 #         'PORT': '3306',
