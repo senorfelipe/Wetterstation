@@ -1,0 +1,48 @@
+[
+  {
+    "temp": {
+      "timestamp": "2020-05-09T23:15:30.000Z",
+      "deg": 20.5
+    },
+    "wind": {
+      "timestamp": "2020-05-09T23:17:42.000Z",
+      "speed": 1.5,
+      "dir": 350
+    },
+    "pv": {
+      "timestamp": "2020-05-09T23:17:42.000Z",
+      "current": 3.1,
+      "voltage": 15.3
+    },
+    "battery": {
+      "timestamp": "2020-05-09T23:17:42.000Z",
+      "current": 0.13,
+      "voltage": 12.8,
+      "temperature": 14.8
+    },
+    "session_id": 12345
+  },
+  {
+    "temp": {
+      "timestamp": "2020-05-09T23:15:32.000Z",
+      "deg": 20.9
+    },
+    "wind": {
+      "timestamp": "2020-05-09T23:17:44.000Z",
+      "speed": 2.5,
+      "dir": 357
+    },
+    "pv": {
+      "timestamp": "2020-05-09T23:17:44.000Z",
+      "current": 3.5,
+      "voltage": 15.3
+    },
+    "battery": {
+      "timestamp": "2020-05-09T23:17:44.000Z",
+      "current": 0.16,
+      "voltage": 14.8,
+      "temperature": 14.8
+    },
+    "session_id": 123456
+  }
+]
