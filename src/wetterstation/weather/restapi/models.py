@@ -89,4 +89,4 @@ class ConfigSession(models.Model):
     configuration = models.OneToOneField(Configuration, primary_key=True, on_delete=models.CASCADE)
     time = models.TimeField(auto_now_add=True)
     applied = models.BooleanField
-    # TODO add refrence to user here
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)

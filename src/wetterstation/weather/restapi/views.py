@@ -1,6 +1,6 @@
 import datetime
 
-from django.db import connection
+from django.db import transaction
 from django.db.models import Avg, F, Max, Min
 from django.db.models.functions import Ceil
 from rest_framework import status, viewsets, mixins
@@ -49,7 +49,7 @@ def filter_by_dates(query_params, queryset):
             # this addition needs to be done
             # in order to get values from start_date 00:00 to today 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        if issubclass(MeasurementSession, queryset.model):
+        if issubclass(MeasurementSession, queryset.model) or issubclass(ConfigSession, queryset.model):
             filtered_queryset = queryset.filter(time__range=(start_date, end_date))
         else:
             filtered_queryset = queryset.filter(measure_time__range=(start_date, end_date))
@@ -60,14 +60,19 @@ class TemperatureViewSet(costumviews.CreateListRetrieveViewSet):
     serializer_class = TemperatureSerialzer
     queryset = Temperature.objects.all()
 
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        print('Queries counted: {}'.format(len(connection.queries)))
-        return response
-
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
         return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
+
+    def list(self, request, *args, **kwargs):
+        return Response(self.get_queryset().values('degrees', 'measure_time'))
+
+    def dispatch(self, *args, **kwargs):
+        response = super().dispatch(*args, **kwargs)
+        # For debugging purposes only.
+        from django.db import connection
+        print('# of Queries: {}'.format(len(connection.queries)))
+        return response
 
     @action(methods=['GET'], detail=False)
     def aggregate(self, request):
@@ -111,7 +116,7 @@ class WindViewSet(costumviews.CreateListRetrieveViewSet):
     def aggregate(self, request):
         queryset = self.get_queryset()
         queryset = self.aggregate_on_queryset(queryset)
-        return Response(queryset, status=status.HTTP_200_OK)
+        return Response(queryset.values('measure_time', 'speed', 'direction'), status=status.HTTP_200_OK)
 
     @staticmethod
     def aggregate_on_queryset(queryset):
@@ -177,13 +182,14 @@ def receive_sensor_data(request):
     if request.method == 'POST':
         post_data = request.data
         for data in post_data:
-            session_id = int(data['session_id'])
-            session = get_or_create_measurement_session(session_id)
-            map_sensor_data(data, session)
-            store_wind_data(data[RASPI_WIND_KEY])
-            store_temp_data(data[RASPI_TEMPERATURE_KEY])
-            store_battery_data(data[RASPI_BATTERY_KEY])
-            store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
+            with transaction.atomic():
+                session_id = int(data['session_id'])
+                session = get_or_create_measurement_session(session_id)
+                map_sensor_data(data, session)
+                store_wind_data(data[RASPI_WIND_KEY])
+                store_temp_data(data[RASPI_TEMPERATURE_KEY])
+                store_battery_data(data[RASPI_BATTERY_KEY])
+                store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
         return Response(status=status.HTTP_201_CREATED)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
@@ -230,16 +236,21 @@ class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, views
     serializer_class = ConfigurationSerializer
 
     def perform_create(self, serializer):
+        print(serializer.validated_data())
         created = serializer.save()
         config_session = ConfigSession()
         config_session.configuration = created
         config_session.time = datetime.datetime.now()
+        config_session.user = self.request.user
         config_session.save()
 
 
 class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = ConfigSession.objects.all()
     serializer_class = ConfigSessionSerializer
+
+    def get_queryset(self):
+        filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
 
 
 class BatteryViewSet(costumviews.CreateListRetrieveViewSet):

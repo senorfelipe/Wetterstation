@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'weather.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': '192.168.2.109',
         'NAME': 'weather_dev',
-        'USER': 'root',
+        'USER': 'imADuck',
         'PASSWORD': 'p@55w0rd',
         'PORT': '3306',
     }
