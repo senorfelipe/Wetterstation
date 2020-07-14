@@ -1,0 +1,94 @@
+[
+  {
+    "temp": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "deg": 20
+    },
+    "wind": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "speed": 1,
+      "dir": 300
+    },
+    "pv": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 1,
+      "voltage": 15
+    },
+    "battery": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 1,
+      "voltage": 15,
+      "temperature": 20
+    },
+    "session_id": "123456789"
+  },
+  {
+    "temp": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "deg": 40
+    },
+    "wind": {
+      "timestamp": "2020-07-01T22:01:00.000Z",
+      "speed": 2,
+      "dir": 200
+    },
+    "pv": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 2,
+      "voltage": 30
+    },
+    "battery": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 2,
+      "voltage": 30,
+      "temperature": 40
+    },
+    "session_id": "123456789"
+  },
+  {
+    "temp": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "deg": 20.5
+    },
+    "wind": {
+      "timestamp": "2020-07-01T22:01:00.000Z",
+      "speed": 1.5,
+      "dir": 350
+    },
+    "pv": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 3.1,
+      "voltage": 15.3
+    },
+    "battery": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 0.15,
+      "voltage": 12.5,
+      "temperature": 14.8
+    },
+    "session_id": "123456789"
+  },
+  {
+    "temp": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "deg": 20.5
+    },
+    "wind": {
+      "timestamp": "2020-07-01T22:01:00.000Z",
+      "speed": 1.5,
+      "dir": 350
+    },
+    "pv": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 3.1,
+      "voltage": 15.3
+    },
+    "battery": {
+      "timestamp": "2020-07-01T22:00:00.000Z",
+      "current": 0.15,
+      "voltage": 12.5,
+      "temperature": 14.8
+    },
+    "session_id": "123456789"
+  }
+]

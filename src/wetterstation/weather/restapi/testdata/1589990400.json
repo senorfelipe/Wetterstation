@@ -19,5 +19,5 @@
     "voltage": 12.5,
     "temperature": 14.8
   },
-  "session_id": 123456789
+  "session_id": "123456789"
 }

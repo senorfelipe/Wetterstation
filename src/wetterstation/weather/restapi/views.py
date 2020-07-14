@@ -186,11 +186,14 @@ def receive_sensor_data(request):
                 session_id = int(data['session_id'])
                 session = get_or_create_measurement_session(session_id)
                 map_sensor_data(data, session)
-                store_wind_data(data[RASPI_WIND_KEY])
-                store_temp_data(data[RASPI_TEMPERATURE_KEY])
-                store_battery_data(data[RASPI_BATTERY_KEY])
-                store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
-        return Response(status=status.HTTP_201_CREATED)
+                wind_was_stored = store_wind_data(data[RASPI_WIND_KEY])
+                temp_was_stored = store_temp_data(data[RASPI_TEMPERATURE_KEY])
+                bat_was_stored = store_battery_data(data[RASPI_BATTERY_KEY])
+                sc_was_stored = store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
+        if len(post_data) != 0 and wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored:
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -206,27 +209,39 @@ def map_sensor_data(data, session=None):
 
 
 def store_temp_data(temp_data):
+    created = False
     temp_serializer = TemperatureSerialzer(data=temp_data)
     if temp_serializer.is_valid():
         temp_serializer.save()
+        created = True
+    return created
 
 
 def store_wind_data(wind_data):
+    created = False
     wind_serializer = WindSerializer(data=wind_data)
     if wind_serializer.is_valid():
         wind_serializer.save()
+        created = True
+    return created
 
 
 def store_battery_data(battery_data):
+    created = False
     battery_serializer = BatterySerializer(data=battery_data)
     if battery_serializer.is_valid():
         battery_serializer.save()
+        created = True
+    return created
 
 
 def store_solar_cell_data(solar_cell_data):
+    created = False
     solar_serializer = SolarCellSerializer(data=solar_cell_data)
     if solar_serializer.is_valid():
         solar_serializer.save()
+        created = True
+    return created
 
 
 # Viewsets regarding AdminPanel

@@ -1,6 +1,5 @@
 import json
 import os
-import time
 from datetime import datetime, timedelta
 
 from rest_framework import status
@@ -23,8 +22,8 @@ class TestSensorDataPost(APITestCase):
     def test_sensor_data_was_posted(self):
         test_file = get_test_file()
         data = json.load(test_file)
-
-        response = self.client.post('/api/sensor-data', data, format='json')
+        post = [data]
+        response = self.client.post('/api/sensor-data/', data=post, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Wind.objects.count(), 1)
@@ -67,3 +66,10 @@ class TestSensorDataPost(APITestCase):
         self.assertEqual(len(filtered_temps.data), 1)
 
 
+class TestDataAggregation(APITestCase):
+
+    def setUp(self):
+        pass
+
+    def test_aggregation_was_correct(self):
+        pass
