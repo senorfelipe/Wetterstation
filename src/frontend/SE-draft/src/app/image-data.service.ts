@@ -41,7 +41,7 @@ export class ImageService {
     return this.http.get<ImageData[]>(this.apiUrl + 'images/recent/');
   }
  
-  getwYesterdayImages(){
+  getYesterdayImages(){
     let today=new Date;
     let yesterday=today.getDate()-1;
     today.setDate(yesterday);

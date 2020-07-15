@@ -1,19 +1,13 @@
 import { Component,ChangeDetectionStrategy, OnInit, } from "@angular/core";
 import { ImageData, ImageService } from "../image-data.service";
 import { Observable, Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { takeUntil, throttleTime } from "rxjs/operators";
 import { MatDialog } from '@angular/material/dialog';
 
 import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
 import { Lightbox } from '@ngx-gallery/lightbox';
 
 import 'hammerjs';
-
-
-declare var myFunction;
-declare var myTodayFunction;
-declare var myLastWeekFunction;
-declare var myOlderFunction;
 
 
 
@@ -44,15 +38,9 @@ export class WebcamComponent implements OnInit {
   
   panelOpenState = false;
 
-  CallMyFunction() {
-    myFunction();
-    myTodayFunction();
-    myLastWeekFunction();
-    myOlderFunction();
-    
-  }
 
-  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery, public lightbox: Lightbox,public todayLightbox: Lightbox) {
+  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery, public lightbox: Lightbox,public todayLightbox: Lightbox,public yesterday :Gallery,
+    public yesterdayLightbox:Lightbox) {
     this.ImageService = ImageService;
   }
 
@@ -64,15 +52,15 @@ export class WebcamComponent implements OnInit {
         this.RecentImages = data;
         this.loadrecentPics();
       })
+      this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.recentPics);
       console.log(this.recentPics)
 
 
  
       // This is for Lightbox example
-      this.gallery.ref('lightbox', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.recentPics);
+      
       console.log(this.gallery)
-      this.today.ref('today', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.todayPics);
-      console.log(this.today)
+
     }
   
 
@@ -90,20 +78,26 @@ export class WebcamComponent implements OnInit {
         this.todayPics=this.TodayImages.map(data=>{
           return new ImageItem({src:data.image,thumb:data.image})
         });
+      this.today.ref('today', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.todayPics);
         
       })
  
     }
 
     loadyesterdayPics(){
-      this.yesterdayPics=this.YesterdayImages.map(data=>{
-        return new ImageItem({src:data.image,thumb:data.image})
-      });
+      this.ImageService.getYesterdayImages()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)=>{
+        this.YesterdayImages=data;
+        this.yesterdayPics=this.YesterdayImages.map(data=>{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+      })
+      this.today.ref('yesterday', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.yesterdayPics);
     }
 
 
     openLightbox(index:number,lightboxid:string) {
-      
       console.log(this.todayLightbox)
       this.todayLightbox.open(index, lightboxid);
     }

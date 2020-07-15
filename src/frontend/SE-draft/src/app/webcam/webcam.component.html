@@ -34,7 +34,7 @@
 
 
   <mat-accordion>
-    <mat-expansion-panel (afterExpand)="loadtodayPics()">
+    <mat-expansion-panel (opened)="loadtodayPics()">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Heute
@@ -43,18 +43,21 @@
           Dies sind alle aufgenommenen Bilder von heute.
         </mat-panel-description>
       </mat-expansion-panel-header>
-
+      <ng-template matExpansionPanelContent>
       <mat-grid-list cols="4" rowHeight="200px">
         <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">
           <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+
+    
         </mat-grid-tile>
       </mat-grid-list>
+      </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
 
 
   <mat-accordion>
-    <mat-expansion-panel >
+    <mat-expansion-panel (opened)="loadyesterdayPics()" >
       <mat-expansion-panel-header>
         <mat-panel-title>
           Gestern
@@ -64,11 +67,17 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
+      <ng-template matExpansionPanelContent>
       <mat-grid-list cols="4" rowHeight="200px">
         <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
-          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'yesterday')">
         </mat-grid-tile>
       </mat-grid-list>
+      <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+    </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
 

@@ -9,28 +9,6 @@
   height: auto;
 }
 
-.column {
-  float: left;
-  width: 25%;
-  padding: 0px;
-}
-
-.column img {
-  opacity: 0.8;
-  cursor: pointer;
-  width: 250px;
-}
-
-.column img:hover {
-  opacity: 1;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .container {
   position: relative;
   display: none;
