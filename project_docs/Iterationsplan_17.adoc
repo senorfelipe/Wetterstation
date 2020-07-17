@@ -1,0 +1,21 @@
+== Iterationsplan 16.07.2020 - 29.07.2020
+
+=== Priorisierte Aufgaben
+- Projektbericht bearbeiten, Dokumentationen einfordern -> Josefin, Agustin, Justin
+- Tests erstellen, überarbeiten und durchführen -> Hannes
+- Authentifizierung einrichten -> Philipp, Alex, Clemens
+- Adminpanel Diagram Daten mit entsprechenden Datumsangaben zusammenführen -> Clemens
+- Adminpanel Modell für Datenverbrauch implementieren -> Clemens
+- Adminpanel braucht ein Diagramm zur Anzeige des Ladestroms -> Clemens
+- Adminpanel Einsicht, ob Sensoren keine (nicht-Error) Werte liefern -> Clemens
+- Gallerie bearbeiten (Datepicker+Performance)-> Alex
+- Datenformat im Back-End anpassen -> Philipp
+- Deployment vorbereiten -> Philipp, Justin, Alex, Clemens
+
+=== Risiken
+Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
+
+include::Risk_List.adoc[]
+
+=== Bewertung
+Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
