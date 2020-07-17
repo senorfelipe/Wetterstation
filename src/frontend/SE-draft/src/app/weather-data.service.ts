@@ -71,3 +71,4 @@ export interface TemperatureData {
   degrees: Number,
   measure_time: Date
 }
+
