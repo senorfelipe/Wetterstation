@@ -17,8 +17,8 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-* Übertragung der Daten geschieht in gleichmäßigen Abständen (einmal pro Stunde)
-* Admins haben Berechtigung um sich im internen Bereich anzumelden
+* F01: Übertragung der Daten geschieht in gleichmäßigen Abständen (einmal pro Stunde)
+* F02: Admins haben Berechtigung um sich im internen Bereich anzumelden
 
 
 == Qualitätsanforderungen für das Gesamtsystem
@@ -28,35 +28,36 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
 
-* Der Nutzer kann sich in wenigen Schritten (max 5 Klicks) ein Diagramm anzeigen lassen und gelangt mit maximal 2 Klicks zur Bildergalerie
-* Der Nutzer benötigt keine weiteren Vorkenntnisse um das System zu benutzen (auch für Gelegenheitsnutzer zu verstehen)
-* Fehlertexte werden verständlich angezeigt
-* Die Sprache für die Benutzeroberfläche ist deutsch
+* U01: Der Nutzer kann sich in wenigen Schritten (max. 5 Klicks) ein Diagramm anzeigen lassen und gelangt mit maximal 2 Klicks zur Bildergalerie
+* U02: Der Nutzer benötigt keine weiteren Vorkenntnisse um das System zu benutzen (auch für Gelegenheitsnutzer zu verstehen)
+* U03: Fehlertexte werden verständlich angezeigt
+* U04: Die Sprache für die Benutzeroberfläche ist deutsch
 
 [#sys-wide-reqs-reliability]
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
 
-* Die Wetterdaten werden genau angezeigt
-* Das System soll eine relativ hohe Verfügbarkeit von 99% haben
-* Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
+* R01: Die Wetterdaten werden genau angezeigt
+* R02: Das System soll eine normale Verfügbarkeit haben
+* R03: Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
 
 [#sys-wide-reqs-performance]
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
+Reaktionszeit, Durchsatz, Kapazität und Start- oder Abschaltzeiten.
 
-* Die Bilder bzw. Diagramme werden innerhalb von 5 Sekunden angezeigt
-* Es werden mindestens einmal pro Stunde neue Werte an den Server geschickt
-* Es können mindestens 2 Nutzer parallel mit dem System arbeiten
-* Das System muss innerhalb von 10 Sekunden starten und herunterfahren
+* P01: Die Bilder bzw. Diagramme werden innerhalb von 5 Sekunden angezeigt
+* P02: Es werden mindestens einmal pro Stunde neue Werte an den Server geschickt
+* P03: Es können mindestens 2 Nutzer parallel mit dem System arbeiten
+
 
 [#sys-wide-reqs-supportability]
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
-* Das System muss kompatibel mit der Webseite des mfcR sein
-* Das System muss auch auf mobilen Oberflächen laufen (z.B. Smartphones)
-* Anwendung von gängigen Design-Patterns zur besseren Erweiterbarkeit
+* S01: Das System muss in die Webseite des mfcR eingebaut werden können
+* S02: Das System muss auch auf mobilen Oberflächen laufen (z.B. Smartphones)
+* S03: Das System soll gängige Design-Patterns zur besseren Erweiterbarkeit anwenden
 
 
 == Zusätzliche Anforderungen
@@ -64,9 +65,9 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Ressourcenbegrenzungen
-* zu nutzende Komponenten: mySQL-Datenbank, Angular
-* Vorgaben für die Programmiersprache auf Raspi: Python
-* Hardwareeinschränkungen durch Raspi
+* C01: zu nutzende Komponenten: mySQL-Datenbank, Angular
+* C02: Vorgaben für die Programmiersprache auf Raspi: Python
+* C03: Hardwareeinschränkungen durch Raspi
 //* zu unterstützende Plattformen / Betriebssysteme
 //* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
 
@@ -74,9 +75,9 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Anforderungen an Betrieb, Management und Wartung der Anwendung
 //* zu beachtende Standards, Normen und Regeln
-* Logo des mfcR soll auf der Oberfläche sichtbar sein 
+* I01: Logo des mfcR soll auf der Oberfläche sichtbar sein 
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Lizensierung der Anwendung
-* Datenschutz (Bilder)
+* BR01: Datenschutz (Bilder)
