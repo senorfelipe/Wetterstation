@@ -56,7 +56,7 @@ export class AdminpanelComponent implements OnInit {
   }
 
   updateChart(){
-    var input=300;
+    var input=1;
     this.adminpanelDataSubscription =
       this.adminpanelDataService.getSolarData(input).subscribe((datasolar) => {
         this.solarData = datasolar;

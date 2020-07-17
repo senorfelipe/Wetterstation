@@ -4,7 +4,7 @@ import json
 import os
 import time
 
-from src.http_client.httpclient import HttpClient
+from http_client.httpclient import HttpClient
 
 IMG_FORMAT = '.jpeg'
 
