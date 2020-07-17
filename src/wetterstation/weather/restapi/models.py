@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 """
@@ -10,18 +11,18 @@ Each model represents a single table in our database.
 
 
 class MeasurementSession(models.Model):
-    session_id = models.IntegerField(primary_key=True, unique=True)
+    session_id = models.BigIntegerField(primary_key=True, unique=True)
     image_size = models.IntegerField(null=True)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(auto_now_add=True, db_index=True)
 
     def __str__(self):
         return 'id: ' + str(self.session_id) + ', image_size: ' + str(self.image_size)
 
 
 class Temperature(models.Model):
-    degrees = models.FloatField()
-    measure_time = models.DateTimeField()
-    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+    degrees = models.DecimalField(max_digits=6, decimal_places=2)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'measure time: ' + str(self.measure_time) + ', temperature: ' + str(
@@ -30,10 +31,10 @@ class Temperature(models.Model):
 
 
 class Wind(models.Model):
-    speed = models.FloatField()  # in m/s
-    direction = models.FloatField()  # in degrees
-    measure_time = models.DateTimeField()
-    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+    speed = models.DecimalField(max_digits=6, decimal_places=2)  # in m/s
+    direction = models.DecimalField(max_digits=6, decimal_places=2)  # in degrees
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'measure time:: ' + str(self.measure_time) + ', speed: ' + str(self.speed) + ', direction: ' + str(
@@ -42,19 +43,19 @@ class Wind(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m')
-    measure_time = models.DateTimeField()
-    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.image.name + ', session_id: ' + str(self.measurement_session)
 
 
 class Battery(models.Model):
-    current = models.FloatField()
-    voltage = models.FloatField()
-    temperature = models.FloatField()
-    measure_time = models.DateTimeField()
-    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+    current = models.DecimalField(max_digits=6, decimal_places=2)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2)
+    temperature = models.DecimalField(max_digits=6, decimal_places=2)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
@@ -62,25 +63,30 @@ class Battery(models.Model):
 
 
 class SolarCell(models.Model):
-    current = models.FloatField()
-    voltage = models.FloatField()
-    measure_time = models.DateTimeField()
-    measurement_session = models.ForeignKey(MeasurementSession, on_delete=models.SET_NULL, null=True)
+    current = models.DecimalField(max_digits=6, decimal_places=2)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
             self.voltage)
 
-    # class Configurations(models.Model):
-#     res_hight = models.IntegerField
-#     res_width = models.IntegerField
-#
-#     def __str__(self):
-#         return 'maintenance: ' + self.maintenance_mode + 'resolution: ' + self.res_hight + 'x' + self.res_width
-#
-#
-# class ConfigSession(models.Model):
-#     configuration = models.OneToOneField(Configurations, primary_key=True)
-#     start_time = models.TimeField(auto_now_add=True)
-#     applied = models.BooleanField
-#     # TODO add refrence to user here
+
+class Configuration(models.Model):
+    res_height = models.IntegerField
+    res_width = models.IntegerField
+    measure_intervall_sensors = models.IntegerField
+    measure_intervall_cam = models.IntegerField
+    post_intervall_sensor_data = models.IntegerField
+    post_intervall_image_data = models.IntegerField
+
+    def __str__(self):
+        return 'resolution: ' + str(self.res_height) + 'x' + str(self.res_width)
+
+
+class ConfigSession(models.Model):
+    configuration = models.OneToOneField(Configuration, primary_key=True, on_delete=models.CASCADE)
+    time = models.TimeField(auto_now_add=True)
+    applied = models.BooleanField
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
