@@ -20,13 +20,16 @@ def get_test_file():
 
 
 class TestSensorDataPost(APITestCase):
+    """
+    Ensure that the data is spread correctly.
+    """
     def test_sensor_data_was_posted(self):
         test_file = get_test_file()
         data = json.load(test_file)
 
         response = self.client.post('/api/sensor-data', data, format='json')
 
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED, 'Uploading the Json-File was successful.')
         self.assertEqual(Wind.objects.count(), 1)
         self.assertEqual(Temperature.objects.count(), 1)
         self.assertEqual(Battery.objects.count(), 1)
@@ -37,6 +40,9 @@ class TestSensorDataPost(APITestCase):
         self.assertEqual(Wind.objects.get().speed, 1.5)
 
     def test_senor_data_mapping(self):
+        """
+        Ensure that the acronyms are mapped correctly
+        """
         data = json.load(get_test_file())
         session_id = int(data['session_id'])
         session = MeasurementSession(session_id=session_id)
@@ -47,7 +53,18 @@ class TestSensorDataPost(APITestCase):
             temp_dict['deg']
         self.assertIsNotNone(temp_dict['degrees'], 'Temperature dict was not mapped correctly.')
 
+        wind_dict = data['wind']
+        with self.assertRaises(KeyError):
+            wind_dict['dir']
+        self.assertIsNotNone(wind_dict['direction'], 'Wind dict was not mapped correctly.')
+
+        battery_dict = data['battery']
+        with self.assertRaises(KeyError):
+            battery_dict['timestamp']
+        self.assertIsNotNone(wind_dict['measure time'], 'Battery dict was not mapped correctly.')
+
     def test_query_by_time(self):
+        """Creating random Temperatures"""
         time_1 = datetime.now() - timedelta(days=5)
         temp_1 = Temperature(degrees=10, measurement_session=None, measure_time=time_1)
         temp_1.save()
@@ -56,7 +73,14 @@ class TestSensorDataPost(APITestCase):
         temp_2 = Temperature(degrees=10, measurement_session=None, measure_time=time_2)
         temp_2.save()
 
-        self.assertEqual(Temperature.objects.count(), 2)
+        time_3 = datetime.now() - timedelta(days=100)
+        temp_3 = Temperature(degrees=10, measurement_session=None, measure_time=time_3)
+        temp_3.save()
+
+        """
+        Ensure we can filter by dates.
+        """
+        self.assertEqual(Temperature.objects.count(), 3)
 
         start = datetime.now() - timedelta(10)
         filtered_temps = self.client.get('/api/temps/?start=' + str(start))
@@ -64,6 +88,8 @@ class TestSensorDataPost(APITestCase):
 
         end = datetime.now() - timedelta(2)
         filtered_temps = self.client.get('/api/temps/?start=' + str(start) + '&end=' + str(end))
-        self.assertEqual(len(filtered_temps.data), 1)
+        self.assertEqual(len(filtered_temps.data), 1, 'The filtering was successful.')
+
+
 
 
