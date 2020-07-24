@@ -5,11 +5,12 @@
 </head>
     
 <body>
-    <!--Auswahl Spannung/Strom oder Leistungsaufnahme-->
+    <!--Auswahl Spannung/Strom, Leistungsaufnahme oder Ladestrom-->
     <section>
         <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
             <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>
             <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>
+            <mat-button-toggle value="charge" (change)="diagramChange($event)">Ladestrom</mat-button-toggle>
         </mat-button-toggle-group>
     </section>
 
@@ -32,24 +33,36 @@
         </section>
     </div>
 
-    <!--Logbuch-->
-    <mat-card>
-        <table mat-table [dataSource]="tableData">
-            <ng-container matColumnDef="date">
-                <th mat-header-cell *matHeaderCellDef>Datum</th>
-                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-            </ng-container>
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef>Aktion</th>
-                <td mat-cell *matCellDef="let element"> {{element.action}} </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </mat-card>
+    <!--Logbuch
+    <table mat-table [dataSource]="logTableData">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Datum</th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Aktion</th>
+            <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"></tr>
+    </table>-->
+
+    <!--Sensorprüfung-->
+    <table mat-table [dataSource]="sensorTableData">
+        <ng-container matColumnDef="sensor">
+            <th mat-header-cell *matHeaderCellDef>Sensor</th>
+            <td mat-cell *matCellDef="let element"> {{element.sensor}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedSensorColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedSensorColumns;"></tr>
+    </table>
 </body>
 </html>

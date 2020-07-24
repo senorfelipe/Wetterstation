@@ -63,5 +63,5 @@ export interface BatteryData {
   current: Number,
   voltage: Number,
   degrees: Number,
-  time: Date
+  measure_time: Date
 }
