@@ -10,49 +10,89 @@
 </head>
 
 <body>
-  <div class="imageone">
-    <img src="../../assets/images/forest-931706_1920.jpg" />
-  </div>
-  <div class="row">
-    <div class="column">
-      <img src="../../assets/images/sky.jpg" alt="Sky" onclick="myFunction(this);" />
-    </div>
-    <div class="column">
-      <img src="../../assets/images/turtle-863336_1280.jpg" alt="Turtle" onclick="myFunction(this);" />
-    </div>
-    <div class="column">
-      <img src="../../assets/images/tie-690084_1920.jpg" alt="Tie" onclick="myFunction(this);" />
-    </div>
-    <div class="column">
-      <img src="../../assets/images/turtle-863336_1280.jpg" alt="Turtle" onclick="myFunction(this);" />
-    </div>
-  </div>
-  <div class="container">
-    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-    <img id="expandedImg" style="width: 100%;" />
-    <div id="imgtext"></div>
-  </div>
+  <mat-card>
+
+    <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile [colspan]=4 [rowspan]=4>
+        <img [src]="RecentImages[0].image" (click)="openLightbox(0,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[1].image" (click)="openLightbox(1,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[2].image" (click)="openLightbox(2,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[3].image" (click)="openLightbox(3,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[4].image" (click)="openLightbox(4,'lightbox')">
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-card>
 
 
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="loadtodayPics()">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Heute
         </mat-panel-title>
         <mat-panel-description>
-         Dies sind alle aufgenommenen Bilder von heute.
+          Dies sind alle aufgenommenen Bilder von heute.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+      <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">
+          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+
+    
+        </mat-grid-tile>
+      </mat-grid-list>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="loadyesterdayPics()" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Gestern
+        </mat-panel-title>
+        <mat-panel-description>
+          Dies sind alle aufgenommenen Bilder von gestern.
         </mat-panel-description>
       </mat-expansion-panel-header>
 
+      <ng-template matExpansionPanelContent>
       <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let image of Images">
-          <img [src]="image.image" height="200px"onclick="myFunction(this)">
+        <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
+          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'yesterday')">
         </mat-grid-tile>
       </mat-grid-list>
+      <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+    </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
+
+
+
+
  
+      <p class="container" gallerize>
+        <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"
+          [attr.thumbSrc]="img?.data?.thumb">
+      </p>
+
+
+
+
 </body>
 
 </html>

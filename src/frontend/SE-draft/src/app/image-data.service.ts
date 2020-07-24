@@ -5,24 +5,47 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ImageService {
-  private apiUrl = 'http://localhost:8000/api/';
+  private apiUrl = 'http://192.168.178.44:8000/api/';
   private http: HttpClient;
-
   constructor(http: HttpClient) {
     this.http = http;
   }
+  today=new Date;
+  
 
-  getImages() {
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+
+  formatDate(date: Date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+      console.log([year, month, day].join('-'))
+    return [year, month, day].join('-');
+}
+
+
+  getTodayImages() {
+    let today=new Date;
+    let yesterday=this.today.getDate()-1;
+    today.setDate(yesterday);
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(today));
   }
  
 
   getrecentImages() {
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/recent/');
   }
  
-  getweekImages(){
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/');
+  getYesterdayImages(){
+    let today=new Date;
+    let yesterday=today.getDate()-1;
+    today.setDate(yesterday);
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(this.today));
   }
 
 
@@ -31,5 +54,5 @@ export class ImageService {
 export interface ImageData {
   id: Number,
   image: String,
-  time: Date
+  measurement_time: Date
 }
