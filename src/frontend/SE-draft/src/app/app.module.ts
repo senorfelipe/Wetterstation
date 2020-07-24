@@ -57,6 +57,7 @@ import {WeatherDataService} from "./weather-data.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ImageService } from './image-data.service';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { AuthGuardService} from './auth-guard.service';
 
 ;
 
@@ -123,7 +124,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
     ScrollingModule,
 
   ],
-  providers: [WeatherDataService,ImageService, HttpClient],
+  providers: [WeatherDataService,ImageService, HttpClient, AuthGuardService],
   bootstrap: [AppComponent]
 
 })

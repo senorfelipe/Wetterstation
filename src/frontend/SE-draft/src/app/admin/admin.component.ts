@@ -32,7 +32,8 @@ export class AdminComponent implements OnInit {
 
   logToken(tok){
     this.token=tok;
-    console.log(this.token);
+    localStorage.setItem("token",this.token["access"]);
+    //console.log(this.token["access"]);
   }
   
 }
