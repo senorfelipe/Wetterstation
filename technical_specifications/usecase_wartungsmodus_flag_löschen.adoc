@@ -1,7 +1,7 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Flag entfernen
+== Use-Case: Wartungsmodus deaktivieren
 ===	Kurzbeschreibung
-Der Adminbereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dies soll über einen Eintrag(Flag), der in die Datenbank geschrieben wird, realisiert werden. Der Eintrag wird beim Datenaustausch zwischen dem Pi und dem Webserver abgefragt und weiterverarbeitet. Dieser Use-Case beschreibt den Vorgang des Entfernens einer bereits gesetzten Flag bzw. einer geplanten Wartung
+Der Adminbereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dies soll über einen Eintrag (Flag), der in die Datenbank geschrieben wird, realisiert werden. Der Eintrag wird beim Datenaustausch zwischen dem Pi und dem Webserver abgefragt und weiterverarbeitet. Dieser Use-Case beschreibt den Vorgang des Entfernens einer bereits gesetzten Flag bzw. einer geplanten Wartung
 
 ===	Kurzbeschreibung der Akteure
 ==== Administratoren

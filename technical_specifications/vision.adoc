@@ -29,7 +29,7 @@ siehe <<glossary.adoc#Begriffe,Glossary Definitionen>> +
 == Positionierung
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
-Der mfcR wünscht sich eine vereinseigene Wetterstation mit einer Webcam, wobei diese Daten übermittelt und auf der Vereinswebseite angezeigt werden sollen. Zweck des Systems ist die Daten für alle Nutzer des Modellflugplatzes bzw. Vereinsmitglieder bereitzustellen.
+Der Modellflugclub Rossendorf e.V. wünscht sich eine vereinseigene Wetterstation mit einer Webcam, wobei diese Daten übermittelt und auf der Vereinswebseite angezeigt werden sollen. Zweck des Systems ist die Daten für alle Nutzer des Modellflugplatzes bzw. Vereinsmitglieder bereitzustellen.
 Nutzer können somit nachvollziehen wie die aktuelle Wetterlage ist und wer sich auf dem Flugplatz befindet (ggf. zum Schutz des Eigentums).
 
 
@@ -85,9 +85,9 @@ Beispiel
 |===
 |Name|	Beschreibung	| Verantwortlichkeiten
 |Thomas Brenner|Vorsitzender des Vereins MODELLFLUGCLUB ROSSENDORF e.V.	|Ansprechpartner, überwacht den Projektfortschritt
-|Admins|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen, Raspberry Pi in Wartungsmodus versetzen und verbinden
+|Administratoren|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen, Raspberry Pi in Wartungsmodus versetzen und verbinden
 |User|Besucher der Webseite|aktuelle Informationen und gespeicherte Bilder abrufen
-|Gesetzgeber|geltende Gesetze und Richtlinien der BRD|Schutz personenbezogener Daten
+|Gesetzgeber|geltende Gesetze und Richtlinien der BRD|Bildrechte
 |jweiland.net|Hosting-Dienstleister des mfcR|Bereitstellung der physischen webserverseitigen Infrastruktur
 |===
 
@@ -118,11 +118,11 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 [%header]
 |===
 |Bedarf|	Priorität|	Features|	Geplantes Release
-|Bilder abrufen |mittel| stündlich aktualisierte Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|xx
-|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), Böenhaftigkeit, Feuchtigkeit nach Zeitstempel abrufbar|xx
-|Daten speichern
+|Bilder abrufen |mittel| zeitlich gesteuerte Aktualisierung der Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|xx
+|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), nach Zeitstempel abrufbar|xx
+|Bilder und gemessene Wetterdaten speichern
 |hoch|in Datenbank und lokal|xx
-|interner Bereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|xx
+|interner Administrationsbereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|xx
 |Remote-Zugriff|hoch|sofern der Raspi im Wartungsmodus ist, kann über ssh eine Remote-Verbindung hergestellt werden|xx
 |===
 
@@ -176,7 +176,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 [%header]
 |===
 |Anforderung|	Priorität|	Geplantes Release
-|Verwendung einer Skriptsprache (aktuell Python)|mittel|xx
+|Verwendung einer Skriptsprache|mittel|xx
 |Backend vorzugsweise mittels PHP|mittel|xx
 
 |===
