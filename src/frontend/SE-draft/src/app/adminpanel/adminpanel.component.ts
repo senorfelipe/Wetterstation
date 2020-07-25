@@ -43,7 +43,8 @@ export class AdminpanelComponent implements OnInit {
   extendedModeStatus: BehaviorSubject<boolean>;
 
   //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
-  isToggled:boolean = false;
+  elecIsToggled:boolean = false;
+  volIsToggled:boolean = true;
 
   adminpanelDataSubscription: Subscription;
 
@@ -58,16 +59,24 @@ export class AdminpanelComponent implements OnInit {
 
   diagramChange(event: MatButtonToggleChange) {
     if(event.value == "power"){
-      this.isToggled = true;
+      this.elecIsToggled = true;
+      this.volIsToggled = true;
       this.powerChart();
     }
     else if(event.value == "charge"){
-      this.isToggled = true;
+      this.elecIsToggled = true;
+      this.volIsToggled = true;
       this.chargeChart();
+    }
+    else if(event.value == "volume"){
+      this.elecIsToggled = true;
+      this.volIsToggled = false;
+      this.volumeChart();
     }
     else{
       this.updateChart();
-      this.isToggled = false;
+      this.volIsToggled = true;
+      this.elecIsToggled = false;
     }
   }
 
@@ -85,7 +94,7 @@ export class AdminpanelComponent implements OnInit {
       });
   }
 
-  displayedColumns: string[] = ['date','name','action'];
+  displayedLogColumns: string[] = ['date','name','action'];
   logTableData = logData;
 
   displayedSensorColumns: string[] = ['sensor','status'];
@@ -202,6 +211,10 @@ export class AdminpanelComponent implements OnInit {
     this.buildPowerChargeChart(this.getChargeDataSet(),"Ladestrom","Strom in A");
   }
 
+  volumeChart(){
+    this.buildPowerChargeChart(this.getVolumeDataSet(),"Datenverbrauch","Datenmenge in MByte")
+  }
+
   buildPowerChargeChart(dataset,chartText,axisLabel) {
     let ctx = document.getElementById('elecChart');
     let dataSet = dataset;
@@ -261,5 +274,17 @@ export class AdminpanelComponent implements OnInit {
     }
     chargeSet.push(newData);
     return(chargeSet);
+  }
+
+  getVolumeDataSet(){
+    var volumeSet = [];
+    let newData = {
+      label:"Datenmenge",
+      borderColor: "#CE1A9E",
+      data: [0.8,1.1,1],
+      fill: false
+    }
+    volumeSet.push(newData);
+    return(volumeSet);
   }
 }
