@@ -31,7 +31,7 @@ def find_and_post_data():
 
     images = get_images()
     for image in images:
-        img_path = SEARCH_DIR + image
+        img_path = image
         status = post_image(img_path)
         if status == 201:
             print('posted image: ' + os.path.basename(image))

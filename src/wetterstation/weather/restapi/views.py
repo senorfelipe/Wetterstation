@@ -135,6 +135,7 @@ class WindViewSet(costumviews.CreateListRetrieveViewSet):
 class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     serializer_class = ImageSerializer
     queryset = Image.objects.all()
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
