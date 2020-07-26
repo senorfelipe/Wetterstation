@@ -3,7 +3,7 @@ import { ImageData, ImageService } from "../image-data.service";
 import { Observable, Subject } from "rxjs";
 import { takeUntil, throttleTime } from "rxjs/operators";
 import { MatDialog } from '@angular/material/dialog';
-
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
 import { Lightbox } from '@ngx-gallery/lightbox';
 
@@ -28,19 +28,19 @@ export class WebcamComponent implements OnInit {
   yesterdayPics: GalleryItem[];
   YesterdayImages: ImageData[] = [];
 
-  
+  DatePics: GalleryItem[];
+  DateImages: ImageData[] = [];
 
 
   ImageService: ImageService;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
-
   
+  startdateEvents: Date;
   panelOpenState = false;
 
 
-  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery, public lightbox: Lightbox,public todayLightbox: Lightbox,public yesterday :Gallery,
-    public yesterdayLightbox:Lightbox) {
+  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery,public yesterday:Gallery,public dategallery:Gallery, public lightbox: Lightbox) {
     this.ImageService = ImageService;
   }
 
@@ -92,18 +92,37 @@ export class WebcamComponent implements OnInit {
         this.yesterdayPics=this.YesterdayImages.map(data=>{
           return new ImageItem({src:data.image,thumb:data.image})
         });
+        this.gallery.ref('yesterday', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.yesterdayPics);
       })
-      this.today.ref('yesterday', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.yesterdayPics);
+    }
+
+    
+    openLightbox(index:number,galleryid:string) {
+     
+      this.lightbox.open(index, galleryid);
+    }
+    
+    
+    loaddatePics(){
+      this.ImageService.getDateImages(this.startdateEvents)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)=>{
+        this.DateImages=data;
+        this.DatePics=this.DateImages.map(data=>{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+        this.today.ref('dategallery', {imageSize: 'cover', loadingStrategy: 'lazy', thumbPosition: 'top'}).load(this.DatePics);
+      })
     }
 
 
-    openLightbox(index:number,lightboxid:string) {
-      console.log(this.todayLightbox)
-      this.todayLightbox.open(index, lightboxid);
-    }
+    /*Eventhandles for Timeframe */
+    addDateEvent(event: MatDatepickerInputEvent<Date>) {
+      this.startdateEvents=event.value;
+    console.log(this.startdateEvents)
+      this.loaddatePics();
 
-
-
+  }
   
 
   ngOnDestroy() {
@@ -111,20 +130,8 @@ export class WebcamComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
-  getImageLocation() {
-    console.log(this.RecentImages.map((data) => data.image));
-    return this.RecentImages.map((data) => data.image);
+
   }
-
-  getImageDate() {
-    console.log(this.RecentImages.map((data) => data.measurement_time));
-    return this.RecentImages.map((data) => data.measurement_time);
-  }
-
-
-
-  
-}
 
 export class NgbdDropdownBasic {
   
