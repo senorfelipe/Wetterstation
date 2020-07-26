@@ -11,6 +11,7 @@
             <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>
             <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>
             <mat-button-toggle value="charge" (change)="diagramChange($event)">Ladestrom</mat-button-toggle>
+            <mat-button-toggle value="volume" (change)="diagramChange($event)">Datenverbrauch</mat-button-toggle>
         </mat-button-toggle-group>
     </section>
 
@@ -20,7 +21,7 @@
     </mat-card>
 
     <!--Checkboxes für Auswahl von Strom/Spannung-->
-    <div [hidden]="isToggled">
+    <div [hidden]="elecIsToggled">
         <section class="checksec">
             <label>Akku: </label>
             <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
@@ -33,7 +34,16 @@
         </section>
     </div>
 
-    <!--Logbuch
+    <div [hidden]="volIsToggled">
+        <section class="volumesec">
+            <label>Verbrauchtes Datenvolumen diesen Monat:</label>
+        </section>
+    </div>
+
+    <!--Logbuch-->
+    <mat-grid-list cols="2">
+    <mat-grid-tile>
+    <mat-card>
     <table mat-table [dataSource]="logTableData">
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef>Datum</th>
@@ -49,9 +59,13 @@
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"></tr>
-    </table>-->
+    </table>
+    </mat-card>
+    </mat-grid-tile>
 
     <!--Sensorprüfung-->
+    <mat-grid-tile>
+    <mat-card>
     <table mat-table [dataSource]="sensorTableData">
         <ng-container matColumnDef="sensor">
             <th mat-header-cell *matHeaderCellDef>Sensor</th>
@@ -64,5 +78,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedSensorColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedSensorColumns;"></tr>
     </table>
+    </mat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
 </body>
 </html>
