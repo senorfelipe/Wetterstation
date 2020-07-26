@@ -1,0 +1,1527 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>se-draft documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">se-draft documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AdminpanelComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/adminpanel/adminpanel.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-adminpanel</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./adminpanel.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./adminpanel.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#adminpanelDataService">adminpanelDataService</a>
+                            </li>
+                            <li>
+                                <a href="#adminpanelDataSubscription">adminpanelDataSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#batteryData">batteryData</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#displayedSensorColumns">displayedSensorColumns</a>
+                            </li>
+                            <li>
+                                <a href="#extendedModeStatus">extendedModeStatus</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled">isToggled</a>
+                            </li>
+                            <li>
+                                <a href="#logTableData">logTableData</a>
+                            </li>
+                            <li>
+                                <a href="#sensorTableData">sensorTableData</a>
+                            </li>
+                            <li>
+                                <a href="#solarData">solarData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buildChart">buildChart</a>
+                            </li>
+                            <li>
+                                <a href="#buildPowerChargeChart">buildPowerChargeChart</a>
+                            </li>
+                            <li>
+                                <a href="#chargeChart">chargeChart</a>
+                            </li>
+                            <li>
+                                <a href="#diagramChange">diagramChange</a>
+                            </li>
+                            <li>
+                                <a href="#getChargeDataSet">getChargeDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#getDataSet">getDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#getPowerDataSet">getPowerDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#powerChart">powerChart</a>
+                            </li>
+                            <li>
+                                <a href="#updateChart">updateChart</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(adminpanelDataService: <a href="../injectables/AdminpanelDataService.html">AdminpanelDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>adminpanelDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdminpanelDataService.html" target="_self" >AdminpanelDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildChart"></a>
+                    <span class="name">
+                        <b>
+                            buildChart
+                        </b>
+                        <a href="#buildChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildPowerChargeChart"></a>
+                    <span class="name">
+                        <b>
+                            buildPowerChargeChart
+                        </b>
+                        <a href="#buildPowerChargeChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildPowerChargeChart(dataset, chartText, axisLabel)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:205</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dataset</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>chartText</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>axisLabel</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chargeChart"></a>
+                    <span class="name">
+                        <b>
+                            chargeChart
+                        </b>
+                        <a href="#chargeChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>chargeChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="201"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:201</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="diagramChange"></a>
+                    <span class="name">
+                        <b>
+                            diagramChange
+                        </b>
+                        <a href="#diagramChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>diagramChange(event: MatButtonToggleChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatButtonToggleChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChargeDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getChargeDataSet
+                        </b>
+                        <a href="#getChargeDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getChargeDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="254"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:254</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getDataSet
+                        </b>
+                        <a href="#getDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPowerDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getPowerDataSet
+                        </b>
+                        <a href="#getPowerDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPowerDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="242"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:242</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="powerChart"></a>
+                    <span class="name">
+                        <b>
+                            powerChart
+                        </b>
+                        <a href="#powerChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>powerChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:197</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateChart"></a>
+                    <span class="name">
+                        <b>
+                            updateChart
+                        </b>
+                        <a href="#updateChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adminpanelDataService"></a>
+                        <span class="name">
+                            <b>
+                            adminpanelDataService</b>
+                            <a href="#adminpanelDataService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AdminpanelDataService.html" target="_self" >AdminpanelDataService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adminpanelDataSubscription"></a>
+                        <span class="name">
+                            <b>
+                            adminpanelDataSubscription</b>
+                            <a href="#adminpanelDataSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batteryData"></a>
+                        <span class="name">
+                            <b>
+                            batteryData</b>
+                            <a href="#batteryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/BatteryData.html" target="_self" >BatteryData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;date&#x27;,&#x27;name&#x27;,&#x27;action&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:88</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedSensorColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedSensorColumns</b>
+                            <a href="#displayedSensorColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;sensor&#x27;,&#x27;status&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="extendedModeStatus"></a>
+                        <span class="name">
+                            <b>
+                            extendedModeStatus</b>
+                            <a href="#extendedModeStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BehaviorSubject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isToggled"></a>
+                        <span class="name">
+                            <b>
+                            isToggled</b>
+                            <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logTableData"></a>
+                        <span class="name">
+                            <b>
+                            logTableData</b>
+                            <a href="#logTableData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>logData</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sensorTableData"></a>
+                        <span class="name">
+                            <b>
+                            sensorTableData</b>
+                            <a href="#sensorTableData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>sensorData</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:92</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="solarData"></a>
+                        <span class="name">
+                            <b>
+                            solarData</b>
+                            <a href="#solarData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/SolarData.html" target="_self" >SolarData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { SolarData, AdminpanelDataService, BatteryData } from &quot;../adminpanel-data.service&quot;;
+import { MatButtonToggleChange } from &#x27;@angular/material/button-toggle&#x27;;
+import { BehaviorSubject, Subscription } from &#x27;rxjs&#x27;;
+import {Chart} from &#x27;chart.js&#x27;;
+
+var dates &#x3D; [&#x27;25.05.2020&#x27;, &#x27;26.05.2020&#x27;, &#x27;27.05.2020&#x27;]
+
+export interface raspyActions {
+  date: string;
+  name: string;
+  action: string;
+}
+
+export interface sensorActions {
+  sensor: string;
+  status: string;
+}
+
+const logData: raspyActions[] &#x3D; [];
+const sensorData: sensorActions[] &#x3D;[
+  {sensor: &quot;Temperatur&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Wind&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Spannung Raspberry&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Strom Raspberry&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Spannung Photovoltaik&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Strom Photovoltaik&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Leistungsaufnahme&quot;,status: &quot;OK&quot;},
+  {sensor: &quot;Ladestrom&quot;,status: &quot;OK&quot;}
+];
+
+@Component({
+  selector: &#x27;app-adminpanel&#x27;,
+  templateUrl: &#x27;./adminpanel.component.html&#x27;,
+  styleUrls: [&#x27;./adminpanel.component.scss&#x27;]
+})
+
+export class AdminpanelComponent implements OnInit {
+
+  adminpanelDataService: AdminpanelDataService;
+  solarData: SolarData[] &#x3D; [];
+  batteryData: BatteryData[] &#x3D; [];
+  extendedModeStatus: BehaviorSubject&lt;boolean&gt;;
+
+  //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
+  isToggled:boolean &#x3D; false;
+
+  adminpanelDataSubscription: Subscription;
+
+  constructor(adminpanelDataService: AdminpanelDataService) {
+    this.adminpanelDataService &#x3D; adminpanelDataService
+    this.extendedModeStatus &#x3D; new BehaviorSubject(false)
+  }
+
+  ngOnInit(){
+    this.updateChart();
+  }
+
+  diagramChange(event: MatButtonToggleChange) {
+    if(event.value &#x3D;&#x3D; &quot;power&quot;){
+      this.isToggled &#x3D; true;
+      this.powerChart();
+    }
+    else if(event.value &#x3D;&#x3D; &quot;charge&quot;){
+      this.isToggled &#x3D; true;
+      this.chargeChart();
+    }
+    else{
+      this.updateChart();
+      this.isToggled &#x3D; false;
+    }
+  }
+
+  updateChart(){
+    var input&#x3D;16;
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getSolarData(input).subscribe((datasolar) &#x3D;&gt; {
+        this.solarData &#x3D; datasolar;
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getBatteryData(input).subscribe((databattery) &#x3D;&gt; {
+        this.batteryData &#x3D; databattery;
+        this.buildChart();
+      });
+  }
+
+  displayedColumns: string[] &#x3D; [&#x27;date&#x27;,&#x27;name&#x27;,&#x27;action&#x27;];
+  logTableData &#x3D; logData;
+
+  displayedSensorColumns: string[] &#x3D; [&#x27;sensor&#x27;,&#x27;status&#x27;];
+  sensorTableData &#x3D; sensorData;
+
+  buildChart() {
+    let ctx &#x3D; document.getElementById(&#x27;elecChart&#x27;);
+    let dataSet &#x3D; this.getDataSet();
+    console.log(this.batteryData.map(datebattery &#x3D;&gt; datebattery.measure_time));
+    let volts &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: this.batteryData.map(datebattery &#x3D;&gt; new Date(datebattery.measure_time).toLocaleString()),
+        datasets: dataSet
+      },
+      options: {
+        title: {
+          display: true,
+          text: &#x27;Energieverbrauch&#x27;,
+          fontSize: 20
+        },
+        animation: {
+          duration: 0, // general animation time
+        },
+        hover: {
+          animationDuration: 0, // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: &#x27;Spannung in Volt&#x27;
+            },
+            id: &#x27;voltage&#x27;,
+            position: &#x27;left&#x27;,
+            ticks: {
+              beginAtZero: true
+            }},
+            {
+            scaleLabel: {
+              display: true,
+              labelString: &#x27;Stromstärke in A&#x27;
+            },
+            id: &#x27;current&#x27;,
+            position: &#x27;right&#x27;,
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  getDataSet(){
+    var dataSet &#x3D; [];
+
+    let accCur &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;accCur&quot;);
+    if(accCur.checked){
+      let newData &#x3D; {
+        label:&quot;Stromverbrauch Akku&quot;,
+        borderColor: &quot;#FFBF00&quot;,
+        yAxisID: &#x27;current&#x27;,
+        data: this.batteryData.map(databattery &#x3D;&gt; databattery.current),
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+
+    let accVol &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;accVol&quot;);
+    if(accVol.checked){
+      let newData &#x3D; {
+        label:&quot;Spannung Akku&quot;,
+        borderColor: &quot;#00BFFF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: this.batteryData.map(databattery &#x3D;&gt; databattery.voltage),
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+
+    let solCur &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;solCur&quot;);
+    if(solCur.checked){
+      let newData &#x3D; {
+        label:&quot;Stromverbrauch Solarzelle&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;current&#x27;,
+        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.current),
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+
+    let solVol &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;solVol&quot;);
+    if(solVol.checked){
+      let newData &#x3D; {
+        label:&quot;Spannung Solarzelle&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage),
+        fill: false
+      }
+      dataSet.push(newData);
+    }
+    return(dataSet);
+  }
+
+  powerChart(){
+    this.buildPowerChargeChart(this.getPowerDataSet(),&quot;Leistungsuafnahme&quot;,&quot;Leistung in Watt&quot;);
+  }
+
+  chargeChart(){
+    this.buildPowerChargeChart(this.getChargeDataSet(),&quot;Ladestrom&quot;,&quot;Strom in A&quot;);
+  }
+
+  buildPowerChargeChart(dataset,chartText,axisLabel) {
+    let ctx &#x3D; document.getElementById(&#x27;elecChart&#x27;);
+    let dataSet &#x3D; dataset;
+    let volts &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: dates,
+        datasets: dataSet
+      },
+      options: {
+        title: {
+          display: true,
+          text: chartText,
+          fontSize: 20
+        },
+        animation: {
+          duration: 0, // general animation time
+        },
+        hover: {
+          animationDuration: 0, // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: axisLabel
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  getPowerDataSet(){
+    var powerSet &#x3D; [];
+    let newData &#x3D; {
+      label:&quot;Leistungsaufnahme&quot;,
+      borderColor: &quot;#013ADF&quot;,
+      data: [10,23,18],
+      fill: false
+    }
+    powerSet.push(newData);
+    return(powerSet);
+  }
+
+  getChargeDataSet(){
+    var chargeSet &#x3D; [];
+    let newData &#x3D; {
+      label:&quot;Ladestrom&quot;,
+      borderColor: &quot;#FF4500&quot;,
+      data: [1.8,1,0.9],
+      fill: false
+    }
+    chargeSet.push(newData);
+    return(chargeSet);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;script&gt; src&#x3D;&quot;https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js&quot; &lt;/script&gt;
+&lt;/head&gt;
+    
+&lt;body&gt;
+    &lt;!--Auswahl Spannung/Strom, Leistungsaufnahme oder Ladestrom--&gt;
+    &lt;section&gt;
+        &lt;mat-button-toggle-group name&#x3D;&quot;adminGraph&quot; aria-label&#x3D;&quot;Font Style&quot;&gt;
+            &lt;mat-button-toggle value&#x3D;&quot;electricity&quot; (change)&#x3D;&quot;diagramChange($event)&quot; checked&gt;Spannung/Strom&lt;/mat-button-toggle&gt;
+            &lt;mat-button-toggle value&#x3D;&quot;power&quot; (change)&#x3D;&quot;diagramChange($event)&quot;&gt;Leistungsaufnahme&lt;/mat-button-toggle&gt;
+            &lt;mat-button-toggle value&#x3D;&quot;charge&quot; (change)&#x3D;&quot;diagramChange($event)&quot;&gt;Ladestrom&lt;/mat-button-toggle&gt;
+        &lt;/mat-button-toggle-group&gt;
+    &lt;/section&gt;
+
+    &lt;!--Diagramm--&gt;
+    &lt;mat-card&gt;
+        &lt;canvas id&#x3D; &quot;elecChart&quot;&gt;&lt;/canvas&gt;
+    &lt;/mat-card&gt;
+
+    &lt;!--Checkboxes für Auswahl von Strom/Spannung--&gt;
+    &lt;div [hidden]&#x3D;&quot;isToggled&quot;&gt;
+        &lt;section class&#x3D;&quot;checksec&quot;&gt;
+            &lt;label&gt;Akku: &lt;/label&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;accVol&quot; class&#x3D;&quot;checkmarg&quot; (click)&#x3D;&quot;updateChart()&quot; checked&gt;Spannung
+            &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;accCur&quot; class&#x3D;&quot;checkmarg&quot; (click)&#x3D;&quot;updateChart()&quot;&gt;Strom
+        &lt;/section&gt;
+        &lt;section class&#x3D;&quot;checksec&quot;&gt;
+            &lt;label&gt;Photovoltaik: &lt;/label&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;solVol&quot; class&#x3D;&quot;checkmarg&quot; (click)&#x3D;&quot;updateChart()&quot;&gt;Spannung
+            &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;solCur&quot; class&#x3D;&quot;checkmarg&quot; (click)&#x3D;&quot;updateChart()&quot;&gt;Strom
+        &lt;/section&gt;
+    &lt;/div&gt;
+
+    &lt;!--Logbuch
+    &lt;table mat-table [dataSource]&#x3D;&quot;logTableData&quot;&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;date&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Datum&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.date}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Name&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Aktion&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.action}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedLogColumns&quot;&gt;&lt;/tr&gt;
+        &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedLogColumns;&quot;&gt;&lt;/tr&gt;
+    &lt;/table&gt;--&gt;
+
+    &lt;!--Sensorprüfung--&gt;
+    &lt;table mat-table [dataSource]&#x3D;&quot;sensorTableData&quot;&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;sensor&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Sensor&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.sensor}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;status&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Status&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.status}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedSensorColumns&quot;&gt;&lt;/tr&gt;
+        &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedSensorColumns;&quot;&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./adminpanel.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.matlist{
+    height: 100%;
+    width: 100%;
+    padding-top: 24px !important;
+}
+
+table {
+    width: 30%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+H1 {
+    text-align: center;
+}
+
+.btnDiv {
+    text-align: left;
+}
+
+.checksec {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+.checkmarg {
+    margin: 0 10px;
+}
+
+mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 40px);
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!DOCTYPE html><html><head>    <script> src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" </script></head>    <body>    <!--Auswahl Spannung/Strom, Leistungsaufnahme oder Ladestrom-->    <section>        <mat-button-toggle-group name="adminGraph" aria-label="Font Style">            <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>            <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>            <mat-button-toggle value="charge" (change)="diagramChange($event)">Ladestrom</mat-button-toggle>        </mat-button-toggle-group>    </section>    <!--Diagramm-->    <mat-card>        <canvas id= "elecChart"></canvas>    </mat-card>    <!--Checkboxes für Auswahl von Strom/Spannung-->    <div [hidden]="isToggled">        <section class="checksec">            <label>Akku: </label>            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom        </section>        <section class="checksec">            <label>Photovoltaik: </label>            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom        </section>    </div>    <!--Logbuch    <table mat-table [dataSource]="logTableData">        <ng-container matColumnDef="date">            <th mat-header-cell *matHeaderCellDef>Datum</th>            <td mat-cell *matCellDef="let element"> {{element.date}} </td>        </ng-container>        <ng-container matColumnDef="name">            <th mat-header-cell *matHeaderCellDef>Name</th>            <td mat-cell *matCellDef="let element"> {{element.name}} </td>        </ng-container>        <ng-container matColumnDef="action">            <th mat-header-cell *matHeaderCellDef>Aktion</th>            <td mat-cell *matCellDef="let element"> {{element.action}} </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"></tr>    </table>-->    <!--Sensorprüfung-->    <table mat-table [dataSource]="sensorTableData">        <ng-container matColumnDef="sensor">            <th mat-header-cell *matHeaderCellDef>Sensor</th>            <td mat-cell *matCellDef="let element"> {{element.sensor}} </td>        </ng-container>        <ng-container matColumnDef="status">            <th mat-header-cell *matHeaderCellDef>Status</th>            <td mat-cell *matCellDef="let element"> {{element.status}} </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedSensorColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedSensorColumns;"></tr>    </table></body></html></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminpanelComponent', 'selector': 'app-adminpanel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GraphsComponent', 'selector': 'app-graphs'},{'name': 'WebcamComponent', 'selector': 'app-webcam'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminpanelComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminpanelComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
