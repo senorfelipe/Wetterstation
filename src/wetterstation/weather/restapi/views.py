@@ -272,7 +272,7 @@ class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
                 time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
                 current=Avg('current'),
                 voltage=Avg('voltage'),
-                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'image_size', 'current', 'voltage')
+                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'current', 'voltage')
             print(queryset.query)
         return Response(queryset, status=status.HTTP_200_OK)
 
