@@ -160,7 +160,7 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     @action(detail=False, methods=['GET'])
     def recent(self, request):
         """This method returns the 5 latest images."""
-        recent_images = self.queryset.reverse()[:5]
+        recent_images = self.queryset.order_by('measure_time').reverse()[:5]
         # context 'request' is set here in order to return the absolute url of the image
         serializer = ImageSerializer(recent_images, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
