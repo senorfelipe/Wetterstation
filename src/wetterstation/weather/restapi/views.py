@@ -269,10 +269,11 @@ class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
                                                        queryset.aggregate(max=Max('measure_time'))['max'])
             queryset = queryset.values(
                 time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
-                time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
                 current=Avg('current'),
                 voltage=Avg('voltage'),
-                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'current', 'voltage')
+                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'current', 'voltage',
+                                                                                'temperature')
             print(queryset.query)
         return Response(queryset, status=status.HTTP_200_OK)
 

@@ -44,20 +44,20 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <ng-template matExpansionPanelContent>
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">
-          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+        <mat-grid-list cols="4" rowHeight="200px">
+          <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">
+            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
 
-    
-        </mat-grid-tile>
-      </mat-grid-list>
+
+          </mat-grid-tile>
+        </mat-grid-list>
       </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
 
 
   <mat-accordion>
-    <mat-expansion-panel (opened)="loadyesterdayPics()" >
+    <mat-expansion-panel (opened)="loadyesterdayPics()">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Gestern
@@ -68,27 +68,50 @@
       </mat-expansion-panel-header>
 
       <ng-template matExpansionPanelContent>
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
-          <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'yesterday')">
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
-    </ng-template>
+        <mat-grid-list cols="4" rowHeight="200px">
+          <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
+            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'yesterday')">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
 
 
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Datum wählen
+        </mat-panel-title>
+        <mat-panel-description>
+          Lassen Sie sich die Bilder von einem Tag anzeigen
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <mat-form-field appearance="fill">
+          <mat-label>Wählen Sie ein Datum</mat-label>
+          <input matInput [matDatepicker]="startpicker" (dateInput)="addDateEvent($event)">
+          <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+          <mat-datepicker #startpicker></mat-datepicker>
+        </mat-form-field>
+        
+        <ng-template matExpansionPanelContent >
+          <mat-grid-list cols="4" rowHeight="200px">
+            <mat-grid-tile *ngFor="let image of DateImages,let indexofelement=index">
+              <img src={{image.image}} height="200px" (click)="openLightbox(indexofelement,'dategallery')">
+  
+  
+            </mat-grid-tile>
+          </mat-grid-list>
+        </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
 
 
- 
-      <p class="container" gallerize>
-        <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"
-          [attr.thumbSrc]="img?.data?.thumb">
-      </p>
+  <p class="container" gallerize>
+    <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"
+      [attr.thumbSrc]="img?.data?.thumb">
+  </p>
 
 
 
