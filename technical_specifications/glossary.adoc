@@ -41,7 +41,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
 |Wetterdaten|auf dem Raspi gesammelte Sensordaten zu Windstärke, Windrichtung, Temperatur|JSON|-|Sensordaten|
-Konfigurtationsparameter|Liste von Parametern die Einstellungen des Raspi spezifizieren (Kamera-Auflösung, Wartungsmodusflag, Wartungszeitraum, Aquiseintervall)|_spezifieziert im ERM Modell_|- |Parameter
+Konfigurtationsparameter|Liste von Parametern die Einstellungen des Raspi spezifizieren (Kamera-Auflösung, Wartungsmodusflag, Wartungszeitraum, Aquiseintervall)|_spezifiziert im ERM Modell_|- |Parameter
 |===
 
 

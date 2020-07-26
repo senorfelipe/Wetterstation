@@ -15,4 +15,9 @@ Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerte
 include::Risk_List.adoc[]
 
 === Bewertung
-Die Bewertung erfolgt daran, ob die Aufgaben ausreichend gelöst wurden und den anderen Teammitgliedern sowie den Kunden verständlich sind.
+- Projektbericht wurde überarbeitet, die Dokumentation (Projektbericht) noch nicht angefangen
+- Weitere Tests wurden erstellt und vorhandene überarbeitet
+- Gallerie ist bis auf Datumsfunktion soweit implementiert
+- Adminpanel hat noch keine Datumsangaben
+- Adminpanel hat noch keinen Datenverbrauch
+- Authentifizierung (Tokenverfahren) ist im Back-End implementiert

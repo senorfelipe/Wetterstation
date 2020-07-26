@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Konfigurationstabelle
+== Use-Case: Daten ändern
 ===	Kurzbeschreibung
 Administratoren wird es ermöglicht bestimmte Werte, welche in einer Tabelle der Datenbank gespeichert sind, zu ändern. Diese Tabelle wird nach jedem Neustart des Raspis ausgelesen und die Werte werden übernommen. 
 
@@ -9,8 +9,7 @@ Nur Administratoren, sprich User mit einem gültigen Login und entsprechenden Zu
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-. Verbindung zwischen Website und Datenbankserver wird erfolgreich hergestellt 
-. Datenbank ist aktiv
+. Datenbank ist aktiv und erfolgreich mit Website verbunden
 . Verbindung zwischen Raspi und Datenbankserver wird erfolgreich hergestellt
 
 === Standardablauf (Basic Flow)

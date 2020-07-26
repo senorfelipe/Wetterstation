@@ -12,9 +12,21 @@ export interface raspyActions {
   action: string;
 }
 
-const adminData: raspyActions[] = [
-  {date: '23.05.2020, 17:05', name: 'Mustermann', action: 'Wartungsmodus beendet'},
-  {date: '23.05.2020, 16:49', name: 'Mustermann', action: 'Wartungsmodus angefragt'},
+export interface sensorActions {
+  sensor: string;
+  status: string;
+}
+
+const logData: raspyActions[] = [];
+const sensorData: sensorActions[] =[
+  {sensor: "Temperatur",status: "OK"},
+  {sensor: "Wind",status: "OK"},
+  {sensor: "Spannung Raspberry",status: "OK"},
+  {sensor: "Strom Raspberry",status: "OK"},
+  {sensor: "Spannung Photovoltaik",status: "OK"},
+  {sensor: "Strom Photovoltaik",status: "OK"},
+  {sensor: "Leistungsaufnahme",status: "OK"},
+  {sensor: "Ladestrom",status: "OK"}
 ];
 
 @Component({
@@ -33,7 +45,7 @@ export class AdminpanelComponent implements OnInit {
   //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
   isToggled:boolean = false;
 
- adminpanelDataSubscription: Subscription;
+  adminpanelDataSubscription: Subscription;
 
   constructor(adminpanelDataService: AdminpanelDataService) {
     this.adminpanelDataService = adminpanelDataService
@@ -48,6 +60,10 @@ export class AdminpanelComponent implements OnInit {
     if(event.value == "power"){
       this.isToggled = true;
       this.powerChart();
+    }
+    else if(event.value == "charge"){
+      this.isToggled = true;
+      this.chargeChart();
     }
     else{
       this.updateChart();
@@ -70,15 +86,19 @@ export class AdminpanelComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['date','name','action'];
-  tableData = adminData;
+  logTableData = logData;
+
+  displayedSensorColumns: string[] = ['sensor','status'];
+  sensorTableData = sensorData;
 
   buildChart() {
     let ctx = document.getElementById('elecChart');
     let dataSet = this.getDataSet();
+    console.log(this.batteryData.map(datebattery => datebattery.measure_time));
     let volts = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: dates,
+        labels: this.batteryData.map(datebattery => new Date(datebattery.measure_time).toLocaleString()),
         datasets: dataSet
       },
       options: {
@@ -87,6 +107,13 @@ export class AdminpanelComponent implements OnInit {
           text: 'Energieverbrauch',
           fontSize: 20
         },
+        animation: {
+          duration: 0, // general animation time
+        },
+        hover: {
+          animationDuration: 0, // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0,
         scales: {
           yAxes: [{
             scaleLabel: {
@@ -101,7 +128,7 @@ export class AdminpanelComponent implements OnInit {
             {
             scaleLabel: {
               display: true,
-              labelString: 'Stromstärke in mA'
+              labelString: 'Stromstärke in A'
             },
             id: 'current',
             position: 'right',
@@ -126,7 +153,6 @@ export class AdminpanelComponent implements OnInit {
         data: this.batteryData.map(databattery => databattery.current),
         fill: false
       }
-      console.log(this.batteryData.map(databattery => databattery.current));
       dataSet.push(newData);
     }
 
@@ -169,12 +195,16 @@ export class AdminpanelComponent implements OnInit {
   }
 
   powerChart(){
-    this.buildPowerChart();
+    this.buildPowerChargeChart(this.getPowerDataSet(),"Leistungsuafnahme","Leistung in Watt");
   }
 
-  buildPowerChart() {
+  chargeChart(){
+    this.buildPowerChargeChart(this.getChargeDataSet(),"Ladestrom","Strom in A");
+  }
+
+  buildPowerChargeChart(dataset,chartText,axisLabel) {
     let ctx = document.getElementById('elecChart');
-    let dataSet = this.getPowerDataSet();
+    let dataSet = dataset;
     let volts = new Chart(ctx, {
       type: 'line',
       data: {
@@ -184,14 +214,21 @@ export class AdminpanelComponent implements OnInit {
       options: {
         title: {
           display: true,
-          text: 'Leistungsaufnahme',
+          text: chartText,
           fontSize: 20
         },
+        animation: {
+          duration: 0, // general animation time
+        },
+        hover: {
+          animationDuration: 0, // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0,
         scales: {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Leistung in Watt'
+              labelString: axisLabel
             },
             ticks: {
               beginAtZero: true
@@ -201,8 +238,6 @@ export class AdminpanelComponent implements OnInit {
       }
     });
   }
-
-  //Dynamischer Zeitzugriff: console.log(this.solarData.map(data => new Date(data.measure_time).toLocaleString()))
 
   getPowerDataSet(){
     var powerSet = [];
@@ -214,5 +249,17 @@ export class AdminpanelComponent implements OnInit {
     }
     powerSet.push(newData);
     return(powerSet);
+  }
+
+  getChargeDataSet(){
+    var chargeSet = [];
+    let newData = {
+      label:"Ladestrom",
+      borderColor: "#FF4500",
+      data: [1.8,1,0.9],
+      fill: false
+    }
+    chargeSet.push(newData);
+    return(chargeSet);
   }
 }
