@@ -31,7 +31,7 @@ export class AdminpanelDataService {
     let yesterday = today.getDate()-time;
     today.setDate(yesterday);
   
-  return  this.http.get<SolarData[]>(this.apiUrl + 'solarcell/?start='+this.formatDate(today));
+  return  this.http.get<SolarData[]>(this.apiUrl + 'solarcell/aggregate/?start='+this.formatDate(today));
   }
 
   getBatteryData(time: number){
@@ -39,15 +39,15 @@ export class AdminpanelDataService {
     let yesterday = today.getDate()-time;
     today.setDate(yesterday);
   
-  return  this.http.get<BatteryData[]>(this.apiUrl + 'battery/?start='+this.formatDate(today));
+  return  this.http.get<BatteryData[]>(this.apiUrl + 'battery/aggregate/?start='+this.formatDate(today));
   }
 
   getSolarDataFrame(start:Date,end:Date){
-    return this.http.get<SolarData[]>(this.apiUrl+'solarcell/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+    return this.http.get<SolarData[]>(this.apiUrl+'solarcell/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
   }
 
   getBatteryDataFrame(start:Date,end:Date){
-    return this.http.get<BatteryData[]>(this.apiUrl+'battery/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+    return this.http.get<BatteryData[]>(this.apiUrl+'battery/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
   }
 }
 

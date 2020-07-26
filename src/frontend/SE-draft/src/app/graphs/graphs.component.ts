@@ -44,7 +44,7 @@ export class GraphsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.updateGraphs(1);
+    this.updateGraphs(30);
   }
 
 

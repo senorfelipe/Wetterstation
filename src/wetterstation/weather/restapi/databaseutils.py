@@ -3,7 +3,7 @@ from math import ceil
 
 from django.db.models import Func
 
-MAX_DATASET_SIZE = 5
+MAX_DATASET_SIZE = 50
 
 
 class UnixTimestamp(Func):
