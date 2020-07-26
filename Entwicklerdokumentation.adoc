@@ -1,0 +1,17 @@
+:toc:
+:toclevels: 3
+:toc-title: Inhaltsverzeichnis
+:sectanchors:
+:numbered:
+
+toc::[]
+
+== Produktbeschreibung
+=== Inhalt
+Das Projekt wurde zum Zweck der Datenübertragung und -verwaltung einer Wetterstation entwickelt. In der folgenden Entwicklerdokumentation wird daraug abgezielt, eine übersichtliche udn erleichternde Wissensgrundlage für externe Personen und Entwickler zu schaffen, sollte dieses Projekt in seiner Funktionalität erweitert werden oder der darin verwendete Code weiterverwendet oder bearbeitet werden müssen. Das Projekt _Fernabfrage von Kamerabild und Wetterdaten_ wurde im Rahmen des Softwareprojektes an der Fakultät Informatik und Mathematik für das Fachgebiet Software-Engineering der HTW Dresden im Zeitraum von bis erstelltund durch den leitenden Professor Dr.-Ing. Jürgen Anke, sowie den Fachbetreuer Dipl. Inf. Christoph Zirkelbach unterstützt. Für das Verständnis dieser Dokumentation werden grundlegende Kenntnisse in Python und TypeScript vorausgetzt.
+
+=== Ziele
+Das Projekt soll den Auftraggebern mit den gewünschten Funktionalitäten übergeben werden. Das Produkt wird den Auftraggebern in Deutsch zur Verfügung gestellt und steht mittels eines browserbasierten Konzeptes nahezu überall zur Verfügung.
+
+=== Intention des Projektes
+Aufgrund des Aufbaus einer Wetterstation vom Modellflugclub Rossendorf e.V., wurde eine Projektausschreibung an der HTW Dresden für das Modul Software-Engineering 2 ausgestellt. Die Studenten sollten im Rahmen ihrer Tätigkeit eine funktionsfähige und leistungsfähige Software in Form eines Backends zur Datenverarbeitung und einer Website für die Visualisierung der Daten erstellen. 
