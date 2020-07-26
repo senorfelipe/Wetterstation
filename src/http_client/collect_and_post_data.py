@@ -10,7 +10,7 @@ IMG_FORMAT = '.jpeg'
 
 SEARCH_DIR = './data/mock/'
 HOSTNAME = 'http://localhost:8000'
-SENSOR_DATA_API_URL = '/api/sensor-data'
+SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
 MEASUREMENT_SESSION_ID = int(time.time())
 
@@ -31,7 +31,7 @@ def find_and_post_data():
 
     images = get_images()
     for image in images:
-        img_path = SEARCH_DIR + image
+        img_path = image
         status = post_image(img_path)
         if status == 201:
             print('posted image: ' + os.path.basename(image))

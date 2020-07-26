@@ -15,6 +15,8 @@ from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, 
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
     MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer
 
+RASPI_IP_ADDR = '127.0.0.1'
+
 """
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
@@ -71,6 +73,8 @@ class TemperatureViewSet(costumviews.CreateListRetrieveViewSet):
         response = super().dispatch(*args, **kwargs)
         # For debugging purposes only.
         from django.db import connection
+        for q in connection.queries:
+            print(q)
         print('# of Queries: {}'.format(len(connection.queries)))
         return response
 
@@ -135,26 +139,30 @@ class WindViewSet(costumviews.CreateListRetrieveViewSet):
 class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     serializer_class = ImageSerializer
     queryset = Image.objects.all()
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
         return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
 
     def create(self, request, *args, **kwargs):
-        form = ImageUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            number_of_bytes = int(request.headers.get('Content-Length'))
-            session_id = int(form.data['session_id'])
-            session = update_or_create_measurement_session(session_id, number_of_bytes)
+        if get_client_ip(request) == RASPI_IP_ADDR:
+            form = ImageUploadForm(request.POST, request.FILES)
+            if form.is_valid():
+                number_of_bytes = int(request.headers.get('Content-Length'))
+                session_id = int(form.data['session_id'])
+                session = update_or_create_measurement_session(session_id, number_of_bytes)
 
-            new_image = Image()
-            new_image.image = form.files['image']
-            new_image.measure_time = form.data['measure_time']
-            new_image.measurement_session = session
-            new_image.save()
-            return Response(status=status.HTTP_201_CREATED)
+                new_image = Image()
+                new_image.image = form.files['image']
+                new_image.measure_time = form.data['measure_time']
+                new_image.measurement_session = session
+                new_image.save()
+                return Response(status=status.HTTP_201_CREATED)
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
 
     @action(detail=False, methods=['GET'])
     def recent(self, request):
@@ -179,7 +187,7 @@ def get_or_create_measurement_session(session_id):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receive_sensor_data(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and get_client_ip(request) == RASPI_IP_ADDR:
         post_data = request.data
         for data in post_data:
             with transaction.atomic():
@@ -195,7 +203,16 @@ def receive_sensor_data(request):
         else:
             return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
     else:
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 
 def map_sensor_data(data, session=None):
@@ -251,10 +268,10 @@ class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, views
     serializer_class = ConfigurationSerializer
 
     def perform_create(self, serializer):
-        print(serializer.validated_data())
         created = serializer.save()
         config_session = ConfigSession()
         config_session.configuration = created
+        config_session.applied = False
         config_session.time = datetime.datetime.now()
         config_session.user = self.request.user
         config_session.save()
@@ -265,7 +282,11 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = ConfigSessionSerializer
 
     def get_queryset(self):
-        filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
+
+    def list(self, request, *args, **kwargs):
+        result = self.queryset.values('configuration_id', 'user__username', 'time', 'applied')
+        return Response(result)
 
 
 class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
