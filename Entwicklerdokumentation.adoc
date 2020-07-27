@@ -15,3 +15,21 @@ Das Projekt soll den Auftraggebern mit den gewünschten Funktionalitäten überg
 
 === Intention des Projektes
 Aufgrund des Aufbaus einer Wetterstation vom Modellflugclub Rossendorf e.V., wurde eine Projektausschreibung an der HTW Dresden für das Modul Software-Engineering 2 ausgestellt. Die Studenten sollten im Rahmen ihrer Tätigkeit eine funktionsfähige und leistungsfähige Software in Form eines Backends zur Datenverarbeitung und einer Website für die Visualisierung der Daten erstellen. 
+
+=== Installation
+
+
+=== Systemanforderungen
+
+== Datenbank
+
+=== Aufbau
+
+== Schnittstellen
+
+== Bibliotheken/Frameworks
+
+=== Bibliotheken
+
+=== Frameworks
+
