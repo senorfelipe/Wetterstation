@@ -25,6 +25,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.navigate(['adminpanel']);
   }
 
   getToken(){
