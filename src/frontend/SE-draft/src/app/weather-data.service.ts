@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class WeatherDataService {
-  private apiUrl = 'http://192.168.178.44:8000/api/';
+  private apiUrl = 'http://127.0.0.1:8000/api/';
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -33,7 +33,7 @@ export class WeatherDataService {
     today.setDate(yesterday);
   
     
-    return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/?start='+this.formatDate(today));
+    return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/aggregate/?start='+this.formatDate(today));
 
   }  
   getWindData(time: number){
@@ -41,19 +41,21 @@ export class WeatherDataService {
     let yesterday = today.getDate()-time;
     today.setDate(yesterday);
   
-  return  this.http.get<WindData[]>(this.apiUrl + 'wind/?start='+this.formatDate(today));
+  return  this.http.get<WindData[]>(this.apiUrl + 'wind/aggregate/?start='+this.formatDate(today));
 }
 
 getWindDataFrame(start:Date,end:Date){
-  return this.http.get<WindData[]>(this.apiUrl+'wind/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+  return this.http.get<WindData[]>(this.apiUrl+'wind/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
 }
 
 getTemperaturesDataFrame(start:Date,end:Date){
-  return this.http.get<TemperatureData[]>(this.apiUrl+'temps/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+  return this.http.get<TemperatureData[]>(this.apiUrl+'temps/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
 }
-
+getRecentWind(){
+  return this.http.get<WindData[]>(this.apiUrl+'wind/recent')
+}
 
 
 }

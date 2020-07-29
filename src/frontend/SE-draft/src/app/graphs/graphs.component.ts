@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges,ViewChild } from '@angular/core';
 
 import { Chart } from 'chart.js';
 import { TemperatureData, WeatherDataService, WindData } from "../weather-data.service";
@@ -6,6 +6,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatRadioChange, MatRadioButton } from '@angular/material/radio';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
+
 
 
 
@@ -18,8 +20,8 @@ export class GraphsComponent implements OnInit, OnDestroy {
   weatherDataService: WeatherDataService;
   temperatureData: TemperatureData[] = [];
   windData: WindData[] = [];
+  lastHoursWind: WindData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
-
 
 
   weatherDataSubscription: Subscription;
@@ -27,15 +29,54 @@ export class GraphsComponent implements OnInit, OnDestroy {
 
   chosenbtn: number = 1;
   timepickers: number[] = [1, 3, 7, 14, 21];
+  startdateEvents: string[] = [];
+  enddateEvents: string[] = [];
+
 
   recentTemp: Number;
   recentWindSpeed: Number;
   recentWindDir: Number;
 
-  hourdata: Number[] = [];
-  startdateEvents: string[] = [];
-  enddateEvents: string[] = [];
+  tempchart:Chart;
+  windchart:Chart;
+  charttempdata={
+      labels: this.temperatureData.map(data => new Date(data.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})),
+      datasets: [{
+        label: 'Temperatur in C°',
+        data: this.temperatureData.map(data => data.degrees),
+        fill: true,
+        backgroundColor: 
+          'rgba(255, 99, 132, 0.2)',
+        borderColor:
+          'rgba(255, 99, 132, 1)',
+        borderWidth: 0
+      }]
+    }
+  
+chartwindata={
+    labels: this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString()),
+    datasets: [{
+      label: 'Wind in m/s',
+      data: this.windData.map(datawind => datawind.speed),
+      fill: true,
+      backgroundColor:
+        'rgba(128, 255, 132, 0.2)'
+      ,
+      borderColor:
+        'rgba(128, 255, 132, 1)',
+      borderWidth: 0
+    }]
+}
 
+  chartoptions={
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: false
+        }
+      }]
+    }
+  }
 
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
@@ -44,28 +85,11 @@ export class GraphsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    
+    this.getRecentValues();
     this.updateGraphs(1);
   }
 
-
-  updateGraphs(input) {
-    this.weatherDataSubscription =
-      this.weatherDataService.getTemperatures(input).subscribe((data) => {
-        this.temperatureData = data;
-        this.recentTemp = this.temperatureData.map(data => data.degrees)[data.length - 1];
-      });
-
-    this.weatherDataSubscription =
-      this.weatherDataService.getWindData(input).subscribe((datawind) => {
-        this.windData = datawind;
-        this.recentWindSpeed = this.windData.map(datawind => datawind.speed)[this.windData.length - 1];
-        this.recentWindDir = this.windData.map(datawind => datawind.direction)[this.windData.length - 1];
-        console.log(this.windData);
-        this.buildGraphs();
-
-      });
-
-  }
 
   onChange(event: MatSlideToggleChange) {
     console.log(event);
@@ -82,74 +106,74 @@ export class GraphsComponent implements OnInit, OnDestroy {
 
   }
 
-  buildGraphs() {
-    var ctx = document.getElementById('temp');
-    var temps = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: this.temperatureData.map(data => new Date(data.measure_time).toLocaleString()),
-        datasets: [{
-          label: 'Temperatures in C°',
-          data: this.temperatureData.map(data => data.degrees),
-          fill: true,
-          backgroundColor:
-            'rgba(255, 99, 132, 0.2)'
-          ,
-          borderColor:
-            'rgba(255, 99, 132, 1)',
 
-
-          borderWidth: 0
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+  getRecentValues() {
+    this.weatherDataService.getWindData(1).subscribe((datawind) => {
+      this.recentWindSpeed = this.windData.map(datawind => datawind.speed)[this.windData.length - 1];
+      this.recentWindDir = this.windData.map(datawind => datawind.direction)[this.windData.length - 1];
     });
 
-    ctx = document.getElementById('speed');
-    var speed = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString()),
-        datasets: [{
-          label: 'Windspeed in m/s',
-          data: this.windData.map(datawind => datawind.speed),
-          fill: true,
-          backgroundColor:
-            'rgba(128, 255, 132, 0.2)'
-          ,
-          borderColor:
-            'rgba(128, 255, 132, 1)',
+    this.weatherDataSubscription =
+      this.weatherDataService.getTemperatures(1).subscribe((data) => {
+        this.recentTemp = this.temperatureData.map(data => data.degrees)[data.length - 1];
+        console.log(data);
+      });
 
-
-          borderWidth: 0
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+    this.weatherDataService.getRecentWind().subscribe((data) => {
+      this.lastHoursWind = data;
     });
   }
 
+
+  updateGraphs(input) {
+    this.weatherDataSubscription =
+    this.weatherDataService.getTemperatures(input).subscribe((data) => {
+      this.temperatureData = data;
+      this.buildTempChart();
+      
+    });
+    
+    this.weatherDataSubscription =
+    this.weatherDataService.getWindData(input).subscribe((datawind) => {
+      this.windData = datawind;
+      this.buildWindChart();
+    });
+
+
+  }
+
+  buildTempChart(){
+    if(this.tempchart!=undefined){
+      this.tempchart.destroy();
+    }
+
+    this.charttempdata.labels=this.temperatureData.map(data => new Date(data.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}));
+    this.charttempdata.datasets[0].data=this.temperatureData.map(data => data.degrees);
+    let tempcanvas=document.getElementById('temp');
+    console.log(this.charttempdata)
+    this.tempchart=Chart.Line(tempcanvas,{
+      data:this.charttempdata,
+      options:this.chartoptions
+    })
+  }
+
+  buildWindChart() {
+    if(this.windchart!=undefined){
+      this.windchart.destroy();
+    }
+
+    this.chartwindata.labels=this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}));
+    this.chartwindata.datasets[0].data=this.windData.map(datawind => datawind.speed)
+    let windcanvas=document.getElementById('wind');
+    this.tempchart=Chart.Line(windcanvas,{
+      data:this.chartwindata,
+      options:this.chartoptions
+    })
+  }
+
+
   onImageLoad(i) {
-
     var data = this.windData.map(data => data.direction);
-
-
-
     var img = document.getElementById(i);
     img.style.transform = 'rotate(' + data[i] + 'deg)';
 
@@ -158,10 +182,9 @@ export class GraphsComponent implements OnInit, OnDestroy {
   rotateDirCardArrow(angle, id) {
     var img = document.getElementById(id);
     img.style.transform = 'rotate(' + angle + 'deg)';
-
   }
   transformDirectionDates(i) {
-    let dirhours = this.windData.map(datawind => new Date(datawind.measure_time).getHours().toLocaleString());
+    let dirhours = this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString([],{hour:'2-digit',minute:'2-digit'}));
     return dirhours[i];
   }
 
@@ -198,7 +221,8 @@ export class GraphsComponent implements OnInit, OnDestroy {
       this.weatherDataSubscription =
         this.weatherDataService.getWindDataFrame(startdate, enddate).subscribe((datawind) => {
           this.windData = datawind;
-          this.buildGraphs();
+          this.buildTempChart();
+          this.buildWindChart();
         });
     }
   }

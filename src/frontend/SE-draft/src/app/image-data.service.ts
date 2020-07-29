@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ImageService {
-  private apiUrl = 'http://192.168.178.44:8000/api/';
+  private apiUrl = 'http://localhost:8000/api/';
   private http: HttpClient;
   constructor(http: HttpClient) {
     this.http = http;
