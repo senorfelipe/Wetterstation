@@ -1,7 +1,8 @@
 import datetime
+import logging
 
 from django.db import transaction
-from django.db.models import Avg, F, Max, Min
+from django.db.models import Avg, F, Max, Min, Sum
 from django.db.models.functions import Ceil
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action, api_view, permission_classes
@@ -9,7 +10,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from . import databaseutils, costumviews
-from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime
+from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
 from .forms import ImageUploadForm
 from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
@@ -35,6 +36,8 @@ KEY_MAPPING_DICT = {
 }
 
 WIND_AGGREGATION_INTERVALL_IN_MIN = 15
+
+logger = logging.getLogger(__name__)
 
 
 def filter_by_dates(query_params, queryset):
@@ -346,15 +349,11 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
             image_size__isnull=True)
 
     @action(methods=['GET'], detail=False)
-    def aggregate(self, request):
+    def aggregate_by_day(self, request):
+        """
+        This method sums up the data volume per day.
+        It returns the data volume for every day of the current month.
+        """
         queryset = self.get_queryset()
-        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
-                                                       queryset.aggregate(max=Max('time'))['max'])
-            queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
-                image_size=Avg('image_size'),
-                time=FromUnixtime(Avg(UnixTimestamp(F('time'))))) \
-                .order_by('time')
-            print(queryset.query)
-        return Response(queryset.values('time', 'image_size'), status=status.HTTP_200_OK)
+        queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
+        return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)

@@ -22,6 +22,14 @@ class FromUnixtime(Func):
     function = 'FROM_UNIXTIME'
 
 
+class Date(Func):
+    """
+    This class represents the mySQL function 'DATE'.
+    You can use it like Date(...) in query expressions.
+    """
+    function = 'DATE'
+
+
 def calculate_timedelta(start, end=datetime.datetime.now() + datetime.timedelta(days=1)):
     td = end - start
     td_sec = ceil(td.total_seconds() / (MAX_DATASET_SIZE - 1))
