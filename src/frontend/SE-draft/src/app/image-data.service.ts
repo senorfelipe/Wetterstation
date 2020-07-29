@@ -24,29 +24,36 @@ export class ImageService {
         month = '0' + month;
     if (day.length < 2) 
         day = '0' + day;
-      console.log([year, month, day].join('-'))
+     // console.log([year, month, day].join('-'))
     return [year, month, day].join('-');
+}
+
+getrecentImages() {
+  return this.http.get<ImageData[]>(this.apiUrl + 'images/recent/');
 }
 
 
   getTodayImages() {
     let today=new Date;
-    let yesterday=this.today.getDate()-1;
-    today.setDate(yesterday);
     return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(today));
   }
  
 
-  getrecentImages() {
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/recent/');
-  }
- 
   getYesterdayImages(){
     let today=new Date;
-    let yesterday=today.getDate()-1;
-    today.setDate(yesterday);
-    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(this.today));
+    let yesterday=new Date();
+    yesterday.setDate(today.getDate()-1)
+   
+    return this.http.get<ImageData[]>(this.apiUrl + 'images/?start='+this.formatDate(yesterday)+'&end='+this.formatDate(today));
   }
+
+ getDateImages(date:Date){
+  let end=new Date() 
+  end.setDate(date.getDate()+1)
+   
+  return this.http.get<ImageData[]>(this.apiUrl+'images/?start='+this.formatDate(date)+'&end='+this.formatDate(end));
+
+ }
 
 
 }

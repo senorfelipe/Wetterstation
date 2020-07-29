@@ -159,7 +159,7 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     @action(detail=False, methods=['GET'])
     def recent(self, request):
         """This method returns the 5 latest images."""
-        recent_images = self.queryset.reverse()[:5]
+        recent_images = self.queryset.order_by('measure_time').reverse()[:5]
         # context 'request' is set here in order to return the absolute url of the image
         serializer = ImageSerializer(recent_images, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -265,13 +265,15 @@ class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
     def aggregate(self, request):
         queryset = self.get_queryset()
         if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
-                                                       queryset.aggregate(max=Max('time'))['max'])
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
             queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
-                time=FromUnixtime(Avg(UnixTimestamp(F('time')))),
-                image_size=Avg()
-                    .order_by('measure_time').values('time', 'image_size'))
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                current=Avg('current'),
+                voltage=Avg('voltage'),
+                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'current', 'voltage',
+                                                                                'temperature')
             print(queryset.query)
         return Response(queryset, status=status.HTTP_200_OK)
 
@@ -313,12 +315,12 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
     def aggregate(self, request):
         queryset = self.get_queryset()
         if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
-                                                       queryset.aggregate(max=Max('time'))['max'])
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
             queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
                 image_size=Avg('image_size'),
-                time=FromUnixtime(Avg(UnixTimestamp(F('time'))))) \
-                .order_by('time')
+                time=FromUnixtime(Avg(UnixTimestamp(F('measure_time'))))) \
+                .order_by('measure_time')
             print(queryset.query)
-        return Response(queryset.values('time', 'image_size'), status=status.HTTP_200_OK)
+        return Response(queryset.values('measure_time', 'image_size'), status=status.HTTP_200_OK)
