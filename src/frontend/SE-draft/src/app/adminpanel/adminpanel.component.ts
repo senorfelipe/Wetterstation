@@ -212,7 +212,7 @@ export class AdminpanelComponent implements OnInit {
   }
 
   volumeChart(){
-    this.buildPowerChargeChart(this.getVolumeDataSet(),"Datenverbrauch","Datenmenge in MByte")
+    this.buildPowerChargeChart(this.getVolumeDataSet(),"Datenverbrauch","Datenmenge in Mbyte")
   }
 
   buildPowerChargeChart(dataset,chartText,axisLabel) {
@@ -281,7 +281,7 @@ export class AdminpanelComponent implements OnInit {
     let newData = {
       label:"Datenmenge",
       borderColor: "#CE1A9E",
-      data: [0.8,1.1,1],
+      data: [11,8,13],
       fill: false
     }
     volumeSet.push(newData);
