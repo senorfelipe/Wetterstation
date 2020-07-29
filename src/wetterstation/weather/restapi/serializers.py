@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession
+from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession, \
+    Load, Controller
 
 
 class MeasurementSessionSerializer(serializers.ModelSerializer):
@@ -39,6 +40,18 @@ class SolarCellSerializer(serializers.ModelSerializer):
     class Meta:
         model = SolarCell
         exclude = ['id', 'measurement_session']
+
+
+class LoadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Load
+        exclude = ['id']
+
+
+class ControllerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Controller
+        exclude = ['id']
 
 
 class ConfigurationSerializer(serializers.ModelSerializer):

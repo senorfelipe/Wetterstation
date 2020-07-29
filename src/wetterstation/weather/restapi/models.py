@@ -73,6 +73,26 @@ class SolarCell(models.Model):
             self.voltage)
 
 
+class Load(models.Model):
+    current = models.DecimalField(max_digits=6, decimal_places=2)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
+            self.voltage)
+
+
+class Controller(models.Model):
+    mode = models.CharField(max_length=2)
+    measure_time = models.DateTimeField(db_index=True)
+    measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return 'measure time: ' + str(self.measure_time) + ', mode: ' + str(self.mode)
+
+
 class Configuration(models.Model):
     res_height = models.IntegerField()
     res_width = models.IntegerField()

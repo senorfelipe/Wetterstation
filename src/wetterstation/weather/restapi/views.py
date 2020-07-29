@@ -12,9 +12,9 @@ from rest_framework.response import Response
 from . import databaseutils, costumviews
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
 from .forms import ImageUploadForm
-from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, Load
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer
 
 RASPI_IP_ADDR = '127.0.0.1'
 
@@ -209,6 +209,12 @@ def receive_sensor_data(request):
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
+@api_view(['GET'])
+def get_sensor_states(request):
+    if request.method == 'GET':
+        pass
+
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -264,7 +270,9 @@ def store_solar_cell_data(solar_cell_data):
     return created
 
 
+# -------------------------------
 # Viewsets regarding AdminPanel
+# -------------------------------
 
 class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Configuration.objects.all()
@@ -292,9 +300,11 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         return Response(result)
 
 
-class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
+class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = BatterySerializer
     queryset = Battery.objects.all()
+
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
@@ -315,9 +325,33 @@ class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
         return Response(queryset, status=status.HTTP_200_OK)
 
 
-class SolarCellViewSet(costumviews.CreateListRetrieveViewSet):
+class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = SolarCellSerializer
     queryset = SolarCell.objects.all()
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
+
+    @action(methods=['GET'], detail=False)
+    def aggregate(self, request):
+        queryset = self.get_queryset()
+        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
+            queryset = queryset.values(
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                current=Avg('current'),
+                voltage=Avg('voltage')) \
+                .order_by('measure_time').values('measure_time', 'current', 'voltage')
+            print(queryset.query)
+        return Response(queryset, status=status.HTTP_200_OK)
+
+
+class LoadViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = LoadSerializer
+    queryset = Load.objects.all()
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
