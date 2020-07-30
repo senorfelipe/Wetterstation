@@ -91,15 +91,6 @@ chartwindata={
   }
 
 
-  onChange(event: MatSlideToggleChange) {
-    console.log(event);
-    this.extendedModeStatus.next(event.checked)
-  }
-
-  onbtnChange(event: MatRadioChange) {
-
-    this.updateGraphs(event.value);
-  }
 
   ngOnDestroy() {
     this.weatherDataSubscription.unsubscribe();
@@ -108,19 +99,23 @@ chartwindata={
 
 
   getRecentValues() {
-    this.weatherDataService.getWindData(1).subscribe((datawind) => {
-      this.recentWindSpeed = this.windData.map(datawind => datawind.speed)[this.windData.length - 1];
-      this.recentWindDir = this.windData.map(datawind => datawind.direction)[this.windData.length - 1];
+    this.weatherDataService.getWindData(1).subscribe((data) => {
+      
+      this.recentWindSpeed = data.map(data => data.speed)[data.length - 1];
+      this.recentWindDir = data.map(data => data.direction)[data.length - 1];
+      console.log(this.recentWindSpeed)
     });
 
     this.weatherDataSubscription =
       this.weatherDataService.getTemperatures(1).subscribe((data) => {
-        this.recentTemp = this.temperatureData.map(data => data.degrees)[data.length - 1];
+        this.recentTemp = data.map(data => data.degrees)[data.length - 1];
         console.log(data);
       });
 
     this.weatherDataService.getRecentWind().subscribe((data) => {
       this.lastHoursWind = data;
+      this.windData = data;
+      this.buildWindChart();
     });
   }
 
@@ -133,13 +128,6 @@ chartwindata={
       
     });
     
-    this.weatherDataSubscription =
-    this.weatherDataService.getWindData(input).subscribe((datawind) => {
-      this.windData = datawind;
-      this.buildWindChart();
-    });
-
-
   }
 
   buildTempChart(){
@@ -158,14 +146,11 @@ chartwindata={
   }
 
   buildWindChart() {
-    if(this.windchart!=undefined){
-      this.windchart.destroy();
-    }
-
+  
     this.chartwindata.labels=this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}));
     this.chartwindata.datasets[0].data=this.windData.map(datawind => datawind.speed)
     let windcanvas=document.getElementById('wind');
-    this.tempchart=Chart.Line(windcanvas,{
+    this.windchart=Chart.Line(windcanvas,{
       data:this.chartwindata,
       options:this.chartoptions
     })
@@ -189,6 +174,15 @@ chartwindata={
   }
 
 
+  onChange(event: MatSlideToggleChange) {
+    console.log(event);
+    this.extendedModeStatus.next(event.checked)
+  }
+
+  onbtnChange(event: MatRadioChange) {
+
+    this.updateGraphs(event.value);
+  }
 
   /*Eventhandles for Timeframe */
   addStartEvent(event: MatDatepickerInputEvent<Date>) {
@@ -216,14 +210,9 @@ chartwindata={
       this.weatherDataSubscription =
         this.weatherDataService.getTemperaturesDataFrame(startdate, enddate).subscribe((data) => {
           this.temperatureData = data;
+          this.buildTempChart();
         });
 
-      this.weatherDataSubscription =
-        this.weatherDataService.getWindDataFrame(startdate, enddate).subscribe((datawind) => {
-          this.windData = datawind;
-          this.buildTempChart();
-          this.buildWindChart();
-        });
     }
   }
 }

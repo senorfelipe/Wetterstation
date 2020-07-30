@@ -31,6 +31,7 @@
     </mat-grid-tile>
   </mat-grid-list>
 
+
   <mat-card class="directions-card">
     <mat-label>Windrichtungen der letzten 3 Stunden:</mat-label>
     <br/>
@@ -39,6 +40,15 @@
       <mat-label class="windDirTime">{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
     </div>
   </mat-card>
+
+
+  <div class="column">
+    <mat-card>
+      <canvas id="wind"></canvas>
+    </mat-card>
+  </div>
+
+
 
 
   <mat-card class="selectorcard">
@@ -78,13 +88,6 @@
       <canvas id="temp"></canvas>
     </mat-card>
   </div>
-
-  <div class="column">
-    <mat-card>
-      <canvas id="wind"></canvas>
-    </mat-card>
-  </div>
-
 
 
 

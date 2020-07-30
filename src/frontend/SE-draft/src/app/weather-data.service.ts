@@ -31,17 +31,14 @@ export class WeatherDataService {
     var today=  new Date();
     var yesterday = today.getDate()-time;
     today.setDate(yesterday);
-  
-    
     return this.http.get<TemperatureData[]>(this.apiUrl + 'temps/aggregate/?start='+this.formatDate(today));
 
   }  
   getWindData(time: number){
     let today=  new Date();
-    let yesterday = today.getDate()-time;
-    today.setDate(yesterday);
+ 
   
-  return  this.http.get<WindData[]>(this.apiUrl + 'wind/aggregate/?start='+this.formatDate(today));
+  return  this.http.get<WindData[]>(this.apiUrl + 'wind/recent/?start='+this.formatDate(today));
 }
 
 getWindDataFrame(start:Date,end:Date){
