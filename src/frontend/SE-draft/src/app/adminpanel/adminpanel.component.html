@@ -5,14 +5,31 @@
 </head>
     
 <body>
-    <!--Auswahl Spannung/Strom, Leistungsaufnahme oder Ladestrom-->
+    <!--Auswahl Diagramm-->
     <section>
         <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
-            <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>
-            <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>
-            <mat-button-toggle value="charge" (change)="diagramChange($event)">Ladestrom</mat-button-toggle>
+            <mat-button-toggle value="solar" (change)="diagramChange($event)" checked>Solarzelle</mat-button-toggle>
+            <mat-button-toggle value="battery" (change)="diagramChange($event)">Akku</mat-button-toggle>
+            <mat-button-toggle value="raspberry" (change)="diagramChange($event)">Raspberry</mat-button-toggle>
             <mat-button-toggle value="volume" (change)="diagramChange($event)">Datenverbrauch</mat-button-toggle>
         </mat-button-toggle-group>
+
+    <mat-card class="selectorcard">
+          <mat-form-field class="startpickform">
+            <mat-label>Startdatum</mat-label>
+            <input matInput [matDatepicker]="startpicker" (dateInput)="addStartEvent($event)">
+            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+            <mat-datepicker #startpicker></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field class="endpickform">
+            <mat-label>Enddatum</mat-label>
+            <input matInput [matDatepicker]="endpicker" (dateInput)="addEndEvent($event)">
+            <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+            <mat-datepicker #endpicker></mat-datepicker>
+          </mat-form-field>
+          <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>
+      </mat-card>
     </section>
 
     <!--Diagramm-->
@@ -20,20 +37,7 @@
         <canvas id= "elecChart"></canvas>
     </mat-card>
 
-    <!--Checkboxes für Auswahl von Strom/Spannung-->
-    <div [hidden]="elecIsToggled">
-        <section class="checksec">
-            <label>Akku: </label>
-            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
-            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom
-        </section>
-        <section class="checksec">
-            <label>Photovoltaik: </label>
-            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung
-            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom
-        </section>
-    </div>
-
+    <!--Summe Datenverbrauch anzeigen-->
     <div [hidden]="volIsToggled">
         <section class="volumesec">
             <label>Verbrauchtes Datenvolumen diesen Monat: 999 Mbyte</label>
