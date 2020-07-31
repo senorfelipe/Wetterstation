@@ -19,6 +19,7 @@ export interface sensorActions {
   status: string;
 }
 
+const add = (a, b) => a + b;
 const logData: raspyActions[] = [];
 const sensorData: sensorActions[] = [
   { sensor: "Temperatur", status: "OK" },
@@ -45,6 +46,7 @@ export class AdminpanelComponent implements OnInit {
   raspberryData: RaspberryData[] = [];
   volumeData: VolumeData[] = [];
   extendedModeStatus: BehaviorSubject<boolean>;
+  lastEvent: MatButtonToggleChange;
 
   startdateEvents: string[] = [];
   enddateEvents: string[] = [];
@@ -57,7 +59,7 @@ export class AdminpanelComponent implements OnInit {
 
   chart: Chart;
   chartnames: String[] = ["Solarzelle", "Akku", "Raspberry", "Datenverbrauch"];
-  chartlabels: String[] = ['Spannung in Volt', 'Stromstärke in mA', 'Leistung in Watt', 'Datenmenge in Byte']
+  chartlabels: String[] = ['Spannung in Volt', 'Stromstärke in A', 'Leistung in Watt', 'Datenmenge in Byte']
 
   chartdatasets = [
     [//Solarzelle
@@ -144,7 +146,7 @@ chartoptions={
     {
       scaleLabel: {
         display: true,
-        labelString: 'Stromstärke in mA'
+        labelString: 'Stromstärke in A'
       },
       id: 'current',
       position: 'right',
@@ -191,6 +193,7 @@ chartoptions={
   }
 
   diagramChange(event: MatButtonToggleChange) {
+    this.lastEvent = event;
     if (event.value == "solar") {
       this.volIsToggled = true;
       this.solarChart();
@@ -211,6 +214,10 @@ chartoptions={
   }
   initData() {
     var input = 4;
+    var date = new Date();
+    var firstMonthDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    var lastMonthDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
     this.adminpanelDataSubscription =
       this.adminpanelDataService.getSolarData(input).subscribe((datasolar) => {
         this.solarData = datasolar;
@@ -228,9 +235,9 @@ chartoptions={
       });
 
     this.adminpanelDataSubscription =
-      this.adminpanelDataService.getVolumeData(input).subscribe((datasolar) => {
-        console.log(datasolar)
-        this.volumeData = datasolar;
+      this.adminpanelDataService.getVolumeDataFrame(firstMonthDay,lastMonthDay).subscribe((datavol) => {
+        console.log(datavol)
+        this.volumeData = datavol;
       });
   }
   updateChartLabels() {
@@ -301,7 +308,8 @@ chartoptions={
   }
 
   getVolumeDataSet() {
-    this.chartdatasets[3][0].data=this.volumeData.map(datavolume => datavolume.image_size)
+    this.chartdatasets[3][0].data=this.volumeData.map(datavolume => datavolume.image_size);
+    document.getElementById("volSum").innerHTML = this.chartdatasets[3][0].data.reduce(add).toString(); //Summe der einzelnen Werte im Zeitraum
     console.log(this.chartdatasets)
   }
 
@@ -332,7 +340,6 @@ chartoptions={
       this.adminpanelDataSubscription =
         this.adminpanelDataService.getSolarDataFrame(startdate, enddate).subscribe((data) => {
           this.solarData = data;
-          this.solarChart();
         });
 
       this.adminpanelDataSubscription =
@@ -349,6 +356,8 @@ chartoptions={
         this.adminpanelDataService.getVolumeDataFrame(startdate, enddate).subscribe((data) => {
           this.volumeData = data;
         });
+      if(this.lastEvent != undefined) this.diagramChange(this.lastEvent);
+      else{ this.solarChart() }
     }
   }
 }
