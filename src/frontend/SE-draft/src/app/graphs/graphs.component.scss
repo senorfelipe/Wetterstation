@@ -2,7 +2,8 @@
 .selectorcard{
     
     height:3em;
-  
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 
 }
 
@@ -16,14 +17,14 @@
     }
 
 .column {
-    padding-top: 1rem;
+    margin-top: 0.5rem;
    
     vertical-align: middle;
     width: 100%;
     height: 100%;
     
   }
-  
+
 .toggleslider{
   position: absolute;
   right: 0.5rem;
@@ -39,10 +40,9 @@
 
 .recentData{
 width:85%;
-height:70%;
+height:55%;
 text-align: center;
 }
-
 
 .directions-card{
   margin-top: 1em;
@@ -54,7 +54,8 @@ text-align: center;
 
 .mat-h1{
   text-align: center;
-  
+  margin-top: 1em;
+  font-size: 2em ;
 }
 
 
@@ -67,7 +68,7 @@ text-align: center;
 }
 
 .arrowscontainer{
-  float:left;
+  float: left;
   margin-right:0.25em ;
 }
 
