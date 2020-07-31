@@ -1,4 +1,4 @@
-= Projekt Fernabfrage von Kamerabild und Wetterdaten
+= Anwenderdokumentation Software zur Fernabfrage von Kamerabild und Wetterdaten
 
 :toc: 
 :toc-title: Inhaltsverzeichnis
@@ -35,10 +35,10 @@ image::login.png[Login]
 ==== Wetterdaten abrufen
 Im Tab Graphen kann man die aktuellen Wetterdaten einsehen, sowie auch den Verlauf. Die Temperatur und Windgeschwindigkeit wird dabei in einem Graphen dargestellt.
 
-image::Screenshot_wetter1[aktuelle Wetterdaten]
-image::Screenshot_wetter2[Verlauf der Windrichtung]
-image::Screenshot_wetter3[Verlauf der Windgeschwindigkeit]
-image::Screenshot_wetter4[Verlauf der Temperatur]
+image::Screenshot_wetter1.png[aktuelle Wetterdaten]
+image::Screenshot_wetter2.png[Verlauf der Windrichtung]
+image::Screenshot_wetter3.png[Verlauf der Windgeschwindigkeit]
+image::Screenshot_wetter4.png[Verlauf der Temperatur]
 
 Durch Bewegen des Reglers für den erweiterten Modus wird dieser aktiviert und es kann eine Zeit ausgewählt werden, in der man die Temperaturen sucht. 
 
@@ -88,4 +88,3 @@ image::admin_panel1.png[Spannung und Leistung der Solarzelle]
 
 ==== Informationen zum Energieverbrauch des Raspberrys abfragen
 Dazu in den Tab Raspberry wechseln und die Spannung und Leistung ablesen.
-
