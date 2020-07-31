@@ -53,8 +53,8 @@ def cast_types(data):
 def cast_units(values_dict):
     for el in values_dict:
         for key, value in list(el.items()):
-            if key in ('current', 'voltage'):
-                el[key] = value / 1000
+            if key in ('current', 'voltage') and value is not None:
+                el[key] = round(value / 1000, 2)
 
 
 def map_sensor_data(data, session_id):

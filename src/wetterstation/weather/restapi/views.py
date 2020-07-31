@@ -4,8 +4,6 @@ import logging
 from django.db import transaction
 from django.db.models import Avg, F, Max, Min, Sum, Q
 from django.db.models.functions import Ceil
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import AllowAny
@@ -205,7 +203,8 @@ def receive_sensor_data(request):
                 sc_was_stored = store_data(SolarCellSerializer(data=mapped_data['solar_cell']))
                 load_was_stored = store_data(LoadSerializer(data=mapped_data['load']))
                 controller_was_stored = store_data(ControllerSerializer(data=mapped_data['controller']))
-        if wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored and controller_was_stored and load_was_stored:
+        if len(
+                post_data) != 0 and wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored and controller_was_stored and load_was_stored:
             return Response(status=status.HTTP_201_CREATED)
         else:
             return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
@@ -227,33 +226,9 @@ def store_data(serializer):
     if serializer.is_valid():
         serializer.save()
         created = True
-    return created
-
-
-def store_wind_data(wind_data):
-    created = False
-    wind_serializer = WindSerializer(data=wind_data)
-    if wind_serializer.is_valid():
-        wind_serializer.save()
-        created = True
-    return created
-
-
-def store_battery_data(battery_data):
-    created = False
-    battery_serializer = BatterySerializer(data=battery_data)
-    if battery_serializer.is_valid():
-        battery_serializer.save()
-        created = True
-    return created
-
-
-def store_solar_cell_data(solar_cell_data):
-    created = False
-    solar_serializer = SolarCellSerializer(data=solar_cell_data)
-    if solar_serializer.is_valid():
-        solar_serializer.save()
-        created = True
+    else:
+        logger.error(
+            "Could not store data of " + str(serializer) + " with error: " + str(serializer.errors))
     return created
 
 
@@ -327,12 +302,14 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
             timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
                                                        queryset.aggregate(max=Max('time'))['max'])
             queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('time')) / timedelta_in_seconds)).annotate(
-                time=FromUnixtime(Avg(UnixTimestamp(F('time')))),
-                image_size=Avg()
-                    .order_by('measure_time').values('time', 'image_size'))
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                current=Avg('current'),
+                voltage=Avg('voltage'),
+                temperature=Avg('temperature')) \
+                .order_by('measure_time')
             print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
+        return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
 
 
 class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
@@ -352,11 +329,11 @@ class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
             queryset = queryset.values(
                 time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
-                current=Avg('power'),
+                power=Avg('power'),
                 voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'power', 'voltage')
+                .order_by('measure_time')
             print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
+        return Response(queryset.values('measure_time', 'power', 'voltage'), status=status.HTTP_200_OK)
 
 
 class LoadViewSet(viewsets.ReadOnlyModelViewSet):
@@ -378,9 +355,9 @@ class LoadViewSet(viewsets.ReadOnlyModelViewSet):
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
                 current=Avg('current'),
                 voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'current', 'voltage')
+                .order_by('measure_time')
             print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
+        return Response(queryset.values('measure_time', 'current', 'voltage'), status=status.HTTP_200_OK)
 
 
 class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):

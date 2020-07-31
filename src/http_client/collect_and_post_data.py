@@ -3,6 +3,7 @@ import glob
 import json
 import os
 import time
+from random import random
 
 from src.http_client.httpclient import HttpClient
 
@@ -12,7 +13,6 @@ SEARCH_DIR = './data/mock/'
 HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
-MEASUREMENT_SESSION_ID = int(time.time())
 
 
 def find_and_post_data():
@@ -37,6 +37,10 @@ def find_and_post_data():
             print('posted image: ' + os.path.basename(image))
             os.remove(img_path)
     os.chdir('../../')
+
+
+def create_session_id():
+    return time.time_ns() + int(random() * 100)
 
 
 def add_session_id(data, session_id):
