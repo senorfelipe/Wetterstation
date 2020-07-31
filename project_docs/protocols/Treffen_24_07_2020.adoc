@@ -1,0 +1,41 @@
+== Protokoll zum Treffen am 24.07.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 18.45 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [] Justin
+* [] Philipp
+* [] Josefin
+* [x] Agustin
+* [] Hannes
+
+* **extern:**
+Professor Iwe,
+Herr Brenner
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+include::../Iterationsplan_17.adoc[]
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Front-End
+.. Refactoring/CSS überarbeiten
+.. Adminpanel
+... Spannung/Leistung Solarzelle als Energieertrag anzeigen
+... Spannung/Ladestrom Akku anzeigen
+... Lastspannung/Lastleistung Raspberry anzeigen
+... Datenverbrauch tagesgenau und ein mal für den Monat summiert anzeigen
+... Statusanzeige lauffähig implementieren
+. Back-End
+.. Anpassung an die Anforderungen des Admin-Panel
+.. Spannung aus mV in V umrechnen
+. Generell
+.. Deployment muss vorbereitet werden
+.. Einsatz von Tools für die Dokumentation des Codes in prüfen
+.. Nächster Treff ist am Mittwoch, den 31.07.2020, 17 Uhr

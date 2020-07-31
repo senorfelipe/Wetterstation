@@ -1,0 +1,51 @@
+== Protokoll zum Treffen am 31.07.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 18.35 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [] Philipp
+* [x] Josefin
+* [] Agustin
+* [x] Hannes
+
+* **extern:**
+Herr Brenner
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+include::../Iterationsplan_17.adoc[]
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Front-End
+.. über den Graphen einen Puffer einbauen, damit Maximalwerte nicht das Diagramm abschließen
+.. Adminpanel
+... Verknüpfung mit Back-End herstellen
+... Logeinträge anzeigen
+. Back-End
+.. Logeinträge werden als JSON bereit gestellt
+. Dokumentation
+.. Anwender-/Betriebsdokumentation wird von Justin verwaltet
+.. Projektbericht
+... Planung wird von Josefin übernommen
+... Durchführung richtet sich nach Rolle/Expertise
+.... z.B. Projektmanager übernimmt Projektphasen und aufgetretene Probleme
+... Ergebnisse werden von jedem Teammitglied zugearbeitet
+.. Allgemein
+... Dokumentation erfolgt in AsciiDoc
+... Einheitliche Struktur, z.B. Überschriften, Unterüberschriften etc.
+... Graphiken sind durch Bildunterschriften zu kennzeichnen
+... Der Projektbericht wird vom PM als Framework ausgearbeitet, in das jeder seine Ausarbeitung verlinkt
+... Glossar immer aktuell halten/sich daran halten
+... Anforderungsspezifikation wird vom PM überarbeitet
+... "Aufgabe" des Projektes sollte an die überarbeiteten Anforderungen angepasst werden
+. Generell
+.. Software ist offiziell als as-is dankbar abgenommen
+... Anwenderdoku/Betriebsdoku werden heute per Mail übermittelt
+... Software an sich wurde durch ein clone des Git-Repository übergeben
