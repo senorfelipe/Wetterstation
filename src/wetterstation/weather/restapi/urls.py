@@ -6,7 +6,7 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import TemperatureViewSet, WindViewSet, ImageUploadView, receive_sensor_data, BatteryViewSet, \
-    SolarCellViewSet, DataVolumeViewSet, ConfigSessionViewSet, ConfigurationViewSet, LoadViewSet
+    SolarCellViewSet, DataVolumeViewSet, ConfigSessionViewSet, ConfigurationViewSet, LoadViewSet, GetStates
 
 router = routers.DefaultRouter()
 router.register(r'temps', TemperatureViewSet)
@@ -22,6 +22,7 @@ router.register(r'config-session', ConfigSessionViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('sensor-data/', receive_sensor_data),
+    path('states/', GetStates.as_view()),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]

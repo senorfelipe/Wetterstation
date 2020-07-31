@@ -1,0 +1,37 @@
+{
+  "temperature": {
+    "measure_time": "2020-07-29T13:14:25",
+    "degrees": 20.5,
+    "session_id": 123456789
+  },
+  "wind": {
+    "measure_time": "2020-07-30T13:14:25",
+    "speed": 1.5,
+    "dir": 350,
+    "session_id": 123456789
+  },
+  "pv": {
+    "measure_time": "2020-07-30T13:14:25",
+    "power": 3.1,
+    "voltage": 15.3,
+    "session_id": 123456789
+  },
+  "load": {
+    "measure_time": "2020-07-30T13:14:25",
+    "current": 3.1,
+    "voltage": 15.3,
+    "session_id": 123456789
+  },
+  "battery": {
+    "measure_time": "2020-07-30T13:14:25",
+    "current": 0.15,
+    "voltage": 12.5,
+    "temperature": 14.8,
+    "session_id": 123456789
+  },
+  "controller": {
+    "measure_time": "2020-07-30T13:14:25",
+    "session_id": 123456789,
+    "mode": 3
+  }
+}

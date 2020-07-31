@@ -2,19 +2,23 @@ import datetime
 import logging
 
 from django.db import transaction
-from django.db.models import Avg, F, Max, Min, Sum
+from django.db.models import Avg, F, Max, Min, Sum, Q
 from django.db.models.functions import Ceil
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from . import databaseutils, costumviews
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
+from .dataprocessing import map_sensor_data, validate
 from .forms import ImageUploadForm
 from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, Load
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, ControllerSerializer
 
 RASPI_IP_ADDR = '127.0.0.1'
 
@@ -22,34 +26,24 @@ RASPI_IP_ADDR = '127.0.0.1'
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
 """
-# constants to ensure data mapping
-RASPI_SOLAR_CELL_KEY = 'pv'
-RASPI_BATTERY_KEY = 'battery'
-RASPI_WIND_KEY = 'wind'
-RASPI_TEMPERATURE_KEY = 'temp'
-RASPI_SESSION_ID_KEY = 'session_id'
-
-KEY_MAPPING_DICT = {
-    'timestamp': 'measure_time',
-    'deg': 'degrees',
-    'dir': 'direction'
-}
 
 WIND_AGGREGATION_INTERVALL_IN_MIN = 15
+
+last_post_time_raspi = None
 
 logger = logging.getLogger(__name__)
 
 
-def filter_by_dates(query_params, queryset):
+def filter_by_dates(date_range, queryset):
     """
     This method checks if query parameters for filtering by dates are there and then filters on the given queryset.
     If only parameter 'start' was set 'end' will implicitly be today.
     """
     filtered_queryset = queryset
-    if 'start' in query_params:
-        start_date = query_params['start']
-        if 'end' in query_params:
-            end_date = query_params['end']
+    if 'start' in date_range:
+        start_date = date_range['start']
+        if 'end' in date_range:
+            end_date = date_range['end']
         else:
             # this addition needs to be done
             # in order to get values from start_date 00:00 to today 23:59
@@ -187,32 +181,36 @@ def get_or_create_measurement_session(session_id):
     return session
 
 
+def update_last_post_time():
+    global last_post_time_raspi
+    last_post_time_raspi = datetime.datetime.now()
+
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receive_sensor_data(request):
     if request.method == 'POST' and get_client_ip(request) == RASPI_IP_ADDR:
         post_data = request.data
+        update_last_post_time()
         for data in post_data:
+            session_id = int(data['session_id'])
+            session = get_or_create_measurement_session(session_id)
+            mapped_data = map_sensor_data(data, session.session_id)
+            validate(mapped_data)
+
             with transaction.atomic():
-                session_id = int(data['session_id'])
-                session = get_or_create_measurement_session(session_id)
-                map_sensor_data(data, session)
-                wind_was_stored = store_wind_data(data[RASPI_WIND_KEY])
-                temp_was_stored = store_temp_data(data[RASPI_TEMPERATURE_KEY])
-                bat_was_stored = store_battery_data(data[RASPI_BATTERY_KEY])
-                sc_was_stored = store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
-        if len(post_data) != 0 and wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored:
+                wind_was_stored = store_data(WindSerializer(data=mapped_data['wind']))
+                temp_was_stored = store_data(TemperatureSerialzer(data=mapped_data['temperature']))
+                bat_was_stored = store_data(BatterySerializer(data=mapped_data['battery']))
+                sc_was_stored = store_data(SolarCellSerializer(data=mapped_data['solar_cell']))
+                load_was_stored = store_data(LoadSerializer(data=mapped_data['load']))
+                controller_was_stored = store_data(ControllerSerializer(data=mapped_data['controller']))
+        if wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored and controller_was_stored and load_was_stored:
             return Response(status=status.HTTP_201_CREATED)
         else:
             return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
     else:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
-
-
-@api_view(['GET'])
-def get_sensor_states(request):
-    if request.method == 'GET':
-        pass
 
 
 def get_client_ip(request):
@@ -224,21 +222,10 @@ def get_client_ip(request):
     return ip
 
 
-def map_sensor_data(data, session=None):
-    for key, value in list(data.items()):
-        if key in KEY_MAPPING_DICT:
-            data[KEY_MAPPING_DICT[key]] = data.pop(key)
-        if isinstance(value, dict):
-            value['measurement_session'] = session.session_id
-            map_sensor_data(value)
-    return
-
-
-def store_temp_data(temp_data):
+def store_data(serializer):
     created = False
-    temp_serializer = TemperatureSerialzer(data=temp_data)
-    if temp_serializer.is_valid():
-        temp_serializer.save()
+    if serializer.is_valid():
+        serializer.save()
         created = True
     return created
 
@@ -300,6 +287,29 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         return Response(result)
 
 
+class GetStates(APIView):
+
+    def get_errors_dict(self):
+        start_7_days_ago = {'start': datetime.datetime.now() - datetime.timedelta(days=7)}
+        temp_errors = filter_by_dates(start_7_days_ago, Temperature.objects.all()).filter(degrees__isnull=True).count()
+        wind_dir_errors = filter_by_dates(start_7_days_ago, Wind.objects.all()).filter(direction__isnull=True).count()
+        wind_speed_errors = filter_by_dates(start_7_days_ago, Wind.objects.all()).filter(speed__isnull=True).count()
+        pv_errors = filter_by_dates(start_7_days_ago, SolarCell.objects.all()).filter(
+            Q(voltage__isnull=True) | Q(power__isnull=True)).count()
+        battery_errors = filter_by_dates(start_7_days_ago, Battery.objects.all()).filter(
+            Q(current__isnull=True) | Q(voltage__isnull=True) | Q(temperature__isnull=True)).count()
+        load_errors = filter_by_dates(start_7_days_ago, Load.objects.all()).filter(
+            Q(current__isnull=True) | Q(voltage__isnull=True)).count()
+        states = {'temp': temp_errors, 'wind_speed': wind_speed_errors, 'wind_dir': wind_dir_errors,
+                  'pv_errors': pv_errors, 'battery_errors': battery_errors, 'load_errors': load_errors}
+        return states
+
+    # @method_decorator(cache_page(60 * 60))
+    def get(self, request, format=None):
+        states = {'lastPostTime': last_post_time_raspi, 'states': self.get_errors_dict()}
+        return Response(states, status=status.HTTP_200_OK)
+
+
 class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = BatterySerializer
     queryset = Battery.objects.all()
@@ -342,9 +352,9 @@ class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
             queryset = queryset.values(
                 time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
-                current=Avg('current'),
+                current=Avg('power'),
                 voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'current', 'voltage')
+                .order_by('measure_time').values('measure_time', 'power', 'voltage')
             print(queryset.query)
         return Response(queryset, status=status.HTTP_200_OK)
 

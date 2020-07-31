@@ -20,8 +20,8 @@ class MeasurementSession(models.Model):
 
 
 class Temperature(models.Model):
-    degrees = models.DecimalField(max_digits=6, decimal_places=2)
-    measure_time = models.DateTimeField(db_index=True)
+    degrees = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    measure_time = models.DateTimeField(db_index=True, null=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -31,9 +31,9 @@ class Temperature(models.Model):
 
 
 class Wind(models.Model):
-    speed = models.DecimalField(max_digits=6, decimal_places=2)  # in m/s
-    direction = models.DecimalField(max_digits=6, decimal_places=2)  # in degrees
-    measure_time = models.DateTimeField(db_index=True)
+    speed = models.DecimalField(max_digits=6, decimal_places=2, null=True)  # in m/s
+    direction = models.DecimalField(max_digits=6, decimal_places=2, null=True)  # in degrees
+    measure_time = models.DateTimeField(db_index=True, null=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Wind(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m')
-    measure_time = models.DateTimeField(db_index=True)
+    measure_time = models.DateTimeField(db_index=True, null=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -51,9 +51,9 @@ class Image(models.Model):
 
 
 class Battery(models.Model):
-    current = models.DecimalField(max_digits=6, decimal_places=2)
-    voltage = models.DecimalField(max_digits=6, decimal_places=2)
-    temperature = models.DecimalField(max_digits=6, decimal_places=2)
+    current = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    temperature = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     measure_time = models.DateTimeField(db_index=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
@@ -63,9 +63,9 @@ class Battery(models.Model):
 
 
 class SolarCell(models.Model):
-    current = models.DecimalField(max_digits=6, decimal_places=2)
-    voltage = models.DecimalField(max_digits=6, decimal_places=2)
-    measure_time = models.DateTimeField(db_index=True)
+    power = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    measure_time = models.DateTimeField(db_index=True, null=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -74,9 +74,9 @@ class SolarCell(models.Model):
 
 
 class Load(models.Model):
-    current = models.DecimalField(max_digits=6, decimal_places=2)
-    voltage = models.DecimalField(max_digits=6, decimal_places=2)
-    measure_time = models.DateTimeField(db_index=True)
+    current = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    voltage = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    measure_time = models.DateTimeField(db_index=True, null=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -85,7 +85,7 @@ class Load(models.Model):
 
 
 class Controller(models.Model):
-    mode = models.CharField(max_length=2)
+    mode = models.CharField(max_length=2, null=True)
     measure_time = models.DateTimeField(db_index=True)
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
