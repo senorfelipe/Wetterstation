@@ -6,34 +6,35 @@
     
 <body>
     <!--Auswahl Diagramm-->
-    <section>
-        <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
-            <mat-button-toggle value="solar" (change)="diagramChange($event)" checked>Solarzelle</mat-button-toggle>
-            <mat-button-toggle value="battery" (change)="diagramChange($event)">Akku</mat-button-toggle>
-            <mat-button-toggle value="raspberry" (change)="diagramChange($event)">Raspberry</mat-button-toggle>
-            <mat-button-toggle value="volume" (change)="diagramChange($event)">Datenverbrauch</mat-button-toggle>
-        </mat-button-toggle-group>
-
-    <mat-card class="selectorcard">
-          <mat-form-field class="startpickform">
-            <mat-label>Startdatum</mat-label>
-            <input matInput [matDatepicker]="startpicker" (dateInput)="addStartEvent($event)">
-            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
-            <mat-datepicker #startpicker></mat-datepicker>
-          </mat-form-field>
-    
-          <mat-form-field class="endpickform">
-            <mat-label>Enddatum</mat-label>
-            <input matInput [matDatepicker]="endpicker" (dateInput)="addEndEvent($event)">
-            <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
-            <mat-datepicker #endpicker></mat-datepicker>
-          </mat-form-field>
-          <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>
-      </mat-card>
-    </section>
 
     <!--Diagramm-->
     <mat-card>
+        <section>
+            <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
+                <mat-button-toggle value="solar" (change)="diagramChange($event)" checked>Solarzelle</mat-button-toggle>
+                <mat-button-toggle value="battery" (change)="diagramChange($event)">Akku</mat-button-toggle>
+                <mat-button-toggle value="raspberry" (change)="diagramChange($event)">Raspberry</mat-button-toggle>
+                <mat-button-toggle value="volume" (change)="diagramChange($event)">Datenverbrauch</mat-button-toggle>
+            </mat-button-toggle-group>
+    
+        <mat-card class="selectorcard">
+              <mat-form-field class="startpickform">
+                <mat-label>Startdatum</mat-label>
+                <input matInput [matDatepicker]="startpicker" (dateInput)="addStartEvent($event)">
+                <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+                <mat-datepicker #startpicker></mat-datepicker>
+              </mat-form-field>
+        
+              <mat-form-field class="endpickform">
+                <mat-label>Enddatum</mat-label>
+                <input matInput [matDatepicker]="endpicker" (dateInput)="addEndEvent($event)">
+                <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+                <mat-datepicker #endpicker></mat-datepicker>
+              </mat-form-field>
+              <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>
+          </mat-card>
+        </section>
+    
         <canvas id= "elecChart"></canvas>
     </mat-card>
 
@@ -47,11 +48,13 @@
     <!--Logbuch-->
     <mat-grid-list cols="2">
     <mat-grid-tile>
-    <mat-card>
+        
+        <mat-card class=actionscontainer>
+        
     <table mat-table [dataSource]="logTableData">
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef>Datum</th>
-            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            <td mat-cell *matCellDef="let element" > {{element.date}} </td>
         </ng-container>
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -62,9 +65,11 @@
             <td mat-cell *matCellDef="let element"> {{element.action}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"class="flex-stretch"></tr>
     </table>
-    </mat-card>
+
+</mat-card>
+
     </mat-grid-tile>
 
     <!--Sensorprüfung-->
