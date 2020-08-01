@@ -1,6 +1,6 @@
-= Vision -Projektthema-
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-0.1, 01.11.2019 
+= Vision T15-Fernabfrage von Kamerabild und Wetterdaten
+Clemens Kujus
+0.1, 01.08.2020 
 :toc: 
 :toc-title: Inhaltsverzeichnis
 :sectnums:
@@ -9,13 +9,13 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Wetterstation-Projekts zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das Wetterstation-Projekt diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Wetterstation-Software zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Wetterstation-Software diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das Projekt "Wetterstation", das von Team "Wetter" entwickelt wird. Das System wird es erlauben, eingelesene Wetterdaten zu sammeln, lokal zu speichern und an den Webserver des mfcR zu senden. Dort können die Daten dann von jedem abgerufen werden.
+Dieses Visions-Dokument bezieht sich auf das Projekt "Wetterstation", das von Team "Wetter" entwickelt wird. Das System wird es erlauben, eingelesene Wetterdaten zu sammeln, lokal zu speichern und an den Webserver des mfcR zu senden. Dort können die Wetterdaten dann von jedem abgerufen werden.
 
 === Definitionen, Akronyme und Abkürzungen
 siehe <<glossary.adoc#Begriffe,Glossary Definitionen>> +
@@ -37,7 +37,7 @@ Nutzer können somit nachvollziehen wie die aktuelle Wetterlage ist und wer sich
 //Stellen Sie zusammenfassend das Problem dar, das mit diesem Projekt gelöst werden soll. Das folgende Format kann dazu verwendet werden:
 
 |===
-|Das Problem |	Dem mfcR stehen keine aktuellen und örtlich genauen Wetterdaten + Bild(er) zur Verfügung.
+|Das Problem |	Dem mfcR stehen keine aktuellen und örtlich genauen Wetterdaten + Bilder zur Verfügung.
 |betrifft |	die Nutzer des Modellflugplatzes des mfcR
 |die Auswirkung davon ist |	Schlechte Einschätzung der Wetterlage auf dem Flugplatz und daraus resultierende Ungewissheit ob sich ein Besuch des Flugplatzes lohnt.
 |eine erfolgreiche Lösung wäre |Nutzer können schnell aktuelle Wetterdaten des Platzes abrufen, sowie sich ein Bild von der Lage machen.
@@ -64,7 +64,7 @@ Beispiel
 |Das Produkt / die Lösung ist eine | Webanwendung auf der Vereinswebseite
 |Die 	|die aktuellen (Wetter)Verhältnisse auf dem Flugplatz zeigen
 |Im Gegensatz zur	|jetzigen Webseite
-|Unser Produkt|	zeigt aktuelle und örtliche genaue Informationen an.
+|Unser Produkt|	zeigt aktuelle und örtlich genaue Informationen an.
 |===
 
 
@@ -84,8 +84,9 @@ Beispiel
 [%header]
 |===
 |Name|	Beschreibung	| Verantwortlichkeiten
-|Thomas Brenner|Vorsitzender des Vereins MODELLFLUGCLUB ROSSENDORF e.V.	|Ansprechpartner, überwacht den Projektfortschritt
-|Administratoren|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen, Raspberry Pi in Wartungsmodus versetzen und verbinden
+|Thomas Brenner|Auftraggeber, Vorsitzender des Vereins MODELLFLUGCLUB ROSSENDORF e.V.	|Ansprechpartner, überwacht den Projektfortschritt, verwaltet den Raspberry Pi und die Vereinswebsite
+|Professor Heino Iwe|Auftraggeber|Ansprechpartner, überwacht den Projektfortschritt
+|Administratoren|Berechtigte für den internen Bereich| Informationen zum Systemzustand abfragen
 |User|Besucher der Webseite|aktuelle Informationen und gespeicherte Bilder abrufen
 |Gesetzgeber|geltende Gesetze und Richtlinien der BRD|Bildrechte
 |jweiland.net|Hosting-Dienstleister des mfcR|Bereitstellung der physischen webserverseitigen Infrastruktur
@@ -95,19 +96,16 @@ Beispiel
 
 . Beschreiben Sie die Arbeitsumgebung des Nutzers:
 
-* Der Nutzer muss auf einem internetfähigem Gerät online sein. Um neue Informationen abzurufen muss er die Seite nicht manuell aktualisieren.
+* Der Nutzer muss auf einem internetfähigem Gerät online sein.
 Bedienung ist auf unterschiedlichen Endgeräten möglich.
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 //. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
 //. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
-* mobil abrufbar
-* Touchbedienung auf Smartphpones
+//. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
 //. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
 
 . Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
-* TYPO3-CMS auf dem die Website beruht
-** Die Anwendung wird dort eingebunden
+* TYPO3-CMS auf dem die Vereinswebsite beruht
 
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -118,12 +116,11 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 [%header]
 |===
 |Bedarf|	Priorität|	Features|	Geplantes Release
-|Bilder abrufen |mittel| zeitlich gesteuerte Aktualisierung der Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|xx
-|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), nach Zeitstempel abrufbar|xx
+|Bilder abrufen |mittel| zeitlich gesteuerte Aktualisierung der Bildergalerie mit Auswahl nach Zeitstempel, Vollbildmöglichkeit|31.07.2020
+|Diagramme abrufen|hoch|Temperatur, Wind (Stärke+Richtung), nach Zeitstempel abrufbar|31.07.2020
 |Bilder und gemessene Wetterdaten speichern
-|hoch|in Datenbank und lokal|xx
-|interner Administrationsbereich|hoch|Raspberry Pi in Wartungsmodus versetzen, Informationen über Systemzustand|xx
-|Remote-Zugriff|hoch|sofern der Raspi im Wartungsmodus ist, kann über ssh eine Remote-Verbindung hergestellt werden|xx
+|hoch|in Datenbank und lokal|31.07.2020
+|interner Administrationsbereich|hoch|Informationen über Systemzustand|31.07.2020
 |===
 
 
@@ -133,19 +130,18 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 .äußere Faktoren:
 
 * keine Infrastruktur vorhanden
-** somit kein Strom am Modellflugplatz
+** somit kein Strom und kabelgebundenes Internet am Modellflugplatz
 * System wird nach Fertigstellung im Boden eingegraben → keine leichte Wartung möglich → Remote-Zugriff + hohe Stabilität wichtig
 
 .eingesetzte Hardware:
 
-* Raspberry Pi → Raspi 4 (sollte auch auf Raspi Zero laufen)
+* Raspberry Pi 4
 * diversere Sensoren (via I2C/SPI)
 * Webcam (via Raspi on-board Camera Connector)
 * UMTS-Modul (via USB)
 * Akku (LiPo)
 * Solarzelle
 * Lade-Management
-* ggf. externer Wake-Up-Timer
 * Gehäuse
 
 ////
@@ -160,11 +156,10 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 ////
 
 .Software (Raspi/Webserver)
-* Verwendung einer Skriptsprache (aktuell Python)
-* Backend vorzugsweise php
+* Verwendung einer Skriptsprache (Python)
 * Zugang zu Webserver wird gestellt (10 GB)
 * Zugang zu einer mySQL-DB wird gestellt
-* Einbindung auf Webseite (TYPO3-CMS)
+* Verlinkung durch Verneinswebseite 
 
 //Hinweise:
 //. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
@@ -176,8 +171,14 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 [%header]
 |===
 |Anforderung|	Priorität|	Geplantes Release
-|Verwendung einer Skriptsprache|mittel|xx
-|Backend vorzugsweise mittels PHP|mittel|xx
+|Verwendung einer Skriptsprache|mittel|16.03.2020
+|Anwenderdokumentation|hoch|31.07.2020
+|Betriebsdokumentation|hoch|31.07.2020
+|Projektbericht|hoch|12.08.2020
+|Entwicklerdokumentation|hoch|12.08.2020
+|Testdokumentation|hoch|12.08.2020
+|Anforderungsspezifikation|hoch|12.08.2020
+|Glossar|hoch|12.08.2020
 
 |===
 
