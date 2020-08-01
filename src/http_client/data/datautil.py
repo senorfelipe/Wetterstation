@@ -4,6 +4,8 @@ import time
 data = json.load(open('./MOCK_FINAL.json'))
 i = 0
 for jsn in data:
+    if i == 50:
+        break
     jsn['weather']['temp'] = str(jsn['weather']['temp'])
     jsn['weather']['windDir'] = str(jsn['weather']['windDir'])
     jsn['weather']['windSpeed'] = str(jsn['weather']['windSpeed'])

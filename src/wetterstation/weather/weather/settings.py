@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import logging
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -134,3 +134,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
+
+# Logging configuration
+logging.basicConfig(filename='wetterstation.log', level=logging.DEBUG)

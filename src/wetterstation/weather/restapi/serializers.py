@@ -13,13 +13,13 @@ class MeasurementSessionSerializer(serializers.ModelSerializer):
 class WindSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wind
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class TemperatureSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Temperature
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -27,19 +27,19 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class BatterySerializer(serializers.ModelSerializer):
     class Meta:
         model = Battery
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class SolarCellSerializer(serializers.ModelSerializer):
     class Meta:
         model = SolarCell
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class LoadSerializer(serializers.ModelSerializer):
