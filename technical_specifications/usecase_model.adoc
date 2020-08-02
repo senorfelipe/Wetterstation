@@ -8,6 +8,8 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 
 //Fügen Sie nachfolgend eine Liste aller Use-Cases per Include ein.
 //Dafür sollten Sie pro Use-Case eine Datei anlegen, die auf dem usecase_spec.adoc Template basiert.
+include::Use-Cases.adoc[]
+
 include::usecase_bildergalerie_abrufen.adoc[]
 
 include::usecase_datamanagement.adoc[]

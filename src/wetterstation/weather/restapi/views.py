@@ -155,7 +155,7 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     @action(detail=False, methods=['GET'])
     def recent(self, request):
         """This method returns the 5 latest images."""
-        recent_images = self.queryset.reverse()[:5]
+        recent_images = self.queryset.order_by('measure_time').reverse()[:5]
         # context 'request' is set here in order to return the absolute url of the image
         serializer = ImageSerializer(recent_images, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -292,8 +292,8 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
     def aggregate(self, request):
         queryset = self.get_queryset()
         if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('time'))['min'],
-                                                       queryset.aggregate(max=Max('time'))['max'])
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
             queryset = queryset.values(
                 time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
@@ -302,6 +302,7 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
                 temperature=Avg('temperature')) \
                 .order_by('measure_time')
         return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
+
 
 
 class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
@@ -368,3 +369,4 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = self.get_queryset()
         queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
         return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)
+

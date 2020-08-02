@@ -7,7 +7,7 @@
 
 
 <body>
-  <mat-grid-list cols='3' >
+  <mat-grid-list cols='3'>
     <mat-grid-tile>
       <mat-card class="recentData">
         <mat-label>Aktuelle Temperatur:</mat-label>
@@ -29,11 +29,29 @@
 
       </mat-card>
     </mat-grid-tile>
-
   </mat-grid-list>
 
-  <mat-card class="selectorcard">
 
+  <mat-card class="directions-card">
+    <mat-label>Windrichtungen der letzten 3 Stunden:</mat-label>
+    <br/>
+    <div class="arrowscontainer" *ngFor="let winddir of lastHoursWind, let indexOfelement=index">
+      <img src="assets/arrow.svg" id="{{indexOfelement}}" (load)="onImageLoad(indexOfelement)">
+      <mat-label class="windDirTime">{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
+    </div>
+  </mat-card>
+
+
+  <div class="column">
+    <mat-card>
+      <canvas id="wind"></canvas>
+    </mat-card>
+  </div>
+
+
+
+
+  <mat-card class="selectorcard">
     <mat-slide-toggle class="toggleslider" (change)="onChange($event)">erweiterter Modus</mat-slide-toggle>
     <ng-template [ngIf]="(extendedModeStatus | async)" [ngIfElse]="simpleMode">
       <mat-form-field class="startpickform">
@@ -50,9 +68,9 @@
         <mat-datepicker #endpicker></mat-datepicker>
       </mat-form-field>
       <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>
-
     </ng-template>
 
+    
     <ng-template #simpleMode>
       <mat-radio-group aria-label="Select an option" [(ngModel)]="chosenbtn">
         <mat-radio-button *ngFor="let pick of timepickers" [value]="pick" (change)="onbtnChange($event)">
@@ -70,25 +88,6 @@
       <canvas id="temp"></canvas>
     </mat-card>
   </div>
-
-  <div class="column">
-    <mat-card>
-      <canvas id="speed"></canvas>
-    </mat-card>
-  </div>
-
-
-  <mat-card class="directions-card">
-    <mat-label>Windrichtungen der letzten 24 Stunden:</mat-label>
-    <br />
-
-
-    <div class="arrowscontainer" *ngFor="let winddir of windData, let indexOfelement=index">
-      <img src="assets/arrow.svg" id="{{indexOfelement}}" (load)="onImageLoad(indexOfelement)">
-      
-      <mat-label class="windDirTime">{{transformDirectionDates(indexOfelement)}} Uhr</mat-label>
-    </div>
-  </mat-card>
 
 
 

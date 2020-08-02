@@ -57,6 +57,9 @@ import {WeatherDataService} from "./weather-data.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ImageService } from './image-data.service';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { GalleryModule } from '@ngx-gallery/core';
+import { LightboxModule } from '@ngx-gallery/lightbox'
+import { GallerizeModule } from '@ngx-gallery/gallerize';
 
 ;
 
@@ -70,6 +73,9 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
     AdminpanelComponent
   ],
   imports: [
+    GallerizeModule,
+    GalleryModule,
+    LightboxModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

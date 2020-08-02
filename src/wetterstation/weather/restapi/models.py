@@ -110,3 +110,4 @@ class ConfigSession(models.Model):
     time = models.TimeField(auto_now_add=True)
     applied = models.BooleanField()
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+

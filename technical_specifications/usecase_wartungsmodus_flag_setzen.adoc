@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Flag setzen
+== Use-Case: Wartungsmodus aktivieren
 ===	Kurzbeschreibung
 Der Adminbereich beinhaltet eine Möglichkeit die Wetterstation bzw. den Raspberry Pi in einen sogenannten Wartungsmodus zu versetzen. Dies soll über einen Eintrag/Flag, der in die Datenbank geschrieben wird, realisiert werden. Der Eintrag wird beim Datenaustausch zwischen dem Pi und dem Webserver abgefragt und weiterverarbeitet. Dieser Use-Case beschreibt den Vorgang des Setzens einer Flag.
 
@@ -51,5 +51,5 @@ Für diesen Use-Case sind keine Unterabläufe definiert
 ==== Raspberry Pi wird nicht automatisch heruntergefahren
 . Der Raspberry Pi schaltet sich nicht von selbst wieder aus bzw. kehrt nicht in seinen Ruhezustand zurück, damit die Wartungen ordnungsgemäß durchgeführt werden können
 
-=== Wireframes
-image::Activity_Diagrams/ActivityDiagrammWartungsmodus.jpg[]
+//=== Wireframes
+//image::Activity_Diagrams/ActivityDiagrammWartungsmodus.jpg[]

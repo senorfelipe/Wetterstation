@@ -1,0 +1,41 @@
+== Protokoll zum Treffen am 17.07.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.50 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [x] Josefin
+* [] Agustin
+* [x] Hannes
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+include::../Iterationsplan_16.adoc[]
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Front-End
+.. Galerie benötigt noch Datepicker-Funktion und Performanceoptimierung
+.. Adminpanel
+... Ein drittes Diagramm wird für den Ladestrom benötigt
+... Es soll eine Statusbox geben, anhand derer zu erkennen ist, ob ein Sensor noch nicht-Error Daten liefert
+. Back-End
+.. Datenformat (json) an die neuen Anforderungen anpassen
+.. Datenformat in soweit anpassen, als dass verwandte Werte den gleichen Zeitpunkt haben
+.. Prüfen, ob es sinnvoll (und vor allem realistisch) ist, das Adminpanel erst nach Authentifizierung des Nutzers an diesen auszuliefern
+.. Logging beachten
+. Tests
+.. Einige Tests wurden hochgeladen
+. Projektmanagement
+.. Dokumentation aktuell halten
+.. Git-Repo aufräumen, d.h. alte Dokumentationen entweder überarbeiten oder in extra Ordner verschieben
+. Generell
+.. Deployment muss vorbereitet werden
+.. Einsatz von Tools für die Dokumentation des Codes in prüfen
+.. Nächster Treff ist am Mittwoch, den 22.07.2020, 17 Uhr
