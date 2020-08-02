@@ -1,50 +1,49 @@
 import datetime
+import logging
 
 from django.db import transaction
-from django.db.models import Avg, F, Max, Min
+from django.db.models import Avg, F, Max, Min, Sum, Q
 from django.db.models.functions import Ceil
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from . import databaseutils, costumviews
-from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime
+from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
+from .dataprocessing import map_sensor_data, validate
 from .forms import ImageUploadForm
-from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, Load
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, ControllerSerializer
+
+RASPI_IP_ADDR = '127.0.0.1'
 
 """
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
 """
-# constants to ensure data mapping
-RASPI_SOLAR_CELL_KEY = 'pv'
-RASPI_BATTERY_KEY = 'battery'
-RASPI_WIND_KEY = 'wind'
-RASPI_TEMPERATURE_KEY = 'temp'
-RASPI_SESSION_ID_KEY = 'session_id'
-
-KEY_MAPPING_DICT = {
-    'timestamp': 'measure_time',
-    'deg': 'degrees',
-    'dir': 'direction'
-}
 
 WIND_AGGREGATION_INTERVALL_IN_MIN = 15
 
+last_post_time_raspi = None
 
-def filter_by_dates(query_params, queryset):
+logger = logging.getLogger(__name__)
+
+
+def filter_by_dates(date_range, queryset):
     """
     This method checks if query parameters for filtering by dates are there and then filters on the given queryset.
     If only parameter 'start' was set 'end' will implicitly be today.
     """
     filtered_queryset = queryset
-    if 'start' in query_params:
-        start_date = query_params['start']
-        if 'end' in query_params:
-            end_date = query_params['end']
+    if 'start' in date_range:
+        start_date = date_range['start']
+        if 'end' in date_range:
+            end_date = date_range['end']
         else:
             # this addition needs to be done
             # in order to get values from start_date 00:00 to today 23:59
@@ -66,13 +65,6 @@ class TemperatureViewSet(costumviews.CreateListRetrieveViewSet):
 
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values('degrees', 'measure_time'))
-
-    def dispatch(self, *args, **kwargs):
-        response = super().dispatch(*args, **kwargs)
-        # For debugging purposes only.
-        from django.db import connection
-        print('# of Queries: {}'.format(len(connection.queries)))
-        return response
 
     @action(methods=['GET'], detail=False)
     def aggregate(self, request):
@@ -135,26 +127,30 @@ class WindViewSet(costumviews.CreateListRetrieveViewSet):
 class ImageUploadView(costumviews.CreateListRetrieveViewSet):
     serializer_class = ImageSerializer
     queryset = Image.objects.all()
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
         return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
 
     def create(self, request, *args, **kwargs):
-        form = ImageUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            number_of_bytes = int(request.headers.get('Content-Length'))
-            session_id = int(form.data['session_id'])
-            session = update_or_create_measurement_session(session_id, number_of_bytes)
+        if get_client_ip(request) == RASPI_IP_ADDR:
+            form = ImageUploadForm(request.POST, request.FILES)
+            if form.is_valid():
+                number_of_bytes = int(request.headers.get('Content-Length'))
+                session_id = int(form.data['session_id'])
+                session = update_or_create_measurement_session(session_id, number_of_bytes)
 
-            new_image = Image()
-            new_image.image = form.files['image']
-            new_image.measure_time = form.data['measure_time']
-            new_image.measurement_session = session
-            new_image.save()
-            return Response(status=status.HTTP_201_CREATED)
+                new_image = Image()
+                new_image.image = form.files['image']
+                new_image.measure_time = form.data['measure_time']
+                new_image.measurement_session = session
+                new_image.save()
+                return Response(status=status.HTTP_201_CREATED)
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
 
     @action(detail=False, methods=['GET'])
     def recent(self, request):
@@ -176,70 +172,72 @@ def get_or_create_measurement_session(session_id):
     return session
 
 
+def update_last_post_time():
+    global last_post_time_raspi
+    last_post_time_raspi = datetime.datetime.now()
+
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receive_sensor_data(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and get_client_ip(request) == RASPI_IP_ADDR:
         post_data = request.data
+        update_last_post_time()
         for data in post_data:
+            session_id = int(data['session_id'])
+            session = get_or_create_measurement_session(session_id)
+            mapped_data = map_sensor_data(data, session.session_id)
+            validate(mapped_data)
+
             with transaction.atomic():
-                session_id = int(data['session_id'])
-                session = get_or_create_measurement_session(session_id)
-                map_sensor_data(data, session)
-                store_wind_data(data[RASPI_WIND_KEY])
-                store_temp_data(data[RASPI_TEMPERATURE_KEY])
-                store_battery_data(data[RASPI_BATTERY_KEY])
-                store_solar_cell_data(data[RASPI_SOLAR_CELL_KEY])
-        return Response(status=status.HTTP_201_CREATED)
+                wind_was_stored = store_data(WindSerializer(data=mapped_data['wind']))
+                temp_was_stored = store_data(TemperatureSerialzer(data=mapped_data['temperature']))
+                bat_was_stored = store_data(BatterySerializer(data=mapped_data['battery']))
+                sc_was_stored = store_data(SolarCellSerializer(data=mapped_data['solar_cell']))
+                load_was_stored = store_data(LoadSerializer(data=mapped_data['load']))
+                controller_was_stored = store_data(ControllerSerializer(data=mapped_data['controller']))
+        if len(
+                post_data) != 0 and wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored and controller_was_stored and load_was_stored:
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
     else:
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-def map_sensor_data(data, session=None):
-    for key, value in list(data.items()):
-        if key in KEY_MAPPING_DICT:
-            data[KEY_MAPPING_DICT[key]] = data.pop(key)
-        if isinstance(value, dict):
-            value['measurement_session'] = session.session_id
-            map_sensor_data(value)
-    return
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 
-def store_temp_data(temp_data):
-    temp_serializer = TemperatureSerialzer(data=temp_data)
-    if temp_serializer.is_valid():
-        temp_serializer.save()
+def store_data(serializer):
+    created = False
+    if serializer.is_valid():
+        serializer.save()
+        created = True
+    else:
+        logger.error(
+            "Could not store data of " + str(serializer) + " with error: " + str(serializer.errors))
+    return created
 
 
-def store_wind_data(wind_data):
-    wind_serializer = WindSerializer(data=wind_data)
-    if wind_serializer.is_valid():
-        wind_serializer.save()
-
-
-def store_battery_data(battery_data):
-    battery_serializer = BatterySerializer(data=battery_data)
-    if battery_serializer.is_valid():
-        battery_serializer.save()
-
-
-def store_solar_cell_data(solar_cell_data):
-    solar_serializer = SolarCellSerializer(data=solar_cell_data)
-    if solar_serializer.is_valid():
-        solar_serializer.save()
-
-
+# -------------------------------
 # Viewsets regarding AdminPanel
+# -------------------------------
 
 class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Configuration.objects.all()
     serializer_class = ConfigurationSerializer
 
     def perform_create(self, serializer):
-        print(serializer.validated_data())
         created = serializer.save()
         config_session = ConfigSession()
         config_session.configuration = created
+        config_session.applied = False
         config_session.time = datetime.datetime.now()
         config_session.user = self.request.user
         config_session.save()
@@ -250,12 +248,41 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = ConfigSessionSerializer
 
     def get_queryset(self):
-        filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
+
+    def list(self, request, *args, **kwargs):
+        result = self.queryset.values('configuration_id', 'user__username', 'time', 'applied')
+        return Response(result)
 
 
-class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
+class GetStates(APIView):
+
+    def get_errors_dict(self):
+        start_7_days_ago = {'start': datetime.datetime.now() - datetime.timedelta(days=7)}
+        temp_errors = filter_by_dates(start_7_days_ago, Temperature.objects.all()).filter(degrees__isnull=True).count()
+        wind_dir_errors = filter_by_dates(start_7_days_ago, Wind.objects.all()).filter(direction__isnull=True).count()
+        wind_speed_errors = filter_by_dates(start_7_days_ago, Wind.objects.all()).filter(speed__isnull=True).count()
+        pv_errors = filter_by_dates(start_7_days_ago, SolarCell.objects.all()).filter(
+            Q(voltage__isnull=True) | Q(power__isnull=True)).count()
+        battery_errors = filter_by_dates(start_7_days_ago, Battery.objects.all()).filter(
+            Q(current__isnull=True) | Q(voltage__isnull=True) | Q(temperature__isnull=True)).count()
+        load_errors = filter_by_dates(start_7_days_ago, Load.objects.all()).filter(
+            Q(current__isnull=True) | Q(voltage__isnull=True)).count()
+        states = {'temp': temp_errors, 'wind_speed': wind_speed_errors, 'wind_dir': wind_dir_errors,
+                  'pv_errors': pv_errors, 'battery_errors': battery_errors, 'load_errors': load_errors}
+        return states
+
+    @method_decorator(cache_page(60 * 20))
+    def get(self, request, format=None):
+        states = {'lastPostTime': last_post_time_raspi, 'states': self.get_errors_dict()}
+        return Response(states, status=status.HTTP_200_OK)
+
+
+class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = BatterySerializer
     queryset = Battery.objects.all()
+
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         # extra order_by call needs to be done in order to refresh the queryset
@@ -272,13 +299,13 @@ class BatteryViewSet(costumviews.CreateListRetrieveViewSet):
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
                 current=Avg('current'),
                 voltage=Avg('voltage'),
-                temperature=Avg('temperature')).order_by('measure_time').values('measure_time', 'current', 'voltage',
-                                                                                'temperature')
-            print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
+                temperature=Avg('temperature')) \
+                .order_by('measure_time')
+        return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
 
 
-class SolarCellViewSet(costumviews.CreateListRetrieveViewSet):
+
+class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = SolarCellSerializer
     queryset = SolarCell.objects.all()
 
@@ -295,11 +322,33 @@ class SolarCellViewSet(costumviews.CreateListRetrieveViewSet):
             queryset = queryset.values(
                 time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
                 measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
+                power=Avg('power'),
+                voltage=Avg('voltage')) \
+                .order_by('measure_time')
+        return Response(queryset.values('measure_time', 'power', 'voltage'), status=status.HTTP_200_OK)
+
+
+class LoadViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = LoadSerializer
+    queryset = Load.objects.all()
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
+
+    @action(methods=['GET'], detail=False)
+    def aggregate(self, request):
+        queryset = self.get_queryset()
+        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
+            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
+                                                       queryset.aggregate(max=Max('measure_time'))['max'])
+            queryset = queryset.values(
+                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
+                measure_time=FromUnixtime(Avg(UnixTimestamp(F('measure_time')))),
                 current=Avg('current'),
                 voltage=Avg('voltage')) \
-                .order_by('measure_time').values('measure_time', 'current', 'voltage')
-            print(queryset.query)
-        return Response(queryset, status=status.HTTP_200_OK)
+                .order_by('measure_time')
+        return Response(queryset.values('measure_time', 'current', 'voltage'), status=status.HTTP_200_OK)
 
 
 class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
@@ -312,15 +361,12 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
             image_size__isnull=True)
 
     @action(methods=['GET'], detail=False)
-    def aggregate(self, request):
+    def aggregate_by_day(self, request):
+        """
+        This method sums up the data volume per day.
+        It returns the data volume for every day of the current month.
+        """
         queryset = self.get_queryset()
-        if queryset.count() > databaseutils.MAX_DATASET_SIZE:
-            timedelta_in_seconds = calculate_timedelta(queryset.aggregate(min=Min('measure_time'))['min'],
-                                                       queryset.aggregate(max=Max('measure_time'))['max'])
-            queryset = queryset.values(
-                time_intervall=Ceil(UnixTimestamp(F('measure_time')) / timedelta_in_seconds)).annotate(
-                image_size=Avg('image_size'),
-                time=FromUnixtime(Avg(UnixTimestamp(F('measure_time'))))) \
-                .order_by('measure_time')
-            print(queryset.query)
-        return Response(queryset.values('measure_time', 'image_size'), status=status.HTTP_200_OK)
+        queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
+        return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)
+
