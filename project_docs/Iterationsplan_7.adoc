@@ -1,9 +1,0 @@
-== Iterationsplan 20.02.2020 - 05.03.2020
-
-=== Work Items List
-https://docs.google.com/spreadsheets/d/1HxpITdcoMaGQRV4cEODZcJ2ZDh8JpjwfIRo5Z4ReBgc/edit?usp=sharing
-
-=== Risiken
-Risiken der Anforderungsanalyse und Planung identifizieren, analysieren, bewerten und Gegenmaßnahmen planen 
-
-include::Risk_List.adoc[]

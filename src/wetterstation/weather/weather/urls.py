@@ -22,3 +22,4 @@ urlpatterns = [
                   path(r'admin/', admin.site.urls),
                   path(r'api/', include('restapi.urls'))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
