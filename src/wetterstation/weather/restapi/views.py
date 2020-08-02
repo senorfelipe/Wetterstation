@@ -4,6 +4,8 @@ import logging
 from django.db import transaction
 from django.db.models import Avg, F, Max, Min, Sum, Q
 from django.db.models.functions import Ceil
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import AllowAny
@@ -63,15 +65,6 @@ class TemperatureViewSet(costumviews.CreateListRetrieveViewSet):
 
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values('degrees', 'measure_time'))
-
-    def dispatch(self, *args, **kwargs):
-        response = super().dispatch(*args, **kwargs)
-        # For debugging purposes only.
-        from django.db import connection
-        for q in connection.queries:
-            print(q)
-        print('# of Queries: {}'.format(len(connection.queries)))
-        return response
 
     @action(methods=['GET'], detail=False)
     def aggregate(self, request):
@@ -279,7 +272,7 @@ class GetStates(APIView):
                   'pv_errors': pv_errors, 'battery_errors': battery_errors, 'load_errors': load_errors}
         return states
 
-    # @method_decorator(cache_page(60 * 60))
+    @method_decorator(cache_page(60 * 20))
     def get(self, request, format=None):
         states = {'lastPostTime': last_post_time_raspi, 'states': self.get_errors_dict()}
         return Response(states, status=status.HTTP_200_OK)
@@ -308,7 +301,6 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
                 voltage=Avg('voltage'),
                 temperature=Avg('temperature')) \
                 .order_by('measure_time')
-            print(queryset.query)
         return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
 
 
@@ -332,7 +324,6 @@ class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
                 power=Avg('power'),
                 voltage=Avg('voltage')) \
                 .order_by('measure_time')
-            print(queryset.query)
         return Response(queryset.values('measure_time', 'power', 'voltage'), status=status.HTTP_200_OK)
 
 
@@ -356,7 +347,6 @@ class LoadViewSet(viewsets.ReadOnlyModelViewSet):
                 current=Avg('current'),
                 voltage=Avg('voltage')) \
                 .order_by('measure_time')
-            print(queryset.query)
         return Response(queryset.values('measure_time', 'current', 'voltage'), status=status.HTTP_200_OK)
 
 
