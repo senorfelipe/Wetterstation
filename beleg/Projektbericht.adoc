@@ -1,0 +1,37 @@
+// --- Projektthema -------------------------
+= Projektbericht "T15 - Fernabfrage von Kamerabild und Wetterdaten"
+// --- Teammitglieder -----------------------
+Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Philipp Barth <s78830@htw-dresden.de>; Justin Schirdewahn <s78878@htw-dresden.de>; Alexander Schoch <s78797@htw-dresden.de>; Agustin Calvimontes <s78927@htw-dresden.de>; Clemens Kujus <s78802@htw-dresden.de>; 
+// --- Abgabedatum --------------------------
+14. August 2020
+// ------------------------------------------
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-label: 
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:nofooter:
+
+<<<
+
+//Inhalte zur Plaung hier verlinken
+= Planung
+//include::./technical_specifications/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+//Inhalte zur Durchführung hier verlinken
+= Durchführung
+//include::./Durchfuehrung/Projektphasen.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+//Inhalte zu ERgebnissen hier verlinken
+= Ergebnisse
+//include::./technical_specifications/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
