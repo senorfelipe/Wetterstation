@@ -66,3 +66,163 @@ image::images/I5-graphwire.jpg[]
 
 ==== Probleme
 - Work Items List wurde von den Teammitgliedern nicht angenommen
+
+=== Iteration 6 - 06.02.2020-19.02.2020
+==== Ziele / Aktivitäten
+- Pause aufgrund der Prüfungszeit  
+
+=== Iteration 7 - 20.02.2020-04.03.2020
+- Pause aufgrund der Prüfungszeit und Winterferien
+
+=== Iteration 8 - 05.03.2020-18.03.2020
+==== Ziele / Aktivitäten
+- Rollenverteilung regeln -> Projektmanager
+- Erste Programmierungen vornehmen -> Analyst, Architekt, Entwickler
+
+==== Ergebnisse
+-
+
+==== Probleme
+- Pandemie
+
+=== Iteration 9 - 19.03.2020-01.04.2020
+==== Ziele / Aktivitäten
+- 
+
+==== Ergebnisse
+-
+
+==== Probleme
+-  
+
+=== Iteration 10 - 02.04.2020-21.04.2020
+==== Ziele / Aktivitäten
+- Rollenverteilung anpassen -> Projektmanager
+- Erste Programmierungen vornehmen 
+- Entwurf mit dem Kunden im Treffen besprechen
+
+==== Ergebnisse
+- Rollenverteilung im Team geregelt
+- Werte können in eine Datenbank gespeichert und über einen Browser ausgelesen werden mittels Rest-API
+
+==== Probleme
+- Wegen terminlicher Gründe konnte der Entwurf mit dem Kunden nicht abgesprochen werden
+- Mangelnde Kommunikation mit GitHub-Issues
+
+=== Iteration 11 - 22.04.2020-06.05.2020
+==== Ziele / Aktivitäten
+- Front-End mit grundsätzlichen Funktionen ausstatten -> Entwickler
+- Front-End und Back-End zusammenführen -> Architekt, Entwickler
+- Datenformat der Wetterdaten festlegen -> Architekt, Entwickler
+- Rest-API vervollständigen, Authentifizierung regeln -> Architekt
+- Dokumentation überarbeiten -> Anaylst
+- Aufgaben des Technical Writer/Deployment Engineer auf das Projekt abbilden -> Deployment Engineer
+- Test auf Grundlage von Use-Cases beschreiben und entwickeln -> Tester
+- Projektabgabe spezifizieren (welche Dokumente nötig etc.) -> Projekt Manager
+
+==== Ergebnisse
+- Ausstattung des Front-End mit Grundfunktionalitäten
+- Zusammenführung des Back-End und Front-End
+- Rest-API wurde ausgebaut
+- Beginn der Überarbeitung der Dokumentation
+- Ein Testdokument wurde erstelt, bei welchem die Grundsätze des Testens für die Wetterstation aufgeschrieben wurden  
+- Kein negatives Feedback zum Projektmanagement
+
+==== Probleme
+- Die Projektabgabe wurde nicht weiter spezifiziert     
+- Datenformat der Wetterdaten wurde uns vom Kunden noch nicht vorgelegt
+
+=== Iteration 12 - 07.05.2020-20.05.2020 
+==== Ziele / Aktivitäten
+- Front-End und Bildergallerie weiterentwickeln -> Entwickler
+- Back-End auf die Datenstruktur anpassen und weiterentwickeln -> Architekt, Entwickler
+-Testsuite aufbauen und damit erste Tests implementieren -> Tester
+- Dokumentation weiter überarbeiten -> Analyst
+
+==== Ergebnisse
+- Bilder in der Bildergallerie können geladen und dargestellt werden
+- Front-End erweitert (Darstellung der Graphen)
+- Back-End wurde entsprechend der Strukturdefinition der Daten angepasst
+- Der momentane Projektstand/-verlauf wird vom Kunden für zufriedenstellend befunden
+
+==== Probleme 
+- Tests wurden noch nicht implementiert
+
+=== Iteration 13 - 21.05.2020-03.06.2020
+==== Ziele / Aktivitäten
+- Front-End weiterentwickeln -> Entwickler, Projektmanager
+- Dokumentation überarbeiten -> Analyst
+- Testfälle spezifizieren und entsprechend implementieren -> Tester
+- Rest Endpunkt images/recent erstellen -> Architekt
+- Rest Endpunkt erweitern für StromLogging -> Architekt
+- Model für Datenverbrauch -> Architekt
+- Authentifizierung einrichten -> Architekt
+- Model für config und configsession erstellen -> Architekt
+
+==== Ergebnisse
+- Gute Weiterentwicklung des Front-End
+- Rest Enpunkt images/recent erstellt
+- für das Deployment sind erste Anforderungen und Möglichkeiten (z.B. Errorbenachrichtigung per Mail) bekannt
+
+==== Probleme
+- Die Dokumentation wurde nicht überarbeitet
+- Testfälle stehen zwar, sind aber aufgrund von Problemen mit der Rest-API nicht ausführbar
+- Die Authentifizierung wurde noch nicht angegangen
+- Model für config/configsession, Datenverbrauch und Stromlogging wurden aufgrund fehlender Spezifikationen vom Kunden noch nicht bearbeitet
+
+=== Iteration 14 - 04.06.2020-17.06.2020
+==== Ziele / Aktivitäten
+- Dokumentation überarbeiten -> Analyst
+- Rest Endpunkt erweitern für StromLogging -> Architekt
+- Model für Datenverbrauch -> Architekt
+- Model für config und configsession erstellen -> Architekt
+- Testfälle implementieren -> Tester
+- Winddaten für das Front-End bereits im Back-End zur Verfügung stellen -> Architekt
+- Graphen, Pfeile und erweiterten Modus im Front-End überarbeiten -> Entwickler
+- Bildergalerie implementieren -> Entwickler
+- Einsatz von Mat-Cards im Adminpanel prüfen -> Projektmanager
+- Authentifizierung einrichten -> Architekt
+
+==== Ergebnisse
+-
+
+==== Probleme
+-
+
+=== Iteration 15 - 18.06.2020-01.07.2020
+==== Ziele / Aktivitäten
+- Projektbericht bearbeiten, Dokumentationen einfordern -> Analyst, Deployment Engineer
+- Rest Endpunkt erweitern für StromLogging -> Architekt
+- Model für config und configsession verfeinern (WIP) -> Architekt
+- Tabelle für Windrichungen (der letzten 24h) implementieren -> Entwickler
+- Gallerie bearbeiten -> Entwickler, Analyst
+- Admin Panel bearbeiten -> Projektmanager
+- Authentifizierung einrichten -> Architekt
+
+==== Ergebnisse
+- StromLogging ist implementiert
+- Tabelle für Windrichtungen ist fertig
+- Gallerie ist auf Grundlage von 'ngx-galery' überarbeitet
+- Admin Panel besitzt nun Diagramme für Spannung/Strom und Leistungsaufnahme und entspricht nun bis auf dem Modell für den Datenverbrauch den Anforderungen
+
+==== Probleme
+- Projektbericht und Dokumentation wurden nicht überarbeitet
+- Modell für Config und Configsession wurde nicht verfeinert
+
+=== Iteration 16 - 02.07.2020-15.07.2020
+==== Ziele / Aktivitäten
+- Projektbericht bearbeiten, Dokumentationen einfordern -> Analyst, Deployment Engineer
+- Tests erstellen, überarbeiten und durchführen -> Tester, Architekt
+- Model für config und configsession verfeinern -> Architekt
+- Gallerie bearbeiten -> Entwickler
+- Admin-Panel Diagram Daten mit entsprechenden Datumsangaben zusammenführen -> Projektmanager
+- Admin-Panel Modell für Datenverbrauch implementieren -> Projektmanager
+- Authentifizierung einrichten -> Architekt
+
+==== Ergebnisse
+-
+
+==== Probleme
+-
+
+
