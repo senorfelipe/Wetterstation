@@ -1,12 +1,12 @@
-== Wesentliche Entscheidungen
+= Wesentliche Entscheidungen
 Autoren: Clemens Kujus
 
 In diesem Abschnitt werden wesentliche teamrelevante und technische Entscheidungen im Projektverlauf dargestellt.
 
-=== Rollenverteilung
+== Rollenverteilung
 Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager.
 
-=== Nutzung von GitHub zur Projektverwaltung
+== Nutzung von GitHub zur Projektverwaltung
 In unserem Projekt dient Git nicht nur der Versions-, sondern auch der Projektverwaltung. Das bedeutet, dass wir GitHub-Issues und im Verlauf des Projekts auch GitHub-Projekte eingeführt haben. Die Entscheidung für GitHub-Issues liegt darin begründet, dass diese eine übersichtliche und intuitive Möglichkeit bilden, Aufgaben bzw. Work Items anzubieten und die Bearbeitung kenntlich zu machen, damit zum einen Aufgaben klar definiert sind und zum anderen keine doppelte Aufgabenlösung entsteht.
 
 .GitHub-Issues
@@ -22,7 +22,8 @@ image::./images/git-projekte.JPG[]
 
 Wir haben uns nicht aktiv gegen die Nutzung anderer Tools entschieden, sondern haben uns auf die Notwendigkeit dieser konzentriert. Für unseren Arbeitsablauf waren die Möglichkeiten in Git völlig ausreichend, weshalb wir ausschließlich die GitHub Standardtools gewählt haben.
 
-=== Arbeit mit Git-Branches und Commitabstände
+== Arbeit mit Git-Branches und Commitabstände
+Für Git-Branches haben wir uns entschieden, da in der Implementierung Versionskonflikte abzusehen waren. Aufgrund des unten beschriebenen Problems der <<Git-Branches und Commitabstände>> setzten wir detaillierte Branches mit möglichst kleinen Commits ein.
 
 ////
 Josefin Hähne: Analyst, Architekt
@@ -34,12 +35,24 @@ Agustin Calvimontes: Deployment Engineer, Technical Writer
 Hannes Fogut: Tester, Entwickler
 ////
 
-== Aufgetretene Probleme
+= Aufgetretene Probleme
 
-=== Aufgabenverteilung
+== Aufgabenverteilung
 Die Aufgabenverteilung war am Anfang des Projekts so geplant, dass sich jeder aus einem Aufgabenpool (im Iterationsplan) seine Work Items rauszieht, Issues anlegt und bearbeitet. Das hat geklappt, auch wenn der ein oder andere sich erst nach Aufforderung Aufgaben rausgesucht hat. Nach der Projektpause Februar/März 2020 lief diese Methode allerdings nur noch sehr schwer an. Die Kenntlichmachung der gerade bearbeiteten Aufgaben wurden kaum vorgenommen, ebenso das anlegen von Issues. Als ein Grund dafür ist sicherlich die etwas unübersichtliche Situation allgemein und im Hochschulbetrieb zu nennen, zum anderen die in den Iterationsplänen bis dahin ungenaue Rollenzuweisung.
 
 Die Gegenmaßnahme gegen die unzureichende Aufgabenverteilung wurden der Risk-List entsprechende Maßnahmen getroffen. Zum einen haben wir uns ab Mai öfter getroffen, meist wöchentlich (auch mit Kunden). Außerdem hat der Projektmanager ende April/Anfang Mai die Aufgaben verteilt, damit jeder genau weiß was er bis wann zu erledigen hat. Da diese Aufgabenzuweisung allerdings unserer eher agilen Arbeitsweise widerspricht, wurde sie im Interesse aller nicht weiter fortgeführt. Des Weiteren wurde nun in den Iterationsplänen bei der Planung eine vorläufige Aufgabenverteilung vorgenommen, damit jeder schon mal seine auf ihn zugeschnittenen Aufgaben sieht.
 
 .Vorläufige Aufgabenverteilung in den Iterationsplänen
 image::./images/iteration_aufgabenverteilung.JPG[]
+
+== Git-Branches und Commitabstände
+Für die Anforderungserhebnung und den Entwurf (Inception-/Elaborationphase) wurde hauptsächlich auf dem master-Branch in Git gearbeitet. Dies hat ausreichend gut funktioniert, da die Aufgaben voneinander getrennt lösbar waren, d.h. wenn einer an einem Use-Case gearbeitet hat konnte ein anderer ohne Versionskonflikte erwarten zu müssen am Architecture Notebook arbeiten. Dadurch waren auch große Commits mit vielen Änderungen möglich, da die zu bearbeitenden Dokumente im Vorhinein ersichtlich waren.
+
+Mit dem Anfang der Implementierung war es allerdings abzusehen dass diese Vorgehensweise nicht lange gut geht, weshalb wir uns für die Arbeit auf verschiedenen (vorerst allgemeinen) Branches wie "projectmanagement" und "frontend" entschieden haben. Auf dem master-Branch sollten nur lauffähige Versionen liegen, was durch Pull-Requests und damit einem 4-Augen-Prinzip sichergestellt werden sollte. 
+
+Das Problem der Branches war die Allgemeinheit. Ein Branch "frontend" beinhaltet die Arbeit am gesamten Front-End, was merge-Konflikte geradezu provoziert. Große Commits haben es außerdem sehr erschwert, den Code nachzuvollziehen. In einem Gastvortrag  im Modul "Geschäftsprozessmodellierung" wurde nebenläufig eine Arbeitsweise in der Softwareenwicklung vorgestellt, die auf möglichst kleine Änderungen zum nächsten build setzt. Diese Vorgehensweise haben wir versucht zu adaptieren, indem wir möglichst detaillierte Branches und möglichst kleine Commits einsetzten. Dadurch hat sich die Frequenz an neuen Funktionalitäten im lauffähigen master-Branch erhöht und damit die Präsentation der Zwischenstände dem Kunden gegenüber vereinfacht, die Nachvollziehbarkeit der Commits ist gestiegen und die Anzahl an merge-Konflikten ist sehr gering, bzw. sind diese oft einfach zu beheben.
+
+== Vorstellungen und Ideen der Kunden
+Im Verlaufe des Projekts, und vor allem gegen Ende, haben sich die Vorstellungen der Kunden oft geändert. Zum einen in erleichternde Art und Weise, z.B. wurde uns die Datenakquise von den Sensoren abgenommen und das Datenvolumen der mobilen Internetverbindung wird an unsere Bedürfnisse angepasst. Zum anderen gab es allerdings auch durchaus widersprüchliche und erschwerende Anforderungen. So wurde uns z.B. an einem Meeting die Abkehr von PHP freigestellt, beim nächsten Meeting sollte wir (trotz vorangegangener Entwicklung) den Einsatz von PHP dann wieder in Betracht ziehen. Auch wurde teilweise auf in unserer Entwicklung nicht benötigte Implementierungen bestanden. Unsere Meinung zu diesen Vorstellungen und Eingriffen in unsere Entwicklungsarbeit haben wir dann immer wieder in Treffen deutlich gemacht und natürlich auch unter Berücksichtigung der Kundenwünsche so umgesetzt, dass ein sinnvoller Arbeitsablauf möglich war.
+
+Ein größeres Problem waren die stetig wachsenden Anforderungen und Änderungen. Diese sind vor allem dem Umstand geschuldet, dass die Wetterstation vom Kunden parallel zu unserer Wetterstation-Software gebaut wurde. Dadurch waren diverse Messwerte und Messgrößen der Sensoren bis einige Tage vor Projektende nicht bekannt. Einige Features wurden und werden daher nach offizieller Abgabe der Software am 31.07.2020 freiwillig noch weiter bearbeitet, damit am Ende auch ein sinnvoller Realberieb möglich ist.

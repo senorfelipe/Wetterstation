@@ -31,6 +31,7 @@ Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Ph
 //Inhalte zur Durchführung hier verlinken
 = Durchführung
 //include::./Durchfuehrung/Projektphasen.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Durchfuehrung/Entscheidungen_Probleme.adoc[lines=1..1;4..-1,leveloffset=+1]
 
 //Inhalte zu ERgebnissen hier verlinken
 = Ergebnisse
