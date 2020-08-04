@@ -1,0 +1,45 @@
+== Wesentliche Entscheidungen
+Autoren: Clemens Kujus
+
+In diesem Abschnitt werden wesentliche teamrelevante und technische Entscheidungen im Projektverlauf dargestellt.
+
+=== Rollenverteilung
+Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager.
+
+=== Nutzung von GitHub zur Projektverwaltung
+In unserem Projekt dient Git nicht nur der Versions-, sondern auch der Projektverwaltung. Das bedeutet, dass wir GitHub-Issues und im Verlauf des Projekts auch GitHub-Projekte eingeführt haben. Die Entscheidung für GitHub-Issues liegt darin begründet, dass diese eine übersichtliche und intuitive Möglichkeit bilden, Aufgaben bzw. Work Items anzubieten und die Bearbeitung kenntlich zu machen, damit zum einen Aufgaben klar definiert sind und zum anderen keine doppelte Aufgabenlösung entsteht.
+
+.GitHub-Issues
+image::./images/git-issues.JPG[]
+
+Für die Projekte in GitHub haben wir uns entschieden, damit wir die Iterationen besser auswerten können. Eingeführt wurden sie Ende Januar 2020 auf anraten des Coaches, da die Auswertung der Iterationen bis dahin in Textform der thematisierten Iteration angeheftet wurde. Dadurch wurde zwar auch ersichtlich, welche Aufgaben wie gelöst wurden, allerdings ist ein Blocktext nicht schnell zu erfassen und Issues und Auswertung liefen parallel. In den Projekten haben wir uns aufgrund der Intuitivität für das "Basic kanban"-Template entscheiden. Die Auswertung in Textform liefen auf Entscheidung des Projektmanagers (besserer Abschluss der Iterationspläne) bis zur 13. Iteration parallel zu den Projekten. Ab der 14. Iteration haben wir uns dann allerdings dafür entschieden, wie vom Coach angeraten nur noch die Projekte zur Auswertung zu nutzen.
+
+.Alte Auswertung in Textform
+image::./images/bewertung_iteration.JPG[]
+
+.Neue Auswertung in GitHub-Projekten
+image::./images/git-projekte.JPG[] 
+
+Wir haben uns nicht aktiv gegen die Nutzung anderer Tools entschieden, sondern haben uns auf die Notwendigkeit dieser konzentriert. Für unseren Arbeitsablauf waren die Möglichkeiten in Git völlig ausreichend, weshalb wir ausschließlich die GitHub Standardtools gewählt haben.
+
+=== Arbeit mit Git-Branches und Commitabstände
+
+////
+Josefin Hähne: Analyst, Architekt
+Philipp Barth: Architekt, Entwickler
+Justin Schirdewahn: Entwickler, Tester
+Alexander Schoch: Entwickler, Projektmanager
+Clemens Kujus: Projektmanager, Analyst
+Agustin Calvimontes: Deployment Engineer, Technical Writer
+Hannes Fogut: Tester, Entwickler
+////
+
+== Aufgetretene Probleme
+
+=== Aufgabenverteilung
+Die Aufgabenverteilung war am Anfang des Projekts so geplant, dass sich jeder aus einem Aufgabenpool (im Iterationsplan) seine Work Items rauszieht, Issues anlegt und bearbeitet. Das hat geklappt, auch wenn der ein oder andere sich erst nach Aufforderung Aufgaben rausgesucht hat. Nach der Projektpause Februar/März 2020 lief diese Methode allerdings nur noch sehr schwer an. Die Kenntlichmachung der gerade bearbeiteten Aufgaben wurden kaum vorgenommen, ebenso das anlegen von Issues. Als ein Grund dafür ist sicherlich die etwas unübersichtliche Situation allgemein und im Hochschulbetrieb zu nennen, zum anderen die in den Iterationsplänen bis dahin ungenaue Rollenzuweisung.
+
+Die Gegenmaßnahme gegen die unzureichende Aufgabenverteilung wurden der Risk-List entsprechende Maßnahmen getroffen. Zum einen haben wir uns ab Mai öfter getroffen, meist wöchentlich (auch mit Kunden). Außerdem hat der Projektmanager ende April/Anfang Mai die Aufgaben verteilt, damit jeder genau weiß was er bis wann zu erledigen hat. Da diese Aufgabenzuweisung allerdings unserer eher agilen Arbeitsweise widerspricht, wurde sie im Interesse aller nicht weiter fortgeführt. Des Weiteren wurde nun in den Iterationsplänen bei der Planung eine vorläufige Aufgabenverteilung vorgenommen, damit jeder schon mal seine auf ihn zugeschnittenen Aufgaben sieht.
+
+.Vorläufige Aufgabenverteilung in den Iterationsplänen
+image::./images/iteration_aufgabenverteilung.JPG[]

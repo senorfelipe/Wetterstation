@@ -24,6 +24,7 @@ zur Verfügung stellt|
 |Wetterstation-Software|Programme, welche als Ergebnis aus diesem Softwareprojekt hervorgehen|System
 |Vereinswebsite|Website des MFCR|
 |Projekt|Arbeit am Belegthema "T15 - Fernabfrage von Kamerabild und Wetterdaten" im Rahmen des Moduls Software Engineering I|
+|Coach|Herr Zirkelbach|
 |===
 		
 
