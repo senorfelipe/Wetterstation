@@ -2,17 +2,21 @@ import datetime
 import glob
 import json
 import os
-import time
-from random import random
 
 from src.http_client.httpclient import HttpClient
 
 IMG_FORMAT = '.jpeg'
 
-SEARCH_DIR = './data/mock/'
+SEARCH_DIR = './../data/processed/'
+SENSOR_DIR = './sensor'
+IMAGES_DIR = './images'
+
+CONFIG_DIR = './config/'
 HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
+
+MAX_POST_SIZE = 1000
 
 
 def find_and_post_data():
@@ -20,6 +24,8 @@ def find_and_post_data():
     files = get_json_files()
     to_post = []
     for file in files:
+        if len(to_post) >= MAX_POST_SIZE:
+            break
         with open(file) as json_file:
             data = json.load(json_file)
             add_session_id(data, os.path.splitext(file)[0])
@@ -28,6 +34,7 @@ def find_and_post_data():
     if status == 201:
         for file in files:
             os.remove(file)
+    os.chdir('./../')
 
     images = get_images()
     for image in images:
@@ -37,10 +44,6 @@ def find_and_post_data():
             print('posted image: ' + os.path.basename(image))
             os.remove(img_path)
     os.chdir('../../')
-
-
-def create_session_id():
-    return time.time_ns() + int(random() * 100)
 
 
 def add_session_id(data, session_id):
@@ -61,6 +64,7 @@ def post_image(image):
 
 
 def get_images():
+    os.chdir(IMAGES_DIR)
     images = []
     for image in glob.glob('*%s' % IMG_FORMAT):
         images.append(image)
@@ -68,6 +72,7 @@ def get_images():
 
 
 def get_json_files():
+    os.chdir(SENSOR_DIR)
     files = []
     for file in glob.glob('*.json'):
         files.append(file)
