@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script> src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" </script>
+</head>
+    
+<body>
+    <!--Auswahl Spannung/Strom, Leistungsaufnahme oder Ladestrom-->
+    <section>
+        <mat-button-toggle-group name="adminGraph" aria-label="Font Style">
+            <mat-button-toggle value="electricity" (change)="diagramChange($event)" checked>Spannung/Strom</mat-button-toggle>
+            <mat-button-toggle value="power" (change)="diagramChange($event)">Leistungsaufnahme</mat-button-toggle>
+            <mat-button-toggle value="charge" (change)="diagramChange($event)">Ladestrom</mat-button-toggle>
+        </mat-button-toggle-group>
+    </section>
+
+    <!--Diagramm-->
+    <mat-card>
+        <canvas id= "elecChart"></canvas>
+    </mat-card>
+
+    <!--Checkboxes für Auswahl von Strom/Spannung-->
+    <div [hidden]="isToggled">
+        <section class="checksec">
+            <label>Akku: </label>
+            <input type="checkbox" id="accVol" class="checkmarg" (click)="updateChart()" checked>Spannung
+            <input type="checkbox" id="accCur" class="checkmarg" (click)="updateChart()">Strom
+        </section>
+        <section class="checksec">
+            <label>Photovoltaik: </label>
+            <input type="checkbox" id="solVol" class="checkmarg" (click)="updateChart()">Spannung
+            <input type="checkbox" id="solCur" class="checkmarg" (click)="updateChart()">Strom
+        </section>
+    </div>
+
+    <!--Logbuch
+    <table mat-table [dataSource]="logTableData">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Datum</th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Aktion</th>
+            <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"></tr>
+    </table>-->
+
+    <!--Sensorprüfung-->
+    <table mat-table [dataSource]="sensorTableData">
+        <ng-container matColumnDef="sensor">
+            <th mat-header-cell *matHeaderCellDef>Sensor</th>
+            <td mat-cell *matCellDef="let element"> {{element.sensor}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedSensorColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedSensorColumns;"></tr>
+    </table>
+</body>
+</html>

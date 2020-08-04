@@ -14,10 +14,8 @@ Admins können sich diese Bilder ebenfalls anzeigen lassen, haben aber erweitert
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 . Die Kamera hat bereits Bilder aufgenommen
-. Kamera wird korrekt vom Rasperry Pi angesteuert wenn sich dieser aktiviert/gestartet wird.
 . Die Bilder werden korrekt auf den Server gepusht und dazugehörige Meta-Daten in der DB gespeichert
 . Die Bilder werden vom Server richtig zum Client übertragen
-. Die Bilder werden auf der Website korrekt angezeigt
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")

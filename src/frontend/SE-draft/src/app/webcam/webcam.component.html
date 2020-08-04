@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./webcam.component.scss" />
+  <script type="text/javascript" src="../../assets/ExternalJsFiles/gallery.js"></script>
+</head>
+
+<body>
+  <mat-card>
+
+    <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile [colspan]=4 [rowspan]=4>
+        <img [src]="RecentImages[0].image" (click)="openLightbox(0,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[1].image" (click)="openLightbox(1,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[2].image" (click)="openLightbox(2,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[3].image" (click)="openLightbox(3,'lightbox')">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=1 [rowspan]=1>
+        <img [src]="RecentImages[4].image" (click)="openLightbox(4,'lightbox')">
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-card>
+
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="loadtodayPics()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Heute
+        </mat-panel-title>
+        <mat-panel-description>
+          Dies sind alle aufgenommenen Bilder von heute.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <mat-grid-list cols="4" rowHeight="200px">
+          <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">
+            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'today')">
+
+
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="loadyesterdayPics()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Gestern
+        </mat-panel-title>
+        <mat-panel-description>
+          Dies sind alle aufgenommenen Bilder von gestern.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <mat-grid-list cols="4" rowHeight="200px">
+          <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">
+            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,'yesterday')">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Datum wählen
+        </mat-panel-title>
+        <mat-panel-description>
+          Lassen Sie sich die Bilder von einem Tag anzeigen
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <mat-form-field appearance="fill">
+          <mat-label>Wählen Sie ein Datum</mat-label>
+          <input matInput [matDatepicker]="startpicker" (dateInput)="addDateEvent($event)">
+          <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+          <mat-datepicker #startpicker></mat-datepicker>
+        </mat-form-field>
+        
+        <ng-template matExpansionPanelContent >
+          <mat-grid-list cols="4" rowHeight="200px">
+            <mat-grid-tile *ngFor="let image of DateImages,let indexofelement=index">
+              <img src={{image.image}} height="200px" (click)="openLightbox(indexofelement,'dategallery')">
+  
+  
+            </mat-grid-tile>
+          </mat-grid-list>
+        </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <p class="container" gallerize>
+    <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"
+      [attr.thumbSrc]="img?.data?.thumb">
+  </p>
+
+
+
+
+</body>
+
+</html>

@@ -2,53 +2,67 @@ import datetime
 import glob
 import json
 import os
+import time
+from random import random
 
 from src.http_client.httpclient import HttpClient
 
-SEARCH_DIR = './data/'
+IMG_FORMAT = '.jpeg'
+
+SEARCH_DIR = './data/mock/'
 HOSTNAME = 'http://localhost:8000'
-SENSOR_DATA_API_URL = '/api/sensor-data'
+SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
 
 
 def find_and_post_data():
     os.chdir(SEARCH_DIR)
     files = get_json_files()
-    to_remove = []
+    to_post = []
     for file in files:
         with open(file) as json_file:
-            status = post_json(json_file)
-            if status == 201:
-                to_remove.append(file)
-        if file in to_remove:
-            print('removed: ' + file)
-            # os.remove(file)
+            data = json.load(json_file)
+            add_session_id(data, os.path.splitext(file)[0])
+            to_post.append(data)
+    status = post_data(to_post)
+    if status == 201:
+        for file in files:
+            os.remove(file)
 
     images = get_images()
     for image in images:
-        status = post_image(image)
+        img_path = image
+        status = post_image(img_path)
         if status == 201:
-            print('removed: ' + image)
-            # os.remove(image)
+            print('posted image: ' + os.path.basename(image))
+            os.remove(img_path)
+    os.chdir('../../')
 
 
-def post_json(json_file):
-    data = json.load(json_file)
+def create_session_id():
+    return time.time_ns() + int(random() * 100)
+
+
+def add_session_id(data, session_id):
+    data['session_id'] = session_id
+
+
+def post_data(data):
     restclient = HttpClient(HOSTNAME + SENSOR_DATA_API_URL)
     return restclient.post_json_data(data)
 
 
 def post_image(image):
-    timestamp = int(os.path.basename(image).replace('.jpg', ''))
+    timestamp = int(os.path.basename(image).replace(IMG_FORMAT, ''))
     creation_time = datetime.datetime.fromtimestamp(timestamp)
-    image_data = {'time': creation_time}
+    image_data = {'measure_time': creation_time, 'session_id': timestamp}
     restclient = HttpClient(HOSTNAME + IMAGES_API_URL)
     return restclient.post_file(image, image_data)
 
 
 def get_images():
     images = []
-    for image in glob.glob('*.jpg'):
+    for image in glob.glob('*%s' % IMG_FORMAT):
         images.append(image)
     return images
 

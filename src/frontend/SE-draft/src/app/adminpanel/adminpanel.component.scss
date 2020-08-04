@@ -1,0 +1,41 @@
+.matlist{
+    height: 100%;
+    width: 100%;
+    padding-top: 24px !important;
+}
+
+table {
+    width: 30%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+H1 {
+    text-align: center;
+}
+
+.btnDiv {
+    text-align: left;
+}
+
+.checksec {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+.checkmarg {
+    margin: 0 10px;
+}
+
+mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 40px);
+  }

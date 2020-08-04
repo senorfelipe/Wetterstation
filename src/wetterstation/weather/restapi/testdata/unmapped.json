@@ -1,0 +1,28 @@
+{
+  "session_id": "123456789",
+  "timestamp": 637316252650020400,
+  "timestampIso": "2020-07-29T13:14:25",
+  "weather": {
+    "temp": "23.1",
+    "windSpeed": "5.7",
+    "windDir": "290"
+  },
+  "energy": {
+    "pv": {
+      "voltage": "14800",
+      "power": "29"
+    },
+    "battery": {
+      "voltage": "13590",
+      "current": "2070",
+      "temperature": "err"
+    },
+    "load": {
+      "voltage": "14800",
+      "current": "0"
+    },
+    "controller": {
+      "mode": "3"
+    }
+  }
+}

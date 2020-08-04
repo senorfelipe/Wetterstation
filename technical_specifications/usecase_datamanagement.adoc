@@ -1,4 +1,4 @@
-== Use-Case: Webdiagramm
+== Use-Case: Daten aufrufen 
 ===	Kurzbeschreibung
 Es geht um die Anzeige der gesammelten Daten, die Funktionen, die durch die Anzeige gewährleistet werden sollen und mögliche Schwierigkeiten.
 

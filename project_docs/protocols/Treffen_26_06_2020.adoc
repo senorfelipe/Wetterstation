@@ -1,0 +1,49 @@
+== Protokoll zum Treffen am 26.06.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 18.30 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [ ] Josefin
+* [x] Agustin
+* [ ] Hannes
+
+* **extern:**
+Professor Iwe, Herr Brenner
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+include::../Iterationsplan_15.adoc[]
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Front-End
+.. Darstellung im Bereich Graphen OK
+.. Adminpanel
+... Leistung der Solarzelle im gleichen Diagramm wie Strom/Spannung per Checkbox wählbar (Achsen ändern sich damit auch)
+... Inhalt des Logs wird noch spezifiziert
+.. Anfrage der Daten für die Diagramme in einer bestimmten Größenordnung, z.B. 50 Datenpunkte in einem bestimmten Zeitraum
+. Back-End
+.. Ankommende Werte nach Ausfall eines Sensors werden noch spezifiziert
+ (z.B. "NV")
+.. Config-Datei wird vom Raspberry angefragt
+... beinhaltet z.B. Bild Höhe/Breite/Auflösung/Format[jpg, Kompression,...], Kameraparameter [Helligkeit, Kontrast] Zeitintervalle Sensordaten erfassen und Bilder, Senden
+.. Datenanfragen mit interpolierten Daten beantworten (z.B. statt Datenpunkt 30 das arith. Mittel von Datenpunkt 15-45)
+.. Scripts mit POST-Request werden durch Cronjobs getriggert
+. Raspberry
+.. Speicherort der Daten wird uns bekannt gegeben
+.. Daten liegen so lange auf dem Raspberry bis sie gelesen werden
+.. gepostet wird mit dem Bild halbstündlich
+. Allgemein
+.. Spezifikationen für Deployment müssen noch vorgebracht werden
+.. Umgebung für das Deployment wird noch spezifiziert (Themesteller bringen ihre Rechte für ihren bisherigen Server beim Anbieter in Erfahrung)
+.. nächstes Treffen ist am 01.07.2020 um 17 Uhr
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)
