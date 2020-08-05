@@ -8,7 +8,7 @@
 
 <body>
   <div class=recentgrid>
-  <mat-grid-list cols='3'>
+  <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
     <mat-grid-tile>
       <mat-card class="recentData">
         <div class=recentwrapper>
@@ -30,7 +30,7 @@
         <div class=recentwrapper>
           <mat-label>Aktuelle Windrichtung</mat-label>
           <div class="imagecontainer">
-            <img src="assets/arrow.svg" id="1" (load)="rotateDirCardArrow(recentWindDir,1)" width="50%">
+            <img src="assets/arrow.svg" id="1" (load)="rotateDirCardArrow(recentWindDir,1)" width="30%">
           </div>
         </div>
       </mat-card>
@@ -58,14 +58,18 @@
 
 
   <mat-card class="selectorcard">
-    <mat-slide-toggle class="toggleslider" (change)="onChange($event)">erweiterter Modus</mat-slide-toggle>
+    <div class=toggleslider>
+    <mat-slide-toggle (change)="onChange($event)">erw. Modus</mat-slide-toggle>
+  </div>
     <ng-template [ngIf]="(extendedModeStatus | async)" [ngIfElse]="simpleMode">
+     
       <mat-form-field class="startpickform">
         <mat-label>Startdatum</mat-label>
         <input matInput [matDatepicker]="startpicker" (dateInput)="addStartEvent($event)">
         <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
         <mat-datepicker #startpicker></mat-datepicker>
       </mat-form-field>
+   
 
       <mat-form-field class="endpickform">
         <mat-label>Enddatum</mat-label>
@@ -73,12 +77,13 @@
         <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
         <mat-datepicker #endpicker></mat-datepicker>
       </mat-form-field>
+    
       <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>
     </ng-template>
 
 
     <ng-template #simpleMode>
-      <mat-label>Anzahl der Tage:</mat-label>
+      <p class="simplemodelabel">Anzahl der Tage:<p>
       <mat-radio-group aria-label="Select an option" [(ngModel)]="chosenbtn">
         <mat-radio-button *ngFor="let pick of timepickers" [value]="pick" (change)="onbtnChange($event)">
           {{pick}}
@@ -86,6 +91,7 @@
 
       </mat-radio-group>
     </ng-template>
+  
   </mat-card>
 
 

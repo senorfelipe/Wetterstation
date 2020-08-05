@@ -78,6 +78,8 @@ chartwindata={
     }
   }
 
+  breakpoint: number;
+
   constructor(weatherDataService: WeatherDataService) {
     this.weatherDataService = weatherDataService
     this.extendedModeStatus = new BehaviorSubject(false)
@@ -85,9 +87,13 @@ chartwindata={
   }
 
   ngOnInit() {
-    
+    this.breakpoint = (window.innerWidth <= 640) ? 1 : 3;
+
     this.getRecentValues();
     this.updateGraphs(1);
+
+
+
   }
 
 
@@ -215,6 +221,14 @@ chartwindata={
 
     }
   }
+
+/* Handler for Resizing*/
+
+onResize(event) {
+  this.breakpoint = (event.target.innerWidth <= 640) ? 1 : 3;
+}
+
+
 }
 
 

@@ -47,6 +47,7 @@ getWindDataFrame(start:Date,end:Date){
 }
 
 getTemperaturesDataFrame(start:Date,end:Date){
+  
   return this.http.get<TemperatureData[]>(this.apiUrl+'temps/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
 }
