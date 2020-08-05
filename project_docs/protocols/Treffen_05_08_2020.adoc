@@ -1,0 +1,22 @@
+== Protokoll zum Treffen am 05.08.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.40 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [] Philipp
+* [] Josefin
+* [x] Agustin
+* [] Hannes
+
+=== Themen
+//Zu besprechende Themen vor dem eigentlichen Treff hier eintragen und ggf. weitere im Gesprächsverlauf ergänzen
+. Deployment
+.. Das Projekt ist prinzipiell deployt und unter http://84.146.24.145:9080/ erreichbar, jedoch funktionieren Back-End und Front-End aufgrund bekannter Fehler noch nicht zusammen
+. Dokumentation
+.. Richtlinien für die Dokumentation sind beschlossen und wurden in der Richtlinien.adoc im branch beleg festgehalten
