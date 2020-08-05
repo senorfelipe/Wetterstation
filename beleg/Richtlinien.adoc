@@ -1,5 +1,6 @@
 = Richtlinien, nach denen die Dokumentation erfolgen soll
 
+== Allgemein
 . Die Dokumentation erfolgt in AsciiDoc im Branch "beleg"
 . Die Dokumente nach jeder Bearbeitung auf Git hochladen
 . Die Dokumente werden als .adoc erstellt
@@ -15,3 +16,26 @@ dafür auch im Git in entsprechenden Unterordnern liegen
 Einträge als falsch erachtet werden *nicht löschen* und unbedingt vorerst die anderen 
 informieren!)
 . Gerne Bilder und Beispiele einbinden, die den Text verständlicher machen
+
+== Aufgabenverteilung
+. Pojektbericht
+.. Planung -> Josefin
+.. Durchführung
+... Beschreibung der Projektphasen -> Agustin
+... Hauptaktivitäten -> Je nach Rolle
+.... Anforderungserhebung- und Analyse -> Clemens
+.... Entwurf -> Agustin
+.... Implementierung -> Alexander
+.... Test -> Clemens
+.... Übergabe, Dokumentation -> Clemens
+... Wesentliche Entscheidungen -> Clemens, Alexander
+... Aufgetretene Probleme -> Clemens
+.. Ergebnisse
+... Bezug zur Aufgabenstellung -> Clemens
+... Reflexionen -> Alle
+. Betriebsdokumentation -> Justin
+. Testdokumentation -> Hannes, Philipp
+. Anwenderdokumentation -> Josefin
+. Entwicklerdokumentation -> Justin, Alexander
+. Aktualisierte Anforderungsspezifikation -> Josefin
+. Vier Besprechungsprotokolle -> Clemens
