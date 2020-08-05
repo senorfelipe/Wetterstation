@@ -1,5 +1,5 @@
 = Wesentliche Entscheidungen
-Autoren: Clemens Kujus
+Autoren: Clemens Kujus, Alexander Schoch
 
 In diesem Abschnitt werden wesentliche teamrelevante und technische Entscheidungen im Projektverlauf dargestellt.
 
@@ -35,7 +35,12 @@ Agustin Calvimontes: Deployment Engineer, Technical Writer
 Hannes Fogut: Tester, Entwickler
 ////
 
+== Angular als Framework für das Front-End
+
+== Django als Webframework für das Back-End
+
 = Aufgetretene Probleme
+Autoren: Clemens Kujus
 
 == Aufgabenverteilung
 Die Aufgabenverteilung war am Anfang des Projekts so geplant, dass sich jeder aus einem Aufgabenpool (im Iterationsplan) seine Work Items rauszieht, Issues anlegt und bearbeitet. Das hat geklappt, auch wenn der ein oder andere sich erst nach Aufforderung Aufgaben rausgesucht hat. Nach der Projektpause Februar/März 2020 lief diese Methode allerdings nur noch sehr schwer an. Die Kenntlichmachung der gerade bearbeiteten Aufgaben wurden kaum vorgenommen, ebenso das anlegen von Issues. Als ein Grund dafür ist sicherlich die etwas unübersichtliche Situation allgemein und im Hochschulbetrieb zu nennen, zum anderen die in den Iterationsplänen bis dahin ungenaue Rollenzuweisung.
