@@ -25,6 +25,7 @@ zur Verfügung stellt|
 |Vereinswebsite|Website des MFCR|
 |Projekt|Arbeit am Belegthema "T15 - Fernabfrage von Kamerabild und Wetterdaten"|
 |Coach|Herr Zirkelbach|
+|Übergabeversion|Version der Wetterstation-Software zum 31.07.2020|
 |===
 		
 
