@@ -3,7 +3,7 @@
 == Anforderungserhebung und -analyse
 Autoren: Clemens Kujus
 
-Die Anforderungserhebung und -analyse wurde während des Projektverlaufs durchgeführt, wobei neue/geänderte Anforderungen vor allem in den Iterationsplänen, Gesprächsprotokollen und Issues niedergeschrieben wurden. Die Anforderungen wurden am Projektanfang vor allem in Use-Cases festgehalten. In der Vision wurden im Gegensatz zu den Use-Cases keine Abläufe beschrieben, sondern die grundsätzlichen Anforderungen und Rahmenbedingungen festgehalten. In den systemwide requirements wurden systemweite Anforderungen an die Wetterstation-Software definiert.
+Die Anforderungserhebung und -analyse wurde während des Projektverlaufs durchgeführt. Die Anforderungen wurden am Projektanfang vor allem in Use-Cases festgehalten. In der Vision wurden im Gegensatz zu den Use-Cases keine Abläufe beschrieben, sondern die grundsätzlichen Anforderungen und Rahmenbedingungen festgehalten. In den systemwide requirements wurden systemweite Anforderungen an die Wetterstation-Software definiert.
 
 == Entwurf
 Autoren: Alexander Schoch
