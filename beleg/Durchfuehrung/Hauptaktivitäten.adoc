@@ -1,0 +1,40 @@
+= Hauptaktivitäten zusammengefasst
+
+== Anforderungserhebung und -analyse
+Autoren: Clemens Kujus
+
+Die Anforderungserhebung und -analyse wurde während des Projektverlaufs durchgeführt, wobei neue/geänderte Anforderungen vor allem in den Iterationsplänen, Gesprächsprotokollen und Issues niedergeschrieben wurden. Die Anforderungen wurden am Projektanfang vor allem in Use-Cases festgehalten. In der Vision wurden im Gegensatz zu den Use-Cases keine Abläufe beschrieben, sondern die grundsätzlichen Anforderungen und Rahmenbedingungen festgehalten. In den systemwide requirements wurden systemweite Anforderungen an die Wetterstation-Software definiert.
+
+== Entwurf
+Autoren: Alexander Schoch
+
+== Implementierung
+Autoren: Alexander Schoch
+
+== Test
+Autoren: Clemens Kujus
+
+Die Rolle des Testers wurde erst von Hannes Fogut ausgeführt. Mitte Mai 2020 wurden die ersten dynamischen Tests implementiert, wobei es noch Probleme gab diese mit Django zusammen auszuführen. Als diese gelöst wurden, liefen die Tests problemlos. Angestrebt wurde ein concurrent testing. Die Testdokumentation wurde vom Tester selbst bearbeitet. Der Architekt Philipp Barth half dem Tester bei der Erstellung und Dokumentation der Tests. Die Tests sind vor allem Positivtests und dienen der Verifikation. Die Validierung der Zwischenergebnisse erfolgte durch die regelmäßigen Treffen mit den Kunden. Akzeptanztests, d.h. die Abnahmetests, werden in Absprache mit den Kunden ausgeführt, sobald die Software den von den Kunden gewünschten Anforderungen entspricht.
+
+Statische Tests wurden nicht mit Tools ausgeführt, sondern manuell durch die Teammitglieder. Dies wurde unter anderem durch die Nutzung von Pull Requests ermöglicht, bei dem eine zweite Person den Quellcode und die veränderten Dateien einsehen konnte und somit früh festellen konnte ob offensichtliche Fehler oder Konventionsverstöße begangen wurden.
+
+== Übergabe und Dokumentation
+Autoren: Clemens Kujus
+
+Die Übergabe der Software erfolgte am 31.07.2020 an den Kunden Herr Thomas Brenner im Rahmen 
+eines Meetings und Iterationsabschlusses. Dazu wurde ihm der Zugang zum Git-Repository des 
+Projekts gewährt, welches er sich mit dem Release "Übergabeversion v1.0" auf seinen Computer 
+geladen hat. Diese Vorgehensweise der Übergabe geschah im Einverständnis mit den Kunden. 
+Zusätzlich zu der Software im "src" Ordner hat der Projektmanager die Anwenderdokumentation und 
+die Betriebsdokumentation an Herr Brenner und Herr Professor Iwe per Mail übergeben. Die 
+Software wurde vom Kunden dankend angenommen. Im Rahmen der Übergabe wurden noch einmal alle 
+Funktionalitäten per Bildschrimübertragung auf einem Computer eines Entwicklers vorgeführt und 
+abgenommen. Abnahmetests erfolgen im beidseitigen Interesse erst mit der Vollendung der Software 
+durch das Projektteam, welche über den eigentlichen Rahmen (Abgabetermin Software, 
+Dokumentation) hinaus geht.
+
+Die Dokumentation erfolgte während der Entwicklung soweit möglich. Anwenderdokumentation und 
+Betriebsdokumentation bei der Übergabe zum 31.07.2020 bezogen sich auf die Übergabeversion. Der 
+Projektbericht, aktualisierte Anwenderdokumentation, aktualisierte Betriebsdokumentation und 
+Entwicklerdokumentation wurden erst nach der Übergabe an den Kunden angefertigt. Die 
+Testdokumentation entstand mit den ersten Testmöglichkeiten und wurde nach und nach erweitert.
