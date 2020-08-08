@@ -111,22 +111,12 @@ image::images/I5-graphwire.jpg[]
 
 === Iteration 11 - 22.04.2020-06.05.2020
 ==== Ziele / Aktivitäten
-- Front-End mit grundsätzlichen Funktionen ausstatten -> Entwickler
-- Front-End und Back-End zusammenführen -> Architekt, Entwickler
-- Datenformat der Wetterdaten festlegen -> Architekt, Entwickler
-- Rest-API vervollständigen, Authentifizierung regeln -> Architekt
-- Dokumentation überarbeiten -> Anaylst
-- Aufgaben des Technical Writer/Deployment Engineer auf das Projekt abbilden -> Deployment Engineer
+- Front-End und Back-End entwickeln -> Architekt, Entwickler
 - Test auf Grundlage von Use-Cases beschreiben und entwickeln -> Tester
-- Projektabgabe spezifizieren (welche Dokumente nötig etc.) -> Projekt Manager
 
 ==== Ergebnisse
-- Ausstattung des Front-End mit Grundfunktionalitäten
-- Zusammenführung des Back-End und Front-End
-- Rest-API wurde ausgebaut
-- Beginn der Überarbeitung der Dokumentation
-- Ein Testdokument wurde erstelt, bei welchem die Grundsätze des Testens für die Wetterstation aufgeschrieben wurden  
-- Kein negatives Feedback zum Projektmanagement
+.Bewerung
+image::images/bewertung_iteration.jpg[]
 
 ==== Probleme
 - Die Projektabgabe wurde nicht weiter spezifiziert     
