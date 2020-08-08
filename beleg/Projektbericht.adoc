@@ -35,4 +35,6 @@ Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Ph
 
 //Inhalte zu ERgebnissen hier verlinken
 = Ergebnisse
-//include::./technical_specifications/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Reflexionsberichte/reflexion_pb.adoc[leveloffset=+1]
+//include::./Reflexionsberichte/reflexion_hf.adoc[leveloffset=+1]
+//include::./Reflexionsberichte/reflexion_ck.adoc[leveloffset=+1]

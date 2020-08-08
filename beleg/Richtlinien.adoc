@@ -1,0 +1,41 @@
+= Richtlinien, nach denen die Dokumentation erfolgen soll
+
+== Allgemein
+. Die Dokumentation erfolgt in AsciiDoc im Branch "beleg"
+. Die Dokumente nach jeder Bearbeitung auf Git hochladen
+. Die Dokumente werden als .adoc erstellt
+. Unterordner sind kein Problem, d.h. haltet den Ordner "beleg" übersichtlich
+. Die größte Überschrift im Dokument wird mit einem einfach "=" gekennzeichnet
+. Links zu Bilder etc. sind mit relativer Pfadangabe zu gestalten, natürlich müssen die Bilder 
+dafür auch im Git in entsprechenden Unterordnern liegen
+. Bilder sind in ihrer Dateigröße klein zu halten, jpg eignet sich wahrscheinlich am besten
+. In den Dokumenten ist die Autorenschaft festzuhalten
+.. Vor- und Nachname der Autoren direkt unter der Überschrift des bearbeiteten Abschnittes mit 
+"Autoren: Vorname1 Nachname1, Vorname2 Nachname2, ..." festhalten
+. Glossary stetig beachten und falls nötig Einträge *hinzufügen* (falls bereits vorhandene 
+Einträge als falsch erachtet werden *nicht löschen* und unbedingt vorerst die anderen 
+informieren!)
+. Gerne Bilder und Beispiele einbinden, die den Text verständlicher machen
+
+== Aufgabenverteilung
+. Pojektbericht
+.. Planung -> Josefin
+.. Durchführung
+... Beschreibung der Projektphasen -> Agustin
+... Hauptaktivitäten -> Je nach Rolle
+.... Anforderungserhebung- und Analyse -> Clemens
+.... Entwurf -> Agustin
+.... Implementierung -> Alexander
+.... Test -> Clemens
+.... Übergabe, Dokumentation -> Clemens
+... Wesentliche Entscheidungen -> Clemens, Alexander
+... Aufgetretene Probleme -> Clemens
+.. Ergebnisse
+... Bezug zur Aufgabenstellung -> Clemens
+... Reflexionen -> Alle
+. Betriebsdokumentation -> Justin
+. Testdokumentation -> Hannes, Philipp
+. Anwenderdokumentation -> Josefin
+. Entwicklerdokumentation -> Justin, Alexander
+. Aktualisierte Anforderungsspezifikation -> Josefin
+. Vier Besprechungsprotokolle -> Clemens

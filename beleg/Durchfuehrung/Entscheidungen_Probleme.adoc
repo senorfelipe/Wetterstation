@@ -1,10 +1,12 @@
 = Wesentliche Entscheidungen
-Autoren: Clemens Kujus
+Autoren: Clemens Kujus, Alexander Schoch
 
 In diesem Abschnitt werden wesentliche teamrelevante und technische Entscheidungen im Projektverlauf dargestellt.
 
 == Rollenverteilung
-Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager.
+Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Er hat sich in seiner Rolle nicht wohlgefühlt und ist seinen Aufgaben in den ersten beiden Projektwochen auch nicht nachgekommen. Auf anraten des Teams und schließlich eigener Entscheidung trat er seine Position ab. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager. Durch den Wegfall von Martin Großmann und das Hinzukommen von Hannes Fogut hat das Projekt an Qualität und Produktivität gewonnen.
+
+Neben der Rollenverteilung nach dem OpenUP haben wir uns vor allem mit der Phase der Implementierung dafür entschieden, dass mehrere Teammitglieder auch abseits ihrer UP-Rolle teaminterne Rollen haben, die vor allem der Unterstützung der Entwickler dienen. So wurde z.B. der Projektmanager nebenläufig zum Front-End Entwickler. Aufgrund der Komplexität der Software war dies auch richtig und nötig.
 
 == Nutzung von GitHub zur Projektverwaltung
 In unserem Projekt dient Git nicht nur der Versions-, sondern auch der Projektverwaltung. Das bedeutet, dass wir GitHub-Issues und im Verlauf des Projekts auch GitHub-Projekte eingeführt haben. Die Entscheidung für GitHub-Issues liegt darin begründet, dass diese eine übersichtliche und intuitive Möglichkeit bilden, Aufgaben bzw. Work Items anzubieten und die Bearbeitung kenntlich zu machen, damit zum einen Aufgaben klar definiert sind und zum anderen keine doppelte Aufgabenlösung entsteht.
@@ -25,6 +27,14 @@ Wir haben uns nicht aktiv gegen die Nutzung anderer Tools entschieden, sondern h
 == Arbeit mit Git-Branches und Commitabstände
 Für Git-Branches haben wir uns entschieden, da in der Implementierung Versionskonflikte abzusehen waren. Aufgrund des unten beschriebenen Problems der <<Git-Branches und Commitabstände>> setzten wir detaillierte Branches mit möglichst kleinen Commits ein.
 
+== Regelmäßige Treffen im Team und mit den Kunden
+Im WiSe 19/20 haben wir uns jeweils zum Iterationsabschluss getroffen, oft auch mit den Kunden. Mit Anfang der Implementierung haben wir dann festgestellt, dass diese Vorgehensweise zum einen zur teaminternen Kommunikation einfach nicht mehr ausreicht, zum anderen aber auch durch die oft geänderten Anforderungen der Kunden nicht mehr reicht. Demzufolge haben wir uns ab Mitte April wöchentlich online getroffen, später teilweise auch unter den Meetings persönlich, und dabei immer die Kunden eingeladen. Letztlich war diese Entscheidung maßgeblich für das Projekt und aus unserer Sicht und der der Kunden absolut richtig.
+
+== Agile und iterativ-inkrementelle Vorgehensweise
+Wir haben uns für den Ansatz des selbstorganisierenden Teams entschieden, da wir zum einen die Interessen jedes Mitglieds beachten wollten und zum anderen eine Schätzung von Aufwand und Zeit zum gegebenen Umfang schwieriger erschien als den Rahmen (Iterationen) festzulegen und die Aufgaben nach Priorität abzuarbeiten.
+
+Für die iterativ-inkrementelle Vorgehensweise nach dem Vorbild des OpenUP haben wir uns aufgrund des Fokus im Modul Software Engineerig 1 und des Status als state of the art entschieden. Anfangs haben wir sehr strikt darauf geachtet, dass die Rollen auch möglichst nur ihre zugehörigen Aufgaben wahrnehmen. Da uns allerdings auffiel, dass dadurch ein starkes Ungleichgewicht vor allem bei der Implementierung entstehen würde, haben wir uns letztendlich für eine teainterne Rollenverteilung entschieden, bei der jeder nach seinen Stärken und Interessen auch andere unterstützende Aufgaben wahrgenommen hat.
+
 ////
 Josefin Hähne: Analyst, Architekt
 Philipp Barth: Architekt, Entwickler
@@ -35,12 +45,17 @@ Agustin Calvimontes: Deployment Engineer, Technical Writer
 Hannes Fogut: Tester, Entwickler
 ////
 
+== Angular als Framework für das Front-End
+
+== Django als Webframework für das Back-End
+
 = Aufgetretene Probleme
+Autoren: Clemens Kujus
 
 == Aufgabenverteilung
-Die Aufgabenverteilung war am Anfang des Projekts so geplant, dass sich jeder aus einem Aufgabenpool (im Iterationsplan) seine Work Items rauszieht, Issues anlegt und bearbeitet. Das hat geklappt, auch wenn der ein oder andere sich erst nach Aufforderung Aufgaben rausgesucht hat. Nach der Projektpause Februar/März 2020 lief diese Methode allerdings nur noch sehr schwer an. Die Kenntlichmachung der gerade bearbeiteten Aufgaben wurden kaum vorgenommen, ebenso das anlegen von Issues. Als ein Grund dafür ist sicherlich die etwas unübersichtliche Situation allgemein und im Hochschulbetrieb zu nennen, zum anderen die in den Iterationsplänen bis dahin ungenaue Rollenzuweisung.
+Die Aufgabenverteilung war am Anfang des Projekts so geplant, dass sich jeder aus einem Aufgabenpool (im Iterationsplan) seine Work Items rauszieht, Issues anlegt und bearbeitet. Das hat geklappt, auch wenn der ein oder andere sich erst nach Aufforderung Aufgaben rausgesucht hat. Nach der Projektpause Februar/März 2020 lief diese Methode allerdings nur noch sehr schwer an. Die Kenntlichmachung der gerade bearbeiteten Aufgaben wurden kaum vorgenommen, ebenso das Anlegen von Issues. Als ein Grund dafür ist sicherlich die etwas unübersichtliche Situation allgemein und im Hochschulbetrieb zu nennen, zum anderen die in den Iterationsplänen bis dahin ungenaue Rollenzuweisung.
 
-Die Gegenmaßnahme gegen die unzureichende Aufgabenverteilung wurden der Risk-List entsprechende Maßnahmen getroffen. Zum einen haben wir uns ab Mai öfter getroffen, meist wöchentlich (auch mit Kunden). Außerdem hat der Projektmanager ende April/Anfang Mai die Aufgaben verteilt, damit jeder genau weiß was er bis wann zu erledigen hat. Da diese Aufgabenzuweisung allerdings unserer eher agilen Arbeitsweise widerspricht, wurde sie im Interesse aller nicht weiter fortgeführt. Des Weiteren wurde nun in den Iterationsplänen bei der Planung eine vorläufige Aufgabenverteilung vorgenommen, damit jeder schon mal seine auf ihn zugeschnittenen Aufgaben sieht.
+Die Gegenmaßnahmen gegen die unzureichende Aufgabenverteilung wurden der Risk-List entnommen. Zum einen haben wir uns ab Mai öfter getroffen, meist wöchentlich (auch mit Kunden). Außerdem hat der Projektmanager Ende April/Anfang Mai die Aufgaben verteilt, damit jeder genau weiß was er bis wann zu erledigen hat. Da diese Aufgabenzuweisung allerdings unserer eher agilen Arbeitsweise widerspricht, wurde sie im Interesse aller nicht weiter fortgeführt. Des Weiteren wurde nun in den Iterationsplänen bei der Planung eine vorläufige Aufgabenverteilung vorgenommen, damit jeder schon mal seine auf ihn zugeschnittenen Aufgaben sieht.
 
 .Vorläufige Aufgabenverteilung in den Iterationsplänen
 image::./images/iteration_aufgabenverteilung.JPG[]
