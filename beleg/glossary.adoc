@@ -17,7 +17,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |Begriff|	Definition und Erläuterung|	Synonyme
 //|Kommissionierung|Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags|(keine))|
 |User|Mitglied oder Interessent des "MFCR", welcher das System zur Informationsabfrage nutzt|Benutzer, Endnutzer
-|Administrator|Mitglieder des "MFCR" mit besonderen Rechten. Sie sind in der Lage über einen Login Änderungen am System vorzunehmen (bspw. Wartungsmodus des Raspi zu aktivieren).|Admin, Admins
+|Administrator|Mitglieder des "MFCR" mit besonderen Rechten. Sie sind in der Lage über einen Login systemrelevante Informationen anzusehen(bspw. Infromationen über Systemzustand).|Admin, Admins
 |Auftraggeber|Die Vertreter des "MFCR" (Prof. Heino Iwe, Thomas Brenner)| Kunde, Kunden
 |Wetterstation|Physischer Verbund von Sensoren und Raspberry Pi 4, welcher benötigte Daten
 zur Verfügung stellt|
