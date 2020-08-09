@@ -2,7 +2,7 @@
   "name": "se-draft",
   "version": "0.0.0",
   "scripts": {
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s",
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s -e",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",

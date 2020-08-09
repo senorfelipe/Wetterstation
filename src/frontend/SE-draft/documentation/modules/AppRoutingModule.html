@@ -71,7 +71,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
+import { Routes, RouterModule, CanActivate } from &#x27;@angular/router&#x27;;
+import { AuthGuardService as AuthGuard} from &#x27;./auth-guard.service&#x27;;
 
 import { GraphsComponent } from &#x27;./graphs/graphs.component&#x27;; 
 import { WebcamComponent } from &#x27;./webcam/webcam.component&#x27;; 
@@ -82,14 +83,15 @@ const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, component: GraphsComponent },              // Add this
   { path: &#x27;webcam&#x27;, component: WebcamComponent },
   { path: &#x27;admin&#x27;, component: AdminComponent },
-  { path: &#x27;adminpanel&#x27;, component: AdminpanelComponent }
+  { path: &#x27;adminpanel&#x27;, component: AdminpanelComponent, canActivate: [AuthGuard] }
 
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
 </code></pre>

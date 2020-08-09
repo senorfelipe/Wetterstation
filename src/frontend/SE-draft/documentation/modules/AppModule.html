@@ -351,10 +351,10 @@ import {WeatherDataService} from &quot;./weather-data.service&quot;;
 import {HttpClient, HttpClientModule} from &quot;@angular/common/http&quot;;
 import { ImageService } from &#x27;./image-data.service&#x27;;
 import { AdminpanelComponent } from &#x27;./adminpanel/adminpanel.component&#x27;;
+import { AuthGuardService} from &#x27;./auth-guard.service&#x27;;
 import { GalleryModule } from &#x27;@ngx-gallery/core&#x27;;
 import { LightboxModule } from &#x27;@ngx-gallery/lightbox&#x27;
 import { GallerizeModule } from &#x27;@ngx-gallery/gallerize&#x27;;
-
 ;
 
 
@@ -423,7 +423,7 @@ import { GallerizeModule } from &#x27;@ngx-gallery/gallerize&#x27;;
     ScrollingModule,
 
   ],
-  providers: [WeatherDataService,ImageService, HttpClient],
+  providers: [WeatherDataService,ImageService, HttpClient, AuthGuardService],
   bootstrap: [AppComponent]
 
 })

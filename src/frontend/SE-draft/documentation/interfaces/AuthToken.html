@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>TemperatureData</li>
+  <li>AuthToken</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/weather-data.service.ts</code>
+            <code>src/app/admin.service.ts</code>
         </p>
 
 
@@ -79,13 +79,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#degrees">degrees</a>
+                                        <a href="#access">access</a>
                                 </li>
                                 <li>
-                                        <a href="#id">id</a>
-                                </li>
-                                <li>
-                                        <a href="#measure_time">measure_time</a>
+                                        <a href="#refresh">refresh</a>
                                 </li>
                             </ul>
                         </td>
@@ -102,13 +99,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="degrees"></a>
-                                        <span class="name"><b>degrees</b><a href="#degrees"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="access"></a>
+                                        <span class="name"><b>access</b><a href="#access"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>degrees:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                        <code>access:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -116,7 +113,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
 
                                         </td>
                                     </tr>
@@ -131,13 +128,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="id"></a>
-                                        <span class="name"><b>id</b><a href="#id"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="refresh"></a>
+                                        <span class="name"><b>refresh</b><a href="#refresh"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                        <code>refresh:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -145,36 +142,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="measure_time"></a>
-                                        <span class="name"><b>measure_time</b><a href="#measure_time"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>measure_time:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
 
                                         </td>
                                     </tr>
@@ -191,80 +159,31 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {HttpClient} from &quot;@angular/common/http&quot;;
+import {HttpClient, HttpErrorResponse} from &quot;@angular/common/http&quot;;
+import { catchError } from &#x27;rxjs/operators&#x27;; 
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+    providedIn: &#x27;root&#x27;
 })
-export class WeatherDataService {
-  private apiUrl &#x3D; &#x27;http://127.0.0.1:8000/api/&#x27;;
-  private http: HttpClient;
 
-  constructor(http: HttpClient) {
-    this.http &#x3D; http;
-  }
+export class AdminService {
+    private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
+    private http: HttpClient;
+    private error;
 
-  formatDate(date: Date) {
-    var d &#x3D; new Date(date),
-        month &#x3D; &#x27;&#x27; + (d.getMonth() + 1),
-        day &#x3D; &#x27;&#x27; + d.getDate(),
-        year &#x3D; d.getFullYear();
+    constructor(http: HttpClient) {
+      this.http &#x3D; http;
+    }
 
-    if (month.length &lt; 2) 
-        month &#x3D; &#x27;0&#x27; + month;
-    if (day.length &lt; 2) 
-        day &#x3D; &#x27;0&#x27; + day;
-
-    return [year, month, day].join(&#x27;-&#x27;);
+    provideToken(user, pwd){
+        return this.http.post&lt;AuthToken[]&gt;(this.apiUrl + &#x27;token/&#x27;, {&quot;username&quot;:user, &quot;password&quot;:pwd});;
+    }
 }
 
-  getTemperatures(time: number) {
-
-    var today&#x3D;  new Date();
-    var yesterday &#x3D; today.getDate()-time;
-    today.setDate(yesterday);
-    return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
-
-  }  
-  getWindData(time: number){
-    let today&#x3D;  new Date();
- 
-  
-  return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(today));
-}
-
-getWindDataFrame(start:Date,end:Date){
-  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
-
-}
-
-getTemperaturesDataFrame(start:Date,end:Date){
-  
-  return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
-
-}
-getRecentWind(){
-  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent&#x27;)
-}
-
-
-}
-
-export interface WindData {
-  id: Number,
-  speed: Number,
-  direction: Number,
-  measure_time: Date
-
-}
-
-export interface TemperatureData {
-  id: Number,
-  degrees: Number,
-  measure_time: Date
-}
-
-</code></pre>
+export interface AuthToken {
+    refresh: String;
+    access: String;
+  }</code></pre>
     </div>
 </div>
 
@@ -291,7 +210,7 @@ export interface TemperatureData {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'TemperatureData.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthToken.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

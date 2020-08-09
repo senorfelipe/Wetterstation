@@ -287,7 +287,7 @@ export class AdminpanelDataService {
     let yesterday &#x3D; today.getDate()-time;
     today.setDate(yesterday);
   
-  return  this.http.get&lt;SolarData[]&gt;(this.apiUrl + &#x27;solarcell/?start&#x3D;&#x27;+this.formatDate(today));
+  return  this.http.get&lt;SolarData[]&gt;(this.apiUrl + &#x27;solarcell/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
   }
 
   getBatteryData(time: number){
@@ -295,15 +295,39 @@ export class AdminpanelDataService {
     let yesterday &#x3D; today.getDate()-time;
     today.setDate(yesterday);
   
-  return  this.http.get&lt;BatteryData[]&gt;(this.apiUrl + &#x27;battery/?start&#x3D;&#x27;+this.formatDate(today));
+  return  this.http.get&lt;BatteryData[]&gt;(this.apiUrl + &#x27;battery/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
+  }
+
+  getRaspberryData(time: number){
+    let today&#x3D;  new Date();
+    let yesterday &#x3D; today.getDate()-time;
+    today.setDate(yesterday);
+  
+  return  this.http.get&lt;SolarData[]&gt;(this.apiUrl + &#x27;solarcell/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
+  }
+
+  getVolumeData(time: number){
+    let today&#x3D;  new Date();
+    let yesterday &#x3D; today.getDate()-time;
+    today.setDate(yesterday);
+  
+  return  this.http.get&lt;VolumeData[]&gt;(this.apiUrl + &#x27;data-volume/?start&#x3D;&#x27;+this.formatDate(today));
   }
 
   getSolarDataFrame(start:Date,end:Date){
-    return this.http.get&lt;SolarData[]&gt;(this.apiUrl+&#x27;solarcell/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+    return this.http.get&lt;SolarData[]&gt;(this.apiUrl+&#x27;solarcell/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
   }
 
   getBatteryDataFrame(start:Date,end:Date){
-    return this.http.get&lt;BatteryData[]&gt;(this.apiUrl+&#x27;battery/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+    return this.http.get&lt;BatteryData[]&gt;(this.apiUrl+&#x27;battery/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  }
+
+  getRaspberryDataFrame(start:Date,end:Date){
+    return this.http.get&lt;RaspberryData[]&gt;(this.apiUrl+&#x27;solarcell/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  }
+
+  getVolumeDataFrame(start:Date,end:Date){
+    return this.http.get&lt;VolumeData[]&gt;(this.apiUrl+&#x27;solarcell/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
   }
 }
 
@@ -320,6 +344,18 @@ export interface BatteryData {
   voltage: Number,
   degrees: Number,
   measure_time: Date
+}
+
+export interface RaspberryData {
+  id: Number,
+  current: Number,
+  voltage: Number,
+  measure_time: Date
+}
+
+export interface VolumeData {
+  id: Number,
+  image_size: Number
 }
 </code></pre>
     </div>

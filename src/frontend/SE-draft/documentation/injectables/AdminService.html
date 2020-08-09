@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ImageService</li>
+  <li>AdminService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/image-data.service.ts</code>
+            <code>src/app/admin.service.ts</code>
         </p>
 
 
@@ -80,10 +80,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#http">http</a>
+                                <a href="#error">error</a>
                             </li>
                             <li>
-                                <a href="#today">today</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#http">http</a>
                             </li>
                         </ul>
                     </td>
@@ -98,19 +99,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#formatDate">formatDate</a>
-                            </li>
-                            <li>
-                                <a href="#getDateImages">getDateImages</a>
-                            </li>
-                            <li>
-                                <a href="#getrecentImages">getrecentImages</a>
-                            </li>
-                            <li>
-                                <a href="#getTodayImages">getTodayImages</a>
-                            </li>
-                            <li>
-                                <a href="#getYesterdayImages">getYesterdayImages</a>
+                                <a href="#provideToken">provideToken</a>
                             </li>
                         </ul>
                     </td>
@@ -135,7 +124,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/image-data.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -182,26 +171,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="formatDate"></a>
+                    <a name="provideToken"></a>
                     <span class="name">
                         <b>
-                            formatDate
+                            provideToken
                         </b>
-                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                        <a href="#provideToken"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>formatDate(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+<code>provideToken(user, pwd)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/image-data.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/admin.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -215,16 +204,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>date</td>
+                                    <td>user</td>
+
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                        No
                                     </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pwd</td>
 
                                     <td>
                                         No
@@ -243,193 +237,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getDateImages"></a>
-                    <span class="name">
-                        <b>
-                            getDateImages
-                        </b>
-                        <a href="#getDateImages"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getDateImages(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/image-data.service.ts:50</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>date</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getrecentImages"></a>
-                    <span class="name">
-                        <b>
-                            getrecentImages
-                        </b>
-                        <a href="#getrecentImages"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getrecentImages()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/image-data.service.ts:31</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getTodayImages"></a>
-                    <span class="name">
-                        <b>
-                            getTodayImages
-                        </b>
-                        <a href="#getTodayImages"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getTodayImages()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/image-data.service.ts:36</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getYesterdayImages"></a>
-                    <span class="name">
-                        <b>
-                            getYesterdayImages
-                        </b>
-                        <a href="#getYesterdayImages"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getYesterdayImages()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/image-data.service.ts:42</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -467,7 +274,29 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/image-data.service.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/admin.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="error"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            error</b>
+                            <a href="#error"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -495,33 +324,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/image-data.service.ts:9</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="today"></a>
-                        <span class="name">
-                            <b>
-                            today</b>
-                            <a href="#today"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Date</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/image-data.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/admin.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -535,71 +338,31 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {HttpClient} from &quot;@angular/common/http&quot;;
+import {HttpClient, HttpErrorResponse} from &quot;@angular/common/http&quot;;
+import { catchError } from &#x27;rxjs/operators&#x27;; 
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+    providedIn: &#x27;root&#x27;
 })
-export class ImageService {
-  private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
-  private http: HttpClient;
-  constructor(http: HttpClient) {
-    this.http &#x3D; http;
-  }
-  today&#x3D;new Date;
-  
 
+export class AdminService {
+    private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
+    private http: HttpClient;
+    private error;
 
-  formatDate(date: Date) {
-    var d &#x3D; new Date(date),
-        month &#x3D; &#x27;&#x27; + (d.getMonth() + 1),
-        day &#x3D; &#x27;&#x27; + d.getDate(),
-        year &#x3D; d.getFullYear();
+    constructor(http: HttpClient) {
+      this.http &#x3D; http;
+    }
 
-    if (month.length &lt; 2) 
-        month &#x3D; &#x27;0&#x27; + month;
-    if (day.length &lt; 2) 
-        day &#x3D; &#x27;0&#x27; + day;
-     // console.log([year, month, day].join(&#x27;-&#x27;))
-    return [year, month, day].join(&#x27;-&#x27;);
+    provideToken(user, pwd){
+        return this.http.post&lt;AuthToken[]&gt;(this.apiUrl + &#x27;token/&#x27;, {&quot;username&quot;:user, &quot;password&quot;:pwd});;
+    }
 }
 
-getrecentImages() {
-  return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/recent/&#x27;);
-}
-
-
-  getTodayImages() {
-    let today&#x3D;new Date;
-    return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/?start&#x3D;&#x27;+this.formatDate(today));
-  }
- 
-
-  getYesterdayImages(){
-    let today&#x3D;new Date;
-    let yesterday&#x3D;new Date();
-    yesterday.setDate(today.getDate()-1)
-   
-    return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/?start&#x3D;&#x27;+this.formatDate(yesterday)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(today));
-  }
-
- getDateImages(date:Date){
-  let end&#x3D;new Date() 
-  end.setDate(date.getDate()+1)
-   
-  return this.http.get&lt;ImageData[]&gt;(this.apiUrl+&#x27;images/?start&#x3D;&#x27;+this.formatDate(date)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
-
- }
-
-
-}
-
-export interface ImageData {
-  id: Number,
-  image: String,
-  measurement_time: Date
-}
-</code></pre>
+export interface AuthToken {
+    refresh: String;
+    access: String;
+  }</code></pre>
     </div>
 
 </div>
@@ -632,7 +395,7 @@ export interface ImageData {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ImageService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

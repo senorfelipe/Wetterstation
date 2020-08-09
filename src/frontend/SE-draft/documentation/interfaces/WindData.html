@@ -229,7 +229,7 @@ import {HttpClient} from &quot;@angular/common/http&quot;;
   providedIn: &#x27;root&#x27;
 })
 export class WeatherDataService {
-  private apiUrl &#x3D; &#x27;http://192.168.178.44:8000/api/&#x27;;
+  private apiUrl &#x3D; &#x27;http://127.0.0.1:8000/api/&#x27;;
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -255,29 +255,29 @@ export class WeatherDataService {
     var today&#x3D;  new Date();
     var yesterday &#x3D; today.getDate()-time;
     today.setDate(yesterday);
-  
-    
-    return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/?start&#x3D;&#x27;+this.formatDate(today));
+    return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
 
   }  
   getWindData(time: number){
     let today&#x3D;  new Date();
-    let yesterday &#x3D; today.getDate()-time;
-    today.setDate(yesterday);
+ 
   
-  return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/?start&#x3D;&#x27;+this.formatDate(today));
+  return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(today));
 }
 
 getWindDataFrame(start:Date,end:Date){
-  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
 
 getTemperaturesDataFrame(start:Date,end:Date){
-  return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  
+  return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
-
+getRecentWind(){
+  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent&#x27;)
+}
 
 
 }

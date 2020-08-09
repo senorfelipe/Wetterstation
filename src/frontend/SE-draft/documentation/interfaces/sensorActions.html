@@ -159,10 +159,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { SolarData, AdminpanelDataService, BatteryData } from &quot;../adminpanel-data.service&quot;;
+import { SolarData, AdminpanelDataService, BatteryData, VolumeData, RaspberryData } from &quot;../adminpanel-data.service&quot;;
 import { MatButtonToggleChange } from &#x27;@angular/material/button-toggle&#x27;;
+import { MatDatepickerInputEvent } from &#x27;@angular/material/datepicker&#x27;;
 import { BehaviorSubject, Subscription } from &#x27;rxjs&#x27;;
-import {Chart} from &#x27;chart.js&#x27;;
+import { Chart } from &#x27;chart.js&#x27;;
+
 
 var dates &#x3D; [&#x27;25.05.2020&#x27;, &#x27;26.05.2020&#x27;, &#x27;27.05.2020&#x27;]
 
@@ -177,16 +179,17 @@ export interface sensorActions {
   status: string;
 }
 
+const add &#x3D; (a, b) &#x3D;&gt; a + b;
 const logData: raspyActions[] &#x3D; [];
-const sensorData: sensorActions[] &#x3D;[
-  {sensor: &quot;Temperatur&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Wind&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Spannung Raspberry&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Strom Raspberry&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Spannung Photovoltaik&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Strom Photovoltaik&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Leistungsaufnahme&quot;,status: &quot;OK&quot;},
-  {sensor: &quot;Ladestrom&quot;,status: &quot;OK&quot;}
+const sensorData: sensorActions[] &#x3D; [
+  { sensor: &quot;Temperatur&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Wind&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Spannung Raspberry&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Strom Raspberry&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Spannung Photovoltaik&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Strom Photovoltaik&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Leistungsaufnahme&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Ladestrom&quot;, status: &quot;OK&quot; }
 ];
 
 @Component({
@@ -200,227 +203,322 @@ export class AdminpanelComponent implements OnInit {
   adminpanelDataService: AdminpanelDataService;
   solarData: SolarData[] &#x3D; [];
   batteryData: BatteryData[] &#x3D; [];
+  raspberryData: RaspberryData[] &#x3D; [];
+  volumeData: VolumeData[] &#x3D; [];
   extendedModeStatus: BehaviorSubject&lt;boolean&gt;;
+  lastEvent: MatButtonToggleChange;
+
+  startdateEvents: string[] &#x3D; [];
+  enddateEvents: string[] &#x3D; [];
 
   //Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht
-  isToggled:boolean &#x3D; false;
+  volIsToggled: boolean &#x3D; true;
 
   adminpanelDataSubscription: Subscription;
+
+
+  chart: Chart;
+  chartnames: String[] &#x3D; [&quot;Solarzelle&quot;, &quot;Akku&quot;, &quot;Raspberry&quot;, &quot;Datenverbrauch&quot;];
+  chartlabels: String[] &#x3D; [&#x27;Spannung in Volt&#x27;, &#x27;Stromstärke in A&#x27;, &#x27;Leistung in Watt&#x27;, &#x27;Datenmenge in Byte&#x27;]
+
+  chartdatasets &#x3D; [
+    [//Solarzelle
+      {
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage),
+        fill: false
+      },
+      {
+        label: &quot;Leistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],
+        fill: false
+      }],
+    [
+      {
+        //Akku
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [],
+        fill: false
+      },
+      {
+        label: &quot;Ladestrom&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;current&#x27;,
+        data: [],
+        fill: false
+      }
+    ],
+    [//Raspi
+      {
+        label: &quot;Lastspannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [1.8, 2, 0.9],//TODO
+        fill: false
+      },
+      {
+        label: &quot;Lastleistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],//TODO
+        fill: false
+      }],
+    [{
+      label: &quot;Datenmenge&quot;,
+      borderColor: &quot;#CE1A9E&quot;,
+      yAxisID: &#x27;volume&#x27;,
+      data: this.volumeData.map(datavolume &#x3D;&gt; datavolume.image_size),
+      fill: false
+    }]
+  ]
+
+chartoptions&#x3D;{
+  title: {
+    display: true,
+    text: &#x27;&#x27;,
+    fontSize: 20
+  },
+  animation: {
+    duration: 0,
+  },
+  hover: {
+    animationDuration: 0,
+  },
+  responsiveAnimationDuration: 0,
+  scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Spannung in Volt&#x27;
+      },
+      id: &#x27;voltage&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Stromstärke in A&#x27;
+      },
+      id: &#x27;current&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Leistung in Watt&#x27;
+      },
+      id: &#x27;watt&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Datenmenge in Byte&#x27;
+      },
+
+      id: &#x27;volume&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    }
+    ]
+  }
+}
 
   constructor(adminpanelDataService: AdminpanelDataService) {
     this.adminpanelDataService &#x3D; adminpanelDataService
     this.extendedModeStatus &#x3D; new BehaviorSubject(false)
   }
 
-  ngOnInit(){
-    this.updateChart();
+  ngOnInit() {
+    this.initData();
+    console.log(this.chartdatasets)
+    
   }
 
   diagramChange(event: MatButtonToggleChange) {
-    if(event.value &#x3D;&#x3D; &quot;power&quot;){
-      this.isToggled &#x3D; true;
-      this.powerChart();
+    this.lastEvent &#x3D; event;
+    if (event.value &#x3D;&#x3D; &quot;solar&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.solarChart();
     }
-    else if(event.value &#x3D;&#x3D; &quot;charge&quot;){
-      this.isToggled &#x3D; true;
-      this.chargeChart();
+    else if (event.value &#x3D;&#x3D; &quot;battery&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.batteryChart();
     }
-    else{
-      this.updateChart();
-      this.isToggled &#x3D; false;
+    else if (event.value &#x3D;&#x3D; &quot;raspberry&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.raspberryChart();
     }
+    else if (event.value &#x3D;&#x3D; &quot;volume&quot;) {
+      this.volIsToggled &#x3D; false;
+      this.volumeChart();
+    }
+ 
   }
+  initData() {
+    var input &#x3D; 4;
+    var date &#x3D; new Date();
+    var firstMonthDay &#x3D; new Date(date.getFullYear(), date.getMonth(), 1);
+    var lastMonthDay &#x3D; new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-  updateChart(){
-    var input&#x3D;16;
     this.adminpanelDataSubscription &#x3D;
       this.adminpanelDataService.getSolarData(input).subscribe((datasolar) &#x3D;&gt; {
         this.solarData &#x3D; datasolar;
+        this.solarChart();
       });
 
     this.adminpanelDataSubscription &#x3D;
       this.adminpanelDataService.getBatteryData(input).subscribe((databattery) &#x3D;&gt; {
         this.batteryData &#x3D; databattery;
-        this.buildChart();
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getRaspberryData(input).subscribe((datarasp) &#x3D;&gt; {
+        this.raspberryData &#x3D; datarasp;
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getVolumeDataFrame(firstMonthDay,lastMonthDay).subscribe((datavol) &#x3D;&gt; {
+        console.log(datavol)
+        this.volumeData &#x3D; datavol;
       });
   }
+  updateChartLabels() {
+    this.chartlabels
+  }
 
-  displayedColumns: string[] &#x3D; [&#x27;date&#x27;,&#x27;name&#x27;,&#x27;action&#x27;];
+  displayedLogColumns: string[] &#x3D; [&#x27;date&#x27;, &#x27;name&#x27;, &#x27;action&#x27;];
   logTableData &#x3D; logData;
 
-  displayedSensorColumns: string[] &#x3D; [&#x27;sensor&#x27;,&#x27;status&#x27;];
+  displayedSensorColumns: string[] &#x3D; [&#x27;sensor&#x27;, &#x27;status&#x27;];
   sensorTableData &#x3D; sensorData;
 
-  buildChart() {
-    let ctx &#x3D; document.getElementById(&#x27;elecChart&#x27;);
-    let dataSet &#x3D; this.getDataSet();
-    console.log(this.batteryData.map(datebattery &#x3D;&gt; datebattery.measure_time));
-    let volts &#x3D; new Chart(ctx, {
+  solarChart() {
+
+    this.getSolarDataSet();
+    this.buildChart(this.chartdatasets[0], this.chartnames[0], this.solarData.map(data &#x3D;&gt; new Date(data.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+
+  batteryChart() {
+    this.getBatteryDataSet()
+    this.buildChart(this.chartdatasets[1], this.chartnames[1], this.batteryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+
+  raspberryChart() {
+    this.getRaspberryDataSet()
+    this.buildChart(this.chartdatasets[2], this.chartnames[2], this.raspberryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+
+  volumeChart() {
+    this.getVolumeDataSet();
+    this.buildChart(this.chartdatasets[3], this.chartnames[3], this.raspberryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+
+  buildChart(data, diaName, dat) {
+    if(this.chart!&#x3D;undefined){
+      this.chart.destroy();
+    }
+    let canvas &#x3D; document.getElementById(&#x27;elecChart&#x27;);
+    let dataSet &#x3D; data;
+    this.chartoptions.title.text&#x3D;diaName
+  this.chart &#x3D; new Chart(canvas, {
       type: &#x27;line&#x27;,
       data: {
-        labels: this.batteryData.map(datebattery &#x3D;&gt; new Date(datebattery.measure_time).toLocaleString()),
+        labels: dat,
         datasets: dataSet
       },
-      options: {
-        title: {
-          display: true,
-          text: &#x27;Energieverbrauch&#x27;,
-          fontSize: 20
-        },
-        animation: {
-          duration: 0, // general animation time
-        },
-        hover: {
-          animationDuration: 0, // duration of animations when hovering an item
-        },
-        responsiveAnimationDuration: 0,
-        scales: {
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: &#x27;Spannung in Volt&#x27;
-            },
-            id: &#x27;voltage&#x27;,
-            position: &#x27;left&#x27;,
-            ticks: {
-              beginAtZero: true
-            }},
-            {
-            scaleLabel: {
-              display: true,
-              labelString: &#x27;Stromstärke in A&#x27;
-            },
-            id: &#x27;current&#x27;,
-            position: &#x27;right&#x27;,
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+      options: this.chartoptions
     });
+     
+    
+  }
+  getSolarDataSet() {
+    this.chartdatasets[0][0].data &#x3D; this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage)
+    console.log(this.chartdatasets[0][0].data)
+    this.chartdatasets[0][1].data &#x3D; [1, 2, 1.8]
+
   }
 
-  getDataSet(){
-    var dataSet &#x3D; [];
+  getBatteryDataSet() {
+    this.chartdatasets[1][0].data &#x3D; this.batteryData.map(data&#x3D;&gt; data.voltage);//TODO
+    this.chartdatasets[1][1].data &#x3D; this.batteryData.map(data&#x3D;&gt; data.current);//TODO
 
-    let accCur &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;accCur&quot;);
-    if(accCur.checked){
-      let newData &#x3D; {
-        label:&quot;Stromverbrauch Akku&quot;,
-        borderColor: &quot;#FFBF00&quot;,
-        yAxisID: &#x27;current&#x27;,
-        data: this.batteryData.map(databattery &#x3D;&gt; databattery.current),
-        fill: false
-      }
-      dataSet.push(newData);
-    }
-
-    let accVol &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;accVol&quot;);
-    if(accVol.checked){
-      let newData &#x3D; {
-        label:&quot;Spannung Akku&quot;,
-        borderColor: &quot;#00BFFF&quot;,
-        yAxisID: &#x27;voltage&#x27;,
-        data: this.batteryData.map(databattery &#x3D;&gt; databattery.voltage),
-        fill: false
-      }
-      dataSet.push(newData);
-    }
-
-    let solCur &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;solCur&quot;);
-    if(solCur.checked){
-      let newData &#x3D; {
-        label:&quot;Stromverbrauch Solarzelle&quot;,
-        borderColor: &quot;#FF0000&quot;,
-        yAxisID: &#x27;current&#x27;,
-        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.current),
-        fill: false
-      }
-      dataSet.push(newData);
-    }
-
-    let solVol &#x3D; &lt;HTMLInputElement&gt; document.getElementById(&quot;solVol&quot;);
-    if(solVol.checked){
-      let newData &#x3D; {
-        label:&quot;Spannung Solarzelle&quot;,
-        borderColor: &quot;#013ADF&quot;,
-        yAxisID: &#x27;voltage&#x27;,
-        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage),
-        fill: false
-      }
-      dataSet.push(newData);
-    }
-    return(dataSet);
   }
 
-  powerChart(){
-    this.buildPowerChargeChart(this.getPowerDataSet(),&quot;Leistungsuafnahme&quot;,&quot;Leistung in Watt&quot;);
+  getRaspberryDataSet() {
+    this.chartdatasets[2][0].data &#x3D; [1.8, 2, 0.9];//TODO
+    this.chartdatasets[2][1].data &#x3D; [1, 2, 1.8];//TODO
   }
 
-  chargeChart(){
-    this.buildPowerChargeChart(this.getChargeDataSet(),&quot;Ladestrom&quot;,&quot;Strom in A&quot;);
+  getVolumeDataSet() {
+    this.chartdatasets[3][0].data&#x3D;this.volumeData.map(datavolume &#x3D;&gt; datavolume.image_size);
+    document.getElementById(&quot;volSum&quot;).innerHTML &#x3D; this.chartdatasets[3][0].data.reduce(add).toString(); //Summe der einzelnen Werte im Zeitraum
+    console.log(this.chartdatasets)
   }
 
-  buildPowerChargeChart(dataset,chartText,axisLabel) {
-    let ctx &#x3D; document.getElementById(&#x27;elecChart&#x27;);
-    let dataSet &#x3D; dataset;
-    let volts &#x3D; new Chart(ctx, {
-      type: &#x27;line&#x27;,
-      data: {
-        labels: dates,
-        datasets: dataSet
-      },
-      options: {
-        title: {
-          display: true,
-          text: chartText,
-          fontSize: 20
-        },
-        animation: {
-          duration: 0, // general animation time
-        },
-        hover: {
-          animationDuration: 0, // duration of animations when hovering an item
-        },
-        responsiveAnimationDuration: 0,
-        scales: {
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: axisLabel
-            },
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
+  /*Eventhandles for Timeframe */
+  addStartEvent(event: MatDatepickerInputEvent&lt;Date&gt;) {
+    this.startdateEvents.push(&#x60;${event.value}&#x60;);
+    console.log(this.startdateEvents)
+
   }
 
-  getPowerDataSet(){
-    var powerSet &#x3D; [];
-    let newData &#x3D; {
-      label:&quot;Leistungsaufnahme&quot;,
-      borderColor: &quot;#013ADF&quot;,
-      data: [10,23,18],
-      fill: false
+  addEndEvent(event: MatDatepickerInputEvent&lt;Date&gt;) {
+    this.enddateEvents.push(&#x60;${event.value}&#x60;);
+    console.log(this.enddateEvents)
+
+  }
+
+  applyTimeframe() {
+    let startstring &#x3D; this.startdateEvents[this.startdateEvents.length - 1]
+    let startdate &#x3D; new Date(startstring);
+    console.log(startdate);
+
+    let endstring &#x3D; this.enddateEvents[this.enddateEvents.length - 1]
+    let enddate &#x3D; new Date(endstring);
+    console.log(enddate);
+
+
+    if (enddate &gt; startdate) {
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getSolarDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.solarData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getBatteryDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.batteryData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getRaspberryDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.raspberryData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getVolumeDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.volumeData &#x3D; data;
+        });
+      if(this.lastEvent !&#x3D; undefined) this.diagramChange(this.lastEvent);
+      else{ this.solarChart() }
     }
-    powerSet.push(newData);
-    return(powerSet);
-  }
-
-  getChargeDataSet(){
-    var chargeSet &#x3D; [];
-    let newData &#x3D; {
-      label:&quot;Ladestrom&quot;,
-      borderColor: &quot;#FF4500&quot;,
-      data: [1.8,1,0.9],
-      fill: false
-    }
-    chargeSet.push(newData);
-    return(chargeSet);
   }
 }
 </code></pre>

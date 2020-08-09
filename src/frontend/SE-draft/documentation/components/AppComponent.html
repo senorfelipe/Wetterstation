@@ -205,31 +205,37 @@ export class AppComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;header&gt;
-  &lt;div class&#x3D;&quot;container&quot;&gt;
-      &lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;#&quot;&gt;
-            &lt;img src&#x3D;&quot;http://www.mfc-rossendorf.de/fileadmin/mfcr_upload/logo/mfcRlogo_01.png&quot; height&#x3D;&quot;20&quot; class&#x3D;&quot;d-inline-block align-top&quot; alt&#x3D;&quot;&quot;&gt;
-            Wetterstation
-        &lt;/a&gt;
-    &lt;nav&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href&#x3D;&quot;#&quot; routerLink&#x3D;&quot;/&quot;&gt;Graphen&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href&#x3D;&quot;#&quot; routerLink&#x3D;&quot;/webcam&quot;&gt;Webcam &amp; Galerie&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href&#x3D;&quot;#&quot; routerLink&#x3D;&quot;/admin&quot;&gt;Wartungsbereich&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
+
+  &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
+    &lt;mat-toolbar-row&gt;
+      &lt;button mat-icon-button [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot;&gt;
+          &lt;img src&#x3D;&quot;http://www.mfc-rossendorf.de/fileadmin/mfcr_upload/logo/mfcRlogo_01.png&quot; height&#x3D;&quot;20&quot; class&#x3D;&quot;d-inline-block align-top&quot; alt&#x3D;&quot;&quot;&gt;
+      &lt;/button&gt;
+      
+      &lt;span class&#x3D;&quot;menu-spacer&quot;&gt;&lt;/span&gt;
+      &lt;div&gt;
+        &lt;a mat-button [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot;&gt; Graphen &lt;/a&gt;
+        &lt;a mat-button [routerLink]&#x3D;&quot;&#x27;/webcam&#x27;&quot;&gt; Webcam &lt;/a&gt;
+        &lt;a mat-button [routerLink]&#x3D;&quot;&#x27;/admin&#x27;&quot;&gt; Wartung &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/mat-toolbar-row&gt;
+  &lt;/mat-toolbar&gt;
+
 &lt;/header&gt;
 
 &lt;div class&#x3D;&quot;container&quot;&gt;
   &lt;router-outlet&gt;&lt;/router-outlet&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
                     <code>./app.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.menu-spacer{
+    flex: 1 1 auto;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -257,7 +263,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header>  <div class="container">      <a class="navbar-brand" href="#">            <img src="http://www.mfc-rossendorf.de/fileadmin/mfcr_upload/logo/mfcRlogo_01.png" height="20" class="d-inline-block align-top" alt="">            Wetterstation        </a>    <nav>      <ul>        <li><a href="#" routerLink="/">Graphen</a></li>        <li><a href="#" routerLink="/webcam">Webcam & Galerie</a></li>        <li><a href="#" routerLink="/admin">Wartungsbereich</a></li>      </ul>    </nav>  </div></header><div class="container">  <router-outlet></router-outlet></div></div>'
+        var COMPONENT_TEMPLATE = '<div><header>  <mat-toolbar color="primary">    <mat-toolbar-row>      <button mat-icon-button [routerLink]="\'/\'">          <img src="http://www.mfc-rossendorf.de/fileadmin/mfcr_upload/logo/mfcRlogo_01.png" height="20" class="d-inline-block align-top" alt="">      </button>            <span class="menu-spacer"></span>      <div>        <a mat-button [routerLink]="\'/\'"> Graphen </a>        <a mat-button [routerLink]="\'/webcam\'"> Webcam </a>        <a mat-button [routerLink]="\'/admin\'"> Wartung </a>      </div>    </mat-toolbar-row>  </mat-toolbar></header><div class="container">  <router-outlet></router-outlet></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminpanelComponent', 'selector': 'app-adminpanel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GraphsComponent', 'selector': 'app-graphs'},{'name': 'WebcamComponent', 'selector': 'app-webcam'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

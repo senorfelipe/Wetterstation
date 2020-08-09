@@ -98,6 +98,9 @@
                                 <a href="#formatDate">formatDate</a>
                             </li>
                             <li>
+                                <a href="#getRecentWind">getRecentWind</a>
+                            </li>
+                            <li>
                                 <a href="#getTemperatures">getTemperatures</a>
                             </li>
                             <li>
@@ -249,6 +252,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getRecentWind"></a>
+                    <span class="name">
+                        <b>
+                            getRecentWind
+                        </b>
+                        <a href="#getRecentWind"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRecentWind()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/weather-data.service.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getTemperatures"></a>
                     <span class="name">
                         <b>
@@ -337,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/weather-data.service.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/weather-data.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -419,8 +461,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/weather-data.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/weather-data.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -489,8 +531,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/weather-data.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/weather-data.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -576,7 +618,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;http://192.168.178.44:8000/api/&#x27;</code>
+                            <i>Default value : </i><code>&#x27;http://127.0.0.1:8000/api/&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -629,7 +671,7 @@ import {HttpClient} from &quot;@angular/common/http&quot;;
   providedIn: &#x27;root&#x27;
 })
 export class WeatherDataService {
-  private apiUrl &#x3D; &#x27;http://192.168.178.44:8000/api/&#x27;;
+  private apiUrl &#x3D; &#x27;http://127.0.0.1:8000/api/&#x27;;
   private http: HttpClient;
 
   constructor(http: HttpClient) {
@@ -655,29 +697,29 @@ export class WeatherDataService {
     var today&#x3D;  new Date();
     var yesterday &#x3D; today.getDate()-time;
     today.setDate(yesterday);
-  
-    
-    return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/?start&#x3D;&#x27;+this.formatDate(today));
+    return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
 
   }  
   getWindData(time: number){
     let today&#x3D;  new Date();
-    let yesterday &#x3D; today.getDate()-time;
-    today.setDate(yesterday);
+ 
   
-  return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/?start&#x3D;&#x27;+this.formatDate(today));
+  return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(today));
 }
 
 getWindDataFrame(start:Date,end:Date){
-  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
 
 getTemperaturesDataFrame(start:Date,end:Date){
-  return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
+  
+  return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
-
+getRecentWind(){
+  return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent&#x27;)
+}
 
 
 }
