@@ -74,12 +74,12 @@ class SolarCell(models.Model):
 
 
 class Configuration(models.Model):
-    res_height = models.IntegerField
-    res_width = models.IntegerField
-    measure_intervall_sensors = models.IntegerField
-    measure_intervall_cam = models.IntegerField
-    post_intervall_sensor_data = models.IntegerField
-    post_intervall_image_data = models.IntegerField
+    res_height = models.IntegerField()
+    res_width = models.IntegerField()
+    measure_intervall_sensors = models.IntegerField()
+    measure_intervall_cam = models.IntegerField()
+    post_intervall_sensor_data = models.IntegerField()
+    post_intervall_image_data = models.IntegerField()
 
     def __str__(self):
         return 'resolution: ' + str(self.res_height) + 'x' + str(self.res_width)
@@ -88,5 +88,5 @@ class Configuration(models.Model):
 class ConfigSession(models.Model):
     configuration = models.OneToOneField(Configuration, primary_key=True, on_delete=models.CASCADE)
     time = models.TimeField(auto_now_add=True)
-    applied = models.BooleanField
+    applied = models.BooleanField()
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)

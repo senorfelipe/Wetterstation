@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { AuthGuardService as AuthGuard} from './auth-guard.service';
 
 import { GraphsComponent } from './graphs/graphs.component'; 
 import { WebcamComponent } from './webcam/webcam.component'; 
@@ -10,13 +11,14 @@ const routes: Routes = [
   { path: '', component: GraphsComponent },              // Add this
   { path: 'webcam', component: WebcamComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'adminpanel', component: AdminpanelComponent }
+  { path: 'adminpanel', component: AdminpanelComponent, canActivate: [AuthGuard] }
 
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

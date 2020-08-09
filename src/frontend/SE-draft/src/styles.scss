@@ -38,50 +38,14 @@ $SE-draft-theme: mat-light-theme($SE-draft-primary, $SE-draft-accent, $SE-draft-
 
 
 
-$primary: rgb(0, 140, 255);
+
 
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
 }
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-header {
-    background: $primary;
-    padding: 1em 0;
-    a {
-        color: white;
-        text-decoration: none;
-    }
-    a.logo {
-        font-weight: bold;
-    }
 
-    nav {
-        float: right;
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            display: flex;
-
-            li a {
-                padding: 0.5em;
-
-                &:hover {
-                    background: darken($primary, 5%);
-                }
-            }
-        }
-    }
-}
-
-h1 {
-    margin-top: 2em;
-}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
