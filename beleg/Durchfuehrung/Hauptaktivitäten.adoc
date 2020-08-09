@@ -8,8 +8,24 @@ Die Anforderungserhebung und -analyse wurde während des Projektverlaufs durchge
 == Entwurf
 Autoren: Alexander Schoch
 
+Im Zuge der Anforderungsanalyse wurden erste Entwürfe für das zu entwickelnde Sytem erstellt. Anfang Januar entwickelten Philipp Barth (Architekt), Justin Schirdewahn (Entwickler) und Alexander Schoch (Entwickler) erste Designs für eine potentielle Datenbank- und Systemarchitektur. Diese wurden als  Richtlinie für Prototypisierung verwendet, während der Entwicklung weiter verfeinert und mit neuen Anforderungen der Auftraggeber weiterentwickelt.
+
+
 == Implementierung
 Autoren: Alexander Schoch
+
+Die Implementierung des Frontends und Backends begann Ende April. Die Entwicklung des Backends und der Skripte des Raspberry Pi's übernahm Philipp Barth. Das Frontend wurde zunächst von Alexander Schoch entwickelt und später von Clemens Kujus unterstützt.
+
+Das Frontend wurde in drei Bereiche unterteilt- Graphen, Webcam und Admin-Bereich.
+
+Der Graphenbereich wurde von Alexander Schoch ab dem 22.04. entwickelt und im Verlaufe des Projektes, mit den sich ändernden Anforderungen der Auftraggeber in der Funtkionalität erweitert.
+
+Die Webcam wurde zunächst von Justin Schirdewahn begonnen ohne die Verwendung von weiteren Bibliotheken. Dies erwies sich als nicht sehr erfolgreich und nach einigen Prototypen unter der Verwendung verschiedener Bibliotheknen für die Gallerie erwies sich die "ngx-gallery" als eine Alternative. Diese wurde ab dem 29. Juni von Alexander Schoch implementiert.
+
+Clemens Kujus implementierte ab Mitte Juni den Adminbereich und wurde bei Problemen von Alexander Schoch unterstützt.
+
+Das gesamte Backend unterlag in der Implementierung Philipp Barths Verantwortung
+//PHILIPP FRAGEN 
 
 == Test
 Autoren: Clemens Kujus
