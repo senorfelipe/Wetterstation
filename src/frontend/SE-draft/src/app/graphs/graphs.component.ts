@@ -136,6 +136,9 @@ chartwindata={
     
   }
 
+/**
+ * Initialisiert die gefetchten Daten und generiert einen neuen Graphen 
+ */
   buildTempChart(){
     if(this.tempchart!=undefined){
       this.tempchart.destroy();
@@ -183,14 +186,21 @@ chartwindata={
     return dirhours[i];
   }
 
-
+/**
+ * 
+ * @param event Event beim Wechsel zwischen "Erweiterten Modus" und den Radiobuttons
+ */
   onChange(event: MatSlideToggleChange) {
     console.log(event);
     this.extendedModeStatus.next(event.checked)
   }
 
+  /**
+   * 
+   * @param event Event beim Wechsel der Tagesanzahl des Graphen
+   * Lädt die Graphen beim Wechsel der Anzahl der Tage neu.
+   */
   onbtnChange(event: MatRadioChange) {
-
     this.updateGraphs(event.value);
   }
 
@@ -206,7 +216,9 @@ chartwindata={
     console.log(this.enddateEvents)
 
   }
-
+/**
+ * Neuer Datensatz wird requestet und der Temperaturgraph neu aufgebaut
+ */
   applyTimeframe() {
     let startstring = this.startdateEvents[this.startdateEvents.length - 1]
     let startdate = new Date(startstring);
@@ -226,8 +238,11 @@ chartwindata={
     }
   }
 
-/* Handler for Resizing*/
 
+/** 
+ * @param event Resize Event
+* Handler for Resizing
+*/
 onResize(event) {
   this.breakpoint = (event.target.innerWidth <= 640) ? 1 : 3;
 }
