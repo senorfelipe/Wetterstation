@@ -162,6 +162,10 @@ chartwindata={
     })
   }
 
+  /**
+   * @param i Index des zu Rotierenden Windrichtungpfeils
+   *  
+   */
 
   onImageLoad(i) {
     var data = this.windData.map(data => data.direction);
