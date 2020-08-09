@@ -11,42 +11,40 @@ Autoren: Justin Schirdewahn, Alexander Schoch
 
 == Entwurfsdokumentation
 
-=== Systemarchitektur
-Mit Sequenzdiagramm und Softwaredoku alles per compodoc + pydoc
-
 === Bibliotheken/Frameworks
 
 ==== Frontend Frameworks
-Wir haben uns bei der Frontendentwicklung für Angular 9 entschieden, weil Angular eine schöne Struktur und viele Funktionalitäten von sich aus mitbrachte. Es ist ein etabliertes Framework für die Frontendentwicklung. Dadurch standen uns viele Möglichkeiten der Informationsbeschaffung zum erlernen von Angular zur Verfügung. Des Weiteren war das Interesse und der Wunsch, Angular zu lernen, bei den Entwicklern vorhanden.
+
+Wir haben uns bei der Frontendentwicklung für Angular 9 entschieden, weil Angular eine schöne Struktur und viele Funktionalitäten von sich aus mitbrachte. Es ist ein etabliertes Framework für die Frontendentwicklung. Dadurch standen uns viele Möglichkeiten der Informationsbeschaffung zum erlernen von Angular zur Verfügung. Des Weiteren war das Interesse und der Wunsch, Angular zu lernen, bei den Entwicklern vorhanden. +
 Der Kunde war mit der Wahl von Angular zufrieden und so stand der Verwendung nichts mehr im Weg.
 
 ==== Frontend Bibliotheken
-    "@auth0/angular-jwt": "^5.0.1",
-    "angular-bootstrap-md": "^9.3.0",
-    "chart.js": "^2.9.3",
-    "core-js": "^3.6.5",
-    "hammerjs": "^2.0.8",
-    "ngx-gallery": "^5.10.0",
-    "rxjs": "~6.5.5",
-    "tslib": "^1.13.0",
-    "@types/node": "^12.12.41",
-    "codelyzer": "^5.2.2",
+
+@auth0/angular-jwt Version 5.0.1, https://github.com/auth0/angular2-jwt +
+angular-bootstrap-md Version 9.3.0, https://getbootstrap.com/docs/4.5/getting-started/introduction/ +
+chart.js Version 2.9.3", https://www.chartjs.org/docs/latest/ +
+core-js Version 3.6.5", https://github.com/zloirock/core-js/blob/master/README.md +
+hammerjs Version 2.0.8", https://hammerjs.github.io/api/ +
+ngx-gallery Version 5.10.0", https://openbase.io/js/ngx-gallery/documentation +
+rxjs Version 6.5.5", https://rxjs.dev/guide/overview +
+@types/node Version 12.12.41", https://openbase.io/js/@types/node/documentation +
+codelyzer Version 5.2.2", http://codelyzer.com/rules/ +
 
 ==== Backend Frameworks
-Django Version 3.0.5
-djangorestframework Version 3.11.0
-asgiref 3.2.7
-pytz 2019.3
-sqlparse 0.3.1
+Django Version 3.0.5, +
+djangorestframework Version 3.11.0, +
+asgiref Version 3.2.7, +
+pytz Version 2019.3, +
+sqlparse Version 0.3.1
 
 ==== Backend Bibliotheken
-import datetime
-import glob
-import json
-import os
-import time
-import requests
-import sys
+datetime, https://docs.python.org/3/library/datetime.html +
+glob, https://docs.python.org/3/library/glob.html +
+json, https://docs.python.org/3/library/json.html +
+os, https://docs.python.org/3/library/os.html +
+time, https://docs.python.org/3/library/time.html +
+requests, https://requests.readthedocs.io/de/latest/api.html +
+sys, https://docs.python.org/3/library/sys.html +
 
 === Datenbankschema
 @startuml 'entities' entity TEMPERATURE { * id INTERGER  —  * degrees DECIMAL(5,2) * measure_time TIMESTAMP * measurement_session_id INTERGER }
@@ -72,12 +70,12 @@ entity ADMIN { * id INTERGER  —  * username VARCHAR(256) (unique) * passwo
 === Schnittstellen
 Die Restschnittstellen wurden mit dem Djangorestframework selber entwickelt.
 
-=== Sequenzdiagramm
-
 == Softwaredokumentation
 
 === Frontend
 npm run compodoc
+HTML Export
 
 === Backend
 python -m pydoc -b
+HTML Export
