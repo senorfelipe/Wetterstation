@@ -1,0 +1,13 @@
+= Reflexion Justin Schirdewahn
+
+=== Teamrolle: Entwickler, Tester
+
+Seit Software Engineering 1 bin ich im Projekt "Wetterstation" in der Rolle des Entwicklers tätig. Hauptsächlich habe ich bei der Arbeit an diesem Projekt gelernt, dass die Kommunikation zwischen dem Team und dem Kunden und die zwischen den einzelnen Rollen im Team extrem wichtig ist. Auch wenn viele externe Einflüsse das Projekt an einigen Stellen behinderte konnten alle Hindernisse durch regelmäßigen Informationsaustausch doch früher oder später überwunden werden. Im Nachhinein betrachtet hätten einige Dinge anders beziehungsweise besser gemacht werden können. So hätte ich mich mehr mit unserem anderen Entwickler und unserem Architekten in Verbindung setzen sollen, um mehr Überblick über benötigtenoch offene Aufgaben zu erlangen und die Arbeitsteilung besser gestalten zu können.
+Trotz dieser kleinen Probleme und ab und zu holprigen Momenten bin ich doch stolz darauf mit meinem Team am Ende ein funktionierendes System, welches zur Lösung eines realen Problemes dient, erschaffen zu haben.
+
+Bei der Bearbeitung des Projektes konnte ich Parallelen zwischen den erlenten Modellen und Vorgehensweisen aus Software Engineering 1 und der tatsächlichen Arbeit am Projekt sehen. So wurde uns als Team schnell bewusst, dass eine die Aufteilung in Iterationen besser geeignet war, als das einmalige definieren von Anforderungen und nicht funktionalen Anforderungen. Dies wurde besonders deutlich durch die sich immer wieder ändernden Wünsche unseres Kunden.
+
+Wie schon erwähnt war ich über die Wichtigkeit von Kommunikation doch erstaunt. So konnten wir in Software Engineering 2 in regelmäßigen Meetings, sowohl untereinander, als auch mit dem Kunden, gut auf neue Wünsche und Anforderungen reagieren und die Zwischenergebnisse mit dem Kunden zusammen betrachten.
+
+Doch nicht nur in Sachen Kommunikation, Planung und Teamarbeit habe ich neue Dinge gelernt. Auch aus technischer Sicht konnte ich viele neue Eindrücke gewinnen. Das einarbeiten in verschiedene Frameworks und neue Technologien war manchmal mühselig, aber am Ende doch Lohnenswert. Lohnenswert in der Hinsicht das Potential von Frameworks und Bibliotheken zu erkennen, im Gegensatz zu einer von Grundauf selbst erstellten und oft unnötig komlizierten Lösung. So wurde die selbst programmierte Lösung für die grafische Anzeige von Bildern aus der Website durch eine Bibliothek ersetzt, welche alle gewünschten Funktionalitäten erfüllte. 
+...
