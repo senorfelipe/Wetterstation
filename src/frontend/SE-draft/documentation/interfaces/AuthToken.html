@@ -64,6 +64,13 @@
             <code>src/app/admin.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface für den Authentifizierungstoken </p>
+
+            </p>
 
 
         <section>
@@ -122,6 +129,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Zugriffsfreigabe </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -151,6 +164,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Refresh </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -158,32 +177,46 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {HttpClient, HttpErrorResponse} from &quot;@angular/common/http&quot;;
-import { catchError } from &#x27;rxjs/operators&#x27;; 
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpErrorResponse } from &quot;@angular/common/http&quot;;
+import { catchError } from &#x27;rxjs/operators&#x27;;
 
 @Injectable({
     providedIn: &#x27;root&#x27;
 })
 
 export class AdminService {
+
+    /** @private URL der REST-Schnittstellee */
     private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
+
+    /**@private Http-Client */
     private http: HttpClient;
+    
+    /**@private Error */
     private error;
 
     constructor(http: HttpClient) {
-      this.http &#x3D; http;
+        this.http &#x3D; http;
     }
-
-    provideToken(user, pwd){
-        return this.http.post&lt;AuthToken[]&gt;(this.apiUrl + &#x27;token/&#x27;, {&quot;username&quot;:user, &quot;password&quot;:pwd});;
+    /**
+     * 
+     * @param user Benutzername
+     * @param pwd Passwort
+     * @returns post-request des Authentifizerungtoken
+     */
+    provideToken(user, pwd) {
+        return this.http.post&lt;AuthToken[]&gt;(this.apiUrl + &#x27;token/&#x27;, { &quot;username&quot;: user, &quot;password&quot;: pwd });;
     }
 }
 
+/**Interface für den Authentifizierungstoken */
 export interface AuthToken {
+    /**Refresh */
     refresh: String;
+    /**Zugriffsfreigabe */
     access: String;
-  }</code></pre>
+}</code></pre>
     </div>
 </div>
 

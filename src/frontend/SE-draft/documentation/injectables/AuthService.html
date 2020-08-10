@@ -117,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/auth.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -154,17 +154,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app/auth.service.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/auth.service.ts:15</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Überprüfung des Token</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Boolean bzgl. Gültigkeit des Authentifizierungstoken</p>
 
                     </div>
                 </td>
@@ -197,10 +205,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/auth.service.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth.service.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>jwt-Helper </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -217,9 +231,13 @@ import { JwtHelperService } from &#x27;@auth0/angular-jwt&#x27;;
     providedIn: &#x27;root&#x27;
 })
 export class AuthService {
+  /** jwt-Helper */
   public jwtHelper &#x3D; new JwtHelperService();
   constructor() {}
-  // ...
+  /**
+   * Überprüfung des Token
+   * @returns Boolean bzgl. Gültigkeit des Authentifizierungstoken
+   */
   public isAuthenticated(): boolean {
     const token &#x3D; localStorage.getItem(&#x27;weatherToken&#x27;);
     console.log(token);

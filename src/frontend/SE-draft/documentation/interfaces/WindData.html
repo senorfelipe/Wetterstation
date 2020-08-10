@@ -64,6 +64,13 @@
             <code>src/app/weather-data.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Winddaten</p>
+
+            </p>
 
 
         <section>
@@ -128,6 +135,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Windrichtung in Grad </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -157,6 +170,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID der Winddaten </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -186,6 +205,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Zeit der Messung </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -215,6 +240,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Windgeschwindigkeit </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -229,13 +260,19 @@ import {HttpClient} from &quot;@angular/common/http&quot;;
   providedIn: &#x27;root&#x27;
 })
 export class WeatherDataService {
+  /**Server IP */
   private apiUrl &#x3D; &#x27;http://127.0.0.1:8000/api/&#x27;;
+  /**http Client */
   private http: HttpClient;
 
   constructor(http: HttpClient) {
     this.http &#x3D; http;
   }
-
+/**
+ * 
+ * @param date Datumseingabe
+ * formatiert den Timestamp für get-Request
+ */
   formatDate(date: Date) {
     var d &#x3D; new Date(date),
         month &#x3D; &#x27;&#x27; + (d.getMonth() + 1),
@@ -249,7 +286,11 @@ export class WeatherDataService {
 
     return [year, month, day].join(&#x27;-&#x27;);
 }
-
+/**
+ * 
+ * @param time Übergebene Zahl der Tage, die betrachtet werden sollen.
+ * get-Request für die gewählten
+ */
   getTemperatures(time: number) {
 
     var today&#x3D;  new Date();
@@ -258,23 +299,43 @@ export class WeatherDataService {
     return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl + &#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(today));
 
   }  
+  /**
+   * 
+   * @param time Datumsangabe
+   * @returns get-request der Winddaten
+   * Anforderungen haben sich geändert, nicht länger relevant
+   */
   getWindData(time: number){
     let today&#x3D;  new Date();
- 
-  
   return  this.http.get&lt;WindData[]&gt;(this.apiUrl + &#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(today));
 }
-
+/**
+ * 
+ * @param start Startdatum
+ * @param end Enddatum
+ * get-Request der Winddaten für angegebenen Zeitraum
+ * Anforderungen geändert, nicht länger relevant
+ */
 getWindDataFrame(start:Date,end:Date){
   return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
-
+/**
+ * 
+ * @param start Startdatum
+ * @param end Enddatum
+ *  get-request der übergebenen Zeitspanne
+ * 
+ */
 getTemperaturesDataFrame(start:Date,end:Date){
-  
   return this.http.get&lt;TemperatureData[]&gt;(this.apiUrl+&#x27;temps/aggregate/?start&#x3D;&#x27;+this.formatDate(start)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(end));
 
 }
+
+/**
+ * @returns neuste Winddaten
+ * get-request der neusten Winddaten
+ */
 getRecentWind(){
   return this.http.get&lt;WindData[]&gt;(this.apiUrl+&#x27;wind/recent&#x27;)
 }
@@ -282,17 +343,26 @@ getRecentWind(){
 
 }
 
+/**Winddaten
+ */
 export interface WindData {
+  /**ID der Winddaten */
   id: Number,
+  /**Windgeschwindigkeit */
   speed: Number,
+  /**Windrichtung in Grad */
   direction: Number,
+  /**Zeit der Messung */
   measure_time: Date
 
 }
 
 export interface TemperatureData {
+  /**ID der Temperaturdaten */
   id: Number,
+  /**Temperatur */
   degrees: Number,
+  /**Zeit der Messung */
   measure_time: Date
 }
 

@@ -18,18 +18,26 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class GraphsComponent implements OnInit, OnDestroy {
   weatherDataService: WeatherDataService;
+  weatherDataSubscription: Subscription;
+  
+  /** Temperaturdaten */
   temperatureData: TemperatureData[] = [];
+  /**Winddaten */
   windData: WindData[] = [];
+  /** Winddaten der letzten 3 Stunden */
   lastHoursWind: WindData[] = [];
+  /**BehaviourSubject für den erweiterten Modus */
   extendedModeStatus: BehaviorSubject<boolean>;
 
 
-  weatherDataSubscription: Subscription;
 
-
+/**gewählter Radiobutton */
   chosenbtn: number = 1;
+  /** Liste der Auswahl der Radiobuttons */
   timepickers: number[] = [1, 3, 7, 14, 21];
+  /**Events bei der Datumseingabe Start */
   startdateEvents: string[] = [];
+  /**Events bei der Datumseingabe Ende */
   enddateEvents: string[] = [];
 
 
@@ -39,6 +47,9 @@ export class GraphsComponent implements OnInit, OnDestroy {
 
   tempchart:Chart;
   windchart:Chart;
+  /**
+   * tempdata chartsettings
+   */
   charttempdata={
       labels: this.temperatureData.map(data => new Date(data.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})),
       datasets: [{
@@ -52,7 +63,9 @@ export class GraphsComponent implements OnInit, OnDestroy {
         borderWidth: 0
       }]
     }
-  
+/**
+ * winddata chartsettings
+ */
 chartwindata={
     labels: this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString()),
     datasets: [{
@@ -67,7 +80,9 @@ chartwindata={
       borderWidth: 0
     }]
 }
-
+/**
+ * options for the chart
+ */
   chartoptions={
     scales: {
       yAxes: [{
@@ -103,7 +118,9 @@ chartwindata={
 
   }
 
-
+/**
+ * Initialisiere die letzten Werte
+ */
   getRecentValues() {
     this.weatherDataService.getWindData(1).subscribe((data) => {
       
@@ -125,7 +142,11 @@ chartwindata={
     });
   }
 
-
+/**
+ * 
+ * @param input gewählter Input des Radiobuttons
+ * Fetcht neue Temperaturdaten und baut neuen Chart
+ */
   updateGraphs(input) {
     this.weatherDataSubscription =
     this.weatherDataService.getTemperatures(input).subscribe((data) => {
@@ -137,9 +158,12 @@ chartwindata={
   }
 
 /**
- * Initialisiert die gefetchten Daten und generiert einen neuen Graphen 
+ * Initialisiert Temperaturdaten und generiert einen neuen Temperaturgraphen
  */
   buildTempChart(){
+    /**
+     * Zerstöre bestehenden Graphen; notwendig für die Hoverfunktionalität
+     */
     if(this.tempchart!=undefined){
       this.tempchart.destroy();
     }
@@ -153,7 +177,9 @@ chartwindata={
       options:this.chartoptions
     })
   }
-
+/**
+ * Initialisiert und generiert den Windgraphen
+ */
   buildWindChart() {
   
     this.chartwindata.labels=this.windData.map(datawind => new Date(datawind.measure_time).toLocaleString([],{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}));
