@@ -116,7 +116,7 @@ image::images/I5-graphwire.jpg[]
 
 ==== Ergebnisse
 .Bewerung
-image::images/bewertung_iteration.jpg[]
+image::images/bewertung_iteration.JPG[]
 
 ==== Probleme
 - Die Projektabgabe wurde nicht weiter spezifiziert     

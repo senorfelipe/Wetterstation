@@ -12,7 +12,7 @@ neu erfinden und alle die gleiche Aufgabe lösen, sondern dass es für mich auch
 ist wenn die Software Aussicht hat am Ende tatsächlich im Realbetrieb zu landen und genutzt zu 
 werden. Das es sich um ein komplexes reales Problem handelt hat bei mir auch dazu beigetragen, 
 dass ich den Nutzen der Vorgehensweisen in der Softwareentwicklung besser verstanden habe und 
-die Grenzen des Wasserfallmodells doch schnell erreicht sind. Des Weiteren habe festgestellt, 
+die Grenzen des Wasserfallmodells doch schnell erreicht sind. Des Weiteren habe ich festgestellt, 
 dass der Nutzen den Aufwand sowohl bei der Protokollierung von Meetings, dem Verteilen von 
 Aufgaben als auch technischen Skizzen, Kommentaren usw. deutlich überwiegt.
 
@@ -25,7 +25,7 @@ einfach ist, eine Website nach den Vorstellungen des Kunden zu gestalten.
 Besonders stolz bin ich zum einen darauf, dass wir am Ende des Projekts eine Software abgeben, 
 die sehr gute Aussicht hat tatsächlich genutzt zu werden und den Nutzern letztendlich Freude 
 bereiten soll. Zum anderen möchte ich die Leistung des Teams hervorheben, welches trotz 
-Unterschiede im Arbeitsuafwand auch als Team agierte und als Ziel die fertige Software vor Augen 
+Unterschiede im Arbeitsaufwand auch als Team agierte und als Ziel die fertige Software vor Augen 
 hat.
 
 Gut funktioniert hat vor allem in der zweiten Projekthälfte die Kommunikation untereinander und 
