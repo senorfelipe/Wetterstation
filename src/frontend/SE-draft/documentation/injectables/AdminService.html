@@ -124,7 +124,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -189,8 +189,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/admin.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/admin.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -205,6 +205,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -216,6 +217,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Benutzername</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>pwd</td>
@@ -225,6 +230,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Passwort</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -236,7 +245,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>post-request des Authentifizerungtoken</p>
+
                     </div>
                 </td>
             </tr>
@@ -274,7 +284,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/admin.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/admin.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -296,7 +306,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -324,7 +334,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/admin.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/admin.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -346,21 +356,32 @@ import { catchError } from &#x27;rxjs/operators&#x27;;
 })
 
 export class AdminService {
+    /** @private URL der REST-Schnittstellee */
     private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
+    /**@private Http-Client */
     private http: HttpClient;
+    /**@private Error */
     private error;
 
     constructor(http: HttpClient) {
       this.http &#x3D; http;
     }
-
+/**
+ * 
+ * @param user Benutzername
+ * @param pwd Passwort
+ * @returns post-request des Authentifizerungtoken
+ */
     provideToken(user, pwd){
         return this.http.post&lt;AuthToken[]&gt;(this.apiUrl + &#x27;token/&#x27;, {&quot;username&quot;:user, &quot;password&quot;:pwd});;
     }
 }
 
+/**Interface für den Authentifizierungstoken */
 export interface AuthToken {
+    /**Refresh */
     refresh: String;
+    /**Zugriffsfreigabe */
     access: String;
   }</code></pre>
     </div>

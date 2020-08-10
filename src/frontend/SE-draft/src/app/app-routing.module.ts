@@ -6,7 +6,9 @@ import { GraphsComponent } from './graphs/graphs.component';
 import { WebcamComponent } from './webcam/webcam.component'; 
 import { AdminComponent } from './admin/admin.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component'; // Add this
-
+/**
+ *Routes
+ */
 const routes: Routes = [
   { path: '', component: GraphsComponent },              // Add this
   { path: 'webcam', component: WebcamComponent },

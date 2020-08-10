@@ -64,6 +64,13 @@
             <code>src/app/image-data.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface der Bilddaten </p>
+
+            </p>
 
 
         <section>
@@ -125,6 +132,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Bild-ID </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -154,6 +167,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Bildpfad </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -183,6 +202,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Gemessenes Datum </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -197,15 +222,22 @@ import {HttpClient} from &quot;@angular/common/http&quot;;
   providedIn: &#x27;root&#x27;
 })
 export class ImageService {
+  /** @private URL der REST-Schnittstellee */
   private apiUrl &#x3D; &#x27;http://localhost:8000/api/&#x27;;
+  /**@private Client für HTTP-Requests */
   private http: HttpClient;
   constructor(http: HttpClient) {
     this.http &#x3D; http;
   }
+  /**heutiges Datum  */
   today&#x3D;new Date;
   
 
-
+/**
+ * 
+ * @param date angegebenes Datum
+ * formatiert den Timestamp für get-Request
+ */
   formatDate(date: Date) {
     var d &#x3D; new Date(date),
         month &#x3D; &#x27;&#x27; + (d.getMonth() + 1),
@@ -219,18 +251,27 @@ export class ImageService {
      // console.log([year, month, day].join(&#x27;-&#x27;))
     return [year, month, day].join(&#x27;-&#x27;);
 }
-
+/**
+ * @returns neuste Bilder
+ * get-Request der neusten Bilder
+ */
 getrecentImages() {
   return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/recent/&#x27;);
 }
 
-
+/**
+ * @returns heutige Bilder
+ * get-Request des heutigen Datums
+ */
   getTodayImages() {
     let today&#x3D;new Date;
     return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/?start&#x3D;&#x27;+this.formatDate(today));
   }
  
-
+/**
+ * @returns Bilder von gestern
+ * get-Request für die gestrigen Bilder
+ */
   getYesterdayImages(){
     let today&#x3D;new Date;
     let yesterday&#x3D;new Date();
@@ -238,7 +279,11 @@ getrecentImages() {
    
     return this.http.get&lt;ImageData[]&gt;(this.apiUrl + &#x27;images/?start&#x3D;&#x27;+this.formatDate(yesterday)+&#x27;&amp;end&#x3D;&#x27;+this.formatDate(today));
   }
-
+/**
+ * 
+ * @param date 
+ * @returns Bilder des übergebenen Datums
+ */
  getDateImages(date:Date){
   let end&#x3D;new Date() 
   end.setDate(date.getDate()+1)
@@ -249,10 +294,13 @@ getrecentImages() {
 
 
 }
-
+/** Interface der Bilddaten */
 export interface ImageData {
+  /**Bild-ID */
   id: Number,
+  /**Bildpfad */
   image: String,
+  /**Gemessenes Datum */
   measurement_time: Date
 }
 </code></pre>

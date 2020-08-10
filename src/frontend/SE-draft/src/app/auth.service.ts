@@ -5,9 +5,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     providedIn: 'root'
 })
 export class AuthService {
+  /** jwt-Helper */
   public jwtHelper = new JwtHelperService();
   constructor() {}
-  // ...
+  /**
+   * Überprüfung des Token
+   * @returns Boolean bzgl. Gültigkeit des Authentifizierungstoken
+   */
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('weatherToken');
     console.log(token);

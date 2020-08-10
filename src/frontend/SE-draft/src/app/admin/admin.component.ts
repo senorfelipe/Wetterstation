@@ -11,12 +11,17 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   
 })
 export class AdminComponent implements OnInit {
-
+/**Admin Service */
   adminService: AdminService;
+  /**Subscription Service */
   adminSubscription: Subscription;
+  /**Auth.-Token */
   token: AuthToken[] = [];
+  /**Benutzername */
   username: string;
+  /**Passwort */
   password: string;
+  /**Fehler beim Login */
   loginError: boolean = true;
   errors;
 
@@ -27,7 +32,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.router.navigate(['adminpanel']);
   }
-
+/**Erhält Token */
   getToken(){
     this.adminSubscription =
       this.adminService.provideToken(this.username, this.password).subscribe(
@@ -41,7 +46,11 @@ export class AdminComponent implements OnInit {
         }
       );
   }
-
+/**
+ * 
+ * @param tok Token
+ * loggt Token und leitet ans Adminpanel weiter
+ */
   logToken(tok){
     this.token=tok;
     localStorage.setItem("weatherToken",this.token["access"]);

@@ -18,25 +18,31 @@ import 'hammerjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WebcamComponent implements OnInit {
-  
+  /**Gallerie für die Bilder von heute*/
   todayPics:GalleryItem[];
+  /**Bilder von Heute */
   TodayImages: ImageData[] =[];
-
+/** Gallerie für die neusten Bilder */
   recentPics: GalleryItem[];
+  /**neuste Bilder */
   RecentImages: ImageData[] = [];
-
+/**Gallerie Bilder von gestern */
   yesterdayPics: GalleryItem[];
+  /**Bilder von Gestern */
   YesterdayImages: ImageData[] = [];
-
+/**Datepick Gallerie */
   DatePics: GalleryItem[];
+  /**Datepick Bilder */
   DateImages: ImageData[] = [];
 
-
+/**Service für die Bilder */
   ImageService: ImageService;
 
+  /**Subject für Pipe beim fetchen */
   destroy$: Subject<boolean> = new Subject<boolean>();
-  
+  /**Hält das gewählte Datum */
   startdateEvents: Date;
+
   panelOpenState = false;
 
 
@@ -56,20 +62,22 @@ export class WebcamComponent implements OnInit {
       console.log(this.recentPics)
 
 
- 
-      // This is for Lightbox example
       
       console.log(this.gallery)
 
     }
   
-
+/**
+ * initialisiert die neusten Bilder
+ */
     loadrecentPics(){
       this.recentPics=this.RecentImages.map(data => {
         return new ImageItem({src:data.image,thumb:data.image})
       });
     }
-    
+    /**
+     * lädt die Bilder des heutigen Tages
+     */
     loadtodayPics(){
       this.ImageService.getTodayImages()
       .pipe(takeUntil(this.destroy$))
@@ -83,7 +91,9 @@ export class WebcamComponent implements OnInit {
       })
  
     }
-
+/**
+ * lädt die Bilder des gestrigen Tages
+ */
     loadyesterdayPics(){
       this.ImageService.getYesterdayImages()
       .pipe(takeUntil(this.destroy$))
@@ -96,13 +106,17 @@ export class WebcamComponent implements OnInit {
       })
     }
 
-    
+  /**
+   * Opens the lightbox
+  */
     openLightbox(index:number,galleryid:string) {
      
       this.lightbox.open(index, galleryid);
     }
     
-    
+  /**
+   * lädt die Bilder des gewählten Datums
+  */
     loaddatePics(){
       this.ImageService.getDateImages(this.startdateEvents)
       .pipe(takeUntil(this.destroy$))
@@ -116,7 +130,11 @@ export class WebcamComponent implements OnInit {
     }
 
 
-    /*Eventhandles for Timeframe */
+    /**
+     * 
+     * @param event Datepicker Event
+     * Eventhandling des Datepickers
+     */
     addDateEvent(event: MatDatepickerInputEvent<Date>) {
       this.startdateEvents=event.value;
     console.log(this.startdateEvents)
@@ -132,7 +150,7 @@ export class WebcamComponent implements OnInit {
 
 
   }
-
+/**@ignore */
 export class NgbdDropdownBasic {
   
 }
