@@ -31,11 +31,13 @@ rxjs Version 6.5.5", https://rxjs.dev/guide/overview +
 codelyzer Version 5.2.2", http://codelyzer.com/rules/ +
 
 ==== Backend Frameworks
-Django Version 3.0.5, +
-djangorestframework Version 3.11.0, +
-asgiref Version 3.2.7, +
-pytz Version 2019.3, +
-sqlparse Version 0.3.1
+Wir haben uns für die Entwicklung des Backends mit Django entschieden, weil Django schon viele Funktionalitäten von sich aus mitbrachte, unser Entwickler für das Backend schon Erfahrung mit Python hatte und wir unsere Kunden davon überzeugen konnten unsere Alternative zu PHP zu nehmen. So konnte sich unser Backend-Entwickler schnell in das Framework reinarbeiten und die schon gegebenen Funktionalitäten nutzen. So wurde die Entwicklung durch zum Beispiel einen schon vorgegebenen Adminbereich oder die SqLite Entwicklerdatenbank erleichtert. +
+Die folgende Liste enthält alles, was für das Backend installiert wurde, mit installierter Version. +
+Django Version 3.0.5, https://docs.djangoproject.com/en/3.1/ +
+djangorestframework Version 3.11.0, https://www.django-rest-framework.org/topics/documenting-your-api/ +
+asgiref Version 3.2.7, https://github.com/django/asgiref/tree/master/docs +
+pytz Version 2019.3, https://readthedocs.org/projects/pytz/ +
+sqlparse Version 0.3.1, https://buildmedia.readthedocs.org/media/pdf/sqlparse/latest/sqlparse.pdf
 
 ==== Backend Bibliotheken
 datetime, https://docs.python.org/3/library/datetime.html +
@@ -68,7 +70,7 @@ entity ADMIN { * id INTERGER  —  * username VARCHAR(256) (unique) * passwo
 @enduml
 
 === Schnittstellen
-Die Restschnittstellen wurden mit dem Djangorestframework selber entwickelt.
+Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden mit dem Djangorestframework selber entwickelt.
 
 == Softwaredokumentation
 

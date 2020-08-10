@@ -1,0 +1,83 @@
+'entities'
+entity TEMPERATURE {
+  * **id** INTERGER
+  --
+  * degrees DECIMAL(5,2)
+  * measure_time TIMESTAMP
+  * measurement_session_id INTERGER
+}
+
+entity WIND {
+  * **id** INTERGER
+  --
+  * direction DECIMAL(5,2)
+  * speed DECIMAL(5,2)
+  * measure_time TIMESTAMP
+  * measurement_session_id INTERGER
+}
+
+entity IMAGE {
+  * **id** INTERGER
+  --
+  * image VARCHAR(256)
+  * measure_time TIMESTAMP
+  * measurement_session_id INTERGER
+}
+entity SOLAR_CELL {
+  * **id** INTEGER
+  --
+  * current FLOAT
+  * voltage FLOAT
+  * measure_time TIMESTAMP
+  * measurement_session_id INTERGER
+}
+
+entity BATTERY {
+  * **id** INTERGER
+  --
+  * current FLOAT
+  * voltage FLOAT
+  * temperature FLOAT
+  * measure_time TIMESTAMP
+  * measurement_session_id INTERGER
+}
+
+entity MEASUREMENT_SESSION {
+  * **session_id** INTERGER
+  --
+  * datavolume INTEGER
+  * created TIMESTAMP (CURRENT_TIMESTAMP)
+}
+
+
+entity CONFIGURATION {
+  * **id** INTERGER
+  --
+  * measurement_intervall INTEGER
+  * res_hight INTEGER
+  * res_width INTEGER
+}
+
+entity CONFIG_SESSION {
+  * **id** INTERGER
+  --
+  * creator VARCHAR(256)
+  * time TIMESTAMP
+  * applied BOOLEAN
+}
+
+entity ADMIN {
+  * **id** INTERGER
+  --
+  * username VARCHAR(256) (unique)
+  * password VARCHAR(256)
+}
+
+'relationships'
+"MEASUREMENT_SESSION" "1"<--"*" "IMAGE"
+"MEASUREMENT_SESSION" "1"<--"*" "WIND"
+"MEASUREMENT_SESSION" "1"<--"*" "TEMPERATURE"
+"BATTERY" "*"-->"1" "MEASUREMENT_SESSION"
+"SOLAR_CELL" "*"-->"1" "MEASUREMENT_SESSION"
+"CONFIGURATION" "1" -- "1" "CONFIG_SESSION"
+"ADMIN" "1" <-- "*" "CONFIG_SESSION"
