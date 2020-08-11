@@ -10,17 +10,21 @@ Unser Team besteht aus 7 Mitgliedern: Clemens Kujus, Alexander Schoch, Philipp B
 Jedem von uns sind 2 Rollen zugeteilt, einmal die Hauptrolle und meist noch ein Backup. 
 Clemens Kujus übernahm nach einem Tausch mit Martin Großmann die Rolle als Projektmanager und Analyst, Alexander Schoch ist Entwickler und Projektmanager, Philipp Barth Architekt und Entwickler, Justin Schirdewahn Entwickler und Tester, Agustin Calvimontes Deployment Engineer und Technical Writer, Josefin Hähne Analyst und Architekt und Martin Großmann beziehungsweise in SE2 Hannes Fogut Tester und Entwickler, da Martin Großmann unser Team verlassen hat.
 
-Jedoch haben wir im Laufe des Projekts nicht mehr an der strikten Rollenverteilung festgehalten, da die Arbeit sonst sehr unausgeglichen gewesen wäre.
 
 == Kommuniktion
 
 === im Team
-Im Team findet die Kommunikation über WhatsApp für kleine und schnelle Absprachen statt. Wir haben regelmäßige Teamtreffen, sowohl an der HTW als auch online und alltäglichen Kontakt in Vorlesungen und Übungen/Praktika an der HTW (enfällt in SE2 aufgrund einer Pandemie).
+Im Team findet die Kommunikation über WhatsApp für kleine und schnelle Absprachen statt. Wir haben regelmäßige Teamtreffen, sowohl an der HTW als auch online, in denen wir größere Probleme diskutieren, Absprachen halten, Aufgaben der aktuellen Iteration bewerten, Iterationen auswerten sowie neue Aufgaben für die nächste Iteration verteilen.  Es wird sich auch in kleineren Gruppen getroffen um beispielsweise nur ein Thema oder eine Aufgabe zu bearbeiten oder besprechen.  Des Weiteren gab es alltäglichen Kontakt in Vorlesungen und Übungen/Praktika an der HTW, bei dem z.B. an den nächsten Termin für ein Treffen erinnert wurde oder man den aktuellen Stand austauschte  (entfällt in SE2 aufgrund einer Pandemie).
 Für die Themenbearbeitung und Aufgabenverteilung nutzen wir die in GitHub vorgesehenen Issues. 
 
+Seit diesem Semester findet die Kommunikation nur noch online statt. Dazu wählten wir zusätzlich für Teamtreffen Google Hangouts und Google Meet.
+
+
 === zum Auftraggeber
-//Email
-//Treffen
+
+Für die Kommunikation mit den Auftraggebern nutzen wir hauptsächlich die regelmäßigen Treffen, die anfangs aller zwei Wochen in der Bibliothek der HTW stattfanden. Seit diesem Semester wurden sie jedoch mit Videochats abgehalten und ab Mitte April auch wöchentlich. Dabei erklärten sie uns immer mehr ihre Vorstellungen, wie das System aufgebaut sein soll, was abgebildet werden soll und wie sowie was für Anforderungen sie an das System haben. Wir klären auch welche Ressourcen sie uns zur Verfügung stellen und welche Aufgaben von ihnen übernommen werden. Es werden auch unsere neuen Ergebnisse vorgeführt und geklärt, ob die Kunden damit einverstanden sind oder es noch verbessert werden soll.
+Des Weiteren nutzen wir Emails für die Terminvereinbarung, neue Anforderungen oder auch für mehr Informationen z.B. über die gesendeten Daten (Datenformat, Zeitstempel, ...)
+
 == eingesetzte Tools
 
 = eingesetzte Techniken und Praktiken

@@ -3,6 +3,7 @@ Autoren: Josefin Hähne
 
 == Aufgabe
 
+Der Modellflugclub hatte den Wunsch nach einer vereinseigenen Wetterstation und Webcam.
 
 == Auftraggeber
 
