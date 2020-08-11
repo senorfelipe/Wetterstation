@@ -1,10 +1,10 @@
-== Protokoll zum Treffen am 20.05.2020
+= Protokoll zum Treffen am 20.05.2020
 
-=== Allgemeines
-==== Zeit
+== Allgemeines
+=== Zeit
 17.00 bis 18.30 Uhr
 
-==== Teilnehmer
+=== Teilnehmer
 * **intern:**
 * [x] Clemens
 * [x] Alexander
@@ -17,14 +17,14 @@
 * **extern:**
 Herr Professor Iwe, Herr Brenner
 
-=== Iterationsplan
-include::../Iterationsplan_12.adoc[]
+== Iterationsplan
+Siehe GitHub-Repository: /project_docs/Iterationsplan_12.adoc
 
-=== Themen
+== Themen
 . Vorstellung der Ergebnisse (vor allem Front-End mit den Datengraphen)
 . Klärung weiterer Fragen
 
-=== Ergebnisse
+== Ergebnisse
 . Front-End
 .. Die Art der Darstellung ist OK
 .. Die Darstellung der Windrichtung soll ähnlich der von "Windfinder" erfolgen (s. Website mfcR)

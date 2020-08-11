@@ -1,10 +1,10 @@
-== Protokoll zum Treffen am 08.04.2020
+= Protokoll zum Treffen am 08.04.2020
 
-=== Allgemeines
-==== Zeit
+== Allgemeines
+=== Zeit
 17.00 bis 18.15 Uhr
 
-==== Teilnehmer
+=== Teilnehmer
 * **intern:**
 * [x] Clemens
 * [x] Alexander
@@ -18,10 +18,10 @@
 Herr Professor Iwe
 Herr Thomas Brenner
 
-=== Iterationsplan
-include::../Iterationsplan_10.adoc[]
+== Iterationsplan
+Siehe GitHub-Repository: /project_docs/Iterationsplan_10.adoc
 
-=== Themen
+== Themen
 - Python & Django sind ok, allerdings ist eine Skriptsprache mit ordentlichen Kommentaren Voraussetzung
 - Raspberry ist wieder erreichbar
 - config UND configsession als Sitzungseinstellungen für Datenbank (Nutzer und Sitzung den Einstellungen zurordnen)

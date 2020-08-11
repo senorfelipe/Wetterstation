@@ -26,14 +26,22 @@ Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Ph
 
 //Inhalte zur Plaung hier verlinken
 = Planung
-//include::./technical_specifications/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
 
 //Inhalte zur Durchführung hier verlinken
 = Durchführung
 //include::./Durchfuehrung/Projektphasen.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Durchfuehrung/Hauptaktivitäten.adoc[lines=1..1;4..-1,leveloffset=+1]
 //include::./Durchfuehrung/Entscheidungen_Probleme.adoc[lines=1..1;4..-1,leveloffset=+1]
 
-//Inhalte zu ERgebnissen hier verlinken
+//Beispielhaft 4 Besprechungsprotokolle
+= Besprechungsprotokolle
+Verlinkungen wurden aufgrund besserer Übersichtlichkeit für den Projektbericht durch Pfadangaben in unserem GitHub-Repository https://github.com/philippBa13/Wetterstation ersetzt. Diese sind mit "Siehe GitHub-Repository: [...]" gekennzeichnet.
+//include::./Besprechungsprotokolle/Treffen_01_09_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_04_08_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_05_20_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_05_27_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+//Inhalte zu Ergebnissen hier verlinken
 = Ergebnisse
 //include::./Ergebnisse/reflexion_pb.adoc[leveloffset=+1]
 //include::./Ergebnisse/reflexion_hf.adoc[leveloffset=+1]

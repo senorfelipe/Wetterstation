@@ -1,8 +1,6 @@
 = Wesentliche Entscheidungen
 Autoren: Clemens Kujus, Alexander Schoch
 
-In diesem Abschnitt werden wesentliche teamrelevante und technische Entscheidungen im Projektverlauf dargestellt.
-
 == Rollenverteilung
 Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Er hat sich in seiner Rolle nicht wohlgefühlt und ist seinen Aufgaben in den ersten beiden Projektwochen auch nicht nachgekommen. Auf anraten des Teams und schließlich eigener Entscheidung trat er seine Position ab. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager. Durch den Wegfall von Martin Großmann und das Hinzukommen von Hannes Fogut hat das Projekt an Qualität und Produktivität gewonnen.
 

@@ -1,10 +1,10 @@
-== Protokoll zum Treffen am 09.01.2020
+= Protokoll zum Treffen am 09.01.2020
 
-=== Allgemeines
-==== Zeit
+== Allgemeines
+=== Zeit
 17.00 bis 18.00 Uhr
 
-==== Teilnehmer
+=== Teilnehmer
 * [*]   Alexander S.
 * [*]   Justin S.
 * [*]   Josephin
@@ -12,14 +12,14 @@
 * [*]   Martin
 * [*]   Auftraggeber
 
-=== Iterationsplan
-include::../Iterationsplan_3.adoc[]
+== Iterationsplan
+Siehe GitHub-Repository: /project_docs/Iterationsplan_3.adoc
 
-=== Themen
-==== Vorbereitete Fragen
-include::../questions/Fragen_kommendes_Kundengespraech.adoc[]
+== Themen
+=== Vorbereitete Fragen
+Siehe GitHub-Repository: /project_docs/questions/Fragen_kommendes_Kundengespraech.adoc
 
-===== Besprochene Inhalte
+==== Besprochene Inhalte
 * Abgabezeitraum: Auf Juni geeinigt, wenn es nicht eher fertig werden sollte
 * Technische Fragen
 ** Logins für uns +
@@ -58,6 +58,6 @@ Richtungspfeil)
 ** Wireframe für Diagrammanzeige
 ** Datenbank einrichten
 
-=== Offenes
+== Offenes
 * DSGVO Richtlinien im Umgang mit den Bildern von Personen auf dem Flugplatz +
 -> Zettel zum unterschreiben im Verein austeilen
