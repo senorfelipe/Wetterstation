@@ -19,7 +19,8 @@ Im Team findet die Kommunikation über WhatsApp für kleine und schnelle Absprac
 Für die Themenbearbeitung und Aufgabenverteilung nutzen wir die in GitHub vorgesehenen Issues. 
 
 === zum Auftraggeber
-
+//Email
+//Treffen
 == eingesetzte Tools
 
 = eingesetzte Techniken und Praktiken

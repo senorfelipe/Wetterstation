@@ -17,9 +17,12 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-* F01: Übertragung der Daten geschieht in gleichmäßigen Abständen (einmal pro halbe Stunde)
-* F02: Übertragung der Daten über HTTPS
-* F03: Admins haben Berechtigung um sich im internen Bereich anzumelden
+* F01: Es werden jede Minute neue Wetterdaten gemessen
+* F02: Die Übertragung der Daten geschieht zyklisch
+* F03: Admins haben eine Berechtigung um sich im internen Bereich anzumelden
+* F04: Das System muss einem Admin erlauben Daten zu ändern bzw zu löschen
+* F05: Änderungen von Daten können eingesehen werden
+
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -44,27 +47,27 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 [#sys-wide-reqs-performance]
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
-Reaktionszeit, Durchsatz, Kapazität und Start- oder Abschaltzeiten.
+//Reaktionszeit, Durchsatz, Kapazität und Start- oder Abschaltzeiten.
 
-* P01: Die Bilder bzw. Diagramme werden innerhalb von 5 Sekunden angezeigt
-* P02: Es können mindestens 2 Nutzer parallel mit dem System arbeiten
+* P01: Die Bilder bzw. Diagramme werden innerhalb von 10 Sekunden angezeigt
+* P02: Es können mindestens 2 Nutzer parallel auf das System zugreifen
+* P03: Es werden mindestens zweimal pro Stunde Daten an den Server geschickt
 
 
 [#sys-wide-reqs-supportability]
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 
-* S01: Auf das System muss von der Vereinswebsite aus zugegriffen werden können
+* S01: Das System muss in die Vereinswebsite eingebunden werden können
 * S02: Das System muss auch auf mobilen Oberflächen laufen (z.B. Smartphones)
 * S03: Das System soll auf Linux installierbar sein
-
 
 == Zusätzliche Anforderungen
 [#sys-wide-reqs-constraints]
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Ressourcenbegrenzungen
-* C01: zu nutzende Komponenten: mySQL-Datenbank, Angular
+* C01: zu nutzende Komponenten: mySQL-Datenbank, Webapplikation
 * C02: Vorgaben für die Programmiersprache auf Raspi: Python
 * C03: Hardwareeinschränkungen durch Raspi
 //* zu unterstützende Plattformen / Betriebssysteme
@@ -79,4 +82,4 @@ Reaktionszeit, Durchsatz, Kapazität und Start- oder Abschaltzeiten.
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 //* Lizensierung der Anwendung
-* BR01: Datenschutz (Bilder)
+* BR01: Datenschutz (personenbezogene Daten auf Bildern)

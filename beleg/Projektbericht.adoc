@@ -26,6 +26,8 @@ Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Ph
 
 //Inhalte zur Plaung hier verlinken
 = Planung
+//include::./Planung/Aufgabenstellung.adoc[lines=1..1;4..-1, leveloffset=+1]
+//include::./Planung/Projektorganisation.adoc[lines=1..1;4..-1, leveloffset=+1]
 
 //Inhalte zur Durchführung hier verlinken
 = Durchführung
