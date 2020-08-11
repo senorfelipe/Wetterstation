@@ -58,9 +58,8 @@ Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankse
 == Softwaredokumentation
 
 === Frontend
-npm run compodoc +
-HTML Export +
-link:src\frontend\SE-draft\documentation\index.html[]
+In Frontend/documentation liegt die index.html für die Anzeige der Systemdokumentation des Frontends.
+link:\\C:\Users\justi\Desktop\Uni\GitHub_ODBC\Wetterstation\beleg\Frontend\documentation\index.html[Frontend Documentation]
 
 === Backend
 python -m pydoc -b
