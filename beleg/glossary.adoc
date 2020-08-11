@@ -26,6 +26,8 @@ zur Verfügung stellt|
 |Projekt|Arbeit am Belegthema "T15 - Fernabfrage von Kamerabild und Wetterdaten"|
 |Coach|Herr Zirkelbach|
 |Übergabeversion|Version der Wetterstation-Software zum 31.07.2020|
+|HTW|Hochschule für Technik und Wirtschaft|
+|SE|Software Engineering|
 |===
 		
 
@@ -38,7 +40,8 @@ zur Verfügung stellt|
 |MFCR|Modellflugclub Rossendorf e.V.| Modellflugverein, der das Projekt "Wetterstation" stellt
 |SW|Software|Gegenstück zu Hardware, alle Programme und zugehörigen Daten des Systems
 |Raspi|Raspberry Pi 4| Einplatinen-Computer mit Linux-Distribution zur Datensammlung und Übermittlung an den Webserver
-
+|HTW|Hochschule für Technik und Wirtschaft|Hochschule, an der wir studieren|
+|SE|Software Engineering|Modul, in dem wir das Softwareprojekt bearbeiten|
 |===
 
 == Verzeichnis der Datenstrukturen
