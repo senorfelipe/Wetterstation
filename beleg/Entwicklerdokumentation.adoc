@@ -1,0 +1,68 @@
+:toc:
+:toclevels: 3
+:toc-title: Inhaltsverzeichnis
+:sectanchors:
+:numbered:
+
+toc::[]
+
+= Entwicklerdokumentation
+Autoren: Justin Schirdewahn, Alexander Schoch
+
+== Entwurfsdokumentation
+
+=== Bibliotheken/Frameworks
+
+==== Frontend Frameworks
+
+Wir haben uns bei der Frontendentwicklung für Angular 9 entschieden, weil Angular eine schöne Struktur und viele Funktionalitäten von sich aus mitbrachte. Es ist ein etabliertes Framework für die Frontendentwicklung. Dadurch standen uns viele Möglichkeiten der Informationsbeschaffung zum erlernen von Angular zur Verfügung. Des Weiteren war das Interesse und der Wunsch, Angular zu lernen, bei den Entwicklern vorhanden. +
+Der Kunde war mit der Wahl von Angular zufrieden und so stand der Verwendung nichts mehr im Weg.
+
+==== Frontend Bibliotheken
+
+@auth0/angular-jwt Version 5.0.1, https://github.com/auth0/angular2-jwt +
+angular-bootstrap-md Version 9.3.0, https://getbootstrap.com/docs/4.5/getting-started/introduction/ +
+chart.js Version 2.9.3", https://www.chartjs.org/docs/latest/ +
+core-js Version 3.6.5", https://github.com/zloirock/core-js/blob/master/README.md +
+hammerjs Version 2.0.8", https://hammerjs.github.io/api/ +
+ngx-gallery Version 5.10.0", https://openbase.io/js/ngx-gallery/documentation +
+rxjs Version 6.5.5", https://rxjs.dev/guide/overview +
+@types/node Version 12.12.41", https://openbase.io/js/@types/node/documentation +
+codelyzer Version 5.2.2", http://codelyzer.com/rules/ +
+
+==== Backend Frameworks
+Wir haben uns für die Entwicklung des Backends mit Django entschieden, weil Django schon viele Funktionalitäten von sich aus mitbrachte, unser Entwickler für das Backend schon Erfahrung mit Python hatte und wir unsere Kunden davon überzeugen konnten unsere Alternative zu PHP zu nehmen. So konnte sich unser Backend-Entwickler schnell in das Framework reinarbeiten und die schon gegebenen Funktionalitäten nutzen. So wurde die Entwicklung durch zum Beispiel einen schon vorgegebenen Adminbereich oder die SqLite Entwicklerdatenbank erleichtert. +
+
+Die folgende Liste enthält alles, was für das Backend installiert wurde, mit installierter Version. +
+Django Version 3.0.5, https://docs.djangoproject.com/en/3.1/ +
+djangorestframework Version 3.11.0, https://www.django-rest-framework.org/topics/documenting-your-api/ +
+asgiref Version 3.2.7, https://github.com/django/asgiref/tree/master/docs +
+pytz Version 2019.3, https://readthedocs.org/projects/pytz/ +
+sqlparse Version 0.3.1, https://buildmedia.readthedocs.org/media/pdf/sqlparse/latest/sqlparse.pdf
+
+==== Backend Bibliotheken
+datetime, https://docs.python.org/3/library/datetime.html +
+glob, https://docs.python.org/3/library/glob.html +
+json, https://docs.python.org/3/library/json.html +
+os, https://docs.python.org/3/library/os.html +
+time, https://docs.python.org/3/library/time.html +
+requests, https://requests.readthedocs.io/de/latest/api.html +
+sys, https://docs.python.org/3/library/sys.html +
+
+=== Datenbankschema
+image::architecture_docs/visualizations/aktuelles_erm.jpg[]
+
+=== Schnittstellen
+Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden mit dem Djangorestframework selber entwickelt.
+
+== Softwaredokumentation
+
+=== Frontend
+npm run compodoc +
+HTML Export +
+link:src\frontend\SE-draft\documentation\index.html[]
+
+=== Backend
+python -m pydoc -b
+HTML Export
+link:src\...
