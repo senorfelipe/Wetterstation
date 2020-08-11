@@ -1,10 +1,10 @@
-== Protokoll zum Treffen am 27.05.2020
+= Protokoll zum Treffen am 27.05.2020
 
-=== Allgemeines
-==== Zeit
+== Allgemeines
+=== Zeit
 17.00 bis 18.10 Uhr
 
-==== Teilnehmer
+=== Teilnehmer
 * **intern:**
 * [x] Clemens
 * [x] Alexander
@@ -17,14 +17,14 @@
 * **extern:**
 Herr Professor Iwe, Herr Brenner
 
-=== Iterationsplan
-include::../Iterationsplan_13.adoc[]
+== Iterationsplan
+Siehe GitHub-Repository: /project_docs/Iterationsplan_13.adoc
 
-=== Themen
+== Themen
 . Vorstellung der Ergebnisse (vor allem Front-End mit den Datengraphen)
 . Klärung weiterer Fragen
 
-=== Ergebnisse
+== Ergebnisse
 . Front-End
 .. Die Art der Darstellung ist OK
 .. Das Aussehen des Fornt-End muss noch überarbeitet (verschönert) werden, aber die Funktionalität passt

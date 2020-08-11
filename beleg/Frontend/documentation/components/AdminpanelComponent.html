@@ -1,0 +1,2613 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>se-draft documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">se-draft documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AdminpanelComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/adminpanel/adminpanel.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-adminpanel</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./adminpanel.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./adminpanel.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#adminpanelDataService">adminpanelDataService</a>
+                            </li>
+                            <li>
+                                <a href="#adminpanelDataSubscription">adminpanelDataSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#batteryData">batteryData</a>
+                            </li>
+                            <li>
+                                <a href="#chart">chart</a>
+                            </li>
+                            <li>
+                                <a href="#chartdatasets">chartdatasets</a>
+                            </li>
+                            <li>
+                                <a href="#chartlabels">chartlabels</a>
+                            </li>
+                            <li>
+                                <a href="#chartnames">chartnames</a>
+                            </li>
+                            <li>
+                                <a href="#chartoptions">chartoptions</a>
+                            </li>
+                            <li>
+                                <a href="#displayedLogColumns">displayedLogColumns</a>
+                            </li>
+                            <li>
+                                <a href="#displayedSensorColumns">displayedSensorColumns</a>
+                            </li>
+                            <li>
+                                <a href="#enddateEvents">enddateEvents</a>
+                            </li>
+                            <li>
+                                <a href="#extendedModeStatus">extendedModeStatus</a>
+                            </li>
+                            <li>
+                                <a href="#lastEvent">lastEvent</a>
+                            </li>
+                            <li>
+                                <a href="#logTableData">logTableData</a>
+                            </li>
+                            <li>
+                                <a href="#raspberryData">raspberryData</a>
+                            </li>
+                            <li>
+                                <a href="#sensorTableData">sensorTableData</a>
+                            </li>
+                            <li>
+                                <a href="#solarData">solarData</a>
+                            </li>
+                            <li>
+                                <a href="#startdateEvents">startdateEvents</a>
+                            </li>
+                            <li>
+                                <a href="#volIsToggled">volIsToggled</a>
+                            </li>
+                            <li>
+                                <a href="#volumeData">volumeData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addEndEvent">addEndEvent</a>
+                            </li>
+                            <li>
+                                <a href="#addStartEvent">addStartEvent</a>
+                            </li>
+                            <li>
+                                <a href="#applyTimeframe">applyTimeframe</a>
+                            </li>
+                            <li>
+                                <a href="#batteryChart">batteryChart</a>
+                            </li>
+                            <li>
+                                <a href="#buildChart">buildChart</a>
+                            </li>
+                            <li>
+                                <a href="#diagramChange">diagramChange</a>
+                            </li>
+                            <li>
+                                <a href="#getBatteryDataSet">getBatteryDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#getRaspberryDataSet">getRaspberryDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#getSolarDataSet">getSolarDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#getVolumeDataSet">getVolumeDataSet</a>
+                            </li>
+                            <li>
+                                <a href="#initData">initData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#raspberryChart">raspberryChart</a>
+                            </li>
+                            <li>
+                                <a href="#solarChart">solarChart</a>
+                            </li>
+                            <li>
+                                <a href="#updateChartLabels">updateChartLabels</a>
+                            </li>
+                            <li>
+                                <a href="#volumeChart">volumeChart</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(adminpanelDataService: <a href="../injectables/AdminpanelDataService.html">AdminpanelDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:207</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>adminpanelDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdminpanelDataService.html" target="_self" >AdminpanelDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addEndEvent"></a>
+                    <span class="name">
+                        <b>
+                            addEndEvent
+                        </b>
+                        <a href="#addEndEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addEndEvent(event: MatDatepickerInputEvent<Date>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="375"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:375</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatDatepickerInputEvent&lt;Date&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Input Enddatum
+Eventhandler Enddatum Datepicker</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addStartEvent"></a>
+                    <span class="name">
+                        <b>
+                            addStartEvent
+                        </b>
+                        <a href="#addStartEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addStartEvent(event: MatDatepickerInputEvent<Date>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="365"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:365</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatDatepickerInputEvent&lt;Date&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Input Startdatum
+Eventhandler Startdatum Datepicker</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyTimeframe"></a>
+                    <span class="name">
+                        <b>
+                            applyTimeframe
+                        </b>
+                        <a href="#applyTimeframe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyTimeframe()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="383"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:383</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fetcht alle Datensets mit dem angegebenen Zeitraum</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="batteryChart"></a>
+                    <span class="name">
+                        <b>
+                            batteryChart
+                        </b>
+                        <a href="#batteryChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>batteryChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="293"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:293</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialisert Batteriedaten und baut den zugehörigen Graphen </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildChart"></a>
+                    <span class="name">
+                        <b>
+                            buildChart
+                        </b>
+                        <a href="#buildChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildChart(data, diaName, dat)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:316</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Datensatz</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>diaName</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Graphname</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>dat</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Labels
+baut den Graphen auf</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="diagramChange"></a>
+                    <span class="name">
+                        <b>
+                            diagramChange
+                        </b>
+                        <a href="#diagramChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>diagramChange(event: MatButtonToggleChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:226</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatButtonToggleChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Event beim Wechsel des Diagramms
+Eventhandling des Graphen</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBatteryDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getBatteryDataSet
+                        </b>
+                        <a href="#getBatteryDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBatteryDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="343"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:343</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>init. Batteriedaten </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRaspberryDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getRaspberryDataSet
+                        </b>
+                        <a href="#getRaspberryDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRaspberryDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="349"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:349</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>init. Raspberrydaten </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSolarDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getSolarDataSet
+                        </b>
+                        <a href="#getSolarDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSolarDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="336"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:336</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>init. Solardaten </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVolumeDataSet"></a>
+                    <span class="name">
+                        <b>
+                            getVolumeDataSet
+                        </b>
+                        <a href="#getVolumeDataSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVolumeDataSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="354"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:354</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>init. Datenvolumen </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initData"></a>
+                    <span class="name">
+                        <b>
+                            initData
+                        </b>
+                        <a href="#initData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>initialisiert Solar, Batterie, Raspberry und Datenvolumendaten</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="raspberryChart"></a>
+                    <span class="name">
+                        <b>
+                            raspberryChart
+                        </b>
+                        <a href="#raspberryChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>raspberryChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="298"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:298</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialisert Daten des Raspberry Pi und baut den zugehörigen Graphen </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solarChart"></a>
+                    <span class="name">
+                        <b>
+                            solarChart
+                        </b>
+                        <a href="#solarChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>solarChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="287"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:287</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialisert Solardaten und baut den zugehörigen Graphen </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateChartLabels"></a>
+                    <span class="name">
+                        <b>
+                            updateChartLabels
+                        </b>
+                        <a href="#updateChartLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateChartLabels()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="277"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:277</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="volumeChart"></a>
+                    <span class="name">
+                        <b>
+                            volumeChart
+                        </b>
+                        <a href="#volumeChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>volumeChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:304</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialisert Datenvolumen und baut den zugehörigen Graphen </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adminpanelDataService"></a>
+                        <span class="name">
+                            <b>
+                            adminpanelDataService</b>
+                            <a href="#adminpanelDataService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AdminpanelDataService.html" target="_self" >AdminpanelDataService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>DataService für das Adminpanel</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adminpanelDataSubscription"></a>
+                        <span class="name">
+                            <b>
+                            adminpanelDataSubscription</b>
+                            <a href="#adminpanelDataSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batteryData"></a>
+                        <span class="name">
+                            <b>
+                            batteryData</b>
+                            <a href="#batteryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/BatteryData.html" target="_self" >BatteryData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Daten der Batterie </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chart"></a>
+                        <span class="name">
+                            <b>
+                            chart</b>
+                            <a href="#chart"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Chart</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert Chart </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartdatasets"></a>
+                        <span class="name">
+                            <b>
+                            chartdatasets</b>
+                            <a href="#chartdatasets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    [//Solarzelle
+      {
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage),
+        fill: false
+      },
+      {
+        label: &quot;Leistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],
+        fill: false
+      }],
+    [
+      {
+        //Akku
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [],
+        fill: false
+      },
+      {
+        label: &quot;Ladestrom&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;current&#x27;,
+        data: [],
+        fill: false
+      }
+    ],
+    [//Raspi
+      {
+        label: &quot;Lastspannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [1.8, 2, 0.9],//TODO
+        fill: false
+      },
+      {
+        label: &quot;Lastleistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],//TODO
+        fill: false
+      }],
+    [{
+      label: &quot;Datenmenge&quot;,
+      borderColor: &quot;#CE1A9E&quot;,
+      yAxisID: &#x27;volume&#x27;,
+      data: this.volumeData.map(datavolume &#x3D;&gt; datavolume.image_size),
+      fill: false
+    }]
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:87</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datensets der Graphen</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartlabels"></a>
+                        <span class="name">
+                            <b>
+                            chartlabels</b>
+                            <a href="#chartlabels"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>String[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Spannung in Volt&#x27;, &#x27;Stromstärke in A&#x27;, &#x27;Leistung in Watt&#x27;, &#x27;Datenmenge in Byte&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Axenbeschriftung </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartnames"></a>
+                        <span class="name">
+                            <b>
+                            chartnames</b>
+                            <a href="#chartnames"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>String[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;Solarzelle&quot;, &quot;Akku&quot;, &quot;Raspberry&quot;, &quot;Datenverbrauch&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Namen der Graphen </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartoptions"></a>
+                        <span class="name">
+                            <b>
+                            chartoptions</b>
+                            <a href="#chartoptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  title: {
+    display: true,
+    text: &#x27;&#x27;,
+    fontSize: 20
+  },
+  animation: {
+    duration: 0,
+  },
+  hover: {
+    animationDuration: 0,
+  },
+  responsiveAnimationDuration: 0,
+  scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Spannung in Volt&#x27;
+      },
+      id: &#x27;voltage&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Stromstärke in A&#x27;
+      },
+      id: &#x27;current&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Leistung in Watt&#x27;
+      },
+      id: &#x27;watt&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Datenmenge in Byte&#x27;
+      },
+
+      id: &#x27;volume&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    }
+    ]
+  }
+}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:146</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Chartoptions für die Diagramme</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedLogColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedLogColumns</b>
+                            <a href="#displayedLogColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;date&#x27;, &#x27;name&#x27;, &#x27;action&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="281" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:281</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedSensorColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedSensorColumns</b>
+                            <a href="#displayedSensorColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;sensor&#x27;, &#x27;status&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="284" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:284</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enddateEvents"></a>
+                        <span class="name">
+                            <b>
+                            enddateEvents</b>
+                            <a href="#enddateEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="extendedModeStatus"></a>
+                        <span class="name">
+                            <b>
+                            extendedModeStatus</b>
+                            <a href="#extendedModeStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BehaviorSubject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>für z </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastEvent"></a>
+                        <span class="name">
+                            <b>
+                            lastEvent</b>
+                            <a href="#lastEvent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatButtonToggleChange</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logTableData"></a>
+                        <span class="name">
+                            <b>
+                            logTableData</b>
+                            <a href="#logTableData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>logData</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="282" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:282</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="raspberryData"></a>
+                        <span class="name">
+                            <b>
+                            raspberryData</b>
+                            <a href="#raspberryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RaspberryData.html" target="_self" >RaspberryData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Raspberry Messdaten </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sensorTableData"></a>
+                        <span class="name">
+                            <b>
+                            sensorTableData</b>
+                            <a href="#sensorTableData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>sensorData</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:285</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="solarData"></a>
+                        <span class="name">
+                            <b>
+                            solarData</b>
+                            <a href="#solarData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/SolarData.html" target="_self" >SolarData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:58</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Daten des Solarpanels</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startdateEvents"></a>
+                        <span class="name">
+                            <b>
+                            startdateEvents</b>
+                            <a href="#startdateEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="volIsToggled"></a>
+                        <span class="name">
+                            <b>
+                            volIsToggled</b>
+                            <a href="#volIsToggled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="volumeData"></a>
+                        <span class="name">
+                            <b>
+                            volumeData</b>
+                            <a href="#volumeData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/VolumeData.html" target="_self" >VolumeData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/adminpanel/adminpanel.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datenvolumen </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { SolarData, AdminpanelDataService, BatteryData, VolumeData, RaspberryData } from &quot;../adminpanel-data.service&quot;;
+import { MatButtonToggleChange } from &#x27;@angular/material/button-toggle&#x27;;
+import { MatDatepickerInputEvent } from &#x27;@angular/material/datepicker&#x27;;
+import { BehaviorSubject, Subscription } from &#x27;rxjs&#x27;;
+import { Chart } from &#x27;chart.js&#x27;;
+
+/**PLACEHOLDER */
+var dates &#x3D; [&#x27;25.05.2020&#x27;, &#x27;26.05.2020&#x27;, &#x27;27.05.2020&#x27;]
+
+/**
+ *@ignore  */
+export interface raspyActions {
+  date: string;
+  name: string;
+  action: string;
+}
+
+/**
+ * @ignore
+ */
+export interface sensorActions {
+  /**Sensorname */
+  sensor: string;
+  /**Sensorstatus */
+  status: string;
+}
+
+/**Für kumuliertes Datenvolumen */
+const add &#x3D; (a, b) &#x3D;&gt; a + b;
+/**Ausgeführte Aktionen auf den Raspberry Pi; kommendes Feature */
+const logData: raspyActions[] &#x3D; [];
+/**Sensoren für kommende Features */
+const sensorData: sensorActions[] &#x3D; [
+  { sensor: &quot;Temperatur&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Wind&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Spannung Raspberry&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Strom Raspberry&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Spannung Photovoltaik&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Strom Photovoltaik&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Leistungsaufnahme&quot;, status: &quot;OK&quot; },
+  { sensor: &quot;Ladestrom&quot;, status: &quot;OK&quot; }
+];
+
+@Component({
+  selector: &#x27;app-adminpanel&#x27;,
+  templateUrl: &#x27;./adminpanel.component.html&#x27;,
+  styleUrls: [&#x27;./adminpanel.component.scss&#x27;]
+})
+
+export class AdminpanelComponent implements OnInit {
+/**
+ * DataService für das Adminpanel
+ */
+  adminpanelDataService: AdminpanelDataService;
+  /** Daten des Solarpanels
+   */
+  solarData: SolarData[] &#x3D; [];
+  /**Daten der Batterie */
+  batteryData: BatteryData[] &#x3D; [];
+  /**Raspberry Messdaten */
+  raspberryData: RaspberryData[] &#x3D; [];
+  /**Datenvolumen */
+  volumeData: VolumeData[] &#x3D; [];
+  /**für z */
+  extendedModeStatus: BehaviorSubject&lt;boolean&gt;;
+  lastEvent: MatButtonToggleChange;
+
+  startdateEvents: string[] &#x3D; [];
+  enddateEvents: string[] &#x3D; [];
+
+  /**Gibt für [hidden] an, ob die Leistungsaufnahme ausgewählt wurde oder nicht*/
+  volIsToggled: boolean &#x3D; true;
+
+  adminpanelDataSubscription: Subscription;
+
+  /**Definiert Chart */
+  chart: Chart;
+  /**Namen der Graphen */
+  chartnames: String[] &#x3D; [&quot;Solarzelle&quot;, &quot;Akku&quot;, &quot;Raspberry&quot;, &quot;Datenverbrauch&quot;];
+  /**Axenbeschriftung */
+  chartlabels: String[] &#x3D; [&#x27;Spannung in Volt&#x27;, &#x27;Stromstärke in A&#x27;, &#x27;Leistung in Watt&#x27;, &#x27;Datenmenge in Byte&#x27;]
+
+  /**
+   * Datensets der Graphen
+   */
+  chartdatasets &#x3D; [
+    [//Solarzelle
+      {
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage),
+        fill: false
+      },
+      {
+        label: &quot;Leistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],
+        fill: false
+      }],
+    [
+      {
+        //Akku
+        label: &quot;Spannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [],
+        fill: false
+      },
+      {
+        label: &quot;Ladestrom&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;current&#x27;,
+        data: [],
+        fill: false
+      }
+    ],
+    [//Raspi
+      {
+        label: &quot;Lastspannung&quot;,
+        borderColor: &quot;#013ADF&quot;,
+        yAxisID: &#x27;voltage&#x27;,
+        data: [1.8, 2, 0.9],//TODO
+        fill: false
+      },
+      {
+        label: &quot;Lastleistung&quot;,
+        borderColor: &quot;#FF0000&quot;,
+        yAxisID: &#x27;watt&#x27;,
+        data: [1, 2, 1.8],//TODO
+        fill: false
+      }],
+    [{
+      label: &quot;Datenmenge&quot;,
+      borderColor: &quot;#CE1A9E&quot;,
+      yAxisID: &#x27;volume&#x27;,
+      data: this.volumeData.map(datavolume &#x3D;&gt; datavolume.image_size),
+      fill: false
+    }]
+  ]
+/**
+ * Chartoptions für die Diagramme
+ */
+chartoptions&#x3D;{
+  title: {
+    display: true,
+    text: &#x27;&#x27;,
+    fontSize: 20
+  },
+  animation: {
+    duration: 0,
+  },
+  hover: {
+    animationDuration: 0,
+  },
+  responsiveAnimationDuration: 0,
+  scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Spannung in Volt&#x27;
+      },
+      id: &#x27;voltage&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Stromstärke in A&#x27;
+      },
+      id: &#x27;current&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Leistung in Watt&#x27;
+      },
+      id: &#x27;watt&#x27;,
+      position: &#x27;right&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    {
+      scaleLabel: {
+        display: true,
+        labelString: &#x27;Datenmenge in Byte&#x27;
+      },
+
+      id: &#x27;volume&#x27;,
+      position: &#x27;left&#x27;,
+      ticks: {
+        beginAtZero: true
+      }
+    }
+    ]
+  }
+}
+
+  constructor(adminpanelDataService: AdminpanelDataService) {
+    /**Service für Datenfetching */
+    this.adminpanelDataService &#x3D; adminpanelDataService
+    /**BehaviourSubject für extended Mode */
+    this.extendedModeStatus &#x3D; new BehaviorSubject(false)
+  }
+
+  ngOnInit() {
+    this.initData();
+    console.log(this.chartdatasets)
+    
+  }
+/**
+ * 
+ * @param event Event beim Wechsel des Diagramms
+ * Eventhandling des Graphen
+ */
+  diagramChange(event: MatButtonToggleChange) {
+    this.lastEvent &#x3D; event;
+    if (event.value &#x3D;&#x3D; &quot;solar&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.solarChart();
+    }
+    else if (event.value &#x3D;&#x3D; &quot;battery&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.batteryChart();
+    }
+    else if (event.value &#x3D;&#x3D; &quot;raspberry&quot;) {
+      this.volIsToggled &#x3D; true;
+      this.raspberryChart();
+    }
+    else if (event.value &#x3D;&#x3D; &quot;volume&quot;) {
+      this.volIsToggled &#x3D; false;
+      this.volumeChart();
+    }
+ 
+  }
+  /**
+   * initialisiert Solar, Batterie, Raspberry und Datenvolumendaten
+   */
+  initData() {
+    var input &#x3D; 4;
+    var date &#x3D; new Date();
+    var firstMonthDay &#x3D; new Date(date.getFullYear(), date.getMonth(), 1);
+    var lastMonthDay &#x3D; new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getSolarData(input).subscribe((datasolar) &#x3D;&gt; {
+        this.solarData &#x3D; datasolar;
+        this.solarChart();
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getBatteryData(input).subscribe((databattery) &#x3D;&gt; {
+        this.batteryData &#x3D; databattery;
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getRaspberryData(input).subscribe((datarasp) &#x3D;&gt; {
+        this.raspberryData &#x3D; datarasp;
+      });
+
+    this.adminpanelDataSubscription &#x3D;
+      this.adminpanelDataService.getVolumeDataFrame(firstMonthDay,lastMonthDay).subscribe((datavol) &#x3D;&gt; {
+        console.log(datavol)
+        this.volumeData &#x3D; datavol;
+      });
+  }
+  updateChartLabels() {
+    this.chartlabels
+  }
+
+  displayedLogColumns: string[] &#x3D; [&#x27;date&#x27;, &#x27;name&#x27;, &#x27;action&#x27;];
+  logTableData &#x3D; logData;
+
+  displayedSensorColumns: string[] &#x3D; [&#x27;sensor&#x27;, &#x27;status&#x27;];
+  sensorTableData &#x3D; sensorData;
+/**Initialisert Solardaten und baut den zugehörigen Graphen */
+  solarChart() {
+
+    this.getSolarDataSet();
+    this.buildChart(this.chartdatasets[0], this.chartnames[0], this.solarData.map(data &#x3D;&gt; new Date(data.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+/**Initialisert Batteriedaten und baut den zugehörigen Graphen */
+  batteryChart() {
+    this.getBatteryDataSet()
+    this.buildChart(this.chartdatasets[1], this.chartnames[1], this.batteryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+/**Initialisert Daten des Raspberry Pi und baut den zugehörigen Graphen */
+  raspberryChart() {
+    this.getRaspberryDataSet()
+    this.buildChart(this.chartdatasets[2], this.chartnames[2], this.raspberryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+
+  /**Initialisert Datenvolumen und baut den zugehörigen Graphen */
+  volumeChart() {
+    this.getVolumeDataSet();
+    this.buildChart(this.chartdatasets[3], this.chartnames[3], this.raspberryData.map(datesolar &#x3D;&gt; new Date(datesolar.measure_time).toLocaleString([],{month:&#x27;2-digit&#x27;,day:&#x27;2-digit&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;})))
+  }
+  /**
+   * 
+   * @param data Datensatz
+   * @param diaName Graphname
+   * @param dat Labels
+   * baut den Graphen auf
+   */
+
+  buildChart(data, diaName, dat) {
+    /**Zerstöre Chart wenn er bereits existiert; Wichtig für Hovering */
+    if(this.chart!&#x3D;undefined){
+      this.chart.destroy();
+    }
+    let canvas &#x3D; document.getElementById(&#x27;elecChart&#x27;);
+    let dataSet &#x3D; data;
+    this.chartoptions.title.text&#x3D;diaName
+  this.chart &#x3D; new Chart(canvas, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: dat,
+        datasets: dataSet
+      },
+      options: this.chartoptions
+    });
+     
+    
+  }
+  /** init. Solardaten */
+  getSolarDataSet() {
+    this.chartdatasets[0][0].data &#x3D; this.solarData.map(datasolar &#x3D;&gt; datasolar.voltage)
+    console.log(this.chartdatasets[0][0].data)
+    this.chartdatasets[0][1].data &#x3D; [1, 2, 1.8]
+
+  }
+  /** init. Batteriedaten */
+  getBatteryDataSet() {
+    this.chartdatasets[1][0].data &#x3D; this.batteryData.map(data&#x3D;&gt; data.voltage);//TODO
+    this.chartdatasets[1][1].data &#x3D; this.batteryData.map(data&#x3D;&gt; data.current);//TODO
+
+  }
+  /** init. Raspberrydaten */
+  getRaspberryDataSet() {
+    this.chartdatasets[2][0].data &#x3D; [1.8, 2, 0.9];//TODO
+    this.chartdatasets[2][1].data &#x3D; [1, 2, 1.8];//TODO
+  }
+/** init. Datenvolumen */
+  getVolumeDataSet() {
+    this.chartdatasets[3][0].data&#x3D;this.volumeData.map(datavolume &#x3D;&gt; datavolume.image_size);
+    document.getElementById(&quot;volSum&quot;).innerHTML &#x3D; this.chartdatasets[3][0].data.reduce(add).toString(); //Summe der einzelnen Werte im Zeitraum
+    console.log(this.chartdatasets)
+  }
+
+ /**
+  * 
+  * @param event Input Startdatum
+  * Eventhandler Startdatum Datepicker
+  */
+  addStartEvent(event: MatDatepickerInputEvent&lt;Date&gt;) {
+    this.startdateEvents.push(&#x60;${event.value}&#x60;);
+    console.log(this.startdateEvents)
+
+  }
+/**
+ * 
+ * @param event Input Enddatum
+ * Eventhandler Enddatum Datepicker
+ */
+  addEndEvent(event: MatDatepickerInputEvent&lt;Date&gt;) {
+    this.enddateEvents.push(&#x60;${event.value}&#x60;);
+    console.log(this.enddateEvents)
+
+  }
+/**
+ * Fetcht alle Datensets mit dem angegebenen Zeitraum
+ */
+  applyTimeframe() {
+    let startstring &#x3D; this.startdateEvents[this.startdateEvents.length - 1]
+    let startdate &#x3D; new Date(startstring);
+    console.log(startdate);
+
+    let endstring &#x3D; this.enddateEvents[this.enddateEvents.length - 1]
+    let enddate &#x3D; new Date(endstring);
+    console.log(enddate);
+
+
+    if (enddate &gt; startdate) {
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getSolarDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.solarData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getBatteryDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.batteryData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getRaspberryDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.raspberryData &#x3D; data;
+        });
+
+      this.adminpanelDataSubscription &#x3D;
+        this.adminpanelDataService.getVolumeDataFrame(startdate, enddate).subscribe((data) &#x3D;&gt; {
+          this.volumeData &#x3D; data;
+        });
+      if(this.lastEvent !&#x3D; undefined) this.diagramChange(this.lastEvent);
+      else{ this.solarChart() }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;script&gt; src&#x3D;&quot;https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js&quot; &lt;/script&gt;
+&lt;/head&gt;
+    
+&lt;body&gt;
+    &lt;!--Auswahl Diagramm--&gt;
+
+    &lt;!--Diagramm--&gt;
+    &lt;mat-card&gt;
+        &lt;section&gt;
+            &lt;mat-button-toggle-group name&#x3D;&quot;adminGraph&quot; aria-label&#x3D;&quot;Font Style&quot;&gt;
+                &lt;mat-button-toggle value&#x3D;&quot;solar&quot; (change)&#x3D;&quot;diagramChange($event)&quot; checked&gt;Solarzelle&lt;/mat-button-toggle&gt;
+                &lt;mat-button-toggle value&#x3D;&quot;battery&quot; (change)&#x3D;&quot;diagramChange($event)&quot;&gt;Akku&lt;/mat-button-toggle&gt;
+                &lt;mat-button-toggle value&#x3D;&quot;raspberry&quot; (change)&#x3D;&quot;diagramChange($event)&quot;&gt;Raspberry&lt;/mat-button-toggle&gt;
+                &lt;mat-button-toggle value&#x3D;&quot;volume&quot; (change)&#x3D;&quot;diagramChange($event)&quot;&gt;Datenverbrauch&lt;/mat-button-toggle&gt;
+            &lt;/mat-button-toggle-group&gt;
+    
+        &lt;mat-card class&#x3D;&quot;selectorcard&quot;&gt;
+              &lt;mat-form-field class&#x3D;&quot;startpickform&quot;&gt;
+                &lt;mat-label&gt;Startdatum&lt;/mat-label&gt;
+                &lt;input matInput [matDatepicker]&#x3D;&quot;startpicker&quot; (dateInput)&#x3D;&quot;addStartEvent($event)&quot;&gt;
+                &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;startpicker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+                &lt;mat-datepicker #startpicker&gt;&lt;/mat-datepicker&gt;
+              &lt;/mat-form-field&gt;
+        
+              &lt;mat-form-field class&#x3D;&quot;endpickform&quot;&gt;
+                &lt;mat-label&gt;Enddatum&lt;/mat-label&gt;
+                &lt;input matInput [matDatepicker]&#x3D;&quot;endpicker&quot; (dateInput)&#x3D;&quot;addEndEvent($event)&quot;&gt;
+                &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;endpicker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+                &lt;mat-datepicker #endpicker&gt;&lt;/mat-datepicker&gt;
+              &lt;/mat-form-field&gt;
+              &lt;button mat-button class&#x3D;&quot;applydates&quot; (click)&#x3D;&quot;applyTimeframe()&quot;&gt;Anwenden&lt;/button&gt;
+          &lt;/mat-card&gt;
+        &lt;/section&gt;
+    
+        &lt;canvas id&#x3D; &quot;elecChart&quot;&gt;&lt;/canvas&gt;
+    &lt;/mat-card&gt;
+
+    &lt;!--Summe Datenverbrauch anzeigen--&gt;
+    &lt;div [hidden]&#x3D;&quot;volIsToggled&quot;&gt;
+        &lt;section class&#x3D;&quot;volumesec&quot;&gt;
+            &lt;p&gt;Verbrauchtes Datenvolumen im gewählten Zeitraum: &lt;span id&#x3D;&quot;volSum&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+
+    &lt;!--Logbuch--&gt;
+    &lt;mat-grid-list cols&#x3D;&quot;2&quot;&gt;
+    &lt;mat-grid-tile&gt;
+        
+        &lt;mat-card class&#x3D;actionscontainer&gt;
+        
+    &lt;table mat-table [dataSource]&#x3D;&quot;logTableData&quot;&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;date&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Datum&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; &gt; {{element.date}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Name&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Aktion&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.action}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedLogColumns&quot;&gt;&lt;/tr&gt;
+        &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedLogColumns;&quot;class&#x3D;&quot;flex-stretch&quot;&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/mat-card&gt;
+
+    &lt;/mat-grid-tile&gt;
+
+    &lt;!--Sensorprüfung--&gt;
+    &lt;mat-grid-tile&gt;
+    &lt;mat-card&gt;
+    &lt;table mat-table [dataSource]&#x3D;&quot;sensorTableData&quot;&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;sensor&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Sensor&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.sensor}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;status&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Status&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.status}} &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedSensorColumns&quot;&gt;&lt;/tr&gt;
+        &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedSensorColumns;&quot;&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/mat-card&gt;
+    &lt;/mat-grid-tile&gt;
+    &lt;/mat-grid-list&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./adminpanel.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.matlist{
+    height: 100%;
+    width: 100%;
+    padding-top: 24px !important;
+  }
+
+table {
+    width: 20%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+H1 {
+    text-align: center;
+  }
+
+.btnDiv {
+    text-align: left;
+  }
+
+.checksec {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+.volumesec {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+.checkmarg {
+    margin: 0 10px;
+  }
+
+
+  mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 40px);
+    margin-bottom: 1em;
+  }
+.startpickform{
+  margin-right: 1.25rem;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!DOCTYPE html><html><head>    <script> src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" </script></head>    <body>    <!--Auswahl Diagramm-->    <!--Diagramm-->    <mat-card>        <section>            <mat-button-toggle-group name="adminGraph" aria-label="Font Style">                <mat-button-toggle value="solar" (change)="diagramChange($event)" checked>Solarzelle</mat-button-toggle>                <mat-button-toggle value="battery" (change)="diagramChange($event)">Akku</mat-button-toggle>                <mat-button-toggle value="raspberry" (change)="diagramChange($event)">Raspberry</mat-button-toggle>                <mat-button-toggle value="volume" (change)="diagramChange($event)">Datenverbrauch</mat-button-toggle>            </mat-button-toggle-group>            <mat-card class="selectorcard">              <mat-form-field class="startpickform">                <mat-label>Startdatum</mat-label>                <input matInput [matDatepicker]="startpicker" (dateInput)="addStartEvent($event)">                <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>                <mat-datepicker #startpicker></mat-datepicker>              </mat-form-field>                      <mat-form-field class="endpickform">                <mat-label>Enddatum</mat-label>                <input matInput [matDatepicker]="endpicker" (dateInput)="addEndEvent($event)">                <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>                <mat-datepicker #endpicker></mat-datepicker>              </mat-form-field>              <button mat-button class="applydates" (click)="applyTimeframe()">Anwenden</button>          </mat-card>        </section>            <canvas id= "elecChart"></canvas>    </mat-card>    <!--Summe Datenverbrauch anzeigen-->    <div [hidden]="volIsToggled">        <section class="volumesec">            <p>Verbrauchtes Datenvolumen im gewählten Zeitraum: <span id="volSum"></span></p>        </section>    </div>    <!--Logbuch-->    <mat-grid-list cols="2">    <mat-grid-tile>                <mat-card class=actionscontainer>            <table mat-table [dataSource]="logTableData">        <ng-container matColumnDef="date">            <th mat-header-cell *matHeaderCellDef>Datum</th>            <td mat-cell *matCellDef="let element" > {{element.date}} </td>        </ng-container>        <ng-container matColumnDef="name">            <th mat-header-cell *matHeaderCellDef>Name</th>            <td mat-cell *matCellDef="let element"> {{element.name}} </td>        </ng-container>        <ng-container matColumnDef="action">            <th mat-header-cell *matHeaderCellDef>Aktion</th>            <td mat-cell *matCellDef="let element"> {{element.action}} </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedLogColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedLogColumns;"class="flex-stretch"></tr>    </table></mat-card>    </mat-grid-tile>    <!--Sensorprüfung-->    <mat-grid-tile>    <mat-card>    <table mat-table [dataSource]="sensorTableData">        <ng-container matColumnDef="sensor">            <th mat-header-cell *matHeaderCellDef>Sensor</th>            <td mat-cell *matCellDef="let element"> {{element.sensor}} </td>        </ng-container>        <ng-container matColumnDef="status">            <th mat-header-cell *matHeaderCellDef>Status</th>            <td mat-cell *matCellDef="let element"> {{element.status}} </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedSensorColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedSensorColumns;"></tr>    </table>    </mat-card>    </mat-grid-tile>    </mat-grid-list></body></html></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminpanelComponent', 'selector': 'app-adminpanel'},{'name': 'GraphsComponent', 'selector': 'app-graphs'},{'name': 'WebcamComponent', 'selector': 'app-webcam'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminpanelComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminpanelComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

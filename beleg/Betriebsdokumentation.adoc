@@ -1,0 +1,63 @@
+:toc:
+:toclevels: 3
+:toc-title: Inhaltsverzeichnis
+:sectanchors:
+:numbered:
+
+toc::[]
+
+= Betriebsdokumentation
+Autoren: Justin Schirdewahn
+
+== Systemanforderungen
+- läuft auf Linuxserver
+- Datenbank = MySQL
+- Apache 2 Webserver
+- Chrome Version 84.0.41.47.105 
+
+== Systemeinrichtung
+
+=== Prozentualer Anteil der Komponenten am Gesamtprojekt
+- 42.0% TypeScript
+- 35.1% Python
+- 13.9% HTML
+- 5.7% CSS
+- 3.3% JavaScript
+
+=== Komponenten
+Auf Komponententeile wie .JAR oder .EXE Formartierungen wurde verzichtet.
+
+=== Verzeichnisstruktur
+Bilder einbinden!
+
+=== Installation
+Nochmal Phillip und Alex fragen
+
+=== konfigurationsdaten
+- IP-Adresse:       - 79.254.12.239
+                    - 80.158.40.211
+- Referenz-Objekt:  - Raspberry Pi
+                    - Datenbank
+- Passwörter:       - Bei Erstellung von Admin 'python manage.py createsuperuser' definiert
+                    - wth1984_
+                    - Wth1984_DB
+- Berechtigungen:   - Webserver Adminbereich
+                    - Zugriff auf Raspi
+                    - Zugriff auf Datenbank
+
+== Systembetreuung
+
+=== FAQ
+- Fragen
+- Antworten 
+
+Nochmal schön in Tabelle machen
+
+=== Fehlerdiagnose
+Fehler werden im Adminbereich per Log-Files angezeigt
+
+=== Datensicherung
+
+=== Links
+
+coming soon...
