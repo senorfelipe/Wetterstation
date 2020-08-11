@@ -31,7 +31,7 @@ Das Frontend besitzt eine Angular Verzeichnisstruktur. Unter https://angular.io/
 image:Bilder/Verzeichnisstruktur_Frontend.jpg[] +
 Das Backend ist in zwei Teile gegliedert. In 'http_client' und 'wetterstation/weather'. +
 image:Bilder/Verzeichnisstruktur_Backend.jpg[] +
-Unter 'http_client' liegen die Scripte, welche für das Versenden von Daten zuständig sind. +
+Unter 'http_client' liegen die Hilfsscripte, welche für das Versenden von Daten zuständig sind. +
 Unter 'wetterstation' liegt die Logik des Systems. Hier werden die Daten, welche vom Raspberry Pi versand werden an die Datenbankstruktur angepasst, für die Verarbeitung im Frontend aufbereitet und die Funktionalität des Administrationsbereiches definiert und sichergestellt. Es wird die Struktur eines Django Projektes verwendet. Um mehr über die Struktur zu erfahren geht es hier zur https://docs.djangoproject.com/en/3.0/ref/[Dokumentation].
 
 === Installation
