@@ -50,10 +50,10 @@ requests, https://requests.readthedocs.io/de/latest/api.html +
 sys, https://docs.python.org/3/library/sys.html +
 
 === Datenbankschema
-image::architecture_docs/visualizations/aktuelles_erm.jpg[]
+image::../architecture_docs/visualizations/aktuelles_erm.jpg[]
 
 === Schnittstellen
-Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden mit dem Djangorestframework selber entwickelt.
+Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden selber entwickelt.
 
 == Softwaredokumentation
 
