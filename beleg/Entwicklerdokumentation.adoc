@@ -51,16 +51,18 @@ https://requests.readthedocs.io/de/latest/api.html[request] +
 https://docs.python.org/3/library/sys.html[sys] +
 
 === Datenbankschema
-image::../architecture_docs/visualizations/aktuelles_erm.jpg[]
+image::Bilder/aktuelles_erm.jpg[]
 
 === Schnittstellen
-Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden selber entwickelt.
+Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankserver und Website wurden selber entwickelt. Sie liegen unter 'src/http_client/'.
 
 == Softwaredokumentation
 
 === Frontend
-In Wetterstation\beleg\Frontend\documentation liegt die index.html für die Anzeige der Systemdokumentation des Frontends.
+In Wetterstation\beleg\Frontend\documentation liegt die index.html für die Anzeige der Systemdokumentation des Frontends. Doppelklcik auf die index.html ausführen und Dokumentation betrachten. +
 link:\\C:\Users\justi\Desktop\Uni\GitHub_ODBC\Wetterstation\beleg\Frontend\documentation\index.html[Frontend Documentation]
+
+Relativer Pfad funktioniert nicht.
 
 === Backend
 python -m pydoc -b
