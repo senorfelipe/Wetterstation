@@ -18,10 +18,9 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 * F01: Es werden jede Minute neue Wetterdaten gemessen
-* F02: Die Übertragung der Wetterdaten an den Datenbankserver geschieht zyklisch 
-* F03: Die Übertragung der Bilder an den Datenbankserver geschieht zyklisch
+* F02: Die Übertragung der Daten geschieht zyklisch 
 * F03: Admins haben eine Berechtigung um sich im internen Bereich anzumelden
-* F04: Das System muss einem Admin erlauben Daten zu ändern bzw. zu löschen
+* F04: Das System muss einem Admin erlauben Daten zu ändern bzw zu löschen
 * F05: Änderungen von Daten können eingesehen werden
 * F06: Die Übertragung der Daten geschieht über https
 

@@ -1,0 +1,25 @@
+=== Use-Cases
+
+* Bildergalerie abrufen -> User, Administratoren
+* Daten aufrufen -> User, Administratoren
+* Diagramm abrufen -> User, Admininstratoren
+* Daten ändern -> Administratoren
+* read logfile -> Administratoren
+
+Priorisierung:
+
+. Diagramm abrufen
+. Bildergalerie abrufen
+. Daten aufrufen
+. Daten ändern
+. read logfile
+
+
+=== Use Case Diagramm
+
+image::Use-Case_Diagramm.jpg[]
+
+
+
+
+
