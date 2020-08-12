@@ -66,18 +66,30 @@ Genauer Informationen stehen unter https://angular.io/guide/deployment[Angular A
 == Systembetreuung
 
 === FAQ
-- Fragen
-- Antworten
+.FAQ
+|===
+|Fragen|Antworten
+|Wie stell ich einen Zeitraum bei der Suche ein?
+|Auf der Website gibt es die Möglichkeit des erweiterten Modus. Im erweiterten Modus gibt es die Möglichkeit ein Start- und ein Enddatum festzulegen. In dieser Zeitspanne werden die Daten dann gefiltert und angezeigt.
 
-Nochmal schön in Tabelle machen
+|Wie frage ich ein bestimmtes Datum ab?
+|Ein bestimmtest Datum kann im erweiterten Modus abgefragt werden, indem Start- und Enddatum identisch sind.
 
-Beim Meeting besprechen!
+|Wie funktioniert der Login als Admin?
+|Der Administrator meldet sich im Administrationsbereich mit seinem Nutzernamen und Passwort an.
+
+|Wie lange bleibe ich als Admin angemeldet?
+|Als Administrator bleibst du Fünf Minuten im angemeldet. In dieser Zeit kannst du den Administrationsbereich so oft neu laden wie du möchtest. Im Administrationsbereich selbst kannst du so lange angemeldet bleiben wie du möchtest, aber lädst du die Seite nach Fünf Minuten neu musst du dich erneut als Administrator authentifizieren.
+
+|Kann ich meine Logindaten als Admin speichern?
+|Nein diese Funktionalität gibt es nicht. Man muss sich jedes Mal neu anmelden, um in den Administrationsbereich zu gelangen.
+|===
 
 === Fehlerdiagnose
-Im Meeting besprechen!
+Zum aktuellen Zeitpunkt dienen unsere entwickelten Tests zur Fehlerdiagnose. Unser Auftraggeber möchte in Zukunft die Log-Files des Raspberry Pi mit in die versendete JSON-Datei einbinden, sodass diese dann in der Datenbank gespeichert und vom Webserver abgerufen werden können.
 
 === Datensicherung
-Im Meeting besprechen!
+Datensicherung von unserer Seite der Entwicklung gibt es nicht, da es keine geforderte Anforderung der Auftraggeber war. Die Daten liegen auf einer externen Datenbank. Wir haben keine Informationen darüber, wie und ob die Daten bei dem externen Anbieter extra gesichert werden.
 
 === Links
 https://angular.io/docs +
