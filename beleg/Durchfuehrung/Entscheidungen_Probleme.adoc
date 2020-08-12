@@ -1,47 +1,5 @@
 = Wesentliche Entscheidungen
-Autoren: Clemens Kujus, Alexander Schoch
-
-== Rollenverteilung
-Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Er hat sich in seiner Rolle nicht wohlgefühlt und ist seinen Aufgaben in den ersten beiden Projektwochen auch nicht nachgekommen. Auf anraten des Teams und schließlich eigener Entscheidung trat er seine Position ab. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager. Durch den Wegfall von Martin Großmann und das Hinzukommen von Hannes Fogut hat das Projekt an Qualität und Produktivität gewonnen.
-
-Neben der Rollenverteilung nach dem OpenUP haben wir uns vor allem mit der Phase der Implementierung dafür entschieden, dass mehrere Teammitglieder auch abseits ihrer UP-Rolle teaminterne Rollen haben, die vor allem der Unterstützung der Entwickler dienen. So wurde z.B. der Projektmanager nebenläufig zum Front-End Entwickler. Aufgrund der Komplexität der Software war dies auch richtig und nötig.
-
-== Nutzung von GitHub zur Projektverwaltung
-In unserem Projekt dient Git nicht nur der Versions-, sondern auch der Projektverwaltung. Das bedeutet, dass wir GitHub-Issues und im Verlauf des Projekts auch GitHub-Projekte eingeführt haben. Die Entscheidung für GitHub-Issues liegt darin begründet, dass diese eine übersichtliche und intuitive Möglichkeit bilden, Aufgaben bzw. Work Items anzubieten und die Bearbeitung kenntlich zu machen, damit zum einen Aufgaben klar definiert sind und zum anderen keine doppelte Aufgabenlösung entsteht.
-
-.GitHub-Issues
-image::./images/git-issues.jpg[]
-
-Für die Projekte in GitHub haben wir uns entschieden, damit wir die Iterationen besser auswerten können. Eingeführt wurden sie Ende Januar 2020 auf anraten des Coaches, da die Auswertung der Iterationen bis dahin in Textform der thematisierten Iteration angeheftet wurde. Dadurch wurde zwar auch ersichtlich, welche Aufgaben wie gelöst wurden, allerdings ist ein Blocktext nicht schnell zu erfassen und Issues und Auswertung liefen parallel. In den Projekten haben wir uns aufgrund der Intuitivität für das "Basic kanban"-Template entscheiden. Die Auswertung in Textform liefen auf Entscheidung des Projektmanagers (besserer Abschluss der Iterationspläne) bis zur 13. Iteration parallel zu den Projekten. Ab der 14. Iteration haben wir uns dann allerdings dafür entschieden, wie vom Coach angeraten nur noch die Projekte zur Auswertung zu nutzen.
-
-.Alte Auswertung in Textform
-image::./images/bewertung_iteration.jpg[]
-
-.Neue Auswertung in GitHub-Projekten
-image::./images/git-projekte.jpg[] 
-
-Wir haben uns nicht aktiv gegen die Nutzung anderer Tools entschieden, sondern haben uns auf die Notwendigkeit dieser konzentriert. Für unseren Arbeitsablauf waren die Möglichkeiten in Git völlig ausreichend, weshalb wir ausschließlich die GitHub Standardtools gewählt haben.
-
-== Arbeit mit Git-Branches und Commitabstände
-Für Git-Branches haben wir uns entschieden, da in der Implementierung Versionskonflikte abzusehen waren. Aufgrund des unten beschriebenen Problems der <<Git-Branches und Commitabstände>> setzten wir detaillierte Branches mit möglichst kleinen Commits ein.
-
-== Regelmäßige Treffen im Team und mit den Kunden
-Im WiSe 19/20 haben wir uns jeweils zum Iterationsabschluss getroffen, oft auch mit den Kunden. Mit Anfang der Implementierung haben wir dann festgestellt, dass diese Vorgehensweise zum einen zur teaminternen Kommunikation einfach nicht mehr ausreicht, zum anderen aber auch durch die oft geänderten Anforderungen der Kunden nicht mehr reicht. Demzufolge haben wir uns ab Mitte April wöchentlich online getroffen, später teilweise auch unter den Meetings persönlich, und dabei immer die Kunden eingeladen. Letztlich war diese Entscheidung maßgeblich für das Projekt und aus unserer Sicht und der der Kunden absolut richtig.
-
-== Agile und iterativ-inkrementelle Vorgehensweise
-Wir haben uns für den Ansatz des selbstorganisierenden Teams entschieden, da wir zum einen die Interessen jedes Mitglieds beachten wollten und zum anderen eine Schätzung von Aufwand und Zeit zum gegebenen Umfang schwieriger erschien als den Rahmen (Iterationen) festzulegen und die Aufgaben nach Priorität abzuarbeiten.
-
-Für die iterativ-inkrementelle Vorgehensweise nach dem Vorbild des OpenUP haben wir uns aufgrund des Fokus im Modul Software Engineerig 1 und des Status als state of the art entschieden. Anfangs haben wir sehr strikt darauf geachtet, dass die Rollen auch möglichst nur ihre zugehörigen Aufgaben wahrnehmen. Da uns allerdings auffiel, dass dadurch ein starkes Ungleichgewicht vor allem bei der Implementierung entstehen würde, haben wir uns letztendlich für eine teainterne Rollenverteilung entschieden, bei der jeder nach seinen Stärken und Interessen auch andere unterstützende Aufgaben wahrgenommen hat.
-
-////
-Josefin Hähne: Analyst, Architekt
-Philipp Barth: Architekt, Entwickler
-Justin Schirdewahn: Entwickler, Tester
-Alexander Schoch: Entwickler, Projektmanager
-Clemens Kujus: Projektmanager, Analyst
-Agustin Calvimontes: Deployment Engineer, Technical Writer
-Hannes Fogut: Tester, Entwickler
-////
+Autoren: Alexander Schoch
 
 == Angular als Framework für das Front-End
 Autoren: Alexander Schoch
@@ -50,6 +8,7 @@ Für die Entwicklung des Frontends haben wir uns für Angular entschieden. Von d
 == Django als Webframework für das Back-End
 In der Anforderungsspezifikation wurde die Entwicklung eines Back-Ends auf Grundlage einer Skriptsprache gewünscht. Wir haben uns für django und das django REST framework entschieden. Diese basieren auf der Programmiersprache Python mit der einige der Entwickler schon erste Erfahrungen sammeln konnten. Des Weiteren kommt django mit einer Vielzahl von Paketen für das Entwickeln von performanten und effizienten Webanwendungen.
 Ein weiterer Vorteil war der eingebaute Support für fast alle Datenbanksysteme, der uns die Integration der vom Kunden gewünschten mySQL-Datenbank vereinfachte. Django bot zudem einen hohen Sicherheitsstandard an. Während man bei der Entwicklung in PHP einen hohen Wissensstand und Erfahrung mit dieser Sprache braucht (die keiner von uns hatte), bot bereits django's integriertes Authentifizerungsframework eine hohe Sicherheit.
+
 = Aufgetretene Probleme
 Autoren: Clemens Kujus
 
