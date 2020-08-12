@@ -5,8 +5,6 @@
 * Diagramm abrufen -> User, Admininstratoren
 * Daten ändern -> Administratoren
 * read logfile -> Administratoren
-* Wartungsmodus deaktivieren -> Administratoren
-* Wartungsmodus aktivieren -> Administratoren
 * Wetterdaten posten
 
 Priorisierung:
@@ -17,12 +15,11 @@ Priorisierung:
 . Daten aufrufen
 . Daten ändern
 . read logfile
-. Wartungsmodus aktivieren
-. Wartungsmodus deaktivieren
+
 
 === Use Case Diagramm
 
-image::Use_Case_Diagramm.jpg[]
+image::Use-Case_Diagramm.jpg[]
 
 
 

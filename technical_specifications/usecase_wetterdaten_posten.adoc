@@ -1,5 +1,6 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Wetterdaten Posten
+== Use-Case: Wetterdaten posten 
+//Bilder posten?
 ===	Kurzbeschreibung
 Dieser Use Case beschreibt die in regelmäßige Übertragung der Wetterdaten an den Datenbank-Server. 
 

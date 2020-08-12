@@ -96,8 +96,8 @@ Beispiel
 
 . Beschreiben Sie die Arbeitsumgebung des Nutzers:
 
-* Der Nutzer muss auf einem internetfähigem Gerät online sein.
-Bedienung ist auf unterschiedlichen Endgeräten möglich.
+* Der Nutzer muss auf einem internetfähigem Gerät in einem Browser online sein.
+Die Bedienung ist auf unterschiedlichen Endgeräten möglich.
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 //. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
 //. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
@@ -106,7 +106,7 @@ Bedienung ist auf unterschiedlichen Endgeräten möglich.
 
 . Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
 * TYPO3-CMS auf dem die Vereinswebsite beruht
-
+* Anwendung soll in Vereinswebsite integriert werden
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
 == Produkt-/Lösungsüberblick

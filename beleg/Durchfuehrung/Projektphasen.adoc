@@ -1,4 +1,5 @@
 == Projektplanung
+Autoren: Agustin Calvimontes
 
 Das Projekt wurde in Iterationen mit einer Iterationslänge von 2 Wochen durchgeführt. 
 Dabei kann das Projekt grob in 2 Phasen untergliedert werden. 
@@ -159,4 +160,38 @@ image::images/Iteration-15.jpg[]
 .Iteration 16
 image::images/Iteration-16.jpg[]
 
+== Entwurf
+- Github als Haupttool herausgesucht
+- Arbeitsweise nach dem Open Unified Process
+
+.First Commit
+image::images/First Commit.jpg[]
+
+.Open Unified Process
+image::images/OpenUP.jpg[]
+
+- Struktur: Vision und Glossar entwerfen
+
+.Vision
+image::images/Vision.jpg[]
+
+.Glossar
+image::images/Glossar.jpg[]
+
+- Architektur-Notizbuch entwerfen
+- Use Cases und ERM designen
+
+.Architektur-Notizbuch
+image::images/Architektur_Notizbuch.jpg[]
+
+.Use Cases
+image::images/Use Cases.jpg[]
+
+.ERM
+image::images/ERM.jpg[]
+
+- System Wide Requirements entwerfen
+
+.System Wide Requirements
+image::images/SWR.jpg[]
 
