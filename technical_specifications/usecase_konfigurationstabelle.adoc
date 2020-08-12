@@ -47,12 +47,15 @@ Wenn der Admin im Schritt 3 des Standardablaufes unzulässige Werte in die Confi
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== Änderung der Wartungs-Flag
-. Der Admin ändert den Wert der Wartungs-Flag
-. Der neue Wert wird in der Config-Tabelle gespeichert
-. Der Raspi fragt den Inhalt der Config-Tabelle beim nächsten Neustart ab
-. Der Raspi übernimmt die Änderung des Wartungs-Flag-Wertes 
-. Der Raspi fährt nicht automatisch herunter, sondern befindet sich nun im Wartungsmodus 
+
+
+//==== Änderung der Wartungs-Flag
+//. Der Admin ändert den Wert der Wartungs-Flag
+//. Der neue Wert wird in der Config-Tabelle gespeichert
+//. Der Raspi fragt den Inhalt der Config-Tabelle beim nächsten Neustart ab
+//. Der Raspi übernimmt die Änderung des Wartungs-Flag-Wertes 
+//. Der Raspi fährt nicht automatisch herunter, sondern befindet sich nun im Wartungsmodus 
+
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
@@ -66,5 +69,5 @@ Wenn der Admin im Schritt 3 des Standardablaufes unzulässige Werte in die Confi
 . Der Admin darf die Werte nur so ändern, dass diese Ordnungsgemäß gespeichert und verarbeitet werden können
 
 === Wireframes
-image::../architecture_docs/visualizations/ERM.png[]
+image::../architecture_docs/visualizations/aktuelles_erm.jpg[]
 image::wireframes/AdminPanel.PNG[]

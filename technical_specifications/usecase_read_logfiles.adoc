@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-== Use-Case: Read Logfiles
+== Use-Case: Logfile lesen
 ===	Kurzbeschreibung
 In diesem Usecase wird die Auswertung der Daten, welche in den Logfiles gespeichert werden, beschrieben.
 
@@ -44,5 +44,5 @@ Nur Administratoren, sprich User mit einem gültigen Login und entsprechenden Zu
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 //==== <Besondere Anforderung 1>
 === Wireframes
-image::../architecture_docs/visualizations/ERM.png[]
+image::../architecture_docs/visualizations/aktuelles_erm.jpg[]
 

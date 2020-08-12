@@ -3,7 +3,11 @@
 Es geht um die Anzeige der gesammelten Daten, die Funktionen, die durch die Anzeige gewährleistet werden sollen und mögliche Schwierigkeiten.
 
 ===	Kurzbeschreibung der Akteure
-==== User, Admins
+==== User
+User können sich die Daten aufrufen, welche auf der Website des MFCR zur Verfügung gestellt werden.
+
+==== Admins
+Admins können sich diese Daten ebenfalls anzeigen lassen. 
 
 
 === Vorbedingungen

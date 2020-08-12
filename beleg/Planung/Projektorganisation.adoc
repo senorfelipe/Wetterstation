@@ -20,7 +20,7 @@ Agustin Calvimontes: Deployment Engineer, Technical Writer
 Hannes Fogut: Tester, Entwickler
 ////
 
-== Kommuniktion
+== Kommunikation
 
 === Im Team
 Im Team findet die Kommunikation über WhatsApp für kleine und schnelle Absprachen statt. Wir haben regelmäßige Teamtreffen, sowohl an der HTW als auch online, in denen wir größere Probleme diskutieren, Absprachen halten, Aufgaben der aktuellen Iteration bewerten, Iterationen auswerten sowie neue Aufgaben für die nächste Iteration verteilen.  Es wird sich auch in kleineren Gruppen getroffen um beispielsweise nur ein Thema oder eine Aufgabe zu bearbeiten oder besprechen.  Des Weiteren gab es alltäglichen Kontakt in Vorlesungen und Übungen/Praktika an der HTW, bei dem z.B. an den nächsten Termin für ein Treffen erinnert wurde oder man den aktuellen Stand austauschte  (entfällt in SE2 aufgrund einer Pandemie).
@@ -32,10 +32,10 @@ Seit diesem Semester findet die Kommunikation nur noch online statt. Dazu wählt
 === Zum Auftraggeber
 
 Für die Kommunikation mit den Auftraggebern nutzen wir hauptsächlich die regelmäßigen Treffen, die anfangs aller zwei Wochen in der Bibliothek der HTW stattfanden. Seit diesem Semester wurden sie jedoch mit Videochats abgehalten und ab Mitte April auch wöchentlich. Dabei erklärten sie uns immer mehr ihre Vorstellungen, wie das System aufgebaut sein soll, was abgebildet werden soll und wie sowie was für Anforderungen sie an das System haben. Wir klären auch welche Ressourcen sie uns zur Verfügung stellen und welche Aufgaben von ihnen übernommen werden. Es werden auch unsere neuen Ergebnisse vorgeführt und geklärt, ob die Kunden damit einverstanden sind oder es noch verbessert werden soll.
-Des Weiteren nutzen wir Emails für die Terminvereinbarung, neue Anforderungen oder auch für mehr Informationen z.B. über die gesendeten Daten (Datenformat, Zeitstempel, ...)
+Des Weiteren nutzen wir Emails für die Terminvereinbarung, neue Anforderungen oder auch für mehr Informationen z.B. über die gesendeten Daten (Datenformat, Zeitstempel, ...).
 
 == Eingesetzte Tools
-Hier folgt eine Auflistung der im Projektverlauf genutzen Tools nach Zweck:
+Hier folgt eine Auflistung der im Projektverlauf genutzten Tools nach Zweck:
 
 *Dokumentation:* Visual Paradigm, Visual Studio Code, Pydoc, Compodoc
 
@@ -53,7 +53,7 @@ Alle Tools wurden in aktuellen Versionen benutzt.
 Autoren: Clemens Kujus
 
 == Rollenverteilung
-Die Rollenverteilung hat sich 2 mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Er hat sich in seiner Rolle nicht wohlgefühlt und ist seinen Aufgaben in den ersten beiden Projektwochen auch nicht nachgekommen. Auf anraten des Teams und schließlich eigener Entscheidung trat er seine Position ab. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementieraufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager. Durch den Wegfall von Martin Großmann und das Hinzukommen von Hannes Fogut hat das Projekt an Qualität und Produktivität gewonnen.
+Die Rollenverteilung hat sich zwei mal grob verändert. Zum einen am Anfang des Projekts, als unser ehemaliger Projektmanager Martin Großmann seine Rolle abgegeben hat. Er hat sich in seiner Rolle nicht wohlgefühlt und ist seinen Aufgaben in den ersten beiden Projektwochen auch nicht nachgekommen. Auf anraten des Teams und schließlich eigener Entscheidung trat er seine Position ab. Getauscht wurde mit Clemens Kujus, dem damaligen Tester. Somit wurde Martin primär Tester und Backup-Projektmanager. Diese Konstellation hat sich bis durch das WiSe 20 gehalten, für das SoSe 20 entschied sich Martin allerdings das Projekt zu verlassen. Neu hinzugekommen ist Hannes Fogut, der die Rolle des Testers von Martin übernommen hat, und sich aufgrund der großen Implementierungsaufgaben auch als Entwickler gemeldet hat. Damit wurde Alexander Schoch Backup-Projektmanager. Durch den Wegfall von Martin Großmann und das Hinzukommen von Hannes Fogut hat das Projekt an Qualität und Produktivität gewonnen.
 
 Neben der Rollenverteilung nach dem OpenUP haben wir uns vor allem mit der Phase der Implementierung dafür entschieden, dass mehrere Teammitglieder auch abseits ihrer UP-Rolle teaminterne Rollen haben, die vor allem der Unterstützung der Entwickler dienen. So wurde z.B. der Projektmanager nebenläufig zum Front-End Entwickler. Aufgrund der Komplexität der Software war dies auch richtig und nötig.
 
@@ -63,7 +63,7 @@ In unserem Projekt dient Git nicht nur der Versions-, sondern auch der Projektve
 .GitHub-Issues
 image::./images/git-issues.jpg[]
 
-Für die Projekte in GitHub haben wir uns entschieden, damit wir die Iterationen besser auswerten können. Eingeführt wurden sie Ende Januar 2020 auf anraten des Coaches, da die Auswertung der Iterationen bis dahin in Textform der thematisierten Iteration angeheftet wurde. Dadurch wurde zwar auch ersichtlich, welche Aufgaben wie gelöst wurden, allerdings ist ein Blocktext nicht schnell zu erfassen und Issues und Auswertung liefen parallel. In den Projekten haben wir uns aufgrund der Intuitivität für das "Basic kanban"-Template entscheiden. Die Auswertung in Textform liefen auf Entscheidung des Projektmanagers (besserer Abschluss der Iterationspläne) bis zur 13. Iteration parallel zu den Projekten. Ab der 14. Iteration haben wir uns dann allerdings dafür entschieden, wie vom Coach angeraten nur noch die Projekte zur Auswertung zu nutzen.
+Für die Projekte in GitHub haben wir uns entschieden, damit wir die Iterationen besser auswerten können. Eingeführt wurden sie Ende Januar 2020 auf anraten des Coaches, da die Auswertung der Iterationen bis dahin in Textform der thematisierten Iteration angeheftet wurde. Dadurch wurde zwar auch ersichtlich, welche Aufgaben wie gelöst wurden, allerdings ist ein Blocktext nicht schnell zu erfassen und Issues und Auswertung liefen parallel. In den Projekten haben wir uns aufgrund der Intuition für das "Basic kanban"-Template entscheiden. Die Auswertung in Textform lief auf Entscheidung des Projektmanagers (besserer Abschluss der Iterationspläne) bis zur 13. Iteration parallel zu den Projekten. Ab der 14. Iteration haben wir uns dann allerdings dafür entschieden, wie vom Coach angeraten nur noch die Projekte zur Auswertung zu nutzen.
 
 .Alte Auswertung in Textform
 image::./images/bewertung_iteration.jpg[]

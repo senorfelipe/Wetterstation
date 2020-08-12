@@ -26,8 +26,6 @@ zur Verfügung stellt|
 |Projekt|Arbeit am Belegthema "T15 - Fernabfrage von Kamerabild und Wetterdaten"|
 |Coach|Herr Zirkelbach|
 |Übergabeversion|Version der Wetterstation-Software zum 31.07.2020|
-|HTW|Hochschule für Technik und Wirtschaft|
-|SE|Software Engineering|
 |===
 		
 
