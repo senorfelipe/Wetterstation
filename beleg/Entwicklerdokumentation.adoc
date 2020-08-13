@@ -54,7 +54,7 @@ https://docs.python.org/3/library/sys.html[sys] +
 image::Bilder/aktuelles_erm.jpg[]
 
 === Schnittstellen
-Die Restschnittstellen liegen in der views.py und definiert sind diese in der urls.py. Die Schnittstellen dienen der Verbindung der Verbindung zwischen Backend, Raspberry Pi und Datenbanksystem. +
+Die Restschnittstellen liegen in der views.py und definiert sind diese in der urls.py. Die Schnittstellen dienen der Verbindung zwischen Backend, Raspberry Pi und Datenbanksystem, zur Datenübertragung, Filterung und Akquirierung von Daten. +
 Für genauere Informationen zu den einzelnen Schnittstellen schau bitte in die Systemdokumentation vom Backend.
 
 == Softwaredokumentation
