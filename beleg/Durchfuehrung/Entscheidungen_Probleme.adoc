@@ -1,8 +1,9 @@
 = Wesentliche Entscheidungen
-Autoren: Alexander Schoch
+
 
 == Angular als Framework für das Front-End
 Autoren: Alexander Schoch
+
 Für die Entwicklung des Frontends haben wir uns für Angular entschieden. Von den Kunden war die Entwicklung einer Webapplikation gewünscht. Angular ist eines der größten JavaScript Frameworks, wird fortlaufend weiterentwickelt, bietet eine komponentenbasierte Model View Controller Architektur und eine ausführliche Dokumentation. Ebenso die hohe Stabilität des Frameworks
 
 === Chart.js für die Darstellung der Grahen
