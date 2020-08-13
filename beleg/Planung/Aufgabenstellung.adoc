@@ -24,7 +24,7 @@ Die auszuführenden Funktionen sollen in einer Skriptsprache umgesetzt werden. D
 
 Die Visualisierung der Werte soll auf der der Vereinswebseite erfolgen. Die Daten sollen direkt an den entsprechenden Webserver gesendet und dort in einer Datenbank gespeichert und zur Anzeige gebracht werden. Über einen separaten „Admin-Bereich“ soll es möglich sein,  weitere Informationen zum Systemzustand abzufragen (Datenverbrauch, Energieverbrauch).
 
-Es werden ein TYPO3 CMS und eine MySQL Datenbank verwendet.
+Es wird eine MySQL Datenbank verwendet.
 
 Alle Messwerte sollen dynamisch sortiert, gefiltert und in grafischer Form (als Diagramm) zur Anzeige gebracht werden können. Dabei sollen alle Aktionen des Nutzers, die die Auswahl der anzuzeigenden Daten betreffen (z.B. Zeitraum) „dynamisch“ erfolgen – ein „Neu laden“ der Seite soll also nicht erforderlich sein. Die Abfrage der Datenbank und Aktualisierung der Darstellung soll via JavaScript (AJAX) im Browser erfolgen. Die Werte sollen durch ein „passendes“ Verfahren interpoliert werden, so dass eine sinnvolle Darstellung auch durch die Messungen nicht erfasster Werte möglich ist (Darstellung als „Kurvenzug“).
 
