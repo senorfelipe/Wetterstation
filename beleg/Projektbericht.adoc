@@ -48,3 +48,6 @@ Verlinkungen wurden aufgrund besserer Übersichtlichkeit für den Projektbericht
 //include::./Ergebnisse/reflexion_pb.adoc[leveloffset=+1]
 //include::./Ergebnisse/reflexion_hf.adoc[leveloffset=+1]
 //include::./Ergebnisse/reflexion_ck.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_js.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_ac.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_as.adoc[leveloffset=+1]

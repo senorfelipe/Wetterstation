@@ -1,4 +1,4 @@
-=== Use-Cases
+= Use-Cases
 
 * Bildergalerie abrufen -> User, Administratoren
 * Daten aufrufen -> User, Administratoren
@@ -15,7 +15,7 @@ Priorisierung:
 . read logfile
 
 
-=== Use Case Diagramm
+= Use Case Diagramm
 
 image::Use-Case_Diagramm.jpg[]
 

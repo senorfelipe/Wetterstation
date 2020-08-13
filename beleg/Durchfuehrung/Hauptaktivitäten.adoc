@@ -47,7 +47,7 @@ Software wurde vom Kunden dankend angenommen. Im Rahmen der Übergabe wurden noc
 Funktionalitäten per Bildschrimübertragung auf einem Computer eines Entwicklers vorgeführt und 
 abgenommen. Abnahmetests erfolgen im beidseitigen Interesse erst mit der Vollendung der Software 
 durch das Projektteam, welche über den eigentlichen Rahmen (Abgabetermin Software, 
-Dokumentation) hinaus geht.
+Dokumentation) hinaus geht. Das Protokoll zum Treffen ist https://github.com/philippBa13/Wetterstation/blob/projectmanagement/project_docs/protocols/Treffen_31_07_2020.adoc[hier] zu finden.
 
 Die Dokumentation erfolgte während der Entwicklung soweit möglich. Anwenderdokumentation und 
 Betriebsdokumentation bei der Übergabe zum 31.07.2020 bezogen sich auf die Übergabeversion. Der 
