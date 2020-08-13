@@ -1,5 +1,5 @@
 == Projektplanung
-Autoren: Agustin Calvimontes
+Autoren: Agustin Calvimontes, Clemens Kujus
 
 Das Projekt wurde in Iterationen mit einer Iterationslänge von 2 Wochen durchgeführt. 
 Dabei kann das Projekt grob in 2 Phasen untergliedert werden. 
