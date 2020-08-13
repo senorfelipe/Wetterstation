@@ -107,7 +107,7 @@ image::images/I5-graphwire.jpg[]
 - Test auf Grundlage von Use-Cases beschreiben und entwickeln -> Tester
 
 ==== Ergebnisse
-.Bewertung
+.Bewertung Iteration 11
 image::images/bewertung_iteration.jpg[]
 
 === Iteration 12 - 07.05.2020-20.05.2020 
@@ -128,8 +128,12 @@ image::images/bewertung_iteration.jpg[]
 - Model für config und configsession erstellen -> Architekt
 
 ==== Ergebnisse
-.Iteration 13
-image::images/Admin_Komponente.jpg[]
+- das Front-End wurde gut weiterentwickelt, neu dazu gekommen ist ein Mockup des Adminpanel
+- Testfälle stehen zwar, sind aber aufgrund von Problemen mit der Rest-API noch nicht ausführbar (siehe Issue#66)
+- die Authentifizierung wurde noch nicht angegangen
+
+.Mockup des Adminpanel
+image::images/adminpanel_mockup.jpg[]
 
 === Iteration 14 - 04.06.2020-17.06.2020
 ==== Ziele / Aktivitäten
@@ -139,18 +143,16 @@ image::images/Admin_Komponente.jpg[]
 - Authentifizierung einrichten -> Architekt
 
 ==== Ergebnisse
-.Iteration 14
-image::images/Admin_Panel.jpg[]
+- Model für config und configsession erstellt
 
 === Iteration 15 - 18.06.2020-01.07.2020
 ==== Ziele / Aktivitäten
 - Model für config und configsession verfeinern (WIP) -> Architekt
-- Admin Panel bearbeiten -> Projektmanager
+- Admin Panel bearbeiten und mit Back-End zusammenführen -> Projektmanager
 - Authentifizierung einrichten -> Architekt
 
 ==== Ergebnisse
-.Iteration 15
-image::images/Data_Flow_Diagramm.jpg[]
+- Adminpanek ist mit Back-End zusammengeführt
 
 ==== Probleme
 - Projektbericht und Dokumentation wurden nicht überarbeitet
@@ -165,8 +167,18 @@ image::images/Data_Flow_Diagramm.jpg[]
 - Authentifizierung einrichten -> Architekt
 
 ==== Ergebnisse
-.Iteration 16
-image::images/Activity_Diagramm.jpg[]
+.Loginfenster
+image::images/login.jpg[]
+
+=== Iteration 17 - 16.07.2020-31.07.2020
+==== Ziele / Aktivitäten
+- Adminpanel vefeinern und an neue Anforderungen anpassen
+- Deployment vorbereiten
+- Übergabe der aktuellsten Version am 31.07.2020
+
+==== Ergebnisse
+- Software ist als as-is den Kunden übergeben und wurde von diesen dankend angenommen
+- weitere Arbeit an der Software im Team über das Modul hinaus erfolgt freiwillig 
 
 == Entwurf
 Autoren: Justin Schirdewahn
