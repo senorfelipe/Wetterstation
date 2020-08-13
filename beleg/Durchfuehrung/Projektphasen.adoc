@@ -121,7 +121,7 @@ image::images/bewertung_iteration.jpg[]
 
 ==== Ergebnisse
 .Iteration 13
-image::images/Iteration-13.jpg[]
+image::images/Admin_Komponente.jpg[]
 
 === Iteration 14 - 04.06.2020-17.06.2020
 ==== Ziele / Aktivitäten
@@ -132,7 +132,7 @@ image::images/Iteration-13.jpg[]
 
 ==== Ergebnisse
 .Iteration 14
-image::images/Iteration-14.jpg[]
+image::images/Admin_Panel.jpg[]
 
 === Iteration 15 - 18.06.2020-01.07.2020
 ==== Ziele / Aktivitäten
@@ -142,7 +142,7 @@ image::images/Iteration-14.jpg[]
 
 ==== Ergebnisse
 .Iteration 15
-image::images/Iteration-15.jpg[]
+image::images/Data_Flow_Diagramm.jpg[]
 
 ==== Probleme
 - Projektbericht und Dokumentation wurden nicht überarbeitet
@@ -158,7 +158,7 @@ image::images/Iteration-15.jpg[]
 
 ==== Ergebnisse
 .Iteration 16
-image::images/Iteration-16.jpg[]
+image::images/Activity_Diagramm.jpg[]
 
 == Entwurf
 - Github als Haupttool herausgesucht
