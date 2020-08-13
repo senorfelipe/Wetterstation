@@ -20,7 +20,7 @@ Es kommt folgende Hardware zum Einsatz:
 
 Auf dem Raspi läuft eine Standard-Linux-Distribution. Die auszuführenden Aktionen werden in definierten Zeitabständen per CronJob angestoßen. Das System sowie der Raspi laufen ununterbrochen.
 
-Die auszuführenden Funktionen sollen in Python umgesetzt werden. Die Sensordaten werden über die entsprechenden IO-Pins gesammelt. Die Webcam ist per on-board Connector angeschlossen, die Bildakquise erfolgt über die entsprechenden Kommandozeilen-Funktionen. Als Funkmodul kommt ein UMTS-Stick zum Einsatz. Systemseitig stellt sich dies als normales Netzwerk Device dar.
+Die auszuführenden Funktionen sollen in einer Skriptsprache umgesetzt werden. Die Sensordaten werden über die entsprechenden IO-Pins gesammelt. Die Webcam ist per on-board Connector angeschlossen, die Bildakquise erfolgt über die entsprechenden Kommandozeilen-Funktionen. Als Funkmodul kommt ein UMTS-Stick zum Einsatz. Systemseitig stellt sich dies als normales Netzwerk Device dar.
 
 Die Visualisierung der Werte soll auf der der Vereinswebseite erfolgen. Die Daten sollen direkt an den entsprechenden Webserver gesendet und dort in einer Datenbank gespeichert und zur Anzeige gebracht werden. Über einen separaten „Admin-Bereich“ soll es möglich sein,  weitere Informationen zum Systemzustand abzufragen (Datenverbrauch, Energieverbrauch).
 
