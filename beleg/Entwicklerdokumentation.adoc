@@ -59,9 +59,7 @@ Die Restschnittstellen für die Kommunikation zwischen Raspberry Pi, Datenbankse
 == Softwaredokumentation
 
 === Frontend
-In Wetterstation\beleg\Frontend\documentation liegt die index.html für die Anzeige der Systemdokumentation des Frontends. Doppelklick auf die index.html ausführen und Dokumentation betrachten. +
+In Wetterstation\beleg\Frontend\documentation liegt die index.html für die Anzeige der Systemdokumentation des Frontends.
 
 === Backend
-python -m pydoc -b
-HTML Export
-link:src\...
+Unter Wetterstation\beleg\Backend\_build\html ist die index.html für die Anzeige der Systemdokumentation des Backends.
