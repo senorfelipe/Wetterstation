@@ -158,7 +158,7 @@ image::images/Data_Flow_Diagramm.jpg[]
 
 ==== Ergebnisse
 .Iteration 16
-image::images/Iteration-16.jpg[]
+image::images/Activity_Diagramm.jpg[]
 
 == Entwurf
 - Github als Haupttool herausgesucht
