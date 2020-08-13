@@ -5,6 +5,19 @@ Autoren: Alexander Schoch
 Autoren: Alexander Schoch
 Für die Entwicklung des Frontends haben wir uns für Angular entschieden. Von den Kunden war die Entwicklung einer Webapplikation gewünscht. Angular ist eines der größten JavaScript Frameworks, wird fortlaufend weiterentwickelt, bietet eine komponentenbasierte Model View Controller Architektur und eine ausführliche Dokumentation. Ebenso die hohe Stabilität des Frameworks
 
+=== Chart.js für die Darstellung der Grahen
+
+Um die Graphen darzustellen haben wir uns für die kostenlose, Open-Source Javascript Bibliothek chart.js entschieden. Sie ist zwar nicht so flexibel und umfangreich wie z.B. die Bibliothek D3, ist aber deutlich einsteigerfreundlicher und bietet eine mehr als ausreichende Dokumentation. Chart.js hat somit unseren Funktionsansprüchen mehr als genügt und sich mit seinem flachen, einfachen Design in die Material Design UI gut eingefügt. 
+
+=== ngx-gallery für die Galerie und Lightbox
+
+Ursprünglich war die selbstständige Entwicklung einer Galerie geplant. Da der Aufwand für die Implementierung jedoch sehr groß gewesen wäre, haben wir die Angular Bibliothek ngx-gallery verwendet.
+
+
+=== Angular-JWT für die Authentifizierung
+
+Da die API unseres Backends hauptsächlich im JSON-Format mit dem Frontend kommuniziert haben wir uns für die Implementierung einer tokenbasierten Authentifizierung mit Angular-JWT entschieden. JWT (JSON Web Tokens) sind ein Industriestandard für die Generierung von Tokens. Die Verwendung von JSON Web Tokens ist zustandslos und daher sicherer als die Verwendung von Session-Variablen und Cookies. Ein weiterer Vorteil ist die hohe Zuverlässigkeit bei gleichzeitiger Minimierung des Netzwerk-Overheads.
+
 == Django als Webframework für das Back-End
 In der Anforderungsspezifikation wurde die Entwicklung eines Back-Ends auf Grundlage einer Skriptsprache gewünscht. Wir haben uns für django und das django REST framework entschieden. Diese basieren auf der Programmiersprache Python mit der einige der Entwickler schon erste Erfahrungen sammeln konnten. Des Weiteren kommt django mit einer Vielzahl von Paketen für das Entwickeln von performanten und effizienten Webanwendungen.
 Ein weiterer Vorteil war der eingebaute Support für fast alle Datenbanksysteme, der uns die Integration der vom Kunden gewünschten mySQL-Datenbank vereinfachte. Django bot zudem einen hohen Sicherheitsstandard an. Während man bei der Entwicklung in PHP einen hohen Wissensstand und Erfahrung mit dieser Sprache braucht (die keiner von uns hatte), bot bereits django's integriertes Authentifizerungsframework eine hohe Sicherheit.
