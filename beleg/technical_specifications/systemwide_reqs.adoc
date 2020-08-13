@@ -1,6 +1,6 @@
 = Wetterstation System-Wide Requirements Specification
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-0.1, 01.11.2019 
+Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Philipp Barth <s78830@htw-dresden.de>; Justin Schirdewahn <s78878@htw-dresden.de>; Alexander Schoch <s78797@htw-dresden.de>; Agustin Calvimontes <s78927@htw-dresden.de>; Clemens Kujus <s78802@htw-dresden.de>; 
+
 :toc: 
 :toc-title: Inhaltsverzeichnis
 :sectnums:
@@ -13,16 +13,15 @@ In diesem Dokument werden die systemweiten Anforderungen für das Projekt **Wett
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie 
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [siehe <<usecase_model.adoc>>]
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in separaten Dokumenten festgehalten.
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 * F01: Es werden jede Minute neue Wetterdaten gemessen
 * F02: Die Übertragung der Daten geschieht zyklisch 
 * F03: Admins haben eine Berechtigung um sich im internen Bereich anzumelden
-* F04: Das System muss einem Admin erlauben Daten zu ändern bzw zu löschen
-* F05: Änderungen von Daten können eingesehen werden
-* F06: Die Übertragung der Daten geschieht über https
+* F04: Änderungen von Daten können eingesehen werden
+* F05: Die Übertragung der Daten geschieht über https
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -41,8 +40,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
 
 * R01: Die Wetterdaten werden genau angezeigt
-* R02: Das System soll eine für den Endbenutzer brauchbare Verfügbarkeit haben
-* R03: Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
+* R02: Wenn ein Fehler auftritt werden die Daten nach der Fehlerbehebung wieder aus der Datenbank gezogen
 
 [#sys-wide-reqs-performance]
 === Effizienz (Performance)
