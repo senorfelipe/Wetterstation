@@ -200,5 +200,5 @@ Wichtig für die Kommunikation mit dem Kunden waren auch die Entwürfe von Wiref
 Auch die Wireframes wurden mit Visual Studio Paradigm erstellt, da die Erstellung solcher Thema in den Praktika aus Software Engineering 1 war. +
 image:images/Admin_Panel.jpg[] +
 image:images/I5-Graphwire.jpg[] +
-Der letzte Entwurf entstand aus einer neuen Anforderung der Kunden. Im folgenden Aktivitätsdiagramm haben wir die Authentifizierung eines Administrators Visualisiert. Dieser Entwurf ist für die Entwickler der Authentifizierungsfunktionalität gedacht, um diese in Ihrer Vorstellung zu unterstützen. +
+Der letzte Entwurf der hier gezeigt wird entstand am Anfang des Projektes aus den Anforderungen der Kunden. Da unsere Kunden diese Anforderungen nicht mehr stellen ist der folgende Entwurf veraltet und wird bei der Entwicklung nicht mehr beachtet. Im folgenden Aktivitätsdiagramm haben wir den Ablauf der Umstellung des Raspberry Pi in den Wartungsmodus visualisiert. +
 image:images/Activity_Diagramm.jpg[]
