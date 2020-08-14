@@ -22,7 +22,7 @@ Ziel ist es die Qualitaet des Systems nachzuweisen, sowie die Teststrukturen zu 
 
 In diesem Punkt wird analysiert, in welchen Systemkomponenten das Testen am wichtigsten ist.
 Diese Komponenten werden spaeter fuer die entstehenden Tests priorisiert betrachtet.
-Da es fuer uns nicht Moeglich war, eine 100 prozentige Testabdeckung zu gewaehrleisten, haben wir uns fuer dieses Vorgehen entschieden.
+Da es fuer uns nicht moeglich war, eine 100 prozentige Testabdeckung zu gewaehrleisten, haben wir uns fuer dieses Vorgehen entschieden.
 Um einen Ueberblick ueber die Testfaelle zu bekommen, wurde eng mit dem Entwicklerteam zusammengearbeitet.
 Es wurde das komplette System durchleuchtet und die Kernfunktionen bestimmt.
 Diese Kernfunktionen sollen durch die Tests abgedeckt werden koennen, um ein fehlerfreies Laufen des Systems sicherzustellen.
@@ -46,7 +46,7 @@ Der Anwendungsbereich fuer die automatisierten Testfaelle liegt ausschliesslich 
 |Django Rest-Schnittstelle |Backend mit Rest-API läuft | JSON-File mit den (Wetter)daten |
 Die Daten aus der JSON-File werden korrekt in die versch. Tabellen aufgeteilt. Jede Tabelle wurde mit neuen Werten erweitert.
 
-|QueryByime-Funktion |Der Server muss laufen & die Tabellen muessen leer sein | Drei Eintrage mit versch. Daten  |
+|QueryByime-Funktion |Der Server muss laufen & die Tabellen muessen leer sein | Drei Eintraege mit versch. Daten  |
 Es werden immer nur die Eintraege erkannt, die in dem gewaehlten Zeitraum liegen.
 
 |Mapping der Sensordaten |Server muss laufen |JSON-File mit den (Wetter)daten |
@@ -65,10 +65,10 @@ Datenbank Tabellen wurden mit den entsprechenden Datensätzen gefüllt
 'Testumgebung'
 
 Die Testumgebung beschreibt, welche Werkzeuge fuer das Testen eingesetzt werden.
-Es wurde hauptsaechlich mit UnitTests in Python gearbeiten.
+Es wurde hauptsaechlich mit UnitTests in Python gearbeitet.
 Dazu kamen noch weitere Integrationstests um das genutzte Django-Framework zu testen.
 Damit wurden alle Sachen aus dem Backend abgedeckt.
-Das FrontEnd wurde mit sogennanten User-Acceptance-Tests(End-User-Tests) bearbeitet.
+Das FrontEnd wurde mit sogenannten User-Acceptance-Tests(End-User-Tests) bearbeitet.
 Um dies sinnvoll zu gestalten wurde eine Liste mit versch.
 Testfaellen erstellt um die Konsistenz zu sichern.
 Bei der Uebergabe gab es noch Abnahmetests zusammen mit dem Kunden (Ergebnisse im Punkt 'Testergebnisse').
@@ -95,16 +95,16 @@ Wenn dieser korrekt ist gibt das System eine Meldung aus.
 .Test der Rest-Schnittstelle
 image::DJANGO.jpg[]
 
-Die QueryByTime-Funktion wird dadruch getestet, dass wir zuerst drei versch.
+Die QueryByTime-Funktion wird dadurch getestet, dass wir zuerst drei versch.
 Eintraege posten.
 Danach schauen wir ob diese drei Eintraege erfolgreich erstellt wurden, indem wir die Anzahl mit der Zahl '3' vergleichen.
 Wenn dies erfolgreich war, setzten wir nun ein festen Start- & Endpunkt fest.
-Nun folgen wieder assertEqual-Abfragen wo wir gezielt nur nach einzelen Eintraegen suchen, dabei wird geprüft ob wirklich nur die zu erwartenten Datensätze zurückgegeben werden.
+Nun folgen wieder assertEqual-Abfragen wo wir gezielt nur nach einzelnen Eintraegen suchen, dabei wird geprueft ob wirklich nur die zu erwarteten Datensaetze zurueckgegeben werden.
 
 .Test der Datumsabfrage
 image::QUERYBYTIME.jpg[]
 
-Der dritte Testfall kontrolliert, ob die in der JSON-File enthaltenen Kuerzel ordentlich gemapped werden.
+Der dritte Testfall kontrolliert, ob die in der JSON-File enthaltenen Kuerzel ordentlich gemappt werden.
 Bei den drei assert-Abfragen ist das Vorgehen immer das gleiche.
 Mit dem Befehl 'assertIsNotNone' wird geschaut, dass das erwuenschte Wort vorhanden ist.
 Falls nicht kommt eine Fehlermeldung, die den Nutzer darauf hinweist.
@@ -113,16 +113,16 @@ Falls nicht kommt eine Fehlermeldung, die den Nutzer darauf hinweist.
 image::MAPPING.jpg[]
 
 
-Im folgeneden Test wird die Korrektheit des Raspi-Skripts getestet, welches die Sensor-Daten per Post-Request an den Webserver übermittlet.
+Im folgenden Test wird die Korrektheit des Raspi-Skripts getestet, welches die Sensor-Daten per Post-Request an den Webserver uebermittelt.
 Dabei sammelt es die vorliegenden JSON Dateien ein und postet diese an den Server.
-Die Daten werden an den entsprechenden Rest-Endpunkt übermitlet, welcher dann die Aufteilung der Daten in die einzelnen Datenbank-Tabellen vornimmt.
+Die Daten werden an den entsprechenden Rest-Endpunkt uebermittelt, welcher dann die Aufteilung der Daten in die einzelnen Datenbank-Tabellen vornimmt.
 
 .Test des Raspi-Skripts
 image::RASPI_SKRIPT_TEST.jpg[]
 
 *b) manuelle Tests*
 
-Hierfuer wurde eine Liste erstellt, die zum testen des FrontEnds genutzt wurde.
+Hierfuer wurde eine Liste erstellt, die zum Testen des FrontEnds genutzt wurde.
 Sie soll alle Moeglichkeiten abdecken und die Resultate dokumentieren.
 Sie wird auch gleichzeitig fuer den Abnahmetest am Ende verwendet.
 
@@ -139,7 +139,7 @@ Sie wird auch gleichzeitig fuer den Abnahmetest am Ende verwendet.
 
 | vorgefertigte Zeitraume (Auswahlfelder) lassen sich auswaehlen und aktualisieren den Graphen | ja [ ] nein [ ]
 
-| Detaillierte Ansicht der einzelenen Datenpunkte ist mit dem Cursor moeglich | ja [ ] nein [ ]
+| Detaillierte Ansicht der einzelnen Datenpunkte ist mit dem Cursor moeglich | ja [ ] nein [ ]
 
 |Erweiterter Modus funktioniert (selbststaendig einen Zeitraum bestimmen) | ja [ ] nein [ ]
 
@@ -164,7 +164,7 @@ Die Ergebnisse der Test waren eigentlich immer erfolgreich.
 Sie entstanden trotz Concurrent Testing mit leichter Verzoegerung und dienten dadurch eher zur Sicherung des Systems.
 Nach System- updates konnte man die Tests durchlaufen lassen und schauen, ob die bereits bestehenden Komponenten trotzdem noch funktionierten.
 Da unser Entwicklerteam durchgehend gute Arbeit geleistet hatte und sowohl bei der Entwicklung des Systems, als auch beim Support der Testentwicklung stets behilflich war, haben die Tests durchgehend die positive Entwicklung des Systems bestaetigt.
-Deshalb kam es zu keinen signifikaten Abweichungen, auf die man haette eingehen muessen.
+Deshalb kam es zu keinen signifikanten Abweichungen, auf die man haette eingehen muessen.
 Die vermeintlichen Probleme sind durch die gute Zusammenarbeit zwischen dem Team und der Auftraggeber schon bereits frueh erkannt worden und konnten somit schon bei der Implementierung vermieden/geloest werden.
 
 *Abnahmetestergebnis*
