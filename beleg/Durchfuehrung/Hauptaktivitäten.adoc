@@ -28,22 +28,41 @@ Diese wurden als Richtlinie für Prototypisierung verwendet, während der Entwic
 Einen ersten Entwurf des Projektes zu erstellen war doch komplexer als zunächst gedacht. Dank der in Software Engineering 1 erlernten Techniken an komplexe Probleme heran zu gehen haben wir es doch geschafft. +
 Zunächst haben wir die Aufgabe in verschiedene Use-Cases aufgeteilt, um das Problem in kleinere verständlichere Abläufe aufzuteilen. Natürlich haben sich die Anforderungen im Laufe des Projektes geändert und die Use-Cases mussten überarbeitet oder entfernt werden, weil diese einfach nicht mehr den gewonnen Informationen entsprachen. +
 Dank dieser kleinen Abläufe konnten wir eine erste grobe Architektur erstellen, um uns und dem Auftraggeber zu visualisieren, wie das Projekt aussehen könnte. +
-image:images/I3-Architektur.jpg[] +
+
+.Erste Skizze der Architektur
+image::images/I3-Architektur.jpg[] 
+
 Diese grobe Skizze war ein guter erster Anhaltspunkt auf dem alles nach und nach aufbaute. In dieser Skizze sind die verschiedenen Komponenten mit ersten Ideen, welche Technologien auf den jeweiligen Komponenten laufen könnten, zu sehen. Nach der Erstellung dieser groben Architektur wurde es nun Zeit genauere erste Entwürfe zu gestalten. +
 Ein wichtiger Entwurf war die Erstellung eines Data-Flow-Diagrammes. +
-image:images/Data_Flow_Diagramm.jpg[] +
+
+.Data-Flow-Diagramm
+image::images/Data_Flow_Diagramm.jpg[] 
+
 Dieser Entwurf stellt unsere ersten Gedanken und Ideen dar, welche Daten an welchen Stellen benötigt werden und in welcher Art der Kommunikation die Komponenten die Daten liefern müssen. Es zeigt also nicht nur welche Daten zur Verfügung stehen sollen, sondern auch, ob die Komponenten Daten empfangen oder versenden. Erstellt wurde er mit Visual Studio Paradigm, da uns die Arbeit mit diesem Tool dank den Praktika in Software Engineering 1 nicht fremd war. +
 Einer der letzten Entwürfe, bevor wir überhaupt an die Implementierung gedacht haben, war der Entwurf eines Entity-Relationship-Modell. Auch hier mussten im Laufe des Projektes Anpassungen vorgenommen werden, aber unser erster Entwurf sah wie folgt aus. +
-image:images/ERM.jpg[] +
+
+.Erstes ERM
+image::images/ERM.jpg[] 
+
 Vergleichen wir es mit unserem aktuellen Entwurf von unserem ERM sind deutliche Unterschiede zu sehen. +
-image:../Bilder/aktuelles_erm.jpg[] +
+
+.Aktuelles ERM
+image::images/aktuelles_erm.jpg[] 
+
 In Meetings mit den Kunden konnten die Anforderungen an die Datenbank nach und nach immer mehr heraus kristallisiert werden und in verschiedenen Entwürfen bis zum aktuellen Entwurf dargestellt werden. +
 Wichtig für die Kommunikation mit dem Kunden waren auch die Entwürfe von Wireframes für die Visualisierung unserer Vorstellungen für das Frontend. In verschiedenen Meetings konnten wir den Kunden einige Wireframes vorstellen und die Kunden konnten Ihre Wünsche und Anmerkungen zu diesen machen. So konnten wir am Ende ein Design entwickeln mit dem alle zufrieden waren. +
 Auch die Wireframes wurden mit Visual Studio Paradigm erstellt, da die Erstellung solcher Thema in den Praktika aus Software Engineering 1 war. +
-image:images/Admin_Panel.jpg[] +
-image:images/I5-Graphwire.jpg[] +
+
+.Erster Wireframe zum Adminpanel
+image::images/Admin_Panel.jpg[] 
+
+.Wireframe zur Graphenanzeige
+image::images/I5-Graphwire.jpg[] 
+
 Der letzte Entwurf der hier gezeigt wird entstand am Anfang des Projektes aus den Anforderungen der Kunden. Da unsere Kunden diese Anforderungen nicht mehr stellen ist der folgende Entwurf veraltet und wird bei der Entwicklung nicht mehr beachtet. Im folgenden Aktivitätsdiagramm haben wir den Ablauf der Umstellung des Raspberry Pi in den Wartungsmodus visualisiert. +
-image:images/Activity_Diagramm.jpg[]
+
+.Verworfener Wartungsmodus
+image::images/Activity_Diagramm.jpg[]
 
 == Implementierung
 
@@ -114,6 +133,6 @@ Abnahmetests erfolgen im beidseitigen Interesse erst mit der Vollendung der Soft
 Das Protokoll zum Treffen ist https://github.com/philippBa13/Wetterstation/blob/projectmanagement/project_docs/protocols/Treffen_31_07_2020.adoc[hier] zu finden.
 
 Die Dokumentation erfolgte während der Entwicklung soweit möglich.
-Anwenderdokumentation und Betriebsdokumentation bei der Übergabe zum 31.07.2020 bezogen sich auf die Übergabeversion.
-Der Projektbericht, aktualisierte Anwenderdokumentation, aktualisierte Betriebsdokumentation und Entwicklerdokumentation wurden erst nach der Übergabe an den Kunden angefertigt.
+Anwenderdokumentation und Betriebsdokumentation wurden mit am 31.07.2020 übergeben.
+Der Projektbericht und die Entwicklerdokumentation wurden erst nach der Übergabe an den Kunden angefertigt.
 Die Testdokumentation entstand mit den ersten Testmöglichkeiten und wurde nach und nach erweitert.
