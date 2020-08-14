@@ -3,6 +3,11 @@ from rest_framework import serializers
 from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession, \
     Load, Controller
 
+"""
+This file contains all Serializers to serialize and deserialize data.
+For more information check: https://www.django-rest-framework.org/api-guide/serializers/
+"""
+
 
 class MeasurementSessionSerializer(serializers.ModelSerializer):
     class Meta:

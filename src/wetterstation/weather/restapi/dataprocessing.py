@@ -71,6 +71,10 @@ def map_sensor_data(data, session_id):
 
 
 def create_basic_dict(data):
+    """
+    This method creates the basic dictionary structure to map the raw sensor data structure
+    into the internally used data structure.
+    """
     mapped = dict()
     mapped['temperature'] = {'degrees': data['weather'][RASPI_TEMPERATURE_KEY]}
     mapped['wind'] = {'direction': data['weather']['windDir'], 'speed': data['weather']['windSpeed']}
@@ -80,6 +84,8 @@ def create_basic_dict(data):
 
 
 def check_intervall(key, val):
+    """This method checks the intervall of the posted data as defined in the VALIDATION_INTERVALLS dict.
+    If a value is not within the intervall it raises a ValueError."""
     if key in VALIDATION_INTERVALLS:
         intervall = VALIDATION_INTERVALLS[key]
         if val is not None:
@@ -88,6 +94,7 @@ def check_intervall(key, val):
 
 
 def validate(data):
+    """This method checks the intervall and logs errors."""
     for value in data.values():
         if isinstance(value, dict):
             try:

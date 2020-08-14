@@ -134,6 +134,10 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
         return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
 
     def create(self, request, *args, **kwargs):
+        """
+        This method receives posted images, validates them, saves the size of the image and writes the image to the
+        file system and its referenece into the database.
+        """
         if get_client_ip(request) == RASPI_IP_ADDR:
             form = ImageUploadForm(request.POST, request.FILES)
             if form.is_valid():
@@ -180,6 +184,10 @@ def update_last_post_time():
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receive_sensor_data(request):
+    """
+    This API view is resposible to receive the sensor data from the raspi.
+    Therefore it mappes and validates the data and saves it to the specific tables in the database.
+    """
     if request.method == 'POST' and get_client_ip(request) == RASPI_IP_ADDR:
         post_data = request.data
         update_last_post_time()
@@ -256,6 +264,7 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
 
 class GetStates(APIView):
+    """This API View queries all error values of the last week for each Sensor-Data Table."""
 
     def get_errors_dict(self):
         start_7_days_ago = {'start': datetime.datetime.now() - datetime.timedelta(days=7)}
@@ -302,7 +311,6 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
                 temperature=Avg('temperature')) \
                 .order_by('measure_time')
         return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
-
 
 
 class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
@@ -369,4 +377,3 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = self.get_queryset()
         queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
         return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)
-
