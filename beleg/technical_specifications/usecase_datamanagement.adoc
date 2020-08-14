@@ -66,4 +66,6 @@ Der Server zeigt dem User/Admin ein Diagramm, was auf den von ihm/ihr ausgewähl
 //==== <Besondere Anforderung 1>
 
 === Wireframes
-image::../architecture_docs/visualizations/Data_Flow_Diagramm1.jpg[]
+
+.Data Flow Diagramm
+image::../Bilder/Data_Flow_Diagramm1.jpg[]

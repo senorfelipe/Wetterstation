@@ -21,7 +21,7 @@ Das System läuft mit Ubuntu 18.04 als Betriebssystem auf einem Apache 2.4 Webse
 
 === Komponenten
 Verwendete Komponenten im System sind zu großen Teilen TypeScript (42.0% Anteil) und Python (35.1% Anteil). Desweiteren wurden HTML, CSS und JavaScript verwendet. +
-Auf Komponententeile wie JAR oder EXE Formartierungen wurde verzichtet.
+Auf Komponententeile wie JAR oder EXE Formatierungen wurde verzichtet.
 
 
 === Verzeichnisstruktur
@@ -32,7 +32,7 @@ image:Bilder/Verzeichnisstruktur_Frontend.jpg[] +
 Das Backend ist in zwei Teile gegliedert. In 'http_client' und 'wetterstation/weather'. +
 image:Bilder/Verzeichnisstruktur_Backend.jpg[] +
 Unter 'http_client' liegen die Hilfsscripte, welche für das Versenden von Daten zuständig sind. +
-Unter 'wetterstation' liegt das Backend des Systems. Hier werden die Daten, welche vom Raspberry Pi versand werden an die Datenbankstruktur angepasst, für die Verarbeitung im Frontend aufbereitet und die Funktionalität des Administrationsbereiches definiert und sichergestellt. Es wird die Struktur eines Django Projektes verwendet. Um mehr über die Struktur zu erfahren geht es hier zur https://docs.djangoproject.com/en/3.0/ref/[Dokumentation].
+Unter 'wetterstation' liegt das Backend des Systems. Hier werden die Daten, welche vom Raspberry Pi versandt werden an die Datenbankstruktur angepasst, für die Verarbeitung im Frontend aufbereitet und die Funktionalität des Administrationsbereiches definiert und sichergestellt. Es wird die Struktur eines Django Projektes verwendet. Um mehr über die Struktur zu erfahren geht es hier zur https://docs.djangoproject.com/en/3.0/ref/[Dokumentation].
 
 === Installation
 Die Scripte, welche unter 'src/http_client' liegen müssen auf den Raspberry Pi kopiert werden. +

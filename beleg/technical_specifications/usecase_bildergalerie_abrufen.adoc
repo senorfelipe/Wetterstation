@@ -68,7 +68,8 @@ Die Website hat die Galerie entsprechend der User/Admin-Anforderungen geladen un
 Sollte ein Admin ein Bild löschen, muss die Website die Galerie ohne dieses Bild weiterhin ordnungsgemäß und lückenlos anzeigen können.
 
 === Wireframes
-image::wireframes/Galerie_wireframe1.jpg[]
-image::wireframes/Galerie_wireframe2.jpg[]
+
+image::./wireframes/Galerie_wireframe1.jpg[]
+image::./wireframes/Galerie_wireframe2.jpg[]
 
 

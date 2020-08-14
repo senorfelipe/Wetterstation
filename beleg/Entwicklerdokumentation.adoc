@@ -15,11 +15,11 @@ Autoren: Justin Schirdewahn, Alexander Schoch
 
 ==== Frontend Frameworks
 
-Wir haben uns bei der Frontendentwicklung für Angular 9 entschieden, weil Angular eine schöne Struktur und viele Funktionalitäten von sich aus mitbrachte. Es ist ein etabliertes Framework für die Frontendentwicklung. Dadurch standen uns viele Möglichkeiten der Informationsbeschaffung zum erlernen von Angular zur Verfügung. Des Weiteren war das Interesse und der Wunsch, Angular zu lernen, bei den Entwicklern vorhanden. +
+Wir haben uns bei der Frontendentwicklung für Angular 9 entschieden, weil Angular eine schöne Struktur und viele Funktionalitäten von sich aus mitbrachte. Es ist ein etabliertes Framework für die Frontendentwicklung. Dadurch standen uns viele Möglichkeiten der Informationsbeschaffung zum erlernen von Angular zur Verfügung. Des Weiteren waren das Interesse und der Wunsch, Angular zu lernen, bei den Entwicklern vorhanden. +
 Der Kunde war mit der Wahl von Angular zufrieden und so stand der Verwendung nichts mehr im Weg.
 
 ==== Frontend Bibliotheken
-Die nachfolgenden Links sind eine Liste zu allen im Frontend verwendeten Bibiotheken. +
+Die nachfolgenden Links sind eine Liste zu allen im Frontend verwendeten Bibliotheken. +
 https://github.com/auth0/angular2-jwt[@auth0/angular-jwt Version 5.0.1] +
 https://getbootstrap.com/docs/4.5/getting-started/introduction/[angular-bootstrap-md Version 9.3.0] +
 https://www.chartjs.org/docs/latest/[chart.js Version 2.9.3] +
@@ -31,7 +31,7 @@ https://openbase.io/js/@types/node/documentation[@types/node Version 12.12.41] +
 http://codelyzer.com/rules/[codelyzer Version 5.2.2] +
 
 ==== Backend Frameworks
-Wir haben uns für die Entwicklung des Backends mit Django entschieden, weil Django schon viele Funktionalitäten von sich aus mitbrachte, unser Entwickler für das Backend schon Erfahrung mit Python hatte und wir unsere Kunden davon überzeugen konnten unsere Alternative zu PHP zu nehmen. So konnte sich unser Backend-Entwickler schnell in das Framework reinarbeiten und die schon gegebenen Funktionalitäten nutzen. So wurde die Entwicklung durch zum Beispiel einen schon vorgegebenen Adminbereich oder die SqLite Entwicklerdatenbank erleichtert. +
+Wir haben uns für die Entwicklung des Back-Ends mit Django entschieden, weil Django schon viele Funktionalitäten von sich aus mitbrachte, unser Entwickler für das Backend schon Erfahrung mit Python hatte und wir unsere Kunden davon überzeugen konnten unsere Alternative zu PHP zu nehmen. So konnte sich unser Backend-Entwickler schnell in das Framework einarbeiten und die schon gegebenen Funktionalitäten nutzen. So wurde die Entwicklung durch zum Beispiel einen schon vorgegebenen Adminbereich oder die SqLite Entwicklerdatenbank erleichtert. +
 
 Die folgende Liste enthält alles, was an Frameworks für das Backend installiert wurde, mit installierter Version. +
 https://docs.djangoproject.com/en/3.1/[Django Version 3.0.5] +
