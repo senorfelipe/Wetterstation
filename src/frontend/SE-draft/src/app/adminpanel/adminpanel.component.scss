@@ -5,9 +5,16 @@
 }
 
 table {
-    flex-grow: 1; 
-    flex-basis: auto;
-}
+    width: 30%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
 H1 {
     text-align: center;
