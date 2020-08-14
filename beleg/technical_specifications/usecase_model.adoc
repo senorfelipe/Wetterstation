@@ -1,7 +1,7 @@
 = Use-Case Model Projekt Wetterstation
 Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Philipp Barth <s78830@htw-dresden.de>; Justin Schirdewahn <s78878@htw-dresden.de>; Alexander Schoch <s78797@htw-dresden.de>; Agustin Calvimontes <s78927@htw-dresden.de>; Clemens Kujus <s78802@htw-dresden.de>; 
+14.08.2020 
 
-13.08.2020 
 :toc: 
 :toc-title: Inhaltsverzeichnis
 :sectnums:

@@ -70,4 +70,6 @@ Wenn der User/Admin im Schritt 3 des Standardablauf einen Zeitraum wählt in dem
 . Der User/Admin hat die Möglichkeit die Datenart und den Zeitraum gleichzeitig zu ändern, sodass das Diagramm dementsprechend generiert wird
 
 === Wireframes
+
+.Wireframe Diagramme
 image::./wireframes/WeatherDataGraph.jpg[]

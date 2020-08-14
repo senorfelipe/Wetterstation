@@ -1,6 +1,7 @@
 = Vision T15-Fernabfrage von Kamerabild und Wetterdaten
-Clemens Kujus
-0.1, 01.08.2020 
+Alle
+14.08.2020 
+
 :toc: 
 :toc-title: Inhaltsverzeichnis
 :sectnums:
@@ -18,12 +19,10 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System 
 Dieses Visions-Dokument bezieht sich auf das Projekt "Wetterstation", das von Team "Wetter" entwickelt wird. Das System wird es erlauben, eingelesene Wetterdaten zu sammeln, lokal zu speichern und an den Webserver des mfcR zu senden. Dort können die Wetterdaten dann von jedem abgerufen werden.
 
 === Definitionen, Akronyme und Abkürzungen
-siehe <<glossary.adoc#Begriffe,Glossary Definitionen>> +
-<<glossary.adoc#Abkürzungen und Akronyme,Glossary Abkürzungen und Akronyme>>
+siehe Glossary
 
 === Referenzen
-<<archit_notebook.adoc#, Architecture Notebook>> +
-<<systemwide_reqs.adoc#, System-Wide Requirements Specification>>
+Architecture Notebook, Systemwide requirements
 
 
 == Positionierung

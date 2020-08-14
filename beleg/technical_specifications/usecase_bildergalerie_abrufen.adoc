@@ -69,7 +69,11 @@ Sollte ein Admin ein Bild löschen, muss die Website die Galerie ohne dieses Bil
 
 === Wireframes
 
+.Wireframe Galerie 1
 image::./wireframes/Galerie_wireframe1.jpg[]
+
+.Wireframe Galerie 2
 image::./wireframes/Galerie_wireframe2.jpg[]
+
 
 

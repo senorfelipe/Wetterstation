@@ -1,0 +1,1935 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>restapi package &#8212; weather 0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="restapi-package">
+<h1>restapi package<a class="headerlink" href="#restapi-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-restapi.admin">
+<span id="restapi-admin-module"></span><h2>restapi.admin module<a class="headerlink" href="#module-restapi.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-restapi.apps">
+<span id="restapi-apps-module"></span><h2>restapi.apps module<a class="headerlink" href="#module-restapi.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.apps.RestapiConfig">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.apps.</code><code class="sig-name descname">RestapiConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app_name</span></em>, <em class="sig-param"><span class="n">app_module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.apps.RestapiConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.apps.RestapiConfig.name">
+<code class="sig-name descname">name</code><em class="property"> = 'restapi'</em><a class="headerlink" href="#restapi.apps.RestapiConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-restapi.costumviews">
+<span id="restapi-costumviews-module"></span><h2>restapi.costumviews module<a class="headerlink" href="#module-restapi.costumviews" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.costumviews.CreateListRetrieveViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.costumviews.</code><code class="sig-name descname">CreateListRetrieveViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.costumviews.CreateListRetrieveViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.CreateModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.ListModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.RetrieveModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.GenericViewSet</span></code></p>
+<p>A viewset that provides <cite>retrieve</cite>, <cite>create</cite>, and <cite>list</cite> actions.</p>
+<p>To use it, override the class and set the <cite>.queryset</cite> and
+<cite>.serializer_class</cite> attributes.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-restapi.databaseutils">
+<span id="restapi-databaseutils-module"></span><h2>restapi.databaseutils module<a class="headerlink" href="#module-restapi.databaseutils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.databaseutils.Date">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.databaseutils.</code><code class="sig-name descname">Date</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.databaseutils.Date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.expressions.Func</span></code></p>
+<p>This class represents the mySQL function ‘DATE’.
+You can use it like Date(…) in query expressions.</p>
+<dl class="py attribute">
+<dt id="restapi.databaseutils.Date.function">
+<code class="sig-name descname">function</code><em class="property"> = 'DATE'</em><a class="headerlink" href="#restapi.databaseutils.Date.function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.databaseutils.FromUnixtime">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.databaseutils.</code><code class="sig-name descname">FromUnixtime</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.databaseutils.FromUnixtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.expressions.Func</span></code></p>
+<p>This class represents the mySQL function ‘FROM_UNIXTIME’.
+You can use it like FromUnixtime(…) in query expressions.</p>
+<dl class="py attribute">
+<dt id="restapi.databaseutils.FromUnixtime.function">
+<code class="sig-name descname">function</code><em class="property"> = 'FROM_UNIXTIME'</em><a class="headerlink" href="#restapi.databaseutils.FromUnixtime.function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.databaseutils.UnixTimestamp">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.databaseutils.</code><code class="sig-name descname">UnixTimestamp</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.databaseutils.UnixTimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.expressions.Func</span></code></p>
+<p>This class represents the mySQL function ‘UNIX_TIMESTAMP’.
+You can use it like UnixTimestamp(…) in query expressions.</p>
+<dl class="py attribute">
+<dt id="restapi.databaseutils.UnixTimestamp.function">
+<code class="sig-name descname">function</code><em class="property"> = 'UNIX_TIMESTAMP'</em><a class="headerlink" href="#restapi.databaseutils.UnixTimestamp.function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.databaseutils.calculate_timedelta">
+<code class="sig-prename descclassname">restapi.databaseutils.</code><code class="sig-name descname">calculate_timedelta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">datetime.datetime(2020, 8, 15, 12, 51, 20, 745539)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.databaseutils.calculate_timedelta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-restapi.dataprocessing">
+<span id="restapi-dataprocessing-module"></span><h2>restapi.dataprocessing module<a class="headerlink" href="#module-restapi.dataprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="restapi.dataprocessing.add_timestamps_and_session_ids">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">add_timestamps_and_session_ids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mapped</span></em>, <em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">session_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.add_timestamps_and_session_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.cast_types">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">cast_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.cast_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.cast_units">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">cast_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.cast_units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.check_intervall">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">check_intervall</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.check_intervall" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method checks the intervall of the posted data as defined in the VALIDATION_INTERVALLS dict.
+If a value is not within the intervall it raises a ValueError.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.create_basic_dict">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">create_basic_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.create_basic_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method creates the basic dictionary structure to map the raw sensor data structure
+into the internally used data structure.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.map_keys">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">map_keys</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.map_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.map_sensor_data">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">map_sensor_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">session_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.map_sensor_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures data mapping to fit database schema.
+Therefore is takes the post format of the raspi as input and mappes it to the proper database format.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.dataprocessing.validate">
+<code class="sig-prename descclassname">restapi.dataprocessing.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.dataprocessing.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method checks the intervall and logs errors.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-restapi.forms">
+<span id="restapi-forms-module"></span><h2>restapi.forms module<a class="headerlink" href="#module-restapi.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.forms.ImageUploadForm">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.forms.</code><code class="sig-name descname">ImageUploadForm</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">files=None</em>, <em class="sig-param">auto_id='id_%s'</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">initial=None</em>, <em class="sig-param">error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em class="sig-param">label_suffix=None</em>, <em class="sig-param">empty_permitted=False</em>, <em class="sig-param">field_order=None</em>, <em class="sig-param">use_required_attribute=None</em>, <em class="sig-param">renderer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.forms.ImageUploadForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.forms.ImageUploadForm.base_fields">
+<code class="sig-name descname">base_fields</code><em class="property"> = {}</em><a class="headerlink" href="#restapi.forms.ImageUploadForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.forms.ImageUploadForm.declared_fields">
+<code class="sig-name descname">declared_fields</code><em class="property"> = {}</em><a class="headerlink" href="#restapi.forms.ImageUploadForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.forms.ImageUploadForm.image">
+<code class="sig-name descname">image</code><a class="headerlink" href="#restapi.forms.ImageUploadForm.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.fields.ImageField</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.forms.ImageUploadForm.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#restapi.forms.ImageUploadForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.forms.ImageUploadForm.time">
+<code class="sig-name descname">time</code><a class="headerlink" href="#restapi.forms.ImageUploadForm.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.fields.DateTimeField</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-restapi.models">
+<span id="restapi-models-module"></span><h2>restapi.models module<a class="headerlink" href="#module-restapi.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.models.Battery">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Battery</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">current</span></em>, <em class="sig-param"><span class="n">voltage</span></em>, <em class="sig-param"><span class="n">temperature</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Battery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Battery.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Battery.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Battery.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Battery.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.current">
+<code class="sig-name descname">current</code><a class="headerlink" href="#restapi.models.Battery.current" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.Battery.get_next_by_measure_time">
+<code class="sig-name descname">get_next_by_measure_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: measure_time&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Battery.get_next_by_measure_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.Battery.get_previous_by_measure_time">
+<code class="sig-name descname">get_previous_by_measure_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: measure_time&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Battery.get_previous_by_measure_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Battery.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Battery.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Battery.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Battery.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Battery.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.temperature">
+<code class="sig-name descname">temperature</code><a class="headerlink" href="#restapi.models.Battery.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Battery.voltage">
+<code class="sig-name descname">voltage</code><a class="headerlink" href="#restapi.models.Battery.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.ConfigSession">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">ConfigSession</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">configuration</span></em>, <em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">applied</span></em>, <em class="sig-param"><span class="n">user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.ConfigSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.ConfigSession.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.ConfigSession.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.ConfigSession.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.ConfigSession.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.applied">
+<code class="sig-name descname">applied</code><a class="headerlink" href="#restapi.models.ConfigSession.applied" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.configuration">
+<code class="sig-name descname">configuration</code><a class="headerlink" href="#restapi.models.ConfigSession.configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.configuration_id">
+<code class="sig-name descname">configuration_id</code><a class="headerlink" href="#restapi.models.ConfigSession.configuration_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.ConfigSession.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.time">
+<code class="sig-name descname">time</code><a class="headerlink" href="#restapi.models.ConfigSession.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#restapi.models.ConfigSession.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.ConfigSession.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#restapi.models.ConfigSession.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Configuration">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Configuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">res_height</span></em>, <em class="sig-param"><span class="n">res_width</span></em>, <em class="sig-param"><span class="n">measure_intervall_sensors</span></em>, <em class="sig-param"><span class="n">measure_intervall_cam</span></em>, <em class="sig-param"><span class="n">post_intervall_sensor_data</span></em>, <em class="sig-param"><span class="n">post_intervall_image_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Configuration.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Configuration.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Configuration.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Configuration.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.configsession">
+<code class="sig-name descname">configsession</code><a class="headerlink" href="#restapi.models.Configuration.configsession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Configuration.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.measure_intervall_cam">
+<code class="sig-name descname">measure_intervall_cam</code><a class="headerlink" href="#restapi.models.Configuration.measure_intervall_cam" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.measure_intervall_sensors">
+<code class="sig-name descname">measure_intervall_sensors</code><a class="headerlink" href="#restapi.models.Configuration.measure_intervall_sensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Configuration.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.post_intervall_image_data">
+<code class="sig-name descname">post_intervall_image_data</code><a class="headerlink" href="#restapi.models.Configuration.post_intervall_image_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.post_intervall_sensor_data">
+<code class="sig-name descname">post_intervall_sensor_data</code><a class="headerlink" href="#restapi.models.Configuration.post_intervall_sensor_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.res_height">
+<code class="sig-name descname">res_height</code><a class="headerlink" href="#restapi.models.Configuration.res_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Configuration.res_width">
+<code class="sig-name descname">res_width</code><a class="headerlink" href="#restapi.models.Configuration.res_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Controller">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Controller</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Controller.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Controller.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Controller.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Controller.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.Controller.get_next_by_measure_time">
+<code class="sig-name descname">get_next_by_measure_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: measure_time&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Controller.get_next_by_measure_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.Controller.get_previous_by_measure_time">
+<code class="sig-name descname">get_previous_by_measure_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: measure_time&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Controller.get_previous_by_measure_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Controller.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Controller.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Controller.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Controller.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.mode">
+<code class="sig-name descname">mode</code><a class="headerlink" href="#restapi.models.Controller.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Controller.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Controller.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Image">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Image.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Image.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Image.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Image.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Image.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.image">
+<code class="sig-name descname">image</code><a class="headerlink" href="#restapi.models.Image.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Image.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Image.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Image.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Image.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Image.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Load">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">current</span></em>, <em class="sig-param"><span class="n">voltage</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Load.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Load.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Load.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Load.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.current">
+<code class="sig-name descname">current</code><a class="headerlink" href="#restapi.models.Load.current" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Load.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Load.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Load.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Load.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Load.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Load.voltage">
+<code class="sig-name descname">voltage</code><a class="headerlink" href="#restapi.models.Load.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.MeasurementSession">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">MeasurementSession</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session_id</span></em>, <em class="sig-param"><span class="n">image_size</span></em>, <em class="sig-param"><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.MeasurementSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.MeasurementSession.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.MeasurementSession.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.MeasurementSession.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.MeasurementSession.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.battery">
+<code class="sig-name descname">battery</code><a class="headerlink" href="#restapi.models.MeasurementSession.battery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.controller">
+<code class="sig-name descname">controller</code><a class="headerlink" href="#restapi.models.MeasurementSession.controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.MeasurementSession.get_next_by_time">
+<code class="sig-name descname">get_next_by_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: time&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.MeasurementSession.get_next_by_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.models.MeasurementSession.get_previous_by_time">
+<code class="sig-name descname">get_previous_by_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: time&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.MeasurementSession.get_previous_by_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.image">
+<code class="sig-name descname">image</code><a class="headerlink" href="#restapi.models.MeasurementSession.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.image_size">
+<code class="sig-name descname">image_size</code><a class="headerlink" href="#restapi.models.MeasurementSession.image_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.load">
+<code class="sig-name descname">load</code><a class="headerlink" href="#restapi.models.MeasurementSession.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.MeasurementSession.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.session_id">
+<code class="sig-name descname">session_id</code><a class="headerlink" href="#restapi.models.MeasurementSession.session_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.solarcell">
+<code class="sig-name descname">solarcell</code><a class="headerlink" href="#restapi.models.MeasurementSession.solarcell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.temperature">
+<code class="sig-name descname">temperature</code><a class="headerlink" href="#restapi.models.MeasurementSession.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.time">
+<code class="sig-name descname">time</code><a class="headerlink" href="#restapi.models.MeasurementSession.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.MeasurementSession.wind">
+<code class="sig-name descname">wind</code><a class="headerlink" href="#restapi.models.MeasurementSession.wind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.SolarCell">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">SolarCell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">power</span></em>, <em class="sig-param"><span class="n">voltage</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.SolarCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.SolarCell.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.SolarCell.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.SolarCell.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.SolarCell.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.SolarCell.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.SolarCell.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.SolarCell.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.SolarCell.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.SolarCell.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.power">
+<code class="sig-name descname">power</code><a class="headerlink" href="#restapi.models.SolarCell.power" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.SolarCell.voltage">
+<code class="sig-name descname">voltage</code><a class="headerlink" href="#restapi.models.SolarCell.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Temperature">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Temperature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">degrees</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Temperature.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Temperature.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Temperature.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Temperature.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.degrees">
+<code class="sig-name descname">degrees</code><a class="headerlink" href="#restapi.models.Temperature.degrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Temperature.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Temperature.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Temperature.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Temperature.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Temperature.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Temperature.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.models.Wind">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.models.</code><code class="sig-name descname">Wind</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">speed</span></em>, <em class="sig-param"><span class="n">direction</span></em>, <em class="sig-param"><span class="n">measure_time</span></em>, <em class="sig-param"><span class="n">measurement_session</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Wind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="restapi.models.Wind.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#restapi.models.Wind.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="restapi.models.Wind.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#restapi.models.Wind.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.direction">
+<code class="sig-name descname">direction</code><a class="headerlink" href="#restapi.models.Wind.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#restapi.models.Wind.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.measure_time">
+<code class="sig-name descname">measure_time</code><a class="headerlink" href="#restapi.models.Wind.measure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.measurement_session">
+<code class="sig-name descname">measurement_session</code><a class="headerlink" href="#restapi.models.Wind.measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.measurement_session_id">
+<code class="sig-name descname">measurement_session_id</code><a class="headerlink" href="#restapi.models.Wind.measurement_session_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#restapi.models.Wind.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.models.Wind.speed">
+<code class="sig-name descname">speed</code><a class="headerlink" href="#restapi.models.Wind.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-restapi.serializers">
+<span id="restapi-serializers-module"></span><h2>restapi.serializers module<a class="headerlink" href="#module-restapi.serializers" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.serializers.BatterySerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">BatterySerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.BatterySerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.BatterySerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.BatterySerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.BatterySerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.BatterySerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.BatterySerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.BatterySerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Battery" title="restapi.models.Battery"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Battery</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.ConfigSessionSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">ConfigSessionSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.ConfigSessionSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.ConfigSessionSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.ConfigSessionSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.ConfigSessionSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#restapi.serializers.ConfigSessionSerializer.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.ConfigSessionSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.ConfigSessionSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.ConfigSession" title="restapi.models.ConfigSession"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.ConfigSession</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.ConfigurationSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">ConfigurationSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.ConfigurationSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.ConfigurationSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.ConfigurationSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.ConfigurationSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.ConfigurationSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.ConfigurationSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.ConfigurationSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Configuration" title="restapi.models.Configuration"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Configuration</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.ControllerSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">ControllerSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.ControllerSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.ControllerSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.ControllerSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.ControllerSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.ControllerSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.ControllerSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.ControllerSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Controller" title="restapi.models.Controller"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Controller</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.ImageSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">ImageSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.ImageSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.ImageSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.ImageSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.ImageSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.ImageSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.ImageSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.ImageSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Image" title="restapi.models.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Image</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.LoadSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">LoadSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.LoadSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.LoadSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.LoadSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.LoadSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.LoadSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.LoadSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.LoadSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Load" title="restapi.models.Load"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Load</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.MeasurementSessionSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">MeasurementSessionSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.MeasurementSessionSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.MeasurementSessionSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.MeasurementSessionSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.MeasurementSessionSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['session_id']</em><a class="headerlink" href="#restapi.serializers.MeasurementSessionSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.MeasurementSessionSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.MeasurementSessionSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.MeasurementSession" title="restapi.models.MeasurementSession"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.MeasurementSession</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.SolarCellSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">SolarCellSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.SolarCellSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.SolarCellSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.SolarCellSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.SolarCellSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.SolarCellSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.SolarCellSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.SolarCellSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.SolarCell" title="restapi.models.SolarCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.SolarCell</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.TemperatureSerialzer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">TemperatureSerialzer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.TemperatureSerialzer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.TemperatureSerialzer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.TemperatureSerialzer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.TemperatureSerialzer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.TemperatureSerialzer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.TemperatureSerialzer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.TemperatureSerialzer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Temperature" title="restapi.models.Temperature"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Temperature</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.serializers.WindSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.serializers.</code><code class="sig-name descname">WindSerializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.WindSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="py class">
+<dt id="restapi.serializers.WindSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#restapi.serializers.WindSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.serializers.WindSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['id']</em><a class="headerlink" href="#restapi.serializers.WindSerializer.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.serializers.WindSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#restapi.serializers.WindSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Wind" title="restapi.models.Wind"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Wind</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="restapi-tests-module">
+<h2>restapi.tests module<a class="headerlink" href="#restapi-tests-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-restapi.urls">
+<span id="restapi-urls-module"></span><h2>restapi.urls module<a class="headerlink" href="#module-restapi.urls" title="Permalink to this headline">¶</a></h2>
+<p>This file contains all urls related to the REST api.</p>
+</div>
+<div class="section" id="module-restapi.views">
+<span id="restapi-views-module"></span><h2>restapi.views module<a class="headerlink" href="#module-restapi.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="restapi.views.BatteryViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">BatteryViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.BatteryViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="py method">
+<dt id="restapi.views.BatteryViewSet.aggregate">
+<code class="sig-name descname">aggregate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.BatteryViewSet.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.BatteryViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.BatteryViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.BatteryViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.BatteryViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.BatteryViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.BatteryViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.BatteryViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.BatteryViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.BatterySerializer" title="restapi.serializers.BatterySerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.BatterySerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.BatteryViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.BatteryViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.ConfigSessionViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">ConfigSessionViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ConfigSessionViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.ListModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.GenericViewSet</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ConfigSessionViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ConfigSessionViewSet.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.ConfigSessionSerializer" title="restapi.serializers.ConfigSessionSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.ConfigSessionSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigSessionViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigSessionViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.ConfigurationViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">ConfigurationViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ConfigurationViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.ListModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.mixins.CreateModelMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.GenericViewSet</span></code></p>
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ConfigurationViewSet.perform_create">
+<code class="sig-name descname">perform_create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">serializer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ConfigurationViewSet.perform_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.ConfigurationViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.ConfigurationSerializer" title="restapi.serializers.ConfigurationSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.ConfigurationSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ConfigurationViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ConfigurationViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.DataVolumeViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">DataVolumeViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.DataVolumeViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="py method">
+<dt id="restapi.views.DataVolumeViewSet.aggregate_by_day">
+<code class="sig-name descname">aggregate_by_day</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.DataVolumeViewSet.aggregate_by_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sums up the data volume per day.
+It returns the data volume for every day of the current month.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.DataVolumeViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.DataVolumeViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.DataVolumeViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.MeasurementSessionSerializer" title="restapi.serializers.MeasurementSessionSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.MeasurementSessionSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.DataVolumeViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.DataVolumeViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.GetStates">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">GetStates</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.GetStates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.views.APIView</span></code></p>
+<p>This API View queries all error values of the last week for each Sensor-Data Table.</p>
+<dl class="py method">
+<dt id="restapi.views.GetStates.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.GetStates.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.GetStates.get_errors_dict">
+<code class="sig-name descname">get_errors_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.GetStates.get_errors_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.ImageUploadView">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">ImageUploadView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ImageUploadView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#restapi.costumviews.CreateListRetrieveViewSet" title="restapi.costumviews.CreateListRetrieveViewSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.costumviews.CreateListRetrieveViewSet</span></code></a></p>
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ImageUploadView.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ImageUploadView.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ImageUploadView.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method receives posted images, validates them, saves the size of the image and writes the image to the
+file system and its referenece into the database.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ImageUploadView.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ImageUploadView.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ImageUploadView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ImageUploadView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ImageUploadView.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.permission_classes">
+<code class="sig-name descname">permission_classes</code><em class="property"> = [&lt;class 'rest_framework.permissions.AllowAny'&gt;]</em><a class="headerlink" href="#restapi.views.ImageUploadView.permission_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.ImageUploadView.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.ImageUploadView.recent">
+<code class="sig-name descname">recent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.ImageUploadView.recent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the 5 latest images.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.ImageUploadView.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.ImageSerializer" title="restapi.serializers.ImageSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.ImageSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.ImageUploadView.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.ImageUploadView.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.LoadViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">LoadViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.LoadViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="py method">
+<dt id="restapi.views.LoadViewSet.aggregate">
+<code class="sig-name descname">aggregate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.LoadViewSet.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.LoadViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.LoadViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.LoadViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.LoadViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.LoadViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.LoadViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.LoadViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.LoadViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.LoadSerializer" title="restapi.serializers.LoadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.LoadSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.LoadViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.LoadViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="restapi.views.RASPI_IP_ADDR">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">RASPI_IP_ADDR</code><em class="property"> = '127.0.0.1'</em><a class="headerlink" href="#restapi.views.RASPI_IP_ADDR" title="Permalink to this definition">¶</a></dt>
+<dd><p>This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
+Additionally it contains the view to receive the sensor-data from the raspi.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.SolarCellViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">SolarCellViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.SolarCellViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="py method">
+<dt id="restapi.views.SolarCellViewSet.aggregate">
+<code class="sig-name descname">aggregate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.SolarCellViewSet.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.SolarCellViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.SolarCellViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.SolarCellViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.SolarCellSerializer" title="restapi.serializers.SolarCellSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.SolarCellSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.SolarCellViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.SolarCellViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.TemperatureViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">TemperatureViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.TemperatureViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#restapi.costumviews.CreateListRetrieveViewSet" title="restapi.costumviews.CreateListRetrieveViewSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.costumviews.CreateListRetrieveViewSet</span></code></a></p>
+<dl class="py method">
+<dt id="restapi.views.TemperatureViewSet.aggregate">
+<code class="sig-name descname">aggregate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.TemperatureViewSet.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.TemperatureViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.TemperatureViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.TemperatureViewSet.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.TemperatureViewSet.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.TemperatureViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.TemperatureSerialzer" title="restapi.serializers.TemperatureSerialzer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.TemperatureSerialzer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.TemperatureViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.TemperatureViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="restapi.views.WindViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">WindViewSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.WindViewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#restapi.costumviews.CreateListRetrieveViewSet" title="restapi.costumviews.CreateListRetrieveViewSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.costumviews.CreateListRetrieveViewSet</span></code></a></p>
+<dl class="py method">
+<dt id="restapi.views.WindViewSet.aggregate">
+<code class="sig-name descname">aggregate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.WindViewSet.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.WindViewSet.aggregate_on_queryset">
+<em class="property">static </em><code class="sig-name descname">aggregate_on_queryset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queryset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.WindViewSet.aggregate_on_queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.basename">
+<code class="sig-name descname">basename</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.WindViewSet.basename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.description">
+<code class="sig-name descname">description</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.WindViewSet.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.detail">
+<code class="sig-name descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.WindViewSet.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.WindViewSet.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.WindViewSet.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.WindViewSet.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.query_param_recent">
+<code class="sig-name descname">query_param_recent</code><em class="property"> = 'lasthours'</em><a class="headerlink" href="#restapi.views.WindViewSet.query_param_recent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#restapi.views.WindViewSet.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="restapi.views.WindViewSet.recent">
+<code class="sig-name descname">recent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.WindViewSet.recent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will return the wind data of the last 3 hours by default.
+If query parameter “lasthours” is set it will use this number instead of the default value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#restapi.views.WindViewSet.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.WindSerializer" title="restapi.serializers.WindSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.WindSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="restapi.views.WindViewSet.suffix">
+<code class="sig-name descname">suffix</code><em class="property"> = None</em><a class="headerlink" href="#restapi.views.WindViewSet.suffix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.filter_by_dates">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">filter_by_dates</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date_range</span></em>, <em class="sig-param"><span class="n">queryset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.filter_by_dates" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method checks if query parameters for filtering by dates are there and then filters on the given queryset.
+If only parameter ‘start’ was set ‘end’ will implicitly be today.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.get_client_ip">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">get_client_ip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.get_client_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.get_or_create_measurement_session">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">get_or_create_measurement_session</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.get_or_create_measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.receive_sensor_data">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">receive_sensor_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.receive_sensor_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API view is resposible to receive the sensor data from the raspi.
+Therefore it mappes and validates the data and saves it to the specific tables in the database.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.store_data">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">store_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">serializer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.store_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.update_last_post_time">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">update_last_post_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.update_last_post_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="restapi.views.update_or_create_measurement_session">
+<code class="sig-prename descclassname">restapi.views.</code><code class="sig-name descname">update_or_create_measurement_session</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session_id</span></em>, <em class="sig-param"><span class="n">number_of_bytes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.update_or_create_measurement_session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-restapi">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-restapi" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">weather</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, PhilippBarth.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/restapi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

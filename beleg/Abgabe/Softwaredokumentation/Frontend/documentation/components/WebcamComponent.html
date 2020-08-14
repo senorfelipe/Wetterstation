@@ -1,0 +1,1756 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>se-draft documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">se-draft documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>WebcamComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/webcam/webcam.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-webcam</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./webcam.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./webcam.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dategallery">dategallery</a>
+                            </li>
+                            <li>
+                                <a href="#DateImages">DateImages</a>
+                            </li>
+                            <li>
+                                <a href="#DatePics">DatePics</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$">destroy$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gallery">gallery</a>
+                            </li>
+                            <li>
+                                <a href="#ImageService">ImageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lightbox">lightbox</a>
+                            </li>
+                            <li>
+                                <a href="#panelOpenState">panelOpenState</a>
+                            </li>
+                            <li>
+                                <a href="#RecentImages">RecentImages</a>
+                            </li>
+                            <li>
+                                <a href="#recentPics">recentPics</a>
+                            </li>
+                            <li>
+                                <a href="#startdateEvents">startdateEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#today">today</a>
+                            </li>
+                            <li>
+                                <a href="#TodayImages">TodayImages</a>
+                            </li>
+                            <li>
+                                <a href="#todayPics">todayPics</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#yesterday">yesterday</a>
+                            </li>
+                            <li>
+                                <a href="#YesterdayImages">YesterdayImages</a>
+                            </li>
+                            <li>
+                                <a href="#yesterdayPics">yesterdayPics</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addDateEvent">addDateEvent</a>
+                            </li>
+                            <li>
+                                <a href="#loaddatePics">loaddatePics</a>
+                            </li>
+                            <li>
+                                <a href="#loadrecentPics">loadrecentPics</a>
+                            </li>
+                            <li>
+                                <a href="#loadtodayPics">loadtodayPics</a>
+                            </li>
+                            <li>
+                                <a href="#loadyesterdayPics">loadyesterdayPics</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openLightbox">openLightbox</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ImageService: <a href="../injectables/ImageService.html">ImageService</a>, gallery: Gallery, today: Gallery, yesterday: Gallery, dategallery: Gallery, lightbox: Lightbox)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/webcam/webcam.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ImageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImageService.html" target="_self" >ImageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gallery</td>
+                                                  
+                                                        <td>
+                                                                    <code>Gallery</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>today</td>
+                                                  
+                                                        <td>
+                                                                    <code>Gallery</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>yesterday</td>
+                                                  
+                                                        <td>
+                                                                    <code>Gallery</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dategallery</td>
+                                                  
+                                                        <td>
+                                                                    <code>Gallery</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lightbox</td>
+                                                  
+                                                        <td>
+                                                                    <code>Lightbox</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addDateEvent"></a>
+                    <span class="name">
+                        <b>
+                            addDateEvent
+                        </b>
+                        <a href="#addDateEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addDateEvent(event: MatDatepickerInputEvent<Date>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatDatepickerInputEvent&lt;Date&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Datepicker Event
+Eventhandling des Datepickers</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loaddatePics"></a>
+                    <span class="name">
+                        <b>
+                            loaddatePics
+                        </b>
+                        <a href="#loaddatePics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loaddatePics()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>lädt die Bilder des gewählten Datums</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadrecentPics"></a>
+                    <span class="name">
+                        <b>
+                            loadrecentPics
+                        </b>
+                        <a href="#loadrecentPics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadrecentPics()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>initialisiert die neusten Bilder</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadtodayPics"></a>
+                    <span class="name">
+                        <b>
+                            loadtodayPics
+                        </b>
+                        <a href="#loadtodayPics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadtodayPics()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>lädt die Bilder des heutigen Tages</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadyesterdayPics"></a>
+                    <span class="name">
+                        <b>
+                            loadyesterdayPics
+                        </b>
+                        <a href="#loadyesterdayPics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadyesterdayPics()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>lädt die Bilder des gestrigen Tages</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openLightbox"></a>
+                    <span class="name">
+                        <b>
+                            openLightbox
+                        </b>
+                        <a href="#openLightbox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openLightbox(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, galleryid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/webcam/webcam.component.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opens the lightbox</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>galleryid</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dategallery"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dategallery</b>
+                            <a href="#dategallery"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Gallery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/webcam/webcam.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DateImages"></a>
+                        <span class="name">
+                            <b>
+                            DateImages</b>
+                            <a href="#DateImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ImageData.html" target="_self" >ImageData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/webcam/webcam.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datepick Bilder </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DatePics"></a>
+                        <span class="name">
+                            <b>
+                            DatePics</b>
+                            <a href="#DatePics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GalleryItem[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/webcam/webcam.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datepick Gallerie </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="destroy$"></a>
+                        <span class="name">
+                            <b>
+                            destroy$</b>
+                            <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/webcam/webcam.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Subject für Pipe beim fetchen </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gallery"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            gallery</b>
+                            <a href="#gallery"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Gallery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/webcam/webcam.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ImageService"></a>
+                        <span class="name">
+                            <b>
+                            ImageService</b>
+                            <a href="#ImageService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/ImageService.html" target="_self" >ImageService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/webcam/webcam.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Service für die Bilder </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lightbox"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            lightbox</b>
+                            <a href="#lightbox"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Lightbox</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/webcam/webcam.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelOpenState"></a>
+                        <span class="name">
+                            <b>
+                            panelOpenState</b>
+                            <a href="#panelOpenState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/webcam/webcam.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RecentImages"></a>
+                        <span class="name">
+                            <b>
+                            RecentImages</b>
+                            <a href="#RecentImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ImageData.html" target="_self" >ImageData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/webcam/webcam.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>neuste Bilder </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recentPics"></a>
+                        <span class="name">
+                            <b>
+                            recentPics</b>
+                            <a href="#recentPics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GalleryItem[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/webcam/webcam.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Gallerie für die neusten Bilder </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startdateEvents"></a>
+                        <span class="name">
+                            <b>
+                            startdateEvents</b>
+                            <a href="#startdateEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/webcam/webcam.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Hält das gewählte Datum </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="today"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            today</b>
+                            <a href="#today"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Gallery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/webcam/webcam.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TodayImages"></a>
+                        <span class="name">
+                            <b>
+                            TodayImages</b>
+                            <a href="#TodayImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ImageData.html" target="_self" >ImageData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/webcam/webcam.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Bilder von Heute </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="todayPics"></a>
+                        <span class="name">
+                            <b>
+                            todayPics</b>
+                            <a href="#todayPics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GalleryItem[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/webcam/webcam.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Gallerie für die Bilder von heute</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="yesterday"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            yesterday</b>
+                            <a href="#yesterday"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Gallery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/webcam/webcam.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="YesterdayImages"></a>
+                        <span class="name">
+                            <b>
+                            YesterdayImages</b>
+                            <a href="#YesterdayImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ImageData.html" target="_self" >ImageData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/webcam/webcam.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Bilder von Gestern </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="yesterdayPics"></a>
+                        <span class="name">
+                            <b>
+                            yesterdayPics</b>
+                            <a href="#yesterdayPics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GalleryItem[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/webcam/webcam.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Gallerie Bilder von gestern </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component,ChangeDetectionStrategy, OnInit, } from &quot;@angular/core&quot;;
+import { ImageData, ImageService } from &quot;../image-data.service&quot;;
+import { Observable, Subject } from &quot;rxjs&quot;;
+import { takeUntil, throttleTime } from &quot;rxjs/operators&quot;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { MatDatepickerInputEvent } from &#x27;@angular/material/datepicker&#x27;;
+import { Gallery, GalleryItem, ImageItem } from &#x27;@ngx-gallery/core&#x27;;
+import { Lightbox } from &#x27;@ngx-gallery/lightbox&#x27;;
+
+import &#x27;hammerjs&#x27;;
+
+
+
+@Component({
+  selector: &quot;app-webcam&quot;,
+  templateUrl: &quot;./webcam.component.html&quot;,
+  styleUrls: [&quot;./webcam.component.scss&quot;],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class WebcamComponent implements OnInit {
+  /**Gallerie für die Bilder von heute*/
+  todayPics:GalleryItem[];
+  /**Bilder von Heute */
+  TodayImages: ImageData[] &#x3D;[];
+/** Gallerie für die neusten Bilder */
+  recentPics: GalleryItem[];
+  /**neuste Bilder */
+  RecentImages: ImageData[] &#x3D; [];
+/**Gallerie Bilder von gestern */
+  yesterdayPics: GalleryItem[];
+  /**Bilder von Gestern */
+  YesterdayImages: ImageData[] &#x3D; [];
+/**Datepick Gallerie */
+  DatePics: GalleryItem[];
+  /**Datepick Bilder */
+  DateImages: ImageData[] &#x3D; [];
+
+/**Service für die Bilder */
+  ImageService: ImageService;
+
+  /**Subject für Pipe beim fetchen */
+  destroy$: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+  /**Hält das gewählte Datum */
+  startdateEvents: Date;
+
+  panelOpenState &#x3D; false;
+
+
+  constructor(ImageService: ImageService,public gallery: Gallery,public today: Gallery,public yesterday:Gallery,public dategallery:Gallery, public lightbox: Lightbox) {
+    this.ImageService &#x3D; ImageService;
+  }
+
+  ngOnInit() {
+    
+    this.ImageService.getrecentImages()
+    .pipe(takeUntil(this.destroy$))
+      .subscribe((data) &#x3D;&gt; {
+        this.RecentImages &#x3D; data;
+        this.loadrecentPics();
+      })
+      this.gallery.ref(&#x27;lightbox&#x27;, {imageSize: &#x27;cover&#x27;, loadingStrategy: &#x27;lazy&#x27;, thumbPosition: &#x27;top&#x27;}).load(this.recentPics);
+      console.log(this.recentPics)
+
+
+      
+      console.log(this.gallery)
+
+    }
+  
+/**
+ * initialisiert die neusten Bilder
+ */
+    loadrecentPics(){
+      this.recentPics&#x3D;this.RecentImages.map(data &#x3D;&gt; {
+        return new ImageItem({src:data.image,thumb:data.image})
+      });
+    }
+    /**
+     * lädt die Bilder des heutigen Tages
+     */
+    loadtodayPics(){
+      this.ImageService.getTodayImages()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)&#x3D;&gt;{
+        this.TodayImages&#x3D;data;
+        this.todayPics&#x3D;this.TodayImages.map(data&#x3D;&gt;{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+      this.today.ref(&#x27;today&#x27;, {imageSize: &#x27;cover&#x27;, loadingStrategy: &#x27;lazy&#x27;, thumbPosition: &#x27;top&#x27;}).load(this.todayPics);
+        
+      })
+ 
+    }
+/**
+ * lädt die Bilder des gestrigen Tages
+ */
+    loadyesterdayPics(){
+      this.ImageService.getYesterdayImages()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)&#x3D;&gt;{
+        this.YesterdayImages&#x3D;data;
+        this.yesterdayPics&#x3D;this.YesterdayImages.map(data&#x3D;&gt;{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+        this.gallery.ref(&#x27;yesterday&#x27;, {imageSize: &#x27;cover&#x27;, loadingStrategy: &#x27;lazy&#x27;, thumbPosition: &#x27;top&#x27;}).load(this.yesterdayPics);
+      })
+    }
+
+  /**
+   * Opens the lightbox
+  */
+    openLightbox(index:number,galleryid:string) {
+     
+      this.lightbox.open(index, galleryid);
+    }
+    
+  /**
+   * lädt die Bilder des gewählten Datums
+  */
+    loaddatePics(){
+      this.ImageService.getDateImages(this.startdateEvents)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data)&#x3D;&gt;{
+        this.DateImages&#x3D;data;
+        this.DatePics&#x3D;this.DateImages.map(data&#x3D;&gt;{
+          return new ImageItem({src:data.image,thumb:data.image})
+        });
+        this.today.ref(&#x27;dategallery&#x27;, {imageSize: &#x27;cover&#x27;, loadingStrategy: &#x27;lazy&#x27;, thumbPosition: &#x27;top&#x27;}).load(this.DatePics);
+      })
+    }
+
+
+    /**
+     * 
+     * @param event Datepicker Event
+     * Eventhandling des Datepickers
+     */
+    addDateEvent(event: MatDatepickerInputEvent&lt;Date&gt;) {
+      this.startdateEvents&#x3D;event.value;
+    console.log(this.startdateEvents)
+      this.loaddatePics();
+
+  }
+  
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
+
+
+  }
+/**@ignore */
+export class NgbdDropdownBasic {
+  
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&quot;de&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset&#x3D;&quot;UTF-8&quot; /&gt;
+  &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; /&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;./webcam.component.scss&quot; /&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;../../assets/ExternalJsFiles/gallery.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;mat-card&gt;
+
+    &lt;mat-grid-list cols&#x3D;&quot;4&quot; rowHeight&#x3D;&quot;200px&quot;&gt;
+      &lt;mat-grid-tile [colspan]&#x3D;4 [rowspan]&#x3D;4&gt;
+        &lt;img [src]&#x3D;&quot;RecentImages[0].image&quot; (click)&#x3D;&quot;openLightbox(0,&#x27;lightbox&#x27;)&quot;&gt;
+      &lt;/mat-grid-tile&gt;
+      &lt;mat-grid-tile [colspan]&#x3D;1 [rowspan]&#x3D;1&gt;
+        &lt;img [src]&#x3D;&quot;RecentImages[1].image&quot; (click)&#x3D;&quot;openLightbox(1,&#x27;lightbox&#x27;)&quot;&gt;
+      &lt;/mat-grid-tile&gt;
+      &lt;mat-grid-tile [colspan]&#x3D;1 [rowspan]&#x3D;1&gt;
+        &lt;img [src]&#x3D;&quot;RecentImages[2].image&quot; (click)&#x3D;&quot;openLightbox(2,&#x27;lightbox&#x27;)&quot;&gt;
+      &lt;/mat-grid-tile&gt;
+      &lt;mat-grid-tile [colspan]&#x3D;1 [rowspan]&#x3D;1&gt;
+        &lt;img [src]&#x3D;&quot;RecentImages[3].image&quot; (click)&#x3D;&quot;openLightbox(3,&#x27;lightbox&#x27;)&quot;&gt;
+      &lt;/mat-grid-tile&gt;
+      &lt;mat-grid-tile [colspan]&#x3D;1 [rowspan]&#x3D;1&gt;
+        &lt;img [src]&#x3D;&quot;RecentImages[4].image&quot; (click)&#x3D;&quot;openLightbox(4,&#x27;lightbox&#x27;)&quot;&gt;
+      &lt;/mat-grid-tile&gt;
+    &lt;/mat-grid-list&gt;
+
+  &lt;/mat-card&gt;
+
+
+  &lt;mat-accordion&gt;
+    &lt;mat-expansion-panel (opened)&#x3D;&quot;loadtodayPics()&quot;&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          Heute
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          Dies sind alle aufgenommenen Bilder von heute.
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;ng-template matExpansionPanelContent&gt;
+        &lt;mat-grid-list cols&#x3D;&quot;4&quot; rowHeight&#x3D;&quot;200px&quot;&gt;
+          &lt;mat-grid-tile *ngFor&#x3D;&quot;let image of TodayImages,let indexofelement&#x3D;index&quot;&gt;
+            &lt;img [src]&#x3D;&quot;image.image&quot; height&#x3D;&quot;200px&quot; (click)&#x3D;&quot;openLightbox(indexofelement,&#x27;today&#x27;)&quot;&gt;
+
+
+          &lt;/mat-grid-tile&gt;
+        &lt;/mat-grid-list&gt;
+      &lt;/ng-template&gt;
+    &lt;/mat-expansion-panel&gt;
+  &lt;/mat-accordion&gt;
+
+
+  &lt;mat-accordion&gt;
+    &lt;mat-expansion-panel (opened)&#x3D;&quot;loadyesterdayPics()&quot;&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          Gestern
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          Dies sind alle aufgenommenen Bilder von gestern.
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+
+      &lt;ng-template matExpansionPanelContent&gt;
+        &lt;mat-grid-list cols&#x3D;&quot;4&quot; rowHeight&#x3D;&quot;200px&quot;&gt;
+          &lt;mat-grid-tile *ngFor&#x3D;&quot;let image of YesterdayImages,let indexofelement&#x3D;index&quot;&gt;
+            &lt;img [src]&#x3D;&quot;image.image&quot; height&#x3D;&quot;200px&quot; (click)&#x3D;&quot;openLightbox(indexofelement,&#x27;yesterday&#x27;)&quot;&gt;
+          &lt;/mat-grid-tile&gt;
+        &lt;/mat-grid-list&gt;
+      &lt;/ng-template&gt;
+    &lt;/mat-expansion-panel&gt;
+  &lt;/mat-accordion&gt;
+
+
+  &lt;mat-accordion&gt;
+    &lt;mat-expansion-panel&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          Datum wählen
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          Lassen Sie sich die Bilder von einem Tag anzeigen
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-label&gt;Wählen Sie ein Datum&lt;/mat-label&gt;
+          &lt;input matInput [matDatepicker]&#x3D;&quot;startpicker&quot; (dateInput)&#x3D;&quot;addDateEvent($event)&quot;&gt;
+          &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;startpicker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #startpicker&gt;&lt;/mat-datepicker&gt;
+        &lt;/mat-form-field&gt;
+        
+        &lt;ng-template matExpansionPanelContent &gt;
+          &lt;mat-grid-list cols&#x3D;&quot;4&quot; rowHeight&#x3D;&quot;200px&quot;&gt;
+            &lt;mat-grid-tile *ngFor&#x3D;&quot;let image of DateImages,let indexofelement&#x3D;index&quot;&gt;
+              &lt;img src&#x3D;{{image.image}} height&#x3D;&quot;200px&quot; (click)&#x3D;&quot;openLightbox(indexofelement,&#x27;dategallery&#x27;)&quot;&gt;
+  
+  
+            &lt;/mat-grid-tile&gt;
+          &lt;/mat-grid-list&gt;
+        &lt;/ng-template&gt;
+    &lt;/mat-expansion-panel&gt;
+  &lt;/mat-accordion&gt;
+
+
+  &lt;p class&#x3D;&quot;container&quot; gallerize&gt;
+    &lt;img *ngFor&#x3D;&quot;let img of recentPics&quot; [src]&#x3D;&quot;img?.data?.thumb&quot; [attr.imageSrc]&#x3D;&quot;img?.data?.src&quot;
+      [attr.thumbSrc]&#x3D;&quot;img?.data?.thumb&quot;&gt;
+  &lt;/p&gt;
+
+
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./webcam.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.imageone {
+  margin-left: 15%;
+  display: inline;
+  clear: both;
+}
+
+.imageone img {
+  width: 70%;
+  height: auto;
+}
+
+.container {
+  position: relative;
+  display: none;
+}
+
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+  transform: none !important;
+}
+
+.mat-card{
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.mat-expansion-panel{
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!DOCTYPE html><html lang="de"><head>  <meta charset="UTF-8" />  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Document</title>  <link rel="stylesheet" href="./webcam.component.scss" />  <script type="text/javascript" src="../../assets/ExternalJsFiles/gallery.js"></script></head><body>  <mat-card>    <mat-grid-list cols="4" rowHeight="200px">      <mat-grid-tile [colspan]=4 [rowspan]=4>        <img [src]="RecentImages[0].image" (click)="openLightbox(0,\'lightbox\')">      </mat-grid-tile>      <mat-grid-tile [colspan]=1 [rowspan]=1>        <img [src]="RecentImages[1].image" (click)="openLightbox(1,\'lightbox\')">      </mat-grid-tile>      <mat-grid-tile [colspan]=1 [rowspan]=1>        <img [src]="RecentImages[2].image" (click)="openLightbox(2,\'lightbox\')">      </mat-grid-tile>      <mat-grid-tile [colspan]=1 [rowspan]=1>        <img [src]="RecentImages[3].image" (click)="openLightbox(3,\'lightbox\')">      </mat-grid-tile>      <mat-grid-tile [colspan]=1 [rowspan]=1>        <img [src]="RecentImages[4].image" (click)="openLightbox(4,\'lightbox\')">      </mat-grid-tile>    </mat-grid-list>  </mat-card>  <mat-accordion>    <mat-expansion-panel (opened)="loadtodayPics()">      <mat-expansion-panel-header>        <mat-panel-title>          Heute        </mat-panel-title>        <mat-panel-description>          Dies sind alle aufgenommenen Bilder von heute.        </mat-panel-description>      </mat-expansion-panel-header>      <ng-template matExpansionPanelContent>        <mat-grid-list cols="4" rowHeight="200px">          <mat-grid-tile *ngFor="let image of TodayImages,let indexofelement=index">            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,\'today\')">          </mat-grid-tile>        </mat-grid-list>      </ng-template>    </mat-expansion-panel>  </mat-accordion>  <mat-accordion>    <mat-expansion-panel (opened)="loadyesterdayPics()">      <mat-expansion-panel-header>        <mat-panel-title>          Gestern        </mat-panel-title>        <mat-panel-description>          Dies sind alle aufgenommenen Bilder von gestern.        </mat-panel-description>      </mat-expansion-panel-header>      <ng-template matExpansionPanelContent>        <mat-grid-list cols="4" rowHeight="200px">          <mat-grid-tile *ngFor="let image of YesterdayImages,let indexofelement=index">            <img [src]="image.image" height="200px" (click)="openLightbox(indexofelement,\'yesterday\')">          </mat-grid-tile>        </mat-grid-list>      </ng-template>    </mat-expansion-panel>  </mat-accordion>  <mat-accordion>    <mat-expansion-panel>      <mat-expansion-panel-header>        <mat-panel-title>          Datum wählen        </mat-panel-title>        <mat-panel-description>          Lassen Sie sich die Bilder von einem Tag anzeigen        </mat-panel-description>      </mat-expansion-panel-header>        <mat-form-field appearance="fill">          <mat-label>Wählen Sie ein Datum</mat-label>          <input matInput [matDatepicker]="startpicker" (dateInput)="addDateEvent($event)">          <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>          <mat-datepicker #startpicker></mat-datepicker>        </mat-form-field>                <ng-template matExpansionPanelContent >          <mat-grid-list cols="4" rowHeight="200px">            <mat-grid-tile *ngFor="let image of DateImages,let indexofelement=index">              <img src={{image.image}} height="200px" (click)="openLightbox(indexofelement,\'dategallery\')">                </mat-grid-tile>          </mat-grid-list>        </ng-template>    </mat-expansion-panel>  </mat-accordion>  <p class="container" gallerize>    <img *ngFor="let img of recentPics" [src]="img?.data?.thumb" [attr.imageSrc]="img?.data?.src"      [attr.thumbSrc]="img?.data?.thumb">  </p></body></html></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminpanelComponent', 'selector': 'app-adminpanel'},{'name': 'GraphsComponent', 'selector': 'app-graphs'},{'name': 'WebcamComponent', 'selector': 'app-webcam'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'WebcamComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WebcamComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
