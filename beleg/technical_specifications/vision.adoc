@@ -10,7 +10,7 @@ Alle
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Wetterstation-Software zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Wetterstation-Software diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Wetterstation-Software zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Wetterstation-Software diese Bedarfe erfüllt, werden in der Use Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
@@ -158,7 +158,7 @@ Die Bedienung ist auf unterschiedlichen Endgeräten möglich.
 * Verwendung einer Skriptsprache (Python)
 * Zugang zu Webserver wird gestellt (10 GB)
 * Zugang zu einer mySQL-DB wird gestellt
-* Verlinkung durch Verneinswebseite 
+* Verlinkung durch Vereinswebseite 
 
 //Hinweise:
 //. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
