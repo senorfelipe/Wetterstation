@@ -24,7 +24,7 @@ Siehe GitHub-Repository: /project_docs/Iterationsplan_10.adoc
 == Themen
 - Python & Django sind ok, allerdings ist eine Skriptsprache mit ordentlichen Kommentaren Voraussetzung
 - Raspberry ist wieder erreichbar
-- config UND configsession als Sitzungseinstellungen für Datenbank (Nutzer und Sitzung den Einstellungen zurordnen)
+- config UND configsession als Sitzungseinstellungen für Datenbank (Nutzer und Sitzung den Einstellungen zuordnen)
 - Configwerte nicht in eine einzelne Tabelle schreiben, sondern weitere Tabelle mit Configeinträgen mit Verweis auf Tabelle mit Configart und Wert
 - noch eine Spalte in Configtabellen (resultspalte), in der steht ob eine Einstellung geklappt hat
 - Backend kommt auf gleiches Gerät wie die DB
@@ -32,6 +32,6 @@ Siehe GitHub-Repository: /project_docs/Iterationsplan_10.adoc
 Was übernehmen die Auftraggeber?
 
 - Eine Datei pro Sensor, die wir in Zeitabschnitten abfragen (liegen in einem def. Ordner, Textformat)
-- Rapsberry im Wartungsmmodus (wir sollen nur Information geben, 
+- Rapsberry im Wartungsmodus (wir sollen nur Information geben, 
   dass sich der Raspberry nicht runter fahren soll)
 

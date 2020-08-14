@@ -13,7 +13,7 @@ Das Projekt wurde in Iterationen mit einer Iterationslänge von 2 Wochen durchge
 Dabei kann das Projekt grob in 2 Phasen untergliedert werden. 
 Die erste Phase ist die der Analyse und Projektplanung im WiSe 19/20, die zweite Phase ist die der Implementierung im SoSe 20, wobei im Sinne der Iterativen Entwicklung keine strikte Trennung erfolgte. 
 Die Iterationen wurden mit Ablauf der vorhergehenden angefangen, 2 Wochen lang bearbeitet und mit einem Meeting abgeschlossen, bei dem möglichst das gesamte Team anwesend sein sollte. Während des Meetings wurde dann die neue Iteration geplant. 
-Im folgenden sind ausgewählte Ziele, Aktivitäten, Ergebnisse und Probleme der Iterationen aufgelistet und verantwortliche Rollen spezifiziert. Dabei sind nicht alle Aktivitäten und Ergebnisse dargestellt, sondern nur die wichtigsten und/oder Beispiele (d.h. es werden hier nicht alle ausgearbeiteten Wireframes, Use-Cases, ERMs, ... dargestellt).
+Im folgenden sind ausgewählte Ziele, Aktivitäten, Ergebnisse und Probleme der Iterationen aufgelistet und verantwortliche Rollen spezifiziert. Dabei sind nicht alle Aktivitäten und Ergebnisse dargestellt, sondern nur die wichtigsten und/oder Beispiele (d.h. es werden hier nicht alle ausgearbeiteten Wireframes, Use Cases, ERMs, ... dargestellt).
 //Was wurde gemacht, was ist dabei herausgekommen, Zwischenergebnisse präsentieren
 
 == Iterationen
@@ -52,7 +52,7 @@ image::images/I3-Architektur.jpg[]
 === Iteration 4 - 10.01.2020-22.01.2020
 ==== Ziele / Aktivitäten
 - Geregelte Kommunikation im Team durchsetzen -> Projektmanager
-- Use-Cases ableiten und teils detailliert ausarbeiten -> Analyst, Architekt, Entwickler, Tester
+- Use Cases ableiten und teils detailliert ausarbeiten -> Analyst, Architekt, Entwickler, Tester
 - ERM erarbeiten -> Architekt, Entwickler
 - Aktivitätsdiagramme erarbeiten -> Architekt, Entwickler
 
@@ -65,7 +65,7 @@ image::images/I4-db.jpg[]
 
 === Iteration 5 - 23.01.2020-05.02.2020
 ==== Ziele / Aktivitäten
-- Use-Cases überarbeiten -> Analyst, Architekt, Entwickler, Tester
+- Use Cases überarbeiten -> Analyst, Architekt, Entwickler, Tester
 - Wireframes erstellen und Kunden vorzeigen
 - Belegabgabe vorbereiten/durchführen -> Projektmanager
 
@@ -104,7 +104,7 @@ image::images/I5-graphwire.jpg[]
 === Iteration 11 - 22.04.2020-06.05.2020
 ==== Ziele / Aktivitäten
 - Front-End und Back-End entwickeln -> Architekt, Entwickler
-- Test auf Grundlage von Use-Cases beschreiben und entwickeln -> Tester
+- Test auf Grundlage von Use Cases beschreiben und entwickeln -> Tester
 
 ==== Ergebnisse
 .Bewertung Iteration 11
@@ -132,7 +132,7 @@ image::images/bewertung_iteration.jpg[]
 - Testfälle stehen zwar, sind aber aufgrund von Problemen mit der Rest-API noch nicht ausführbar (siehe Issue#66)
 - die Authentifizierung wurde noch nicht angegangen
 
-.Mockup des Adminpanel
+.Mockup des Adminpanels
 image::images/adminpanel_mockup.jpg[]
 
 === Iteration 14 - 04.06.2020-17.06.2020
@@ -148,11 +148,11 @@ image::images/adminpanel_mockup.jpg[]
 === Iteration 15 - 18.06.2020-01.07.2020
 ==== Ziele / Aktivitäten
 - Model für config und configsession verfeinern (WIP) -> Architekt
-- Admin Panel bearbeiten und mit Back-End zusammenführen -> Projektmanager
+- Adminpanel bearbeiten und mit Back-End zusammenführen -> Projektmanager
 - Authentifizierung einrichten -> Architekt
 
 ==== Ergebnisse
-- Adminpanek ist mit Back-End zusammengeführt
+- Adminpanel ist mit Back-End zusammengeführt
 
 ==== Probleme
 - Projektbericht und Dokumentation wurden nicht überarbeitet
@@ -163,7 +163,7 @@ image::images/adminpanel_mockup.jpg[]
 - Tests erstellen, überarbeiten und durchführen -> Tester, Architekt
 - Model für config und configsession verfeinern -> Architekt
 - Gallerie bearbeiten -> Entwickler
-- Admin-Panel Diagram Daten mit entsprechenden Datumsangaben zusammenführen -> Projektmanager
+- Adminpanel Diagramm Daten mit entsprechenden Datumsangaben zusammenführen -> Projektmanager
 - Authentifizierung einrichten -> Architekt
 
 ==== Ergebnisse
@@ -172,7 +172,7 @@ image::images/login.jpg[]
 
 === Iteration 17 - 16.07.2020-31.07.2020
 ==== Ziele / Aktivitäten
-- Adminpanel vefeinern und an neue Anforderungen anpassen
+- Adminpanel verfeinern und an neue Anforderungen anpassen
 - Deployment vorbereiten
 - Übergabe der aktuellsten Version am 31.07.2020
 
