@@ -4,7 +4,7 @@
 * Daten aufrufen -> User, Administratoren
 * Diagramm abrufen -> User, Admininstratoren
 * Daten ändern -> Administratoren
-* read logfile -> Administratoren
+* logfile lesen -> Administratoren
 
 Priorisierung:
 
@@ -12,7 +12,7 @@ Priorisierung:
 . Bildergalerie abrufen
 . Daten aufrufen
 . Daten ändern
-. read logfile
+. logfile lesen
 
 
 = Use Case Diagramm

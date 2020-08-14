@@ -71,5 +71,8 @@ Wenn der Admin im Schritt 3 des Standardablaufes unzulässige Werte in die Confi
 . Der Admin darf die Werte nur so ändern, dass diese Ordnungsgemäß gespeichert und verarbeitet werden können
 
 === Wireframes
+
+.ERM
 image::../Bilder/aktuelles_erm.jpg[]
-image::wireframes/AdminPanel.PNG[]
+.Wireframe
+image::./wireframes/AdminPanel.PNG[]
