@@ -19,7 +19,7 @@ Nur Administratoren, sprich User mit einem gültigen Login und entsprechenden Zu
 . Der Inhalt der Logfile wird dem Admin im Adminbereich angezeigt
 . Der Use Case ist abgeschlossen.
 
-=== Alternative Abläufe
+//=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
 === Unterabläufe (subflows)
