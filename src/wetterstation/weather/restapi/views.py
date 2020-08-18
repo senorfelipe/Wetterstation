@@ -251,7 +251,7 @@ class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, views
         config_session.save()
 
 
-class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
     queryset = ConfigSession.objects.all()
     serializer_class = ConfigSessionSerializer
 
