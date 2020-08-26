@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession, \
-    Load, Controller
+    Load, Controller, Log
 
 """
 This file contains all Serializers to serialize and deserialize data.
@@ -69,3 +69,9 @@ class ConfigSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConfigSession
         fields = '__all__'
+
+
+class LogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Log
+        exclude = ['id']

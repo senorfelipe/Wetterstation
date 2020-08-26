@@ -111,3 +111,15 @@ class ConfigSession(models.Model):
     applied = models.BooleanField()
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
+
+class Log(models.Model):
+    LOG_LEVEL_CHOICES = [
+        ('DEBUG', 'Debug'),
+        ('INFO', 'Information'),
+        ('WARN', 'Warning'),
+        ('ERROR', 'Error')
+    ]
+    log_level = models.CharField(max_length=8, choices=LOG_LEVEL_CHOICES)
+    time = models.DateTimeField(auto_now_add=True)
+    message = models.CharField(max_length=512)
+

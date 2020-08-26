@@ -16,9 +16,11 @@ from . import databaseutils, costumviews
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
 from .dataprocessing import map_sensor_data, validate
 from .forms import ImageUploadForm
-from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, Load
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, \
+    Load, Log
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, ControllerSerializer
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, \
+    ControllerSerializer, LogSerializer
 
 RASPI_IP_ADDR = '127.0.0.1'
 
@@ -48,7 +50,8 @@ def filter_by_dates(date_range, queryset):
             # this addition needs to be done
             # in order to get values from start_date 00:00 to today 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        if issubclass(MeasurementSession, queryset.model) or issubclass(ConfigSession, queryset.model):
+        if issubclass(MeasurementSession, queryset.model) or issubclass(ConfigSession, queryset.model) or issubclass(
+                Log, queryset.model):
             filtered_queryset = queryset.filter(time__range=(start_date, end_date))
         else:
             filtered_queryset = queryset.filter(measure_time__range=(start_date, end_date))
@@ -377,3 +380,13 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = self.get_queryset()
         queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
         return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)
+
+
+class LogViewSet(costumviews.CreateListRetrieveViewSet):
+    serializer_class = LogSerializer
+    queryset = Log.objects.all()
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
