@@ -2,10 +2,13 @@ import datetime
 import glob
 import http
 import json
+import logging
 import os
 import time
 from json import JSONDecodeError
 from random import random
+
+from requests.exceptions import ConnectionError
 
 from src.http_client.httpclient import HttpClient
 
@@ -16,6 +19,8 @@ HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
 MAX_JSON_POST_AMOUNT = 2000
+
+logging.basicConfig(filename='raspi.log', level=logging.WARN)
 
 
 def update_config(json_str):
@@ -28,14 +33,24 @@ def update_config(json_str):
                 config_file.write(json_str)
                 config_file.truncate()
     except JSONDecodeError:
-        print("Could not deserialize config.json properly.")
+        logging.warning("Could not deserialize config.json. Config.json is not up to date with server configuration.")
+
+
+def set_config_applied():
+    restclient = HttpClient(HOSTNAME + '/api/config-session/latest/')
+    applied_json = {'applied': True}
+    restclient.post_json_data(json=applied_json)
 
 
 def check_configurations():
-    restclient = HttpClient(HOSTNAME + '/api/config/latest/')
-    response = restclient.get()
-    if response[1] == http.HTTPStatus.OK:
-        update_config(response[0])
+    try:
+        restclient = HttpClient(HOSTNAME + '/api/config/latest/')
+        response = restclient.get()
+        if response[1] == http.HTTPStatus.OK:
+            update_config(response[0])
+            set_config_applied()
+    except ConnectionError as e:
+        logging.error('Could not setup connection to server: ' + str(e))
 
 
 def find_and_post_data():
@@ -72,16 +87,25 @@ def add_session_id(data, session_id):
 
 
 def post_data(data):
-    restclient = HttpClient(HOSTNAME + SENSOR_DATA_API_URL)
-    return restclient.post_json_data(data)
+    if len(data) > 0:
+        try:
+            restclient = HttpClient(HOSTNAME + SENSOR_DATA_API_URL)
+            return restclient.post_json_data(data)
+        except ConnectionError as e:
+            logging.error('Could not setup connection to server: ' + str(e))
+    else:
+        logging.info('Received no data to post.')
 
 
 def post_image(image):
-    timestamp = int(os.path.basename(image).replace(IMG_FORMAT, ''))
-    creation_time = datetime.datetime.fromtimestamp(timestamp)
-    image_data = {'measure_time': creation_time, 'session_id': timestamp}
-    restclient = HttpClient(HOSTNAME + IMAGES_API_URL)
-    return restclient.post_file(image, image_data)
+    try:
+        timestamp = int(os.path.basename(image).replace(IMG_FORMAT, ''))
+        creation_time = datetime.datetime.fromtimestamp(timestamp)
+        image_data = {'measure_time': creation_time, 'session_id': timestamp}
+        restclient = HttpClient(HOSTNAME + IMAGES_API_URL)
+        return restclient.post_file(image, image_data)
+    except ConnectionError as e:
+        logging.error('Could not setup connection to server: ' + str(e))
 
 
 def get_images():

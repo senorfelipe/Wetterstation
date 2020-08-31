@@ -262,6 +262,7 @@ class ConfigurationViewSet(costumviews.CreateListRetrieveViewSet):
 class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
     queryset = ConfigSession.objects.all()
     serializer_class = ConfigSessionSerializer
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
@@ -269,6 +270,18 @@ class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, views
     def list(self, request, *args, **kwargs):
         result = self.queryset.values('configuration_id', 'user__username', 'time', 'applied')
         return Response(result)
+
+    @action(methods=['POST', 'GET'], detail=False)
+    def latest(self, request, *args, **kwargs):
+        latest = ConfigSession.objects.latest('time')
+        if request.method == 'GET':
+            return Response(self.get_serializer(latest).data)
+        elif self.request.method == 'POST':
+            if len(self.request.data) == 1 and request.data['applied']:
+                latest.applied = True
+                latest.save()
+                return Response(status=status.HTTP_200_OK)
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class GetStates(APIView):

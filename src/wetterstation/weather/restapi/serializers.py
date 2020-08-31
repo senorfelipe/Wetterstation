@@ -71,6 +71,10 @@ class ConfigSessionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ConfigAppliedSerializer(serializers.Serializer):
+    applied = serializers.BooleanField
+
+
 class LogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
