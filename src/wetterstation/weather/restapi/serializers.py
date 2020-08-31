@@ -62,7 +62,7 @@ class ControllerSerializer(serializers.ModelSerializer):
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Configuration
-        exclude = ['id']
+        exclude = ['id', 'time']
 
 
 class ConfigSessionSerializer(serializers.ModelSerializer):

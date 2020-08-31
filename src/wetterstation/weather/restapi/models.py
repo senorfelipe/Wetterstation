@@ -69,7 +69,7 @@ class SolarCell(models.Model):
     measurement_session = models.OneToOneField(MeasurementSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return 'measure time: ' + str(self.measure_time) + ', current: ' + str(self.current) + ', voltage: ' + str(
+        return 'measure time: ' + str(self.measure_time) + ', power: ' + str(self.power) + ', voltage: ' + str(
             self.voltage)
 
 
@@ -98,8 +98,8 @@ class Configuration(models.Model):
     res_width = models.IntegerField()
     measure_intervall_sensors = models.IntegerField()
     measure_intervall_cam = models.IntegerField()
-    post_intervall_sensor_data = models.IntegerField()
-    post_intervall_cam_data = models.IntegerField()
+    post_intervall = models.IntegerField()
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return 'resolution: ' + str(self.res_height) + 'x' + str(self.res_width)
@@ -122,4 +122,3 @@ class Log(models.Model):
     log_level = models.CharField(max_length=8, choices=LOG_LEVEL_CHOICES)
     time = models.DateTimeField(auto_now_add=True)
     message = models.CharField(max_length=512)
-

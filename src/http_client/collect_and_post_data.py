@@ -1,8 +1,10 @@
 import datetime
 import glob
+import http
 import json
 import os
 import time
+from json import JSONDecodeError
 from random import random
 
 from src.http_client.httpclient import HttpClient
@@ -13,6 +15,27 @@ SEARCH_DIR = './data/mock/'
 HOSTNAME = 'http://localhost:8000'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
+MAX_JSON_POST_AMOUNT = 2000
+
+
+def update_config(json_str):
+    try:
+        with open('config.json', 'r+') as config_file:
+            current_config = sorted(json.load(config_file).items())
+            requested_config = sorted(json.loads(json_str).items())
+            if current_config != requested_config:
+                config_file.seek(0)
+                config_file.write(json_str)
+                config_file.truncate()
+    except JSONDecodeError:
+        print("Could not deserialize config.json properly.")
+
+
+def check_configurations():
+    restclient = HttpClient(HOSTNAME + '/api/config/latest/')
+    response = restclient.get()
+    if response[1] == http.HTTPStatus.OK:
+        update_config(response[0])
 
 
 def find_and_post_data():
@@ -20,13 +43,14 @@ def find_and_post_data():
     files = get_json_files()
     to_post = []
     for file in files:
-        with open(file) as json_file:
-            data = json.load(json_file)
-            add_session_id(data, os.path.splitext(file)[0])
-            to_post.append(data)
+        if len(files) < MAX_JSON_POST_AMOUNT:
+            with open(file) as json_file:
+                data = json.load(json_file)
+                add_session_id(data, os.path.splitext(file)[0])
+                to_post.append(data)
     status = post_data(to_post)
     if status == 201:
-        for file in files:
+        for file in to_post:
             os.remove(file)
 
     images = get_images()
@@ -74,4 +98,8 @@ def get_json_files():
     return files
 
 
+"""Workflow when this script runs:
+It pulls the latst configuration parameters and updates the local config file. 
+After that it posts the new sensor data."""
+check_configurations()
 find_and_post_data()

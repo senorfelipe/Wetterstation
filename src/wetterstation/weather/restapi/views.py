@@ -240,7 +240,7 @@ def store_data(serializer):
 # Viewsets regarding AdminPanel
 # -------------------------------
 
-class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ConfigurationViewSet(costumviews.CreateListRetrieveViewSet):
     queryset = Configuration.objects.all()
     serializer_class = ConfigurationSerializer
 
@@ -252,6 +252,11 @@ class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, views
         config_session.time = datetime.datetime.now()
         config_session.user = self.request.user
         config_session.save()
+
+    @action(methods=['GET'], detail=False)
+    def latest(self, request, *args, **kwargs):
+        latest = Configuration.objects.latest('time')
+        return Response(self.get_serializer(latest).data)
 
 
 class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
