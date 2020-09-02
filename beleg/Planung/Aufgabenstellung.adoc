@@ -1,0 +1,56 @@
+= Aufgabenstellung
+
+Autoren: Josefin Hähne
+
+== Aufgabe
+
+Der Modellflugclub Rossendorf e.V. hat den Wunsch nach einer vereinseigenen Wetterstation und Webcam, wobei die entsprechenden Daten auf der Website http://mfc-rossendorf.de/wichtige-infos-bitte-lesen/wetter.html direkt dargestellt werden sollen. Da der Modellflugplatz keine Infrastruktur wie Strom, Telefon oder Internet hat, bleibt nur eine solarbetriebene Anlage.
+Ein Computermodul sammelt dabei die Daten angeschlossener Sensoren wie Bild, Temperatur, Wind (Stärke + Richtung)), speichert sie lokal und sendet sie zyklisch an einen Webserver. 
+
+Es kommt folgende Hardware zum Einsatz:
+
+* Raspberry Pi 4
+* diverse Sensoren 
+* Webcam (via Raspi on-board Camera Connector)
+* UMTS-Modul (via USB)
+* Akku (LiPo)
+* Solarzelle
+* Lade-Management
+* Gehäuse
+
+Auf dem Raspi läuft eine Standard-Linux-Distribution. Die auszuführenden Aktionen werden in definierten Zeitabständen per CronJob angestoßen. Das System sowie der Raspi laufen ununterbrochen.
+
+Die auszuführenden Funktionen sollen in einer Skriptsprache umgesetzt werden. Die Sensordaten werden über die entsprechenden IO-Pins gesammelt. Die Webcam ist per on-board Connector angeschlossen, die Bildakquise erfolgt über die entsprechenden Kommandozeilen-Funktionen. Als Funkmodul kommt ein UMTS-Stick zum Einsatz. Systemseitig stellt sich dies als normales Netzwerk Device dar.
+
+Die Visualisierung der Werte soll auf der der Vereinswebseite erfolgen. Die Daten sollen direkt an den entsprechenden Webserver gesendet und dort in einer Datenbank gespeichert und zur Anzeige gebracht werden. Über einen separaten „Admin-Bereich“ soll es möglich sein,  weitere Informationen zum Systemzustand abzufragen (Datenverbrauch, Energieverbrauch).
+
+Es wird eine MySQL Datenbank verwendet.
+
+Alle Messwerte sollen dynamisch sortiert, gefiltert und in grafischer Form (als Diagramm) zur Anzeige gebracht werden können. Dabei sollen alle Aktionen des Nutzers, die die Auswahl der anzuzeigenden Daten betreffen (z.B. Zeitraum) „dynamisch“ erfolgen – ein „Neu laden“ der Seite soll also nicht erforderlich sein. Die Abfrage der Datenbank und Aktualisierung der Darstellung soll via JavaScript (AJAX) im Browser erfolgen. Die Werte sollen durch ein „passendes“ Verfahren interpoliert werden, so dass eine sinnvolle Darstellung auch durch die Messungen nicht erfasster Werte möglich ist (Darstellung als „Kurvenzug“).
+
+Die von der Kamera aufgenommenen Bilder sollen übersichtlich als Galerie entsprechend der Auswahl des Nutzers (Zeitraum, Intervall, Start- und Enddatum) dargestellt werden. Bei der Auswahl eines Bildes soll dies in voller Auflösung zur Anzeige gebracht werden. Die Interkation des Nutzers mit dem Browser soll ebenfalls „dynamisch“, wie im vorigen Punkt beschrieben, erfolgen.
+
+Ein Nutzer-/Rechtemanagement ist nicht erforderlich, lediglich der oben genannte „Admin-Bereich“ soll nur nach einem Login erreichbar sein.
+
+Die webserverseitige funktionelle Umsetzung ist noch nicht spezifiziert. Letztlich ist eine Vielzahl von Sprachen geeignet, vorzugsweise sollte die Umsetzung jedoch in einer Skriptsprache erfolgen, um die spätere Wartbarkeit und Erweiterbarkeit zu Vereinfachen.
+
+Browser/Frontendseitig kommen die „Standardtechniken“ HTML, CSS und JavaScript zum Einsatz. Hinsichtlich der Verwendung spezieller JavaScript-Frameworks gibt es keine Festlegungen.
+
+== Auftraggeber
+
+Der Auftraggeber des Projekts ist der Modellflugclub Rossendorf e.V. Die Betreuung übernahmen Prof. Dr. rer. nat. habil. Heino Iwe und der Vorsitzende des Vereins Thomas Brenner, die uns auch unterstützt und Vorschläge gemacht haben.
+
+== Ausgangssituation zu Semesterbeginn
+
+Zu Semesterbeginn standen wir vor einer Herausforderung, die wir noch nicht bedacht haben, dass diese eintreten könnte. Durch die Pandemie konnten wir uns nicht mehr persönlich treffen und es fiel der tägliche Kontakt in der Hochschule weg. Somit fielen auch die Treffen an der HTW mit den Auftraggebern aller zwei Wochen weg und wir mussten uns einen neuen Kommunikationsweg suchen. Dies galt nicht nur für die internen Teammeetings, sondern auch für die Treffen mit den Auftraggebern sowie dem Coach. Dazu wählten wir anfangs Google Hangouts, welches wir auch schon von unseren Vorlesungen kannten.
+
+Wir haben uns als Team weiterentwickelt, besser kennengelernt und in Erfahrung gebracht welches Teammitglied bestimmte Interessen und Stärken besitzt, die wir in unserem Projekt einsetzen können. Ebenfalls bekamen wir einen neuen Tester in unser Team, Hannes Fogut, da Martin Großmann unser Team verlassen hat. Wir haben eine geregelte Kommunikation zur Aufgabenverteilung, aber auch für weitere Absprachen gefunden.
+
+Wir hatten die Inception- und Elaborationsphases abgeschlossen, sowie die Anforderungserhebung und -analyse bis zu dem Zeitpunkt. Auch in der Architektur hatten wir Fortschritte gemacht. So haben wir erste Wireframes für die Benutzeroberfläche erstellt, die auch von den Auftraggebern abgesegnet wurden. Es gab einen ersten Entwurf wie das System aufgebaut ist und eine Architekturbeschreibung. Des Weiteren waren der Projektplan, Use Cases mit Beschreibungen, ein Glossar, das ERM, Aktivitätsdiagramme und die Vision bis zu der Zeit ausgearbeitet. 
+
+
+
+.Projektstatus zu Semesterbeginn
+image::./images/Iteration_4.jpg[]
+
+

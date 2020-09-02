@@ -1,37 +1,37 @@
 {
   "temperature": {
     "measure_time": "2020-07-29T13:14:25",
-    "degrees": 20.5,
+    "degrees": "23.1",
     "session_id": 123456789
   },
   "wind": {
     "measure_time": "2020-07-30T13:14:25",
-    "speed": 1.5,
-    "dir": 350,
+    "speed": "5.7",
+    "dir": "290",
     "session_id": 123456789
   },
   "pv": {
     "measure_time": "2020-07-30T13:14:25",
-    "power": 3.1,
-    "voltage": 15.3,
+    "power": "29",
+    "voltage": "14800",
     "session_id": 123456789
   },
   "load": {
     "measure_time": "2020-07-30T13:14:25",
-    "current": 3.1,
-    "voltage": 15.3,
+    "current": "0",
+    "voltage": "14800",
     "session_id": 123456789
   },
   "battery": {
     "measure_time": "2020-07-30T13:14:25",
-    "current": 0.15,
-    "voltage": 12.5,
-    "temperature": 14.8,
+    "current": "2070",
+    "voltage": "13590",
+    "temperature": "err",
     "session_id": 123456789
   },
   "controller": {
     "measure_time": "2020-07-30T13:14:25",
     "session_id": 123456789,
-    "mode": 3
+    "mode": "3"
   }
 }
