@@ -1,0 +1,27 @@
+=== Use-Cases
+
+* Bildergalerie abrufen -> User, Administratoren
+* Daten aufrufen -> User, Administratoren
+* Diagramm abrufen -> User, Admininstratoren
+* Daten ändern -> Administratoren
+* read logfile -> Administratoren
+* Wetterdaten posten
+
+Priorisierung:
+
+. Diagramm abrufen
+. Bildergalerie abrufen
+. Wetterdaten posten
+. Daten aufrufen
+. Daten ändern
+. read logfile
+
+
+=== Use Case Diagramm
+
+image::Use-Case_Diagramm.jpg[]
+
+
+
+
+

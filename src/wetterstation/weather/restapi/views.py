@@ -13,24 +13,22 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from . import databaseutils, costumviews
+from .constants import WIND_AGGREGATION_INTERVALL_IN_MIN, RASPI_IP_ADDR
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
 from .dataprocessing import map_sensor_data, validate
 from .forms import ImageUploadForm
-from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, Load
+from .models import Image, MeasurementSession, Battery, Temperature, SolarCell, Wind, Configuration, ConfigSession, \
+    Load, Log
 from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, BatterySerializer, SolarCellSerializer, \
-    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, ControllerSerializer
-
-RASPI_IP_ADDR = '127.0.0.1'
+    MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, \
+    ControllerSerializer, LogSerializer
 
 """
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
 """
 
-WIND_AGGREGATION_INTERVALL_IN_MIN = 15
-
 last_post_time_raspi = None
-
 logger = logging.getLogger(__name__)
 
 
@@ -48,7 +46,8 @@ def filter_by_dates(date_range, queryset):
             # this addition needs to be done
             # in order to get values from start_date 00:00 to today 23:59
             end_date = datetime.datetime.now() + datetime.timedelta(days=1)
-        if issubclass(MeasurementSession, queryset.model) or issubclass(ConfigSession, queryset.model):
+        if issubclass(MeasurementSession, queryset.model) or issubclass(ConfigSession, queryset.model) or issubclass(
+                Log, queryset.model):
             filtered_queryset = queryset.filter(time__range=(start_date, end_date))
         else:
             filtered_queryset = queryset.filter(measure_time__range=(start_date, end_date))
@@ -134,6 +133,10 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
         return filter_by_dates(self.request.query_params, self.queryset.order_by('measure_time'))
 
     def create(self, request, *args, **kwargs):
+        """
+        This method receives posted images, validates them, saves the size of the image and writes the image to the
+        file system and its referenece into the database.
+        """
         if get_client_ip(request) == RASPI_IP_ADDR:
             form = ImageUploadForm(request.POST, request.FILES)
             if form.is_valid():
@@ -180,6 +183,10 @@ def update_last_post_time():
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receive_sensor_data(request):
+    """
+    This API view is resposible to receive the sensor data from the raspi.
+    Therefore it mappes and validates the data and saves it to the specific tables in the database.
+    """
     if request.method == 'POST' and get_client_ip(request) == RASPI_IP_ADDR:
         post_data = request.data
         update_last_post_time()
@@ -229,7 +236,7 @@ def store_data(serializer):
 # Viewsets regarding AdminPanel
 # -------------------------------
 
-class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ConfigurationViewSet(costumviews.CreateListRetrieveViewSet):
     queryset = Configuration.objects.all()
     serializer_class = ConfigurationSerializer
 
@@ -242,10 +249,16 @@ class ConfigurationViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, views
         config_session.user = self.request.user
         config_session.save()
 
+    @action(methods=['GET'], detail=False)
+    def latest(self, request, *args, **kwargs):
+        latest = Configuration.objects.latest('time')
+        return Response(self.get_serializer(latest).data)
 
-class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+
+class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
     queryset = ConfigSession.objects.all()
     serializer_class = ConfigSessionSerializer
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))
@@ -254,8 +267,21 @@ class ConfigSessionViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         result = self.queryset.values('configuration_id', 'user__username', 'time', 'applied')
         return Response(result)
 
+    @action(methods=['POST', 'GET'], detail=False)
+    def latest(self, request, *args, **kwargs):
+        latest = ConfigSession.objects.latest('time')
+        if request.method == 'GET':
+            return Response(self.get_serializer(latest).data)
+        elif self.request.method == 'POST':
+            if len(self.request.data) == 1 and request.data['applied']:
+                latest.applied = True
+                latest.save()
+                return Response(status=status.HTTP_200_OK)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class GetStates(APIView):
+    """This API View queries all error values of the last week for each Sensor-Data Table."""
 
     def get_errors_dict(self):
         start_7_days_ago = {'start': datetime.datetime.now() - datetime.timedelta(days=7)}
@@ -302,7 +328,6 @@ class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
                 temperature=Avg('temperature')) \
                 .order_by('measure_time')
         return Response(queryset.values('measure_time', 'current', 'voltage', 'temperature'), status=status.HTTP_200_OK)
-
 
 
 class SolarCellViewSet(viewsets.ReadOnlyModelViewSet):
@@ -370,3 +395,12 @@ class DataVolumeViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = queryset.values(date=Date(F('time'))).annotate(data_volume=Sum('image_size'), time=Date('time'))
         return Response(queryset.values('date', 'data_volume'), status=status.HTTP_200_OK)
 
+
+class LogViewSet(costumviews.CreateListRetrieveViewSet):
+    serializer_class = LogSerializer
+    queryset = Log.objects.all()
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        # extra order_by call needs to be done in order to refresh the queryset
+        return filter_by_dates(self.request.query_params, self.queryset.order_by('time'))

@@ -5,8 +5,9 @@ from datetime import datetime, timedelta
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+from src.http_client import collect_and_post_data
 from .dataprocessing import validate
-from .models import Wind, Temperature, Battery, SolarCell, MeasurementSession
+from .models import Wind, Temperature, Battery, SolarCell, MeasurementSession, Load
 from .views import map_sensor_data
 
 TEST_DATA_DIR = 'testdata/name.json'
@@ -70,10 +71,31 @@ class TestSensorDataPost(APITestCase):
         self.assertEqual(len(filtered_temps.data), 1)
 
 
-class TestDataAggregation(APITestCase):
+class TestCollectAndPostDataSkript(APITestCase):
 
-    def setUp(self):
-        pass
+    def test_sensor_data_was_posted_by_skript(self):
+        collect_and_post_data.SEARCH_DIR = './testdata/unmapped.json'
+        collect_and_post_data.find_and_post_data()
 
-    def test_aggregation_was_correct(self):
-        pass
+        self.assertEqual(Wind.objects.count(), 1)
+        self.assertEqual(Temperature.objects.count(), 1)
+        self.assertEqual(Battery.objects.count(), 1)
+        self.assertEqual(SolarCell.objects.count(), 1)
+        self.assertEqual(Load.objects.count(), 1)
+        self.assertEqual(MeasurementSession.objects.count(), 1)
+
+        test_data = json.load(get_test_file('mapped'))
+        self.assertEqual(Temperature.objects.get().degrees, test_data['temperatrure']['degrees'])
+
+        self.assertEqual(Wind.objects.get().speed, test_data['wind']['speed'])
+        self.assertEqual(Wind.objects.get().direction, test_data['wind']['dir'])
+
+        self.assertEqual(Battery.objects.get().voltage, test_data['battery']['voltage'])
+        self.assertEqual(Battery.objects.get().current, test_data['battery']['current'])
+
+        self.assertEqual(SolarCell.objects.get().voltage, test_data['pv']['voltage'])
+        self.assertEqual(SolarCell.objects.get().power, test_data['pv']['power'])
+
+        self.assertEqual(Load.objects.get().voltage, test_data['load']['voltage'])
+        self.assertEqual(Load.objects.get().current, test_data['load']['current'])
+

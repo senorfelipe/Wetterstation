@@ -1,0 +1,32 @@
+== Protokoll zum Treffen am 22.04.2020
+
+=== Allgemeines
+==== Zeit
+17.00 bis 17.40 Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [x] Josefin
+* [x] Agustin
+* [x] Hannes
+
+* **extern:**
+
+=== Iterationsplan
+include::../Iterationsplan_10.adoc[]
+
+=== Themen
+. Allgemeines
+.. Neue Iterationsplanung: ab jetzt von Mittwoch bis Mittwoch 2-wöchig -> Begründung in der Neuorganisation der Treffen mit dem Kunden
+.. Mangelnde Kommunikation mit GitHub-Issues
+.. Dokumentation beachten
+. Aufgabenverteilung siehe Iterationsplan 11
+. Termin des nächsten Treffens ist Freitag, der 22.04.2020 15 Uhr
+
+=== Offenes
+. Wie ist das Datenformat der Wetterdaten auf dem Raspberry strukturiert?
+. Der Raspberry ist noch immer nicht erreichbar

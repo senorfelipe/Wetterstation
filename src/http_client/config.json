@@ -1,8 +1,7 @@
 {
-  "res_width": 1280,
-  "res_height": 720,
-  "measure_intervall_sensors": 1,
-  "measure_intervall_cam": 1,
-  "post_intervall_sensor_data": 1,
-  "post_intervall_cam_data": 1
+  "res_height": 1280,
+  "res_width": 720,
+  "measure_intervall_sensors": 12,
+  "measure_intervall_cam": 12,
+  "post_intervall": 12
 }

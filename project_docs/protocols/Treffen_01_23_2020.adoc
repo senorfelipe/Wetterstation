@@ -1,0 +1,31 @@
+== Protokoll zum Treffen am TT.MM.YYY
+
+=== Allgemeines
+==== Zeit
+hh.mm bis hh.mm Uhr
+
+==== Teilnehmer
+* **intern:**
+* [x] Clemens
+* [x] Alexander
+* [x] Justin
+* [x] Philipp
+* [x] Josephin
+* [x] Agustin
+* [x] Martin
+
+* **extern:**
+* [x] Coach
+
+=== Iterationsplan
+//Verweis auf den Iterationsplan, welcher mit dem Treff abzuschließen ist
+
+=== Themen
+* Abgabe des Belegs
+** Hinweis auf Template 
+* offene Fragen zu Use Cases
+** noch fehlende Use Cases für Backend
+** usecase Bildergalerie muss überarbeitet werden -> teilweise widersprüchliche Angaben enthalten
+
+=== Offenes
+//Offene Fragen und Themen, welche nicht angesprochen werden konnten (da z.B. Informationen oder Zeit fehlen)

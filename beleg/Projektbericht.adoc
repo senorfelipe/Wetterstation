@@ -1,0 +1,54 @@
+// --- Projektthema -------------------------
+= Projektbericht "T15 - Fernabfrage von Kamerabild und Wetterdaten"
+// --- Teammitglieder -----------------------
+Hannes Fogut <s76919@htw-dresden.de>; Josefin Hähne <s78927@htw-dresden.de>; Philipp Barth <s78830@htw-dresden.de>; Justin Schirdewahn <s78878@htw-dresden.de>; Alexander Schoch <s78797@htw-dresden.de>; Agustin Calvimontes <s78927@htw-dresden.de>; Clemens Kujus <s78802@htw-dresden.de>; 
+// --- Abgabedatum --------------------------
+14. August 2020
+// ------------------------------------------
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-label: 
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:nofooter:
+
+<<<
+
+//Inhalte zur Plaung hier verlinken
+= Planung
+//include::./Planung/Aufgabenstellung.adoc[lines=1..1;4..-1, leveloffset=+1]
+//include::./Planung/Projektorganisation.adoc[lines=1..1;4..-1, leveloffset=+1]
+
+//Inhalte zur Durchführung hier verlinken
+= Durchführung
+//include::./Durchfuehrung/Projektphasen.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Durchfuehrung/Hauptaktivitäten.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Durchfuehrung/Entscheidungen_Probleme.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+//Beispielhaft 4 Besprechungsprotokolle
+= Besprechungsprotokolle
+Verlinkungen wurden aufgrund besserer Übersichtlichkeit für den Projektbericht durch Pfadangaben in unserem GitHub-Repository https://github.com/philippBa13/Wetterstation ersetzt. Diese sind mit "Siehe GitHub-Repository: [...]" gekennzeichnet.
+//include::./Besprechungsprotokolle/Treffen_01_09_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_04_08_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_05_20_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::./Besprechungsprotokolle/Treffen_05_27_2020.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+//Inhalte zu Ergebnissen hier verlinken
+= Ergebnisse
+//include::./Ergebnisse/reflexion_pb.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_hf.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_ck.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_js.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_ac.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_as.adoc[leveloffset=+1]
+//include::./Ergebnisse/reflexion_jh.adoc[leveloffset=+1]

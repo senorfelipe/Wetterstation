@@ -3,7 +3,7 @@ from math import ceil
 
 from django.db.models import Func
 
-MAX_DATASET_SIZE = 50
+from src.wetterstation.weather.restapi.constants import MAX_DATASET_SIZE
 
 
 class UnixTimestamp(Func):

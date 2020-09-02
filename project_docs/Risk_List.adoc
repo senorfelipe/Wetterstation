@@ -1,0 +1,35 @@
+= Risk List
+
+== Identifizierte Risiken -> Gegenmaßnahmen
+=== Klasse 1 Projektgefährdende Risiken
+. Ungenügende Terminplanung wird zu spät erkannt -> 1, 2, 7, 8
+. Anforderungsliste zu hoch -> 2, 4, 6
+. Nichterreichbarkeit Projektbeteiligter -> 1
+. Unzureichende Dokumentation -> 1, 2, 3, 5
+. Entwicklung an den Anforderungen vorbei -> 1, 2
+. Ungenügende Kommunikation -> 1, 2
+.. innerhalb des Entwicklerteams
+.. mit dem Kunden
+
+=== Klasse 2 Kostenintensive Risiken
+. Unklare Kompetenzzuweisung -> 1, 2, 3
+. Angespannte Arbeitsatmosphäre -> 1, 2, 3, 5
+. Fehlende Hard-/Software -> 6
+. Zu hohe Komplexität der eingesetzen Technologie(n) -> 1, 2, 4
+. Pandemie -> 4, 7, 8
+. Ungewissheit/Zweifel, ob das System nach der Implementierung deployt werden kann -> 9
+
+=== Klasse 3 Moderate Risiken
+. Ausfall Teammitglied -> 3, 5
+. Unbeholfenheit eines Teammitgliedes -> 1, 3, 5
+
+== Gegenmaßnahmen
+. (1) Regelmäßige Treffen (spätestens alle 2 Wochen alle zusammen) im Team
+. (2) Treffen mit den Kunden spätestens nach 2 Iterationen
+. (3) Bei Eintritt unklarer Kompetenzzuweisung Zuordnung der Aufgaben durch den Projektmanager
+. (4) Reduktion der Anforderungen auf Mögliches
+. (5) Rollentausch (OpenUP-Rollen) im Team 
+. (6) Austausch über Möglichkeiten der Hard-/Software mit den Kunden
+. (7) Zeitplan mit Kunden abstimmen 
+. (8) Zusammensetzen im Team und Ausarbeitung eines Zeitplans
+. (9) Testweise den momentanen Stand deployen bzw. dessen Voraussetzungen prüfen
