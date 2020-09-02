@@ -3,10 +3,7 @@ from math import ceil
 
 from django.db.models import Func
 
-"""This variable sets the number of datapoints for aggregation. 
-For exapmle if the original table contains 1200 data sets for a certain query, the request for the aggregated data
-only contains 50 data sets."""
-MAX_DATASET_SIZE = 50
+from src.wetterstation.weather.restapi.constants import MAX_DATASET_SIZE
 
 
 class UnixTimestamp(Func):

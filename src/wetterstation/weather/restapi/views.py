@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from . import databaseutils, costumviews
+from .constants import WIND_AGGREGATION_INTERVALL_IN_MIN, RASPI_IP_ADDR
 from .databaseutils import calculate_timedelta, UnixTimestamp, FromUnixtime, Date
 from .dataprocessing import map_sensor_data, validate
 from .forms import ImageUploadForm
@@ -22,17 +23,12 @@ from .serializers import TemperatureSerialzer, WindSerializer, ImageSerializer, 
     MeasurementSessionSerializer, ConfigurationSerializer, ConfigSessionSerializer, LoadSerializer, \
     ControllerSerializer, LogSerializer
 
-RASPI_IP_ADDR = '127.0.0.1'
-
 """
 This file conatains viewsets for all basic funtions of CRUD and also special views if necessary. 
 Additionally it contains the view to receive the sensor-data from the raspi.
 """
 
-WIND_AGGREGATION_INTERVALL_IN_MIN = 15
-
 last_post_time_raspi = None
-
 logger = logging.getLogger(__name__)
 
 
