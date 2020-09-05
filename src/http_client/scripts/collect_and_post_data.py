@@ -8,19 +8,38 @@ import time
 from json import JSONDecodeError
 from random import random
 
+import requests
 from requests.exceptions import ConnectionError
-
-from src.http_client.httpclient import HttpClient
 
 IMG_FORMAT = '.jpeg'
 
-SEARCH_DIR = './data/mock/'
-HOSTNAME = 'http://localhost:8000'
+SEARCH_DIR = './data/processed/'
+HOSTNAME = 'http://84.146.24.145:9081'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
 MAX_JSON_POST_AMOUNT = 2000
+MAX_IMAGE_POST_AMOUNT = 200
 
-logging.basicConfig(filename='raspi.log', level=logging.WARN)
+logging.basicConfig(filename='raspi.log', level=logging.WARN, format='%(asctime)s: %(levelname)s; %(message)s')
+
+
+class HttpClient:
+    def __init__(self, url):
+        self.url = url
+
+    def post_json_data(self, json):
+        r = requests.post(self.url, json=json)
+        return r.status_code
+
+    def post_file(self, file_path, data):
+        with open(file_path, 'rb') as payload:
+            image = {'image': payload}
+            r = requests.post(self.url, files=image, data=data)
+            return r.status_code
+
+    def get(self, query_params=''):
+        r = requests.get(self.url, params=query_params)
+        return [r.text, r.status_code]
 
 
 def update_config(json_str):
@@ -55,27 +74,32 @@ def check_configurations():
 
 def find_and_post_data():
     os.chdir(SEARCH_DIR)
-    files = get_json_files()
-    to_post = []
-    for file in files:
-        if len(files) < MAX_JSON_POST_AMOUNT:
-            with open(file) as json_file:
-                data = json.load(json_file)
-                add_session_id(data, os.path.splitext(file)[0])
-                to_post.append(data)
-    status = post_data(to_post)
-    if status == 201:
-        for file in to_post:
-            os.remove(file)
+    post_json_files()
+    post_imges()
+    os.chdir('../../')
 
+
+def post_imges():
     images = get_images()
     for image in images:
         img_path = image
         status = post_image(img_path)
         if status == 201:
-            print('posted image: ' + os.path.basename(image))
             os.remove(img_path)
-    os.chdir('../../')
+
+
+def post_json_files():
+    files = get_json_files()
+    to_post = []
+    for file in files:
+        with open(file) as json_file:
+            data = json.load(json_file)
+            add_session_id(data, os.path.splitext(file)[0])
+            to_post.append(data)
+    status = post_data(to_post)
+    if status == 201:
+        for file in files:
+            os.remove(file)
 
 
 def create_session_id():
@@ -111,14 +135,16 @@ def post_image(image):
 def get_images():
     images = []
     for image in glob.glob('*%s' % IMG_FORMAT):
-        images.append(image)
+        if len(images) < MAX_IMAGE_POST_AMOUNT:
+            images.append(image)
     return images
 
 
 def get_json_files():
     files = []
     for file in glob.glob('*.json'):
-        files.append(file)
+        if len(files) < MAX_JSON_POST_AMOUNT:
+            files.append(file)
     return files
 
 
