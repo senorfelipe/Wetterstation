@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from src.http_client import collect_and_post_data
+from src.http_client.scripts import collect_and_post_data
 from .dataprocessing import validate
 from .models import Wind, Temperature, Battery, SolarCell, MeasurementSession, Load
 from .views import map_sensor_data
@@ -74,7 +74,7 @@ class TestSensorDataPost(APITestCase):
 class TestCollectAndPostDataSkript(APITestCase):
 
     def test_sensor_data_was_posted_by_skript(self):
-        collect_and_post_data.SEARCH_DIR = './testdata/unmapped.json'
+        collect_and_post_data.DATA_DIR = './testdata/unmapped.json'
         collect_and_post_data.find_and_post_data()
 
         self.assertEqual(Wind.objects.count(), 1)

@@ -13,14 +13,15 @@ from requests.exceptions import ConnectionError
 
 IMG_FORMAT = '.jpeg'
 
-SEARCH_DIR = './data/processed/'
+BASE_DIR = os.getcwd()
+DATA_DIR = '../data/processed/'
 HOSTNAME = 'http://84.146.24.145:9081'
 SENSOR_DATA_API_URL = '/api/sensor-data/'
 IMAGES_API_URL = '/api/images/'
 MAX_JSON_POST_AMOUNT = 2000
 MAX_IMAGE_POST_AMOUNT = 200
 
-logging.basicConfig(filename='raspi.log', level=logging.WARN, format='%(asctime)s: %(levelname)s; %(message)s')
+logging.basicConfig(filename='../raspi.log', level=logging.WARN, format='%(asctime)s: %(levelname)s; %(message)s')
 
 
 class HttpClient:
@@ -42,15 +43,26 @@ class HttpClient:
         return [r.text, r.status_code]
 
 
-def update_config(json_str):
+def check_configurations():
     try:
-        with open('config.json', 'r+') as config_file:
+        restclient = HttpClient(HOSTNAME + '/api/config/latest/')
+        response = restclient.get()
+        if len(response[0]) != 0 and response[1] == http.HTTPStatus.OK:
+            update_config(response[0])
+    except ConnectionError as e:
+        logging.error('Could not setup connection to server: ' + str(e))
+
+
+def update_config(pulled_config_str):
+    try:
+        with open('../config/config.json', 'r+') as config_file:
             current_config = sorted(json.load(config_file).items())
-            requested_config = sorted(json.loads(json_str).items())
+            requested_config = sorted(json.loads(pulled_config_str).items())
             if current_config != requested_config:
                 config_file.seek(0)
-                config_file.write(json_str)
+                config_file.write(pulled_config_str)
                 config_file.truncate()
+                set_config_applied()
     except JSONDecodeError:
         logging.warning("Could not deserialize config.json. Config.json is not up to date with server configuration.")
 
@@ -61,22 +73,13 @@ def set_config_applied():
     restclient.post_json_data(json=applied_json)
 
 
-def check_configurations():
-    try:
-        restclient = HttpClient(HOSTNAME + '/api/config/latest/')
-        response = restclient.get()
-        if response[1] == http.HTTPStatus.OK:
-            update_config(response[0])
-            set_config_applied()
-    except ConnectionError as e:
-        logging.error('Could not setup connection to server: ' + str(e))
-
-
 def find_and_post_data():
-    os.chdir(SEARCH_DIR)
+    os.chdir(DATA_DIR)
+    os.chdir('./sensor/')
     post_json_files()
+    os.chdir('../images/')
     post_imges()
-    os.chdir('../../')
+    os.chdir(BASE_DIR)
 
 
 def post_imges():

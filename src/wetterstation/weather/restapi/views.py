@@ -141,7 +141,9 @@ class ImageUploadView(costumviews.CreateListRetrieveViewSet):
             form = ImageUploadForm(request.POST, request.FILES)
             if form.is_valid():
                 number_of_bytes = int(request.headers.get('Content-Length'))
-                session_id = int(form.data['session_id'])
+                session_id = None
+                if form.data['session_id'] is not None:
+                    session_id = int(form.data['measurement_session'])
                 session = update_or_create_measurement_session(session_id, number_of_bytes)
 
                 new_image = Image()
@@ -205,9 +207,13 @@ def receive_sensor_data(request):
                 controller_was_stored = store_data(ControllerSerializer(data=mapped_data['controller']))
         if len(
                 post_data) != 0 and wind_was_stored and temp_was_stored and bat_was_stored and sc_was_stored and controller_was_stored and load_was_stored:
+            logger.info('Received sensor data and stored it sucessfully.')
             return Response(status=status.HTTP_201_CREATED)
         else:
-            return Response(data="Ressources could not be created properly.", status=status.HTTP_409_CONFLICT)
+            msg = "Ressources could not be created properly."
+            logger.warning(msg=msg)
+            return Response(data=msg, status=status.HTTP_409_CONFLICT)
+
     else:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
@@ -269,7 +275,10 @@ class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, views
 
     @action(methods=['POST', 'GET'], detail=False)
     def latest(self, request, *args, **kwargs):
-        latest = ConfigSession.objects.latest('time')
+        try:
+            latest = ConfigSession.objects.latest('time')
+        except ConfigSession.DoesNotExist as e:
+            logger.warning('No latest ConfigSession was found.', str(e))
         if request.method == 'GET':
             return Response(self.get_serializer(latest).data)
         elif self.request.method == 'POST':

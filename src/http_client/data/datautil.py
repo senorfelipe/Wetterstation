@@ -1,7 +1,7 @@
 import json
 import time
 
-data = json.load(open('./MOCK_FINAL.json'))
+data = json.load(open('./MOCK_DATA.json'))
 i = 0
 for jsn in data:
     if i == 50:
