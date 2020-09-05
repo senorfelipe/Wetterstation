@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
         'NAME': 'mfcweather_rest',
-        'USER': 'root',
+        'USER': 'weather_prod',
         'PASSWORD': 'PNxzUQC$S3',
         'PORT': '3306',
     }
