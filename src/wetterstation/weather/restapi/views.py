@@ -213,7 +213,6 @@ def receive_sensor_data(request):
             msg = "Ressources could not be created properly."
             logger.warning(msg=msg)
             return Response(data=msg, status=status.HTTP_409_CONFLICT)
-
     else:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
@@ -277,15 +276,15 @@ class ConfigSessionViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, views
     def latest(self, request, *args, **kwargs):
         try:
             latest = ConfigSession.objects.latest('time')
+            if request.method == 'GET':
+                return Response(self.get_serializer(latest).data)
+            elif self.request.method == 'POST':
+                if len(self.request.data) == 1 and request.data['applied']:
+                    latest.applied = True
+                    latest.save()
+                    return Response(status=status.HTTP_200_OK)
         except ConfigSession.DoesNotExist as e:
             logger.warning('No latest ConfigSession was found.', str(e))
-        if request.method == 'GET':
-            return Response(self.get_serializer(latest).data)
-        elif self.request.method == 'POST':
-            if len(self.request.data) == 1 and request.data['applied']:
-                latest.applied = True
-                latest.save()
-                return Response(status=status.HTTP_200_OK)
             return Response(status=status.HTTP_204_NO_CONTENT)
 
 
