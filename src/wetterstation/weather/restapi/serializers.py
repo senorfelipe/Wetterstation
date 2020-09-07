@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession
+from .models import Wind, Temperature, Image, MeasurementSession, Battery, SolarCell, Configuration, ConfigSession, \
+    Load, Controller, Log
+
+"""
+This file contains all Serializers to serialize and deserialize data.
+For more information check: https://www.django-rest-framework.org/api-guide/serializers/
+"""
 
 
 class MeasurementSessionSerializer(serializers.ModelSerializer):
@@ -12,13 +18,13 @@ class MeasurementSessionSerializer(serializers.ModelSerializer):
 class WindSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wind
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class TemperatureSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Temperature
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -26,28 +32,50 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class BatterySerializer(serializers.ModelSerializer):
     class Meta:
         model = Battery
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
 
 
 class SolarCellSerializer(serializers.ModelSerializer):
     class Meta:
         model = SolarCell
-        exclude = ['id', 'measurement_session']
+        exclude = ['id']
+
+
+class LoadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Load
+        exclude = ['id']
+
+
+class ControllerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Controller
+        exclude = ['id']
 
 
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Configuration
-        exclude = ['id']
+        exclude = ['id', 'time']
 
 
 class ConfigSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConfigSession
         fields = '__all__'
+
+
+class ConfigAppliedSerializer(serializers.Serializer):
+    applied = serializers.BooleanField
+
+
+class LogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Log
+        exclude = ['id']

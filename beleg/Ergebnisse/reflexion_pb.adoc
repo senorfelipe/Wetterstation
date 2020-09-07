@@ -1,0 +1,50 @@
+= Reflexion Philipp Barth
+
+=== Teamrolle: Architekt / Entwickler
+
+Im Projekt "Wetterstation" habe ich in der Rolle des Architekten mitgewirkt und das Vorhaben
+seit Beginn von Software Engineering 1 an begleitet.
+Auch wenn das Projekt retroperspektivisch nicht immer nach Plan lief und von vielen äußeren
+Einflüssen, wie den sich oft ändernden Anforderungen stellenweise hin und her geschubst wurde,
+war es aus meiner Sicht ein Erfolg.
+Das Projekt hat bei mir auf verschiedenen Ebenen zu positiven Lerneffekten beigetragen.
+Zum einen ist es eine sehr wertvolle Erfahrung in einem echten bzw. sehr realitätsnahen Projekt
+mitgewirkt zu haben. Wie eingangs schon angedeutet, wurde uns schnell klar warum es Sinn macht
+eine agile Vorgehensweise im Software Engineering zu nutzen, da sich unsere Anforderungen
+oft änderten. So entwickelte sich unser Raspberry Pi, der zunächst nur jede halbe Stunde über einen externen Trigger aufwachen sollte
+und somit 48 Messwerte pro Tag generiert, zu einem dauerhaft aktiven, minütlich messenden
+Datengenerator mit 1000 Messwerten pro Tag.
+Des Weiteren hat sich gezeigt wie wichtig regelmäßiger Kontakt und Feedbacksessions mit dem Kunden sind,
+da nur so sichergestellt werden kann, dass am Ende ein Produkt entsteht was den Anforderungen genügt.
+
+Auch auf technischer Ebene habe ich als Architekt und Entwickler so einiges dazu gelernt.
+So zum Beispiel die Fähigkeit sich in unbekannte Technologien einzuarbeiten, wie in unserem Fall
+python mit Django und Django-Rest, RESTful Webservices und Single Page Applications.
+Zusätzlich konnte ich meine SQL Fähigkeiten auffrischen und vertiefen.
+Wir benötigten im Backend eine Funktion um die große Menge an Daten auf eine fixe
+Anzahl zu aggregieren, so dass das Frontend diese vernünftig verarbeiten kann.
+Nach einiger Recherchezeit und vielen Trial and Error SQL Befehlen auf der Konsole
+hatte ich dann endlich eine funktionierende Lösung.
+
+Neben den regelmäßigen Treffen innerhalb des Teams, möchte ich auch die zweiwöchentlichen Kundentreffen
+positiv hervorheben. Dieser Rhythmus hatte sich nach ersten Anlaufschwierigkeiten sehr gut eingepegelt, wodurch eine
+regelmäßige Planung und Rücksprache mit den Kunden möglich war. Es wurden jeweils die
+Ergebnisse der letzten zwei Arbeitswochen vorgestellt, Feedback gesammelt und schließlich
+die Ziele für das nächste Treffen vereinbart. Diese Arbeitsweise hat sich gut integriert
+und meiner Ansicht nach wesentlich dazu beigetragen das Produkt zu verbessern.
+
+Auch die Kommunikation innerhalb des Teams, speziell zwischen den Entwicklern hat
+gut funktioniert. Wir haben die Aufgaben grob in Frontend und Backend unterteilt und
+die APIs vor Beginn der Entwicklung eines neuen Features definiert. Dadurch konnten
+Abhängigkeiten verringert und Unklarheiten im Vorhinein beseitigt werden.
+
+Sollte ich wieder an einem ähnlichen Kundenprojekt mitwirken, werde ich mehr Acht darauf
+legen einen Featurestopp frühzeitig in die Wege zu leiten. Hier haben wir zu oft nachgegeben
+und zu viel bejaht. Somit kamen wir mit einer gewissen Verzögerung in die Schlussphase des Projekts.
+Es kann dadurch mehr Wert auf Qualitätssicherung gelegt werden und somit die Robustheit des Systems
+gesteigert werden.
+
+Zusammenfassend hat mir das Projekt nicht nur Spaß gemacht, sondern auch noch
+einen Lerneffekt mit sich gebracht, der mir in zukünftigen Projekten sicher weiter hilft.
+Auch das Thema war spannend, und hat die Arbeitsfreude am Projekt für mich bis zum Schluss
+aufrechterhalten.

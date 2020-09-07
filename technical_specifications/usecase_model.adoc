@@ -20,8 +20,8 @@ include::usecase_konfigurationstabelle.adoc[]
 
 include::usecase_read_logfiles.adoc[]
 
-include::usecase_wartungsmodus_flag_löschen.adoc[]
+//include::usecase_wartungsmodus_flag_löschen.adoc[]
 
-include::usecase_wartungsmodus_flag_setzen.adoc[]
+//include::usecase_wartungsmodus_flag_setzen.adoc[]
 
 include::usecase_wetterdaten_posten.adoc[]

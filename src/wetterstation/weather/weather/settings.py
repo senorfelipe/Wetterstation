@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import logging
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,12 +24,12 @@ SECRET_KEY = 'z8-lb25xh)ruh#mj_&xhfc8-apnk2n)%&&4#nk41i0wtlmwsrl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['192.168.178.44', 'localhost']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'restapi',
+    'restapi.apps.RestapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'weather.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'HOST': 'localhost',
-         'NAME': 'weatherbase',
-         'USER': 'root',
-         'PASSWORD': 'root1',
-         'PORT': '3306',
-     }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'NAME': 'weather_dev',
+        'USER': 'root',
+        'PASSWORD': 'p@55w0rd',
+        'PORT': '3306',
+    }
 }
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -134,3 +134,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
+
+# Logging configuration
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='wetterstation.log', level=logging.DEBUG, format='%(asctime)s: %(levelname)s; %(message)s')

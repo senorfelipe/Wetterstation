@@ -1,50 +1,245 @@
-[{"temp":{"timestamp":"2020-05-31T01:35:48Z","deg":35.57},"wind":{"dir":91,"speed":15.16,"timestamp":"2020-06-20T05:03:51Z"},"pv":{"timestamp":"2020-06-02T15:37:14Z","current":1.85,"voltage":13.25},"battery":{"timestamp":"2020-06-09T10:23:41Z","current":0.78,"voltage":17.68,"temperature":36.3}},
-{"temp":{"timestamp":"2020-06-02T05:14:59Z","deg":25.98},"wind":{"dir":299,"speed":26.14,"timestamp":"2020-06-15T16:59:41Z"},"pv":{"timestamp":"2020-06-19T23:27:21Z","current":0.56,"voltage":10.31},"battery":{"timestamp":"2020-06-26T13:43:17Z","current":0.56,"voltage":16.72,"temperature":-6.23}},
-{"temp":{"timestamp":"2020-06-03T13:29:16Z","deg":-15.03},"wind":{"dir":219,"speed":25.9,"timestamp":"2020-06-08T13:30:47Z"},"pv":{"timestamp":"2020-06-24T06:09:22Z","current":0.41,"voltage":18.4},"battery":{"timestamp":"2020-06-24T20:48:52Z","current":0.84,"voltage":13.21,"temperature":-15.26}},
-{"temp":{"timestamp":"2020-06-22T15:22:20Z","deg":-0.26},"wind":{"dir":233,"speed":11.27,"timestamp":"2020-06-21T08:12:55Z"},"pv":{"timestamp":"2020-06-08T02:55:53Z","current":1.46,"voltage":19.61},"battery":{"timestamp":"2020-06-02T15:35:55Z","current":0.19,"voltage":16.75,"temperature":8.87}},
-{"temp":{"timestamp":"2020-06-22T16:50:39Z","deg":5.41},"wind":{"dir":69,"speed":8.84,"timestamp":"2020-06-14T19:38:13Z"},"pv":{"timestamp":"2020-06-04T04:33:37Z","current":1.77,"voltage":19.54},"battery":{"timestamp":"2020-06-10T10:02:30Z","current":0.87,"voltage":17.36,"temperature":9.11}},
-{"temp":{"timestamp":"2020-06-22T16:00:23Z","deg":29.78},"wind":{"dir":190,"speed":0.98,"timestamp":"2020-06-13T09:31:44Z"},"pv":{"timestamp":"2020-06-19T11:20:27Z","current":0.19,"voltage":15.94},"battery":{"timestamp":"2020-06-01T20:08:05Z","current":0.36,"voltage":10.03,"temperature":-5.38}},
-{"temp":{"timestamp":"2020-06-01T19:21:29Z","deg":15.14},"wind":{"dir":211,"speed":5.14,"timestamp":"2020-06-27T16:57:10Z"},"pv":{"timestamp":"2020-06-24T10:02:14Z","current":1.52,"voltage":18.45},"battery":{"timestamp":"2020-06-01T01:41:30Z","current":0.26,"voltage":19.96,"temperature":19.43}},
-{"temp":{"timestamp":"2020-06-24T21:19:08Z","deg":37.75},"wind":{"dir":157,"speed":20.46,"timestamp":"2020-06-07T19:27:48Z"},"pv":{"timestamp":"2020-06-21T08:36:37Z","current":1.26,"voltage":13.02},"battery":{"timestamp":"2020-06-07T21:20:54Z","current":1.83,"voltage":10.82,"temperature":34.48}},
-{"temp":{"timestamp":"2020-06-07T16:22:05Z","deg":38.39},"wind":{"dir":15,"speed":19.67,"timestamp":"2020-06-14T14:37:41Z"},"pv":{"timestamp":"2020-06-05T12:12:51Z","current":0.4,"voltage":16.74},"battery":{"timestamp":"2020-06-07T07:58:08Z","current":1.63,"voltage":19.34,"temperature":22.11}},
-{"temp":{"timestamp":"2020-06-26T07:52:50Z","deg":30.53},"wind":{"dir":156,"speed":6.66,"timestamp":"2020-06-19T20:38:58Z"},"pv":{"timestamp":"2020-06-10T19:10:11Z","current":0.86,"voltage":11.0},"battery":{"timestamp":"2020-05-28T18:38:37Z","current":0.7,"voltage":19.55,"temperature":-4.87}},
-{"temp":{"timestamp":"2020-06-25T23:18:26Z","deg":18.7},"wind":{"dir":95,"speed":4.82,"timestamp":"2020-06-26T05:32:34Z"},"pv":{"timestamp":"2020-06-13T00:08:54Z","current":0.87,"voltage":11.09},"battery":{"timestamp":"2020-06-23T01:34:21Z","current":0.55,"voltage":13.69,"temperature":18.26}},
-{"temp":{"timestamp":"2020-06-03T01:19:33Z","deg":12.05},"wind":{"dir":165,"speed":5.84,"timestamp":"2020-06-11T22:33:23Z"},"pv":{"timestamp":"2020-06-23T04:17:27Z","current":1.79,"voltage":15.06},"battery":{"timestamp":"2020-06-17T22:57:49Z","current":0.58,"voltage":15.43,"temperature":33.44}},
-{"temp":{"timestamp":"2020-06-13T21:29:04Z","deg":38.91},"wind":{"dir":50,"speed":17.01,"timestamp":"2020-05-31T12:48:41Z"},"pv":{"timestamp":"2020-06-07T07:11:55Z","current":1.44,"voltage":17.86},"battery":{"timestamp":"2020-06-06T01:28:03Z","current":0.05,"voltage":14.86,"temperature":37.6}},
-{"temp":{"timestamp":"2020-06-10T16:55:09Z","deg":31.68},"wind":{"dir":45,"speed":20.77,"timestamp":"2020-06-04T17:01:08Z"},"pv":{"timestamp":"2020-06-01T05:55:49Z","current":1.01,"voltage":17.92},"battery":{"timestamp":"2020-06-26T16:51:00Z","current":1.15,"voltage":11.14,"temperature":18.13}},
-{"temp":{"timestamp":"2020-06-02T00:23:59Z","deg":-7.92},"wind":{"dir":302,"speed":5.49,"timestamp":"2020-06-01T16:13:51Z"},"pv":{"timestamp":"2020-06-10T06:39:02Z","current":0.25,"voltage":17.82},"battery":{"timestamp":"2020-06-25T05:24:25Z","current":1.42,"voltage":16.97,"temperature":38.37}},
-{"temp":{"timestamp":"2020-06-25T17:14:28Z","deg":32.79},"wind":{"dir":26,"speed":10.03,"timestamp":"2020-06-05T13:56:04Z"},"pv":{"timestamp":"2020-06-25T00:08:47Z","current":0.21,"voltage":12.57},"battery":{"timestamp":"2020-06-21T20:52:56Z","current":1.85,"voltage":14.93,"temperature":-15.27}},
-{"temp":{"timestamp":"2020-06-05T06:50:11Z","deg":32.74},"wind":{"dir":92,"speed":29.04,"timestamp":"2020-06-02T11:29:54Z"},"pv":{"timestamp":"2020-06-22T18:53:33Z","current":0.85,"voltage":11.18},"battery":{"timestamp":"2020-06-10T21:13:41Z","current":1.87,"voltage":12.63,"temperature":32.43}},
-{"temp":{"timestamp":"2020-06-12T21:03:31Z","deg":22.59},"wind":{"dir":176,"speed":29.27,"timestamp":"2020-06-27T07:28:34Z"},"pv":{"timestamp":"2020-05-29T18:36:14Z","current":1.66,"voltage":10.45},"battery":{"timestamp":"2020-06-10T13:22:15Z","current":1.86,"voltage":18.02,"temperature":23.32}},
-{"temp":{"timestamp":"2020-06-19T23:22:08Z","deg":20.73},"wind":{"dir":326,"speed":12.88,"timestamp":"2020-05-29T17:10:20Z"},"pv":{"timestamp":"2020-06-05T03:03:03Z","current":1.43,"voltage":17.03},"battery":{"timestamp":"2020-06-03T11:48:27Z","current":1.06,"voltage":14.92,"temperature":-9.39}},
-{"temp":{"timestamp":"2020-06-02T14:07:04Z","deg":-18.36},"wind":{"dir":158,"speed":2.55,"timestamp":"2020-05-28T09:41:23Z"},"pv":{"timestamp":"2020-06-03T09:52:41Z","current":1.24,"voltage":16.94},"battery":{"timestamp":"2020-05-31T03:55:50Z","current":0.04,"voltage":18.05,"temperature":27.23}},
-{"temp":{"timestamp":"2020-06-17T08:43:13Z","deg":6.43},"wind":{"dir":296,"speed":23.5,"timestamp":"2020-05-29T04:32:03Z"},"pv":{"timestamp":"2020-06-05T10:24:39Z","current":0.3,"voltage":19.55},"battery":{"timestamp":"2020-05-29T10:29:27Z","current":0.53,"voltage":16.76,"temperature":0.8}},
-{"temp":{"timestamp":"2020-06-11T03:43:24Z","deg":10.34},"wind":{"dir":319,"speed":0.77,"timestamp":"2020-06-27T02:47:35Z"},"pv":{"timestamp":"2020-06-22T21:37:47Z","current":0.59,"voltage":19.49},"battery":{"timestamp":"2020-06-16T16:31:33Z","current":0.43,"voltage":13.8,"temperature":34.14}},
-{"temp":{"timestamp":"2020-06-05T20:19:42Z","deg":28.74},"wind":{"dir":261,"speed":11.17,"timestamp":"2020-06-05T08:23:57Z"},"pv":{"timestamp":"2020-06-04T12:53:47Z","current":0.6,"voltage":16.0},"battery":{"timestamp":"2020-06-03T22:46:05Z","current":0.8,"voltage":12.05,"temperature":19.88}},
-{"temp":{"timestamp":"2020-06-27T23:45:07Z","deg":26.68},"wind":{"dir":73,"speed":19.64,"timestamp":"2020-06-05T06:22:47Z"},"pv":{"timestamp":"2020-05-30T23:49:41Z","current":0.63,"voltage":15.89},"battery":{"timestamp":"2020-06-18T14:51:00Z","current":0.34,"voltage":11.97,"temperature":6.35}},
-{"temp":{"timestamp":"2020-06-14T22:16:33Z","deg":6.54},"wind":{"dir":1,"speed":13.52,"timestamp":"2020-06-14T00:23:52Z"},"pv":{"timestamp":"2020-06-22T02:08:38Z","current":1.07,"voltage":14.58},"battery":{"timestamp":"2020-06-12T12:45:38Z","current":1.1,"voltage":15.86,"temperature":38.47}},
-{"temp":{"timestamp":"2020-05-31T15:33:03Z","deg":9.87},"wind":{"dir":33,"speed":21.79,"timestamp":"2020-06-22T12:48:08Z"},"pv":{"timestamp":"2020-06-05T23:29:42Z","current":1.16,"voltage":17.7},"battery":{"timestamp":"2020-06-15T13:56:50Z","current":0.57,"voltage":14.79,"temperature":-10.12}},
-{"temp":{"timestamp":"2020-06-20T14:03:39Z","deg":30.84},"wind":{"dir":248,"speed":26.8,"timestamp":"2020-06-06T17:57:57Z"},"pv":{"timestamp":"2020-06-01T09:36:36Z","current":1.71,"voltage":17.76},"battery":{"timestamp":"2020-06-08T17:35:22Z","current":1.33,"voltage":16.93,"temperature":38.62}},
-{"temp":{"timestamp":"2020-06-21T06:51:14Z","deg":-9.75},"wind":{"dir":226,"speed":9.61,"timestamp":"2020-06-26T20:31:58Z"},"pv":{"timestamp":"2020-06-08T22:50:10Z","current":0.2,"voltage":17.84},"battery":{"timestamp":"2020-06-13T03:38:43Z","current":1.19,"voltage":13.69,"temperature":6.74}},
-{"temp":{"timestamp":"2020-06-24T05:08:53Z","deg":17.55},"wind":{"dir":172,"speed":6.17,"timestamp":"2020-06-16T10:10:14Z"},"pv":{"timestamp":"2020-06-10T09:07:10Z","current":1.86,"voltage":11.99},"battery":{"timestamp":"2020-06-01T17:53:43Z","current":0.01,"voltage":15.77,"temperature":-18.73}},
-{"temp":{"timestamp":"2020-06-07T08:34:05Z","deg":34.12},"wind":{"dir":173,"speed":1.49,"timestamp":"2020-06-25T21:40:11Z"},"pv":{"timestamp":"2020-06-21T19:25:11Z","current":0.04,"voltage":16.54},"battery":{"timestamp":"2020-06-26T19:23:21Z","current":1.08,"voltage":14.74,"temperature":-12.17}},
-{"temp":{"timestamp":"2020-05-30T04:49:52Z","deg":-4.24},"wind":{"dir":56,"speed":12.47,"timestamp":"2020-06-01T02:22:42Z"},"pv":{"timestamp":"2020-05-30T08:05:12Z","current":1.21,"voltage":18.39},"battery":{"timestamp":"2020-06-16T03:26:39Z","current":1.11,"voltage":16.86,"temperature":4.38}},
-{"temp":{"timestamp":"2020-06-09T03:08:52Z","deg":36.65},"wind":{"dir":261,"speed":23.16,"timestamp":"2020-06-12T07:10:15Z"},"pv":{"timestamp":"2020-05-31T19:58:33Z","current":0.88,"voltage":10.33},"battery":{"timestamp":"2020-06-03T07:37:40Z","current":0.31,"voltage":14.11,"temperature":-14.52}},
-{"temp":{"timestamp":"2020-06-10T01:31:13Z","deg":-18.32},"wind":{"dir":349,"speed":10.24,"timestamp":"2020-06-20T18:31:24Z"},"pv":{"timestamp":"2020-06-08T05:42:11Z","current":0.87,"voltage":16.57},"battery":{"timestamp":"2020-06-11T10:54:45Z","current":1.22,"voltage":15.05,"temperature":1.48}},
-{"temp":{"timestamp":"2020-06-27T17:38:50Z","deg":8.16},"wind":{"dir":211,"speed":29.38,"timestamp":"2020-06-12T09:40:40Z"},"pv":{"timestamp":"2020-05-28T03:07:12Z","current":1.56,"voltage":17.08},"battery":{"timestamp":"2020-06-01T14:34:05Z","current":0.01,"voltage":17.74,"temperature":28.93}},
-{"temp":{"timestamp":"2020-05-30T21:48:56Z","deg":26.63},"wind":{"dir":175,"speed":6.38,"timestamp":"2020-06-04T07:28:54Z"},"pv":{"timestamp":"2020-06-21T02:37:15Z","current":0.92,"voltage":10.19},"battery":{"timestamp":"2020-06-22T10:52:17Z","current":1.71,"voltage":13.93,"temperature":-17.96}},
-{"temp":{"timestamp":"2020-06-26T12:21:15Z","deg":18.98},"wind":{"dir":250,"speed":10.49,"timestamp":"2020-06-25T05:38:04Z"},"pv":{"timestamp":"2020-06-08T19:55:08Z","current":0.96,"voltage":16.51},"battery":{"timestamp":"2020-06-19T20:54:17Z","current":1.9,"voltage":15.71,"temperature":15.33}},
-{"temp":{"timestamp":"2020-06-01T15:24:21Z","deg":5.3},"wind":{"dir":202,"speed":18.75,"timestamp":"2020-05-30T15:54:49Z"},"pv":{"timestamp":"2020-05-31T23:59:08Z","current":1.5,"voltage":16.79},"battery":{"timestamp":"2020-06-22T23:58:26Z","current":1.99,"voltage":13.95,"temperature":34.21}},
-{"temp":{"timestamp":"2020-06-12T18:28:25Z","deg":-10.06},"wind":{"dir":149,"speed":1.97,"timestamp":"2020-06-25T10:29:58Z"},"pv":{"timestamp":"2020-05-29T20:05:25Z","current":1.19,"voltage":14.66},"battery":{"timestamp":"2020-06-09T04:57:25Z","current":1.43,"voltage":14.51,"temperature":39.62}},
-{"temp":{"timestamp":"2020-05-30T12:46:48Z","deg":3.36},"wind":{"dir":339,"speed":8.38,"timestamp":"2020-05-28T04:47:18Z"},"pv":{"timestamp":"2020-06-09T11:06:52Z","current":0.31,"voltage":15.39},"battery":{"timestamp":"2020-05-30T15:34:33Z","current":1.32,"voltage":15.99,"temperature":19.58}},
-{"temp":{"timestamp":"2020-06-01T16:34:58Z","deg":-1.56},"wind":{"dir":31,"speed":26.56,"timestamp":"2020-06-05T21:08:57Z"},"pv":{"timestamp":"2020-05-29T22:36:38Z","current":0.28,"voltage":12.87},"battery":{"timestamp":"2020-06-12T23:29:07Z","current":0.72,"voltage":17.56,"temperature":-16.24}},
-{"temp":{"timestamp":"2020-06-15T18:25:21Z","deg":-16.06},"wind":{"dir":119,"speed":26.78,"timestamp":"2020-06-24T03:22:27Z"},"pv":{"timestamp":"2020-06-01T05:30:39Z","current":0.87,"voltage":19.97},"battery":{"timestamp":"2020-05-28T02:46:23Z","current":0.5,"voltage":16.02,"temperature":12.89}},
-{"temp":{"timestamp":"2020-06-05T22:23:12Z","deg":-6.32},"wind":{"dir":326,"speed":5.59,"timestamp":"2020-06-12T12:48:03Z"},"pv":{"timestamp":"2020-06-20T08:36:12Z","current":1.6,"voltage":12.58},"battery":{"timestamp":"2020-06-27T08:50:54Z","current":1.23,"voltage":15.98,"temperature":35.29}},
-{"temp":{"timestamp":"2020-06-10T16:37:06Z","deg":29.27},"wind":{"dir":52,"speed":21.16,"timestamp":"2020-06-20T18:48:24Z"},"pv":{"timestamp":"2020-06-22T19:14:51Z","current":1.49,"voltage":12.29},"battery":{"timestamp":"2020-06-03T20:34:27Z","current":0.93,"voltage":14.95,"temperature":13.18}},
-{"temp":{"timestamp":"2020-06-05T20:25:28Z","deg":28.21},"wind":{"dir":52,"speed":18.49,"timestamp":"2020-06-12T06:38:26Z"},"pv":{"timestamp":"2020-06-06T14:08:49Z","current":1.68,"voltage":11.23},"battery":{"timestamp":"2020-06-12T11:19:23Z","current":0.44,"voltage":13.34,"temperature":9.66}},
-{"temp":{"timestamp":"2020-06-06T12:12:20Z","deg":-3.73},"wind":{"dir":128,"speed":2.29,"timestamp":"2020-06-01T11:57:24Z"},"pv":{"timestamp":"2020-06-18T21:43:47Z","current":1.95,"voltage":16.09},"battery":{"timestamp":"2020-06-13T02:39:02Z","current":1.21,"voltage":15.09,"temperature":-9.12}},
-{"temp":{"timestamp":"2020-06-02T21:54:22Z","deg":7.2},"wind":{"dir":136,"speed":19.95,"timestamp":"2020-06-11T12:27:56Z"},"pv":{"timestamp":"2020-06-21T09:21:58Z","current":1.08,"voltage":10.91},"battery":{"timestamp":"2020-06-07T01:44:10Z","current":0.2,"voltage":18.36,"temperature":32.96}},
-{"temp":{"timestamp":"2020-06-08T15:23:31Z","deg":-14.16},"wind":{"dir":291,"speed":3.9,"timestamp":"2020-06-07T02:05:45Z"},"pv":{"timestamp":"2020-06-06T11:41:38Z","current":0.86,"voltage":11.47},"battery":{"timestamp":"2020-06-02T16:56:56Z","current":0.59,"voltage":15.58,"temperature":-7.33}},
-{"temp":{"timestamp":"2020-06-05T00:38:35Z","deg":-7.24},"wind":{"dir":24,"speed":14.1,"timestamp":"2020-06-26T07:16:11Z"},"pv":{"timestamp":"2020-06-25T23:48:50Z","current":1.86,"voltage":11.99},"battery":{"timestamp":"2020-06-24T09:17:28Z","current":1.73,"voltage":12.44,"temperature":-6.4}},
-{"temp":{"timestamp":"2020-06-20T09:22:23Z","deg":8.5},"wind":{"dir":150,"speed":11.61,"timestamp":"2020-06-01T11:53:26Z"},"pv":{"timestamp":"2020-06-05T15:53:18Z","current":0.63,"voltage":10.13},"battery":{"timestamp":"2020-06-27T22:14:59Z","current":0.15,"voltage":10.15,"temperature":-18.89}},
-{"temp":{"timestamp":"2020-06-22T20:22:58Z","deg":35.52},"wind":{"dir":86,"speed":18.9,"timestamp":"2020-06-07T06:05:34Z"},"pv":{"timestamp":"2020-05-28T09:43:07Z","current":0.48,"voltage":12.15},"battery":{"timestamp":"2020-06-05T22:20:07Z","current":1.86,"voltage":17.83,"temperature":-19.19}}]
+[
+  {
+    "timestamp": "1593993976000",
+    "timestampIso": "2020-07-17T12:13:12",
+    "weather": {
+      "temp": 20.26,
+      "windDir": 275,
+      "windSpeed": 0.19
+    },
+    "energy": {
+      "pv": {
+        "power": 33.67,
+        "voltage": 6556.03
+      },
+      "battery": {
+        "current": 1279.97,
+        "voltage": 11914.77,
+        "temperature": 32.02
+      },
+      "load": {
+        "voltage": 22604.43,
+        "current": 1689.86
+      },
+      "controller": {
+        "mode": 2
+      }
+    }
+  },
+  {
+    "timestamp": "1593507469000",
+    "timestampIso": "2020-07-25T04:38:52",
+    "weather": {
+      "temp": 22.91,
+      "windDir": 177,
+      "windSpeed": 3.93
+    },
+    "energy": {
+      "pv": {
+        "power": 38.03,
+        "voltage": 28855.75
+      },
+      "battery": {
+        "current": 3957.55,
+        "voltage": 27853.66,
+        "temperature": 28.45
+      },
+      "load": {
+        "voltage": 28915.34,
+        "current": 2734.87
+      },
+      "controller": {
+        "mode": 1
+      }
+    }
+  },
+  {
+    "timestamp": "1594254127000",
+    "timestampIso": "2020-07-13T18:34:13",
+    "weather": {
+      "temp": 29.35,
+      "windDir": 356,
+      "windSpeed": 12.5
+    },
+    "energy": {
+      "pv": {
+        "power": 48.82,
+        "voltage": 15282.76
+      },
+      "battery": {
+        "current": 3356.52,
+        "voltage": 26908.38,
+        "temperature": 24.64
+      },
+      "load": {
+        "voltage": 12024.25,
+        "current": 1934.79
+      },
+      "controller": {
+        "mode": 4
+      }
+    }
+  },
+  {
+    "timestamp": "1595156885000",
+    "timestampIso": "2020-07-03T06:22:13",
+    "weather": {
+      "temp": 16.0,
+      "windDir": 17,
+      "windSpeed": 2.47
+    },
+    "energy": {
+      "pv": {
+        "power": 27.2,
+        "voltage": 36764.73
+      },
+      "battery": {
+        "current": 1735.81,
+        "voltage": 28573.89,
+        "temperature": 31.77
+      },
+      "load": {
+        "voltage": 8865.65,
+        "current": 969.23
+      },
+      "controller": {
+        "mode": 1
+      }
+    }
+  },
+  {
+    "timestamp": "1595868754000",
+    "timestampIso": "2020-07-23T08:58:54",
+    "weather": {
+      "temp": 29.94,
+      "windDir": 128,
+      "windSpeed": 14.54
+    },
+    "energy": {
+      "pv": {
+        "power": 69.0,
+        "voltage": 34543.87
+      },
+      "battery": {
+        "current": 2344.41,
+        "voltage": 20098.6,
+        "temperature": 23.17
+      },
+      "load": {
+        "voltage": 23026.68,
+        "current": 2826.16
+      },
+      "controller": {
+        "mode": 3
+      }
+    }
+  },
+  {
+    "timestamp": "1595719865000",
+    "timestampIso": "2020-07-15T03:49:53",
+    "weather": {
+      "temp": 16.61,
+      "windDir": 264,
+      "windSpeed": 24.28
+    },
+    "energy": {
+      "pv": {
+        "power": 17.97,
+        "voltage": 18917.15
+      },
+      "battery": {
+        "current": 2568.71,
+        "voltage": 32989.34,
+        "temperature": 31.61
+      },
+      "load": {
+        "voltage": 23215.89,
+        "current": 2982.61
+      },
+      "controller": {
+        "mode": 2
+      }
+    }
+  },
+  {
+    "timestamp": "1594563337000",
+    "timestampIso": "2020-07-27T18:42:49",
+    "weather": {
+      "temp": 12.53,
+      "windDir": 342,
+      "windSpeed": 24.27
+    },
+    "energy": {
+      "pv": {
+        "power": 47.64,
+        "voltage": 38765.89
+      },
+      "battery": {
+        "current": 4205.55,
+        "voltage": 1152.75,
+        "temperature": 23.73
+      },
+      "load": {
+        "voltage": 18799.58,
+        "current": 927.51
+      },
+      "controller": {
+        "mode": 3
+      }
+    }
+  },
+  {
+    "timestamp": "1594116950000",
+    "timestampIso": "2020-07-15T03:15:21",
+    "weather": {
+      "temp": 23.1,
+      "windDir": 282,
+      "windSpeed": 1.52
+    },
+    "energy": {
+      "pv": {
+        "power": 32.46,
+        "voltage": 18197.45
+      },
+      "battery": {
+        "current": 1027.95,
+        "voltage": 17871.57,
+        "temperature": 25.83
+      },
+      "load": {
+        "voltage": 26097.38,
+        "current": 71.29
+      },
+      "controller": {
+        "mode": 3
+      }
+    }
+  },
+  {
+    "timestamp": "1594393112000",
+    "timestampIso": "2020-07-14T06:43:29",
+    "weather": {
+      "temp": 25.19,
+      "windDir": 0,
+      "windSpeed": 26.33
+    },
+    "energy": {
+      "pv": {
+        "power": 5.53,
+        "voltage": 18314.03
+      },
+      "battery": {
+        "current": 2104.32,
+        "voltage": 16072.64,
+        "temperature": 32.83
+      },
+      "load": {
+        "voltage": 20877.87,
+        "current": 267.11
+      },
+      "controller": {
+        "mode": 1
+      }
+    }
+  }
+]

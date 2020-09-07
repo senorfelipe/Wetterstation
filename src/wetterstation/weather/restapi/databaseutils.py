@@ -3,7 +3,7 @@ from math import ceil
 
 from django.db.models import Func
 
-MAX_DATASET_SIZE = 50
+from src.wetterstation.weather.restapi.constants import MAX_DATASET_SIZE
 
 
 class UnixTimestamp(Func):
@@ -20,6 +20,14 @@ class FromUnixtime(Func):
     You can use it like FromUnixtime(...) in query expressions.
     """
     function = 'FROM_UNIXTIME'
+
+
+class Date(Func):
+    """
+    This class represents the mySQL function 'DATE'.
+    You can use it like Date(...) in query expressions.
+    """
+    function = 'DATE'
 
 
 def calculate_timedelta(start, end=datetime.datetime.now() + datetime.timedelta(days=1)):

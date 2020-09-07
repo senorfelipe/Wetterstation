@@ -1,0 +1,63 @@
+= Protokoll zum Treffen am 09.01.2020
+
+== Allgemeines
+=== Zeit
+17.00 bis 18.00 Uhr
+
+=== Teilnehmer
+* [*]   Alexander S.
+* [*]   Justin S.
+* [*]   Josephin
+* [*]   Agustin
+* [*]   Martin
+* [*]   Auftraggeber
+
+== Iterationsplan
+Siehe GitHub-Repository: /project_docs/Iterationsplan_3.adoc
+
+== Themen
+=== Vorbereitete Fragen
+Siehe GitHub-Repository: /project_docs/questions/Fragen_kommendes_Kundengespraech.adoc
+
+==== Besprochene Inhalte
+* Abgabezeitraum: Auf Juni geeinigt, wenn es nicht eher fertig werden sollte
+* Technische Fragen
+** Logins für uns +
+-> Bekommen die Zugänge in den nächsten zwei bis drei Tage +
+-> Datenbank wurde noch nicht aufgesetzt +
+-> Nächste Woche neues Treffen, für die Mitglieder die Zugänge benötigen +
+
+** Fragen technischer Art können an beide Auftraggeber gestellt werden
+**  Softwarelösung, die Wetter simuliert bis reale Sensoren einsatzbereit sind
+** Backend zum Schluss in PHP!
+** Daten, welche verarbeitet werden sollen +
+-> Windstärke +
+-> Windrichtung +
+-> Böenhaftigkeit +
+-> Temperatur +
+** Hardwarekonfiguration wird von Auftraggeber übernommen
+** Funktion des automatischen Hoch- und Herunterfahrens wird von Auftraggeber
+Übernommen
+** Automatisches aktualisieren der Daten für User, wenn möglich
+** Keine Livebildübertragung, wenn Raspi an ist
+** Netzanbindung ausreichend vorhanden
+** Adminbereich als Stand-Alone für uns implementieren
+** Keinen Extraaufwand für hohe Sicherheit
+** Bei Fehler in den Wartungsmodus, aber mit Infonachricht(Fehlertext)
+** Windrichtung mit Pfeilen dargestellt, immer nur aktuelle Windrichtung
+** Für Windrichtung am Windfinder orientieren (Kompass und daneben 
+Richtungspfeil)
+** IP wird sich wahrscheinlich dynamisch ändern (Kosteneffizient denken)
+* Wireframes
+** Admin-Panel Spannungsanzeige darstellen
+** Wartungsmodus Terminal mit allen aktuellen Einstellungen zum Raspi anzeigbar
+** Wireframes ansonsten in Ordnung
+
+* **Für nächstes Treffen**
+** Schnittstelle zwischen Pi und Webserver herstellen, damit Daten übertragen werden können
+** Wireframe für Diagrammanzeige
+** Datenbank einrichten
+
+== Offenes
+* DSGVO Richtlinien im Umgang mit den Bildern von Personen auf dem Flugplatz +
+-> Zettel zum unterschreiben im Verein austeilen

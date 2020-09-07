@@ -1,0 +1,99 @@
+:toc:
+:toclevels: 3
+:toc-title: Inhaltsverzeichnis
+:sectanchors:
+:numbered:
+
+toc::[]
+
+= Betriebsdokumentation
+Autoren: Justin Schirdewahn
+
+== Systemanforderungen
+
+=== Mindestanforderungen
+Der Raspberry Pi muss eine stabile Internetverbindung für die Datenübertragung aufbauen können. Hardwareanforderungen für Ubuntu 18.04 Server-Edition sind mindestens ein 300MHz Prozessor, 256 MB Arbeitsspeicher und 1,5 GB Datenspeicher. Es werden keine Grafikanforderungen benötigt, da per Remote auf den Raspberry Pi zugegriffen wird.
+
+=== Softwareanforderungen
+Das System läuft mit Ubuntu 18.04 als Betriebssystem auf einem Apache 2.4 Webserver. Für die Datenbank wird eine MySQL Datenbank verwendet. Das Frontend wurde unter Chrome 84.0.41.47.105 auf seine Funktionsfähigkeit getestet.
+
+== Systemeinrichtung
+
+=== Komponenten
+Verwendete Komponenten im System sind zu großen Teilen TypeScript (42.0% Anteil) und Python (35.1% Anteil). Desweiteren wurden HTML, CSS und JavaScript verwendet. +
+Auf Komponententeile wie JAR oder EXE Formatierungen wurde verzichtet.
+
+
+=== Verzeichnisstruktur
+Die Quelldateien liegen unter dem Ordner 'src'. Unter diesem Ordner werden die Dateien in Frontend 'frontend/SE-draft' und Backend 'http_client, wetterstation/weather' gegliedert. +
+image:Bilder/Verzeichnisstruktur.jpg[] +
+Das Frontend besitzt eine Angular Verzeichnisstruktur. Unter https://angular.io/guide/architecture[Angular Aufbau] können mehr Informationen zum Aufbau eines Angular Projektes gefunden werden. +
+image:Bilder/Verzeichnisstruktur_Frontend.jpg[] +
+Das Backend ist in zwei Teile gegliedert. In 'http_client' und 'wetterstation/weather'. +
+image:Bilder/Verzeichnisstruktur_Backend.jpg[] +
+Unter 'http_client' liegen die Hilfsscripte, welche für das Versenden von Daten zuständig sind. +
+Unter 'wetterstation' liegt das Backend des Systems. Hier werden die Daten, welche vom Raspberry Pi versandt werden an die Datenbankstruktur angepasst, für die Verarbeitung im Frontend aufbereitet und die Funktionalität des Administrationsbereiches definiert und sichergestellt. Es wird die Struktur eines Django Projektes verwendet. Um mehr über die Struktur zu erfahren geht es hier zur https://docs.djangoproject.com/en/3.0/ref/[Dokumentation].
+
+=== Installation
+Die Scripte, welche unter 'src/http_client' liegen müssen auf den Raspberry Pi kopiert werden. +
+Die Dateien, welche unter 'wetterstation/weather' liegen müssen in den Webserver eingebunden werden. +
+Das Frontend muss in den Apache Webserver eingebunden werden. In der lokalen Entwicklungsumgebung, im Root-Verzeichnis des Projektes muss der Befehl 'ng build --prod' ausgeführt werden. Der Befehl erstellt einen Ordner der 'dist' heißt. Die Dateien, die in diesem Ordner liegen müssen in das Root-Verzeichnis des Apache Servers kopiert werden. +
+Genauer Informationen stehen unter https://angular.io/guide/deployment[Angular API] zur Verfügung.
+
+=== Konfigurationsdaten
+.IP-Adressen
+|===
+|IP-Adresse|Referenz-Objekt
+|79.254.12.239
+|Raspberry Pi
+
+|80.158.40.211
+|Datenbank
+|===
+.Passwörter
+|===
+|Passwörter|Berechtigungen
+|Bei Erstellung von Admin 'python manage.py createsuperuser' definiert
+|Webserver Adminbereich
+
+|wth1984_
+|Zugriff auf Raspi
+
+|Wth1984_DB
+|Zugriff auf Datenbank
+|===
+
+== Systembetreuung
+
+=== FAQ
+.FAQ
+|===
+|Fragen|Antworten
+|Wie stell ich einen Zeitraum bei der Suche ein?
+|Auf der Website gibt es die Möglichkeit des erweiterten Modus. Im erweiterten Modus gibt es die Möglichkeit ein Start- und ein Enddatum festzulegen. In dieser Zeitspanne werden die Daten dann gefiltert und angezeigt.
+
+|Wie frage ich ein bestimmtes Datum ab?
+|Ein bestimmtest Datum kann im erweiterten Modus abgefragt werden, indem Start- und Enddatum identisch sind.
+
+|Wie funktioniert der Login als Admin?
+|Der Administrator meldet sich im Administrationsbereich mit seinem Nutzernamen und Passwort an.
+
+|Wie lange bleibe ich als Admin angemeldet?
+|Als Administrator bleibst du Fünf Minuten im angemeldet. In dieser Zeit kannst du den Administrationsbereich so oft neu laden wie du möchtest. Im Administrationsbereich selbst kannst du so lange angemeldet bleiben wie du möchtest, aber lädst du die Seite nach Fünf Minuten neu musst du dich erneut als Administrator authentifizieren.
+
+|Kann ich meine Logindaten als Admin speichern?
+|Nein diese Funktionalität gibt es nicht. Man muss sich jedes Mal neu anmelden, um in den Administrationsbereich zu gelangen.
+|===
+
+=== Fehlerdiagnose
+Zum aktuellen Zeitpunkt dienen unsere entwickelten Tests zur Fehlerdiagnose. Unser Auftraggeber möchte in Zukunft die Log-Files des Raspberry Pi mit in die versendete JSON-Datei einbinden, sodass diese dann in der Datenbank gespeichert und vom Webserver abgerufen werden können.
+
+=== Datensicherung
+Datensicherung von unserer Seite der Entwicklung gibt es nicht, da es keine geforderte Anforderung der Auftraggeber war. Die Daten liegen auf einer externen Datenbank. Wir haben keine Informationen darüber, wie und ob die Daten bei dem externen Anbieter extra gesichert werden.
+
+=== Links
+https://angular.io/docs +
+https://docs.python.org/3/library/ +
+https://www.django-rest-framework.org/api-guide/requests/ +
+https://docs.djangoproject.com/en/3.0/ref/ +
+https://dev.mysql.com/doc/
