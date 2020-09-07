@@ -1,8 +1,9 @@
 
 .selectorcard{
     
-    height:3em;
-  
+    height:100%;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 
 }
 
@@ -16,33 +17,36 @@
     }
 
 .column {
-    padding-top: 1rem;
+    margin-top: 0.5rem;
    
     vertical-align: middle;
     width: 100%;
     height: 100%;
     
   }
-  
+
 .toggleslider{
   position: absolute;
-  right: 0.5rem;
+  top: 8px;
+  right: 20px;
+  font-size: 18px;
 
 }
-
+.simplemodelabel{
+  text-align: left;
+ 
+}
 
 .mat-radio-button{
   padding:0.5em;
-
 }
 
 
 .recentData{
 width:85%;
-height:70%;
+height:55%;
 text-align: center;
 }
-
 
 .directions-card{
   margin-top: 1em;
@@ -54,6 +58,7 @@ text-align: center;
 
 .mat-h1{
   text-align: center;
+  margin-top: 0.8em;
   
 }
 
@@ -67,15 +72,15 @@ text-align: center;
 }
 
 .arrowscontainer{
-  float:left;
+  float: left;
   margin-right:0.25em ;
 }
 
 .windDirTime{
   display: block;
 }
-.endpickform,.applydates{
-margin-left: 1em;
+.endpickform,.applydates,.startpickform{
+margin:0.25em 0.25em 0.25em 0.25em;
 }
 
 

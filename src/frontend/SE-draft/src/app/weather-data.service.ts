@@ -42,11 +42,12 @@ export class WeatherDataService {
 }
 
 getWindDataFrame(start:Date,end:Date){
-  return this.http.get<WindData[]>(this.apiUrl+'wind/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
+  return this.http.get<WindData[]>(this.apiUrl+'wind/recent/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
 }
 
 getTemperaturesDataFrame(start:Date,end:Date){
+  
   return this.http.get<TemperatureData[]>(this.apiUrl+'temps/aggregate/?start='+this.formatDate(start)+'&end='+this.formatDate(end));
 
 }

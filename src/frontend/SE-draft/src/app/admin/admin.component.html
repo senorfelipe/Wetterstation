@@ -4,20 +4,20 @@
   
   <form class="text-center" style="color: #757575;">
     <label for="uname"><b>Benutzername</b></label>
-    <input type="text" placeholder="Benutzername eingeben" name="uname" required>
+    <input matInput type="text" placeholder="Benutzername eingeben" [(ngModel)]="username" name="uname" required>
 
     <label for="psw"><b>Passwort</b></label>
-    <input type="password" placeholder="Passwort eingeben" name="psw" required>
+    <input matInput type="password" placeholder="Passwort eingeben" [(ngModel)]="password" name="psw" required>
 
-    <a routerLink="/adminpanel">
-      <button mat-raised-button color="primary" class="login">Anmelden</button>
+    <a>
+      <button mat-raised-button color="primary" class="login" (click)=getToken()>Anmelden</button>
     </a>
-    <br>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Login merken?
-    </label>
     </form>
     
+</div>
+<div [hidden]="loginError">
+  <br>
+  <p style="color:red">Login fehlgeschlagen!</p>
 </div>
 </mat-card>
 
